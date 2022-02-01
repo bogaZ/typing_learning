@@ -28,6 +28,12 @@
                     <h6 class="text-center">Pilih</h6>
                     <div class="row">
                         <div class="d-grid mx-auto">
+                            <input type="button" value="Load" onclick="newPage()">
+                            <script>
+                                function newPage(){
+                                    window.location.assign("google.com")
+                                }
+                            </script>
                             <a role="button" href="" class="btn btn-primary block">Mulai</a>
                         </div>
                     </div>
