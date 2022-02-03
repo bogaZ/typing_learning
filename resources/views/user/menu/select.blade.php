@@ -1,6 +1,13 @@
 <div class="row">
-    <div class="d-grid mx-auto">
-        <button id="kembali" class="btn btn-danger block">Kembali</button>
+    <div class="col-md-6">
+        <div class="mx-auto">
+            <a id="kembali" href="#" class="fw-bold">Kembali</a>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button id="reload" class="btn btn-danger block"><i class="bi bi-arrow-clockwise"></i></button>
+        </div>
     </div>
 </div>
 <br>
@@ -32,3 +39,4 @@
         // })
     })
 </script>
+@include('user.ubahbahasa.reload')

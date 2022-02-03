@@ -17,32 +17,19 @@
                     {{ __('You are logged in!') }}
                 </div>
             </div> --}}
-            <div class="card">
-                <div class="card-header">{{ __('Menu Utama') }}</div>
+            <div class="shadow p-3 mb-5 rounded border border-dark bg-white">
                 <div class="card-body">
-                    {{-- <div class="row">
-                        <div class="col-md-4 border"></div>
-                        <div class="col-md-4 border border-primary text-center">Pilih</div>
-                        <div class="col-md-4 border"></div>
-                    </div> --}}
-                    {{-- <h6 class="text-center">Pilih</h6>
-                    <div class="row">
-                        <div class="d-grid mx-auto">
-                            <button id="mulai" class="btn btn-primary block">Mulai</button>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="d-grid mx-auto">
-                            <button id="custom" class="btn btn-primary block">Buat Karakter</button>
-                        </div>
-                    </div> --}}
-                    {{-- <div class="row"></div> --}}
-                    <div class="" id="content">
-                        <h6 class="text-center">Pilih Bahasa</h6>
-                        <div class="row">
+                    <div class="my-5" id="content">
+                        <h6 class="text-center fw-bold">Pilih Bahasa</h6>
+                        <div class="row mx-5">
                             <div class="d-grid mx-auto">
-                                <button id="bahasa" class="btn btn-primary block">Klik</button>
+                                <button id="bahasaindonesia" class="btn btn-primary block fw-bold">bahasa indonesia</button>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row mx-5">
+                            <div class="d-grid mx-auto">
+                                <button id="bahasainggris" class="btn btn-primary block fw-bold">bahasa inggris</button>
                             </div>
                         </div>
                     </div>

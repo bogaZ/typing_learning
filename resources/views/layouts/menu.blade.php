@@ -16,11 +16,9 @@
     $(document).ready(function(){
         $('#mulai').click(function () {
             $('#content').load('/menuplay')
-            var pilih = $('#mulai').hide()
         })
         $('#custom').click(function () {
             $('#content').load('/menucustom')
-            var pilih = $('#custom').hide()
         })
     })
 </script>
