@@ -9,6 +9,15 @@ class MenuController extends Controller
 {
     //
     public function getmenu(){
-        return view('user.menu.index');
+        return view('layouts.menu');
+    }
+    public function getkesulitan(){
+        return view('user.menu.kesulitan');
+    }
+    public function getplay(){
+        return view('user.menu.select');
+    }
+    public function getcustom(){
+        return view('user.custom.index');
     }
 }

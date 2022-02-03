@@ -6,29 +6,37 @@
 <br>
 <div class="row">
     <div class="d-grid mx-auto">
-        <button id="mulai" class="btn btn-primary block">Mulai Karakter Asal</button>
+        <button id="mulai" class="btn btn-primary block">Mudah</button>
     </div>
 </div>
 <br>
 <div class="row">
     <div class="d-grid mx-auto">
-        <button id="custom" class="btn btn-primary block">Mulai Karakter Sendiri</button>
+        <button id="custom" class="btn btn-primary block">Normal</button>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="d-grid mx-auto">
+        <button id="mulai" class="btn btn-primary block">Susah</button>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="d-grid mx-auto">
+        <button id="custom" class="btn btn-primary block">Pemrograman</button>
     </div>
 </div>
 <script>
     $(document).ready(function(){
         $('#kembali').click(function () {
-            $('#content').load('/menu')
+            $('#content').load('/menuplay')
         })
         $('#mulai').click(function () {
             $('#content').load('/kesulitan')
         })
         $('#custom').click(function () {
-            $('#content').load('/custom')
+            $('#content').load('/playcustom')
         })
-        // $('#custom').click(function () {
-        //     $('#content').load('/menucustom')
-        //     var pilih = $('#custom').hide()
-        // })
     })
 </script>

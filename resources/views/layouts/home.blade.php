@@ -16,8 +16,10 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" integrity="sha512-qzrZqY/kMVCEYeu/gCm8U2800Wz++LTGK4pitW/iswpCbjwxhsmUwleL1YXaHImptCHG0vJwU7Ly7ROw3ZQoww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" integrity="sha512-qzrZqY/kMVCEYeu/gCm8U2800Wz++LTGK4pitW/iswpCbjwxhsmUwleL1YXaHImptCHG0vJwU7Ly7ROw3ZQoww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    
+    
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -88,11 +90,26 @@
         </main>
 
     </div>
-    {{-- <script>
-        $('#button').click( function(){
-        $('#content').load('app.blade.php');
-    });
-    </script> --}}
+    <script>
+        $(document).ready(function(){
+            // $('#test').click(function () {
+            //     $('#content').load('/menu')
+            //     var pilih = $('#test').hide()
+            // })
+            // $('#mulai').click(function () {
+            //     $('#content').load('/menuplay')
+            //     var pilih = $('#mulai').hide()
+            // })
+            // $('#custom').click(function () {
+            //     $('#content').load('/menucustom')
+            //     var pilih = $('#custom').hide()
+            // })
+            $('#bahasa').click(function () {
+                $('#content').load('/menu')
+                var pilih = $('#bahasa').hide()
+            })
+        })
+    </script>
     
 </body>
 </html>

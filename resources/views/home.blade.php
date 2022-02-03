@@ -25,20 +25,27 @@
                         <div class="col-md-4 border border-primary text-center">Pilih</div>
                         <div class="col-md-4 border"></div>
                     </div> --}}
-                    <h6 class="text-center">Pilih</h6>
+                    {{-- <h6 class="text-center">Pilih</h6>
                     <div class="row">
                         <div class="d-grid mx-auto">
-                            <a role="button" href="" class="btn btn-primary block">Mulai</a>
+                            <button id="mulai" class="btn btn-primary block">Mulai</button>
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="d-grid mx-auto">
-                            <a role="button" href="" class="btn btn-primary block">Buat Karakter</a>
+                            <button id="custom" class="btn btn-primary block">Buat Karakter</button>
+                        </div>
+                    </div> --}}
+                    {{-- <div class="row"></div> --}}
+                    <div class="" id="content">
+                        <h6 class="text-center">Pilih Bahasa</h6>
+                        <div class="row">
+                            <div class="d-grid mx-auto">
+                                <button id="bahasa" class="btn btn-primary block">Klik</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="row"></div>
-                    <div class=""></div>
                 </div>
             </div>
         </div>
