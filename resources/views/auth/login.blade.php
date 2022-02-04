@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card">
+            <div class="card border-dark">
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -15,7 +15,9 @@
                         <div class="d-flex justify-content-center">
                             <h4 class="fw-bold">Masuk</h4>
                         </div>
-
+                        <div class="d-flex justify-content-center">
+                            <p>Belum memiliki akun? daftar <a href="{{ route('register') }}" class="text-decoration-none">disini</a></p>
+                        </div>
                         <div class="form-group mx-5 justify-content-center">
                             <div class="">
                                 <input id="email" type="email" placeholder="email" class="text-center form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -41,8 +43,8 @@
                         </div>
 
                         <div class="form-group mx-5">
-                            <div class="row align-items-center">
-                                <div class="col-md-6">
+                            <div class="row align-items-center justify-content-between">
+                                <div class="col-md-5">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
     
@@ -51,9 +53,10 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-md-6 text-right">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-5 text-right">
                                     @if (Route::has('password.request'))
-                                        <a class="text-decoration-none btn btn-link" href="{{ route('password.request') }}">
+                                        <a class="p-0 text-decoration-none btn btn-link" href="{{ route('password.request') }}">
                                             {{ __('Lupa kata sandi?') }}
                                         </a>
                                     @endif
