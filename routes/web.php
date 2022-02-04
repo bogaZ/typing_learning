@@ -24,6 +24,6 @@ Route::get('/menu', 'Typing\MenuController@getmenu')->name('indexmenu');
 Route::get('/menuplay', 'Typing\MenuController@getplay')->name('indexplay');
 Route::get('/kesulitan', 'Typing\MenuController@getkesulitan')->name('tingkatkesulitan');
 // Route::get('/custom', 'Typing\MenuController@getcustom')->name('indexcustom');
-// Route::get('/kesulitan/play', 'Typing\MenuController@getcustom')->name('indexcustom');
+Route::get('/mudah/play', 'Typing\PlayingController@playmudah')->name('playamudah');
 // Route::get('/custom/play', 'Typing\MenuController@getcustom')->name('indexcustom');
 Route::resource('/menucustom', 'Typing\CustomController@getcustom');

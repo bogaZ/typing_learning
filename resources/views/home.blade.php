@@ -19,15 +19,16 @@
             </div> --}}
             <div class="shadow p-3 mb-5 rounded border border-dark bg-white">
                 <div class="card-body">
-                    <div class="my-5" id="content">
+                    <div class="my-5 mx-5" id="content">
                         <h6 class="text-center fw-bold">Pilih Bahasa</h6>
-                        <div class="row mx-5">
+                        <br>
+                        <div class="row">
                             <div class="d-grid mx-auto">
                                 <button id="bahasaindonesia" class="btn btn-primary block fw-bold">bahasa indonesia</button>
                             </div>
                         </div>
                         <br>
-                        <div class="row mx-5">
+                        <div class="row">
                             <div class="d-grid mx-auto">
                                 <button id="bahasainggris" class="btn btn-primary block fw-bold">bahasa inggris</button>
                             </div>

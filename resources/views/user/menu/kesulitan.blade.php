@@ -6,25 +6,25 @@
 <br>
 <div class="row">
     <div class="d-grid mx-auto">
-        <button id="mulai" class="btn btn-primary block">Mudah</button>
+        <button id="mudah" class="btn btn-primary block">Mudah</button>
     </div>
 </div>
 <br>
 <div class="row">
     <div class="d-grid mx-auto">
-        <button id="custom" class="btn btn-primary block">Normal</button>
+        <button id="normal" class="btn btn-primary block">Normal</button>
     </div>
 </div>
 <br>
 <div class="row">
     <div class="d-grid mx-auto">
-        <button id="mulai" class="btn btn-primary block">Susah</button>
+        <button id="susah" class="btn btn-primary block">Susah</button>
     </div>
 </div>
 <br>
 <div class="row">
     <div class="d-grid mx-auto">
-        <button id="custom" class="btn btn-primary block">Pemrograman</button>
+        <button id="pemrograman" class="btn btn-primary block">Pemrograman</button>
     </div>
 </div>
 <script>
@@ -32,10 +32,16 @@
         $('#kembali').click(function () {
             $('#content').load('/menuplay')
         })
-        $('#mulai').click(function () {
+        $('#mudah').click(function () {
+            $('#content').load('/mudah/play')
+        })
+        $('#normal').click(function () {
+            $('#content').load('/playcustom')
+        })
+        $('#susah').click(function () {
             $('#content').load('/kesulitan')
         })
-        $('#custom').click(function () {
+        $('#pemrograman').click(function () {
             $('#content').load('/playcustom')
         })
     })
