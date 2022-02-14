@@ -9,7 +9,9 @@ class MenuController extends Controller
 {
     //
     public function getmenu(){
-        return view('layouts.menu');
+        $kata = 'apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini';
+        $jumlahkata = strlen($kata);
+        return view('layouts.menu', compact('kata', 'jumlahkata'));
     }
     public function getkesulitan(){
         return view('user.menu.kesulitan');

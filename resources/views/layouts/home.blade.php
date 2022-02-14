@@ -70,6 +70,10 @@
                                 </a> --}}
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item disabled text-decoration-none" disabled>Hai, {{ $username }}</a>
+                                    <a class="dropdown-item text-decoration-none" href="#">
+                                        {{ __('Pengaturan') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -93,6 +97,12 @@
 
     </div>
     <script>
+        window.setTimeout(function() {
+            $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                $(this).remove(); 
+            });
+        }, 4000);
+
         $(document).ready(function(){
             $('#bahasaindonesia').click(function () {
                 $('#content').load('/menu')

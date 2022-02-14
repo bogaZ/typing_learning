@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Typing;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\karakter;
+use Auth;
 
 class CustomController extends Controller
 {
@@ -15,6 +17,7 @@ class CustomController extends Controller
     public function index()
     {
         //
+        return view('user.custom.index');
     }
 
     /**
@@ -25,6 +28,9 @@ class CustomController extends Controller
     public function create()
     {
         //
+        $userid = Auth::user()->id;
+
+        return view('user.custom.create', compact('userid'));
     }
 
     /**
@@ -36,6 +42,13 @@ class CustomController extends Controller
     public function store(Request $request)
     {
         //
+        $karakter = new karakter;
+        $karakter->user_id = Auth::User()->id;
+        $karakter->karakter = $request->karakter;
+        // $karakter->nama = $request->nama;
+        $karakter->save();
+
+        return redirect('home')->with('sukses', 'Karakter berhasil dibuat');
     }
 
     /**

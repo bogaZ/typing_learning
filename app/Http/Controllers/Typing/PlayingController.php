@@ -9,7 +9,9 @@ class PlayingController extends Controller
 {
     //
     public function playmudah(){
-        return view('user.play.easy');
+        $kata = 'apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini';
+        $jumlahkata = strlen($kata);
+        return view('user.play.easy', compact('kata', 'jumlahkata'));
     }
     public function playnormal(){
         return view('user.play.normal');

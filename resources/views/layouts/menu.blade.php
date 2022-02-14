@@ -5,6 +5,10 @@
         <div class="d-grid mx-auto">
             <button id="mulai" class="btn btn-primary block fw-bold">Mulai</button>
         </div>
+        {{-- {{$kata}}
+        <br>
+        jumlah:
+        {{$jumlahkata}} --}}
     </div>
     <br>
     <div class="row">
