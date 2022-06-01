@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card border-dark">
-                <div class="card-body">
+                <div class="card-body shadow-lg p-3">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="d-flex justify-content-center mt-4">

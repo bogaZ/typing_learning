@@ -42,7 +42,7 @@
             $('#content').load('/kesulitan')
         })
         $('#pemrograman').click(function () {
-            $('#content').load('/playcustom')
+            $('#content').load('/kesulitan/pemrograman')
         })
     })
 </script>

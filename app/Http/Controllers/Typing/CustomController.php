@@ -14,10 +14,19 @@ class CustomController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // public function __construct()
+    // {
+    //     $this->middleware('role:admin',['only'=>['index']]);
+    //     $this->middleware('role:admin',['only'=>['create', 'store']]);
+    //     $this->middleware('role:admin',['only'=>['edit', 'update']]);
+    //     $this->middleware('role:admin',['only'=>['destroy']]);
+    // }
+     
     public function index()
     {
         //
-        return view('user.custom.index');
+        $namakarakter = karakter::all()->where('user_id', Auth::user()->id);
+        return view('user.custom.index', compact('namakarakter'));
     }
 
     /**
@@ -45,7 +54,7 @@ class CustomController extends Controller
         $karakter = new karakter;
         $karakter->user_id = Auth::User()->id;
         $karakter->karakter = $request->karakter;
-        // $karakter->nama = $request->nama;
+        $karakter->nama = $request->nama;
         $karakter->save();
 
         return redirect('home')->with('sukses', 'Karakter berhasil dibuat');
@@ -94,5 +103,9 @@ class CustomController extends Controller
     public function destroy($id)
     {
         //
+        $hapus = karakter::find($id);
+        $hapus->delete();
+
+        return redirect('home')->with('sukses', 'Karakter berhasil dibuat');
     }
 }
