@@ -34,7 +34,7 @@
         
         .sidebar {
           height: 100%;
-          width: 0;
+          width: 75px;
           position: fixed;
           /* z-index: 1; */
           top: 0;
@@ -53,7 +53,7 @@
         }
         
         .sidebar a:hover {
-          color: #f1f1f1;
+          color: #7e5656;
         }
         
         .sidebar .closebtn {
@@ -77,6 +77,7 @@
         }
         
         #main {
+          margin-left: 75px;
           transition: 0.7s;
           /* padding: 16px; */
         }

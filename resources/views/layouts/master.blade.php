@@ -7,7 +7,7 @@
 <body>
     <div id="app">
         @include('layouts.navigation')
-        <main class="">
+        <main class="" id="main">
             @yield('content')
         </main>
     </div>

@@ -87,7 +87,7 @@
     </nav>
 @endrole
 @role('admin')
-    <nav id="nav" class="navbar-expand-lg navbar-dark bg-dark px-5 py-2" style="height: 60px">
+    {{-- <nav id="nav" class="navbar-expand-lg navbar-dark bg-dark px-5 py-2" style="height: 60px">
         <div class="d-flex justify-content-between">
             <div>
                 <a href="{{route('welcome')}}" class="navbar-brand p-0">
@@ -100,9 +100,10 @@
                 </button>
             </div>
         </div>
-        {{-- <div id="main">
+        <div id="main">
             <button class="openbtn btn-primary" onclick="openNav()">☰</button>
-        </div> --}}
+        </div>
+        
         <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
             @auth
             @else
@@ -116,5 +117,14 @@
                 @endif
             @endauth
         </div>
-    </nav>
+    </nav> --}}
+    <div id="mySidebar" class="sidebar bg-white shadow-lg">
+        <div class="btnclosed">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        </div>
+        <a href="#" class="align-item-center border-end border-5 border-bottom border-primary"><i id="dashboard" class="bi bi-speedometer"></i></a>
+        <a href="#" ><i id="statistik" class="bi bi-graph-up"></i></a>
+        <a href="#" ><i id="trash" class="bi bi-trash"></i></a>
+        <a href="#" ><i id="notification" class="bi bi-bell"></i></a>
+    </div>
 @endrole
