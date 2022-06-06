@@ -60,6 +60,7 @@
           <button class="btn openbtn btn-primary" id="bukanav" onclick="openNav()" type="button">
               <span class="fa fa-bars"></span>
           </button>
+          <h3>Pagename</h3>
           <a href="">tes</a>
       </div>
   </div>
@@ -71,18 +72,20 @@
   function openNav() {
     document.getElementById("mySidebar").style.width = "250px";
     document.getElementById("main").style.marginLeft = "250px";
-    document.getElementById("dashboard").innerHTML = " Dashboard";
-    document.getElementById("statistik").innerHTML = " Statistik";
-    document.getElementById("trash").innerHTML = " Trash";
-    document.getElementById("notification").innerHTML = " Notification";
+    // document.getElementById("dashboard").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dashboard";
+    // document.getElementById("statistik").innerHTML = "&nbsp;Statistik";
+    // document.getElementById("trash").innerHTML = "&nbsp;Trash";
+    // document.getElementById("notification").innerHTML = "&nbsp;Notification";
+    // document.getElementById("logout").innerHTML = "&nbsp;Log Out";
     // document.getElementById("nav").style.marginLeft = "250px";
 }
 
 function closeNav() {
-    document.getElementById("dashboard").innerHTML = "";
-    document.getElementById("statistik").innerHTML = "";
-    document.getElementById("trash").innerHTML = "";
-    document.getElementById("notification").innerHTML = "";
+    // document.getElementById("dashboard").innerHTML = "";
+    // document.getElementById("statistik").innerHTML = "";
+    // document.getElementById("trash").innerHTML = "";
+    // document.getElementById("notification").innerHTML = "";
+    // document.getElementById("logout").innerHTML = "";
     document.getElementById("mySidebar").style.width = "75px";
     document.getElementById("main").style.marginLeft= "75px";
     // document.getElementById("nav").style.marginLeft = "75px";

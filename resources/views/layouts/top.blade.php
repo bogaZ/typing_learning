@@ -31,6 +31,19 @@
         body {
           /* font-family: "Lato", sans-serif; */
         }
+
+        i {
+          color: grey;
+        }
+        i:visited {
+          color: #3490dc;
+        }
+        /* i:active {
+          color: #3490dc;
+        } */
+        /* .link-aktif:hover {
+          color: #3490dc;
+        } */
         
         .sidebar {
           height: 100%;
@@ -53,7 +66,7 @@
         }
         
         .sidebar a:hover {
-          color: #7e5656;
+          color: #020101;
         }
         
         .sidebar .closebtn {
