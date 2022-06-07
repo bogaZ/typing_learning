@@ -32,12 +32,28 @@
           /* font-family: "Lato", sans-serif; */
         }
 
-        i {
-          color: grey;
-        }
-        i:visited {
+        .aktif-link {
+          border-right: solid 4px;
+          border-bottom: solid 1px;
           color: #3490dc;
+          border-color: #3490dc;
         }
+        nav div a{
+          color: grey
+        }
+        /* .aktif-font {
+          color: white;
+        } */
+
+        /* i {
+          color: grey;
+        } */
+        /* .phover {
+          color: grey;
+        } */
+        /* a .phover:hover {
+          color: blue;
+        } */
         /* i:active {
           color: #3490dc;
         } */
@@ -60,14 +76,26 @@
         .sidebar a {
           padding: 8px 32px 8px 32px;
           text-decoration: none;
-          font-size: 18px;
+          /* font-size: 18px; */
           display: block;
           transition: 0.7s;
+          /* color: grey; */
         }
         
         .sidebar a:hover {
-          color: #020101;
+          background-color: #3490dc;
+          color: white;
         }
+        .bi {
+          color: black;
+        }
+        /* .sidebar a i:hover {
+          color: white;
+        } */
+
+        /* .sidebar i:hover {
+          color: #3490dc;
+        } */
         
         .sidebar .closebtn {
           position: absolute;

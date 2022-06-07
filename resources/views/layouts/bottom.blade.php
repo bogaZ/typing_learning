@@ -14,6 +14,14 @@
         })
     })
 </script>
+<script>
+    $(document).ready(function(){
+        $('nav div a').click(function () {
+            $('div a').removeClass('aktif-link');
+            $(this).addClass('aktif-link');
+        })
+    })
+</script>
 
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

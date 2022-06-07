@@ -55,48 +55,40 @@
   {{-- <div id="main">
     <button class="openbtn btn-primary" onclick="openNav()">☰</button>
   </div> --}}
-  <div class="m-5">
-      <div class="d-flex justify-content-between align-items-center">
-          <button class="btn openbtn btn-primary" id="bukanav" onclick="openNav()" type="button">
-              <span class="fa fa-bars"></span>
-          </button>
-          <h3>Pagename</h3>
-          <a href="">tes</a>
-      </div>
-  </div>
-  <div class="mx-5 card" class="nob">kontent</div>
+<div class="m-5">
+    <div class="d-flex justify-content-between align-items-center">
+        <button class="btn openbtn btn-primary open" id="bukanav" type="button">
+            <span id="icbukanav" class="fa fa-bars"></span>
+        </button>
+        <h3>Pagename</h3>
+        <a href="">tes</a>
+    </div>
+</div>
+<div class="mx-5 card">kontent</div>
 
-
-  
-  <script>
-  function openNav() {
-    document.getElementById("mySidebar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-    // document.getElementById("dashboard").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dashboard";
-    // document.getElementById("statistik").innerHTML = "&nbsp;Statistik";
-    // document.getElementById("trash").innerHTML = "&nbsp;Trash";
-    // document.getElementById("notification").innerHTML = "&nbsp;Notification";
-    // document.getElementById("logout").innerHTML = "&nbsp;Log Out";
-    // document.getElementById("nav").style.marginLeft = "250px";
-}
-
-function closeNav() {
-    // document.getElementById("dashboard").innerHTML = "";
-    // document.getElementById("statistik").innerHTML = "";
-    // document.getElementById("trash").innerHTML = "";
-    // document.getElementById("notification").innerHTML = "";
-    // document.getElementById("logout").innerHTML = "";
-    document.getElementById("mySidebar").style.width = "75px";
-    document.getElementById("main").style.marginLeft= "75px";
-    // document.getElementById("nav").style.marginLeft = "75px";
-  }
-
-//   $(document).ready(function () {
-//     $('#bukanav').click(function () {
-//         $('#dashboard').text('/menuplay')
-//     })
-//   });
-  </script>
+{{-- script --}}
+<script>
+    $(document).ready(function () {
+        $('#bukanav').click(function () {
+            // $('#dashboard').text('/menuplay')
+            if($('#bukanav').hasClass('open')){
+                $('#bukanav').removeClass('open btn-primary');
+                $('#bukanav').addClass('btn-danger');
+                $('#icbukanav').removeClass('fa fa-bars');
+                $('#icbukanav').addClass('fa fa-times');
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            }else{
+                $('#bukanav').removeClass('btn-danger');
+                $('#bukanav').addClass('open btn-primary');
+                $('#icbukanav').removeClass('fa fa-times');
+                $('#icbukanav').addClass('fa fa-bars');
+                document.getElementById("mySidebar").style.width = "75px";
+                document.getElementById("main").style.marginLeft= "75px";
+            }
+        })
+    });
+</script>
 @endrole
 {{-- end admin home --}}
 @endsection

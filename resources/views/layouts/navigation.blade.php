@@ -118,24 +118,25 @@
             @endauth
         </div>
     </nav> --}}
-    <div id="mySidebar" class="sidebar bg-white shadow-lg d-flex justify-content-around flex-column">
+    <nav id="mySidebar" class="sidebar bg-white shadow-lg d-flex justify-content-around flex-column">
         <div>
 
-            <div class="btnclosed">
+            {{-- <div class="btnclosed">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-            </div>
+            </div> --}}
             {{-- <a href="#" class="position-relative align-item-center border-end border-5 border-bottom border-primary"><div class="d-flex align-items-center"><i id="dashboard" class="bi bi-speedometer"></i><p class="m-0">Dashboard</p></div></a> --}}
-            <a href="#" class="position-relative align-item-center border-bottom"><div class="d-flex align-items-center"><i class="bi bi-speedometer" style="font-size: 24px"></i><p id="dashboard" class="m-0" style="font-size: 14px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dashboard</p></div></a>
-            <a href="#" class="border-bottom"><div class="d-flex align-items-center"><i class="bi bi-graph-up" style="font-size: 24px"></i><p id="statistik" class="m-0" style="font-size: 14px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Statistik</p></div></a>
-            <a href="#" class="border-bottom"><div class="d-flex align-items-center"><i class="bi bi-trash" style="font-size: 24px"></i><p id="trash" class="m-0" style="font-size: 14px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Trash</p></div></a>
-            <a href="#" class="border-bottom"><div class="d-flex align-items-center"><i class="bi bi-bell" style="font-size: 24px"></i><p id="notification" class="m-0" style="font-size: 14px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notification</p></div></a>
+            <a href="#" class="aktif-link d-flex align-items-center" style="font-size: 14px"><i class="bi bi-speedometer" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dashboard</a>
+            <a href="#" class=" d-flex align-items-center" style="font-size: 14px"><i class="bi bi-person" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User</a>
+            <a href="#" class=" d-flex align-items-center" style="font-size: 14px"><i class="bi bi-graph-up" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Statistik</a>
+            <a href="#" class=" d-flex align-items-center" style="font-size: 14px"><i class="bi bi-trash" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Trash</a>
+            <a href="#" class=" d-flex align-items-center" style="font-size: 14px"><i class="bi bi-bell" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notification</a>
             
         </div>
         <div>
         </div>
         <div>
-            <a href="#" class="border-bottom"><div class="d-flex align-items-center"><i class="bi bi-box-arrow-in-right" style="font-size: 24px"></i><p id="logout" class="m-0" style="font-size: 14px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logout</p></div></a>
+            <a href="#" class=" d-flex align-items-center" style="font-size: 14px"><i class="bi bi-box-arrow-in-right" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logout</a>
     
         </div>
-    </div>
+    </nav>
 @endrole
