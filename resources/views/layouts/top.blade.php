@@ -21,6 +21,20 @@
 
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" integrity="sha512-qzrZqY/kMVCEYeu/gCm8U2800Wz++LTGK4pitW/iswpCbjwxhsmUwleL1YXaHImptCHG0vJwU7Ly7ROw3ZQoww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+{{-- bs --}}
+{{-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script> --}}
+
+{{-- datatable css --}}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+
+{{-- datatable js --}}
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" defer></script>
+<script>
+  $(document).ready(function () {
+    $('#example1').DataTable();
+  });
+</script>
 
 
 <!-- Styles -->
@@ -28,8 +42,35 @@
 
 @role('admin')
     <style>
+
         body {
-          /* font-family: "Lato", sans-serif; */
+          font-family: "poppins", sans-serif;
+          background: rgb(2,0,36);
+          background: linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(230,230,255,1) 0%, rgba(245,246,255,1) 100%);
+        }
+        
+        .gradienbiru1 {
+          font-family: "poppins", sans-serif;
+          background: rgb(2,0,36);
+          background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(59,59,255,1) 0%, rgba(197,202,255,1) 100%);
+        }
+        .gradienbiru2 {
+          font-family: "poppins", sans-serif;
+          background: rgb(2,0,36);
+          background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(230,230,255,1) 0%, rgba(233,237,255,1) 100%);
+        }
+
+        .gradienbiru {
+          background: rgb(2,0,36);
+          background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,108,255,1) 0%, rgba(148,174,255,1) 100%);
+        }
+        .gradienmerah {
+          background: rgb(2,0,36);
+          background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(219,0,0,1) 0%, rgba(255,101,101,1) 100%);
+        }
+        .gradienhijau {
+          background: rgb(2,0,36);
+          background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(8,219,0,1) 0%, rgba(156,245,146,1) 100%);
         }
 
         .aktif-link {
@@ -39,27 +80,9 @@
           border-color: #3490dc;
         }
         nav div a{
-          color: grey
+          color: grey;
+          border-bottom: transparent 1px solid;
         }
-        /* .aktif-font {
-          color: white;
-        } */
-
-        /* i {
-          color: grey;
-        } */
-        /* .phover {
-          color: grey;
-        } */
-        /* a .phover:hover {
-          color: blue;
-        } */
-        /* i:active {
-          color: #3490dc;
-        } */
-        /* .link-aktif:hover {
-          color: #3490dc;
-        } */
         
         .sidebar {
           height: 100%;
@@ -89,20 +112,11 @@
         .bi {
           color: black;
         }
-        /* .sidebar a i:hover {
-          color: white;
-        } */
-
-        /* .sidebar i:hover {
-          color: #3490dc;
-        } */
         
         .sidebar .closebtn {
           position: absolute;
           top: 0;
-          /* right: 25px; */
           font-size: 36px;
-          /* margin-left: 50px; */
         }
         
         .openbtn {
@@ -120,7 +134,6 @@
         #main {
           margin-left: 75px;
           transition: 0.7s;
-          /* padding: 16px; */
         }
         #nav {
           transition: 0.7s;
@@ -130,13 +143,6 @@
         .closebtn {
             left: 210px;
         }
-
-        /* div .btnclosed {
-            padding-left: 30px;
-            padding-top: 30px;
-            position: absolute;
-            right: 0;
-        } */
         
         /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
         @media screen and (max-height: 450px) {

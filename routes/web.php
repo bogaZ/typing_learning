@@ -30,3 +30,7 @@ Route::get('/custom', 'Typing\MenuController@getcustom')->name('indexcustom');
 Route::get('/mudah/play', 'Typing\PlayingController@playmudah')->name('playamudah');
 // Route::get('/custom/play', 'Typing\MenuController@getcustom')->name('indexcustom');
 Route::resource('/menucustom', 'Typing\CustomController');
+
+Route::group(['prefix'=> 'home'], function () {
+    Route::resource('/user', 'User\UserController');
+});
