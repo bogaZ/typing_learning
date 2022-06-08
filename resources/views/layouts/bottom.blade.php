@@ -22,6 +22,21 @@
         })
     })
 </script>
+
+
+@role('pengguna')
+{{-- <script>
+    var mengetikkata = CodeMirror.fromTextArea(
+        document.getElementById('mengetikkata'),{
+            mode = "xml",
+            theme = "dracula",
+            lineNumbers = true,
+            autoCloseTags = true
+        }
+    )
+</script> --}}
+@endrole
+
 @role('admin')
 <script>
     // $(document).ready(function(){

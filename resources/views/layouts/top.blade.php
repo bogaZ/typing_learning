@@ -28,6 +28,14 @@
 {{-- datatable css --}}
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 
+{{-- codemirror --}}
+@role('pengguna')
+<link rel="stylesheet" href="{{ asset('codemirror/lib/codemirror.css')}}">
+<link rel="stylesheet" href="{{ asset('codemirror/theme/dracula.css')}}">
+<script src="{{ asset('codemirror/lib/codemirror.js') }}"></script>
+<script src="{{ asset('codemirror/mode/xml/xml.js')}}"></script>
+@endrole
+
 {{-- datatable js --}}
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" defer></script>
 <script>

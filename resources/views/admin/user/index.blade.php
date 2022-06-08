@@ -59,7 +59,7 @@
                     <td>
                         <div class="btn-group">
                             <button type="button" class="btn btn-secondary rounded" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-                                <i class="bi bi-pencil-square"></i>
+                                <i class="bi bi-pencil-square text-white"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-lg-end">
                                 <li><button class="dropdown-item" type="button">Ubah</button></li>

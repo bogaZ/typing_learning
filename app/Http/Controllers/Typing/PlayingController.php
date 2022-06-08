@@ -9,7 +9,7 @@ class PlayingController extends Controller
 {
     //
     public function playmudah(){
-        $kata = 'apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini';
+        $kata = 'apakah saya akan lulus apakah saya akan lulus apakah saya akan lulus apakah saya akan lulus apakah saya akan lulus apakah saya akan lulus apakah saya akan lulus apakah saya akan lulus apakah saya akan lulus apakah saya akan lulus apakah saya akan lulus apakah saya akan lulus apakah saya akan lulus apakah saya akan lulus ';
         $jumlahkata = strlen($kata);
         return view('user.play.easy', compact('kata', 'jumlahkata'));
     }
