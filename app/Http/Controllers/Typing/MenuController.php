@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class MenuController extends Controller
 {
+    //beta
+    public function getbeta(){
+        return view('beta.index');
+    }
+
     //
     public function getmenu(){
         $kata = 'apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini';

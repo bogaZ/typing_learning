@@ -9,19 +9,21 @@
             </button>
         </div>
         <div class="d-flex align-items-center justify-content-center col-md-4 p-0 m-0">
-            <h3 class="m-0">User</h3>
+            <h3 class="m-0">Menambah User</h3>
         </div>
         <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
             <p class="m-0">
                 <a href="{{route('home')}}" class="text-decoration-none">Dashboard</a>
-                /User
+                /
+                <a href="{{route('user.index')}}" class="text-decoration-none">User</a>
+                / Menambah User
             </p>
         </div>
     </div>
 </div>
 <div class="m-4">
     <div class="d-flex flex-row-reverse">
-        <a href="{{route('user.create')}}" class="btn btn-success shadow">Tambah</a>
+        <a href="" class="btn btn-success shadow">Tambah</a>
     </div>
 </div>
 <div class="d-flex mx-4">
@@ -39,36 +41,7 @@
                 </tr>
             </thead>
             <tbody class="gradienbiru2 text-dark">
-                @foreach($alldata as $data)
-                <tr>
-                    <td>{{$data->name}}</td>
-                    <td>{{$data->id}}</td>
-                    <td>{{$data->email}}</td>
-                    <td>
-                        @if (!empty($data->getRoleNames()))
-                            @foreach ($data->getRoleNames() as $role)
-                            <div class="d-flex align-items-center">
-                                <label for="" class="m-0 badge badge-success">{{$role}}</label>                                
-                            </div>
-                            @endforeach
-                            
-                        @endif
-                    </td>
-                    <td>1 menit lalu</td>
-                    {{-- <td><button class="btn btn-secondary"><i class="bi bi-pencil-square"></i></button></td> --}}
-                    <td>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-secondary rounded" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-                                <i class="bi bi-pencil-square text-white"></i>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-lg-end">
-                                <li><button class="dropdown-item" type="button">Ubah</button></li>
-                                <li><button class="dropdown-item" type="button">Hapus</button></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                @endforeach
+                
             </tbody>
         </table>
     </div>

@@ -87,13 +87,13 @@
     </nav>
 @endrole
 @role('admin')
-    <nav id="mySidebar" class="sidebar bg-white shadow-lg d-flex justify-content-around flex-column">
+    <nav id="mySidebar" class="p-0 sidebar bg-white shadow-lg d-flex justify-content-around flex-column">
         {{-- <div class="d-flex flex-row-reverse">
             <span>Helo Admin,</span>
         </div> --}}
-        <div>
-            <a href="#" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-tras" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admin</a>
-            
+        <div class="row justify-content-center">
+            <img style="width: 80%" class="p-0" src="{{asset('bagus/admin/img/profil.png')}}" alt="" srcset="">
+            <a href="#" alt="dashboard" class="d-flex align-items-center" disabled style="font-size: 14px"><i class="bi bi-tras" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Halo&nbsp;Admin</a>
         </div>
         <div>
 

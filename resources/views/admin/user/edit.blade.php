@@ -21,7 +21,7 @@
 </div>
 <div class="m-4">
     <div class="d-flex flex-row-reverse">
-        <a href="{{route('user.create')}}" class="btn btn-success shadow">Tambah</a>
+        <button class="btn btn-success shadow">Tambah</button>
     </div>
 </div>
 <div class="d-flex mx-4">

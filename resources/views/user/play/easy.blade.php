@@ -18,7 +18,7 @@
             <p>Waktu sisa: </p>
         </div>
     </div>
-    <div class="col-md-10 border">
+    <div class="col-md-10">
         <textarea id="mengetikkata" class="form-control" placeholder="ketik disini....." style="overflow: hidden; resize: none; height: 150px"></textarea>
     </div>
     <div class="col-md-2 d-grid">
@@ -47,6 +47,19 @@
         })
     })
 </script>
+{{-- <script>
+    $(document).ready(function(){
+        $('#kembali').click(function () {
+            if(document.getElementById)
+            $('#content').load('/pertanyaanktp')
+            elseif(id 2)
+            $('#content').load('/pertanyaanktp')
+            elseif(id 3)
+            $('#content').load('/pertanyaanktp')
+            else
+        })
+    })
+</script> --}}
 {{-- <script>
     var mengetikkata = CodeMirror.fromTextArea(
         document.getElementById('mengetikkata'),{

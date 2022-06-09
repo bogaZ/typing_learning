@@ -34,3 +34,6 @@ Route::resource('/menucustom', 'Typing\CustomController');
 Route::group(['prefix'=> 'home'], function () {
     Route::resource('/user', 'User\UserController');
 });
+
+// beta
+Route::get('/beta', 'Typing\MenuController@getbeta')->name('indexbeta');

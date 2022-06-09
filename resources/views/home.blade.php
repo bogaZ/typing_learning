@@ -9,7 +9,7 @@
             </div>
         @endif
         {{-- user home --}}
-        <div class="row justify-content-center">
+        {{-- <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="shadow p-3 mb-5 rounded border border-dark bg-white">
                     <div class="card-body">
@@ -31,7 +31,63 @@
                     </div>
                 </div>
             </div>
+        </div> --}}
+        {{-- user bahasa --}}
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="shadow p-3 mb-5 rounded border border-dark bg-white">
+                    <div class="card-body">
+                        <div class="my-5 mx-5" id="content">
+                            {{-- <div class="row">
+                                <div class="d-grid mx-auto">
+                                    <button id="kembali" class="btn btn-danger block">Kembali</button>
+                                </div>
+                            </div>
+                            <br> --}}
+                            <div class="" id="content">
+                                <h6 class="text-center fw-bold">Pilih</h6>
+                                <br>
+                                <div class="row">
+                                    <div class="d-grid mx-auto">
+                                        <button id="mulai" class="btn btn-primary block fw-bold">Mulai</button>
+                                    </div>
+                                    {{-- {{$kata}}
+                                    <br>
+                                    jumlah:
+                                    {{$jumlahkata}} --}}
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="d-grid mx-auto">
+                                        <button id="custom" class="btn btn-primary block fw-bold">Buat Karakter</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="d-grid col-md-6 justify-content-md-start">
+                                    <button id="setting" class="btn btn-secondary block"><i class="bi bi-gear-fill"></i></button>
+                                </div>
+                                <div class="d-grid col-md-6 justify-content-md-end">
+                                    <button id="reload" class="btn btn-secondary block"><i class="bi bi-arrow-clockwise"></i></button>
+                                </div>
+                            </div>
+                            <script>
+                                $(document).ready(function(){
+                                    $('#mulai').click(function () {
+                                        $('#content').load('/menuplay')
+                                    })
+                                    $('#custom').click(function () {
+                                        $('#content').load('/menucustom')
+                                    })
+                                })
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        
     </div>
 @endrole
 {{-- end user home --}}
