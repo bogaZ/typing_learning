@@ -6,14 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Beta</title>
     <link rel="stylesheet" href="{{asset('bagus/beta/style.css')}}">
-    <script src="{{asset('bagus/beta/script.js')}}"></script>
-    <script src="{{asset('bagus/beta/paragraphs.js')}}"></script>
+    {{-- <script src="{{asset('bagus/beta/script.js')}}"></script>
+    <script src="{{asset('bagus/beta/paragraphs.js')}}"></script> --}}
 </head>
 <body>
     <div class="wrapper">
+        <input type="text" class="input-field">
         <div class="content-box">
             <div class="typing-text">
-                <p>semoga cepat lulus amin</p>
+                <p></p>
             </div>
             <div class="content">
                 <ul class="result-details">
@@ -38,5 +39,7 @@
             </div>
         </div>
     </div>
+    <script src="{{asset('bagus/beta/paragraphs.js')}}"></script>
+    <script src="{{asset('bagus/beta/script.js')}}"></script>
 </body>
 </html>
