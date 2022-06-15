@@ -13,6 +13,7 @@
     <div class="wrapper">
         <input type="text" class="input-field">
         <div class="content-box">
+            <p id="timeout" class="text-center"></p>
             <div class="typing-text">
                 <p></p>
             </div>

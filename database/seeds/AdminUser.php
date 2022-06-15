@@ -16,12 +16,12 @@ class AdminUser extends Seeder
     {
         //
         $user = User::create([
-            'name'=>'superadmin1',
-            'email'=>'superadmin1@gmail.com',
-            'password'=>bcrypt('123456')
+            'name'=>'admin',
+            'email'=>'admin@gmail.com',
+            'password'=>bcrypt('1')
         ]);
 
-        $role = Role::create(['name'=>'pengguna']);
+        $role = Role::create(['name'=>'admin']);
         $permission = Permission::pluck('id','id')->all();
         $role->syncPermissions($permission);
         $user->assignRole($role);

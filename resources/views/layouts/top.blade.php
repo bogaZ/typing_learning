@@ -158,4 +158,8 @@
           .sidebar a {font-size: 18px;}
         }
     </style>
+
+    {{-- chart --}}
+
+    
 @endrole

@@ -7,6 +7,11 @@
 
 // randomParagraph();
 
+// enter
+// var entertext = document.forms[0].txt.value;
+// entertext = text.replace(/\r?\n/g, '<br />');
+
+
 const typingText = document.querySelector(".typing-text p"),
 inpField = document.querySelector(".wrapper .input-field"),
 mistageTag = document.querySelector(".mistake span"),
@@ -14,6 +19,7 @@ timeTag = document.querySelector(".time span b"),
 wpmTag = document.querySelector(".wpm span"),
 cpmTag = document.querySelector(".cpm span");
 btnTry = document.querySelector("button");
+timeout = document.getElementById("timeout");
 
 let timer,
 maxTime = 5,
@@ -81,7 +87,10 @@ function initTimer(){
         timeLeft--;
         timeTag.innerText = timeLeft;
     }else {
+        
         clearInterval(timer);
+        timeout.innerText = "waktu habis";
+        timeout.style.color = "red";
     }
 }
 
