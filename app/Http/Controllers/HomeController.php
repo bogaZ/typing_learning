@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -28,6 +29,7 @@ class HomeController extends Controller
     public function index()
     {
         $username = Auth::user()->name;
-        return view('home', compact('username'));
+        $jumlahuser = User::all()->count();
+        return view('home', compact('username', 'jumlahuser'));
     }
 }

@@ -93,8 +93,11 @@
         </div> --}}
         <div class="row justify-content-center">
             <img style="width: 80%" class="p-0" src="{{asset('bagus/admin/img/profil.png')}}" alt="" srcset="">
-            <a href="#" alt="dashboard" class="d-flex align-items-center" disabled style="font-size: 14px"><i class="bi bi-tras" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Halo&nbsp;Admin</a>
+            {{-- <p href="#" alt="dashboard" class="" disabled style="font-size: 14px"><i class="bi bi-tras" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Halo&nbsp;{{$username}}</p> --}}
+            <p href="#" alt="dashboard" class="text-center p-3" disabled style="font-size: 14px">{{$username}}</p>
         </div>
+        {{-- <div class="row justify-content-center">
+        </div> --}}
         <div>
 
             {{-- <div class="btnclosed">
@@ -112,13 +115,13 @@
         </div>
         <div>
             {{-- <a href="#modallogout" id="logout" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-box-arrow-in-right" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logout</a> --}}
-            <a href="javascript:void(0" class="d-flex align-items-center" style="font-size: 14px" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <a href="javascript:void(0" class="d-flex align-items-center" style="font-size: 14px" data-bs-toggle="modal" data-bs-target="#logout">
                 <i class="bi bi-box-arrow-in-right" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logout
             </a>
             {{-- <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-box-arrow-in-right" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logout</a> --}}
         </div>
     </nav>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="logout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="p-3 border-bottom text-center d-flex justify-content-center align-items-center">

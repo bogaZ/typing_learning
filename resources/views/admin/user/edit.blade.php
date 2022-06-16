@@ -9,69 +9,48 @@
             </button>
         </div>
         <div class="d-flex align-items-center justify-content-center col-md-4 p-0 m-0">
-            <h3 class="m-0">User</h3>
+            <h3 class="m-0">Mengubah User</h3>
         </div>
         <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
             <p class="m-0">
                 <a href="{{route('home')}}" class="text-decoration-none">Dashboard</a>
-                /User
+                /
+                <a href="{{route('user.index')}}" class="text-decoration-none">User</a>
+                / Mengubah User
             </p>
         </div>
     </div>
 </div>
 <div class="m-4">
-    <div class="d-flex flex-row-reverse">
-        <button class="btn btn-success shadow">Tambah</button>
-    </div>
-</div>
-<div class="d-flex mx-4">
-    <div class="col-md-12 w-100 p-0 shadow p-4 rounded bg-white rounded-3">
-        {{-- <button class="btn btn-success mb-3">Tambah +</button> --}}
-        <table id="example1" class="display my-3 border rounded rounded-3 border-dark" style="width:100%">
-            <thead class="gradienbiru text-white">
-                <tr>
-                    <th>Name</th>
-                    <th>id</th>
-                    <th>Email</th>
-                    <th>Role</th>
-                    <th>Aktivitas</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody class="gradienbiru2 text-dark">
-                @foreach($alldata as $data)
-                <tr>
-                    <td>{{$data->name}}</td>
-                    <td>{{$data->id}}</td>
-                    <td>{{$data->email}}</td>
-                    <td>
-                        @if (!empty($data->getRoleNames()))
-                            @foreach ($data->getRoleNames() as $role)
-                            <div class="d-flex align-items-center">
-                                <label for="" class="m-0 badge badge-success">{{$role}}</label>                                
-                            </div>
-                            @endforeach
-                            
-                        @endif
-                    </td>
-                    <td>1 menit lalu</td>
-                    {{-- <td><button class="btn btn-secondary"><i class="bi bi-pencil-square"></i></button></td> --}}
-                    <td>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-secondary rounded" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-                                <i class="bi bi-pencil-square text-white"></i>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-lg-end">
-                                <li><button class="dropdown-item" type="button">Ubah</button></li>
-                                <li><button class="dropdown-item" type="button">Hapus</button></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
+    <form action="{{route('user.update', $user->id)}}" method="post">
+    @csrf
+    @method('PATCH')
+        <div class="d-flex justify-content-center">
+        {{-- <a href="" class="btn btn-success shadow">Tambah</a> --}}
+            <div class="card p-5 col-md-6">
+                <label for="nama">Nama</label>
+                <input type="text" name="nama" value="{{$user->name}}" class="form-control" placeholder="nama" id="nama">
+                <label for="email">Email</label>
+                <input type="email" name="email" value="{{$user->email}}" class="form-control" placeholder="email" id="email">
+                <label for="role">Role</label>
+                {{-- <input type="role" name="role" id="role"> --}}
+                <select name="role" id="role" class="form-control">
+                    <option value="" disabled selected hidden>pilih role</option>
+                    @foreach($role as $roles)
+                        <option value={{$roles->name}}
+                            @if($userrole == $roles->id)
+                                selected
+                            @endif class="">{{$roles->name}}</option>
+                    @endforeach
+                </select>
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" placeholder="password" id="password">
+                <label for="konfirmasi-password">Konfirmasi Password</label>
+                <input type="password" name="confirm-password" class="form-control" placeholder="konfirmasi password" id="konfirmasi-password">
+                <button class="btn btn-success mt-3">Buat User</button>
+            </div>
+        </div>
+    </form>
 </div>
 <div class="d-flex justify-content-between m-4">
 </div>

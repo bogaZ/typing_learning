@@ -14,7 +14,7 @@
         <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
             <p class="m-0">
                 <a href="{{route('home')}}" class="text-decoration-none">Dashboard</a>
-                /User
+                / User
             </p>
         </div>
     </div>
@@ -23,6 +23,11 @@
     <div class="d-flex flex-row-reverse">
         <a href="{{route('user.create')}}" class="btn btn-success shadow">Tambah</a>
     </div>
+    @if(session()->get('sukses'))
+        <div class="alert alert-success mt-4">
+            {{session()->get('sukses')}}
+        </div>
+    @endif
 </div>
 <div class="d-flex mx-4">
     <div class="col-md-12 w-100 p-0 shadow p-4 rounded bg-white rounded-3">
@@ -30,6 +35,7 @@
         <table id="example1" class="display my-3 border rounded rounded-3 border-dark" style="width:100%">
             <thead class="gradienbiru text-white">
                 <tr>
+                    <th>No</th>
                     <th>Name</th>
                     <th>id</th>
                     <th>Email</th>
@@ -39,9 +45,14 @@
                 </tr>
             </thead>
             <tbody class="gradienbiru2 text-dark">
-                @foreach($alldata as $data)
+                @foreach($alldata as $i=>$data)
                 <tr>
-                    <td>{{$data->name}}</td>
+                    <td>{{++$i}}.</td>
+                    <td>
+                        <a href="{{route('user.show', $data->id)}}" class="text-decoration-none text-primary">
+                            {{$data->name}}
+                        </a>
+                    </td>
                     <td>{{$data->id}}</td>
                     <td>{{$data->email}}</td>
                     <td>
@@ -62,8 +73,10 @@
                                 <i class="bi bi-pencil-square text-white"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-lg-end">
-                                <li><button class="dropdown-item" type="button">Ubah</button></li>
-                                <li><button class="dropdown-item" type="button">Hapus</button></li>
+                                <li><a href="{{route('user.edit', $data->id)}}" class="dropdown-item">Ubah</a></li>
+                                <li>
+                                    <a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete{{$data->id}}">Hapus</a>
+                                </li>
                             </ul>
                         </div>
                     </td>
@@ -71,15 +84,39 @@
                 @endforeach
             </tbody>
         </table>
+        @foreach($alldata as $data)
+            <div class="modal fade" id="delete{{$data->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="p-3 border-bottom text-center d-flex justify-content-center align-items-center">
+                            <h3 class="fw-bold text-center m-0" id="exampleModalLabel">Hapus</h3>
+                        </div>
+                        <div class="modal-body text-center row">
+                            <i class="bi bi-exclamation-circle" style="font-size: 50px"></i>
+                            <h4 class="m-0 p-3">
+                                Apakah anda yakin mau menghapus user "{{$data->name}}"?
+                            </h4>
+                        </div>
+                        <form id="logout-form" action="{{ route('user.destroy', $data->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <div class="m-3 d-flex justify-content-evenly">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Tidak</button>
+                                <button type="submit" class="btn btn-danger py-2 px-4">Ya</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        @endforeach
     </div>
 </div>
 <div class="d-flex justify-content-between m-4">
 </div>
 {{-- script --}}
-<script>
+{{-- <script>
     $(document).ready(function () {
         $('#bukanav').click(function () {
-            // $('#dashboard').text('/menuplay')
             if($('#bukanav').hasClass('open')){
                 $('#bukanav').removeClass('open btn-primary');
                 $('#bukanav').addClass('btn-danger');
@@ -97,5 +134,5 @@
             }
         })
     });
-</script>
+</script> --}}
 @endsection

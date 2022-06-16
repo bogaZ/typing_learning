@@ -102,7 +102,7 @@
             </button>
         </div>
         <div class="d-flex align-items-center justify-content-center col-md-4 p-0 m-0">
-            <h3 class="m-0">Home</h3>
+            <h3 class="m-0 fw-bold">Home</h3>
         </div>
         <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
             <p class="m-0">
@@ -113,14 +113,49 @@
     </div>
 </div>
 <div class="d-flex justify-content-between mx-4">
-    <div style="border-radius: 10px" class="shadow col-md-3 gradienbiru p-2">
+    <div class="p-0 shadow col-md-3 gradienbiru">
         <div class="d-flex flex-column">
-            <h6 class="text-center text-white fw-bold">User</h6>
-            <i class="bi bi-person" style="font-size: 50px"></i>
-            <button class="btn btn-light mx-5 text-center" style="border-radius: 20px" type="button">View</button>
+            <h6 class="text-center text-white fw-bold p-2 border-bottom m-0">User</h6>
+            <div class="px-4 py-2 d-flex align-items-center justify-content-between">
+                <i class="bi bi-person text-white" style="font-size: 50px"></i>
+                <div class="d-flex">
+                    <span class="h4 m-0 text-white">{{$jumlahuser}}</span>
+                    <p class="text-white m-0">&nbsp;pendaftar</p>
+                </div>
+            </div>
+            {{-- <a href="{{route('user.index')}}" class="btn btn-light mx-5 text-center" style="border-radius: 20px" type="button">View</a> --}}
         </div>
+        <a href="{{route('user.index')}}" class="bg-primary d-flex justify-content-center p-2 text-decoration-none text-white">view</a>
     </div>
-    <div style="border-radius: 10px" class="shadow col-md-3 gradienbiru p-2">
+    <div class="p-0 shadow col-md-3 gradienbiru">
+        <div class="d-flex flex-column">
+            <h6 class="text-center text-white fw-bold p-2 border-bottom m-0">Statistik</h6>
+            <div class="px-4 py-2 d-flex align-items-center justify-content-between">
+                <i class="bi bi-graph-up text-white" style="font-size: 50px"></i>
+                <div class="d-flex">
+                    <span class="h4 m-0 text-white">{{$jumlahuser}}</span>
+                    <p class="text-white m-0">&nbsp;pengunjung</p>
+                </div>
+            </div>
+            {{-- <a href="{{route('user.index')}}" class="btn btn-light mx-5 text-center" style="border-radius: 20px" type="button">View</a> --}}
+        </div>
+        <a href="{{route('user.index')}}" class="bg-primary d-flex justify-content-center p-2 text-decoration-none text-white">view</a>
+    </div>
+    <div class="p-0 shadow col-md-3 gradienbiru">
+        <div class="d-flex flex-column">
+            <h6 class="text-center text-white fw-bold p-2 border-bottom m-0">Notification</h6>
+            <div class="px-4 py-2 d-flex align-items-center justify-content-between">
+                <i class="bi bi-bell text-white" style="font-size: 50px"></i>
+                <div class="d-flex">
+                    <span class="h4 m-0 text-white">{{$jumlahuser}}</span>
+                    <p class="text-white m-0">&nbsp;pendaftar</p>
+                </div>
+            </div>
+            {{-- <a href="{{route('user.index')}}" class="btn btn-light mx-5 text-center" style="border-radius: 20px" type="button">View</a> --}}
+        </div>
+        <a href="{{route('user.index')}}" class="bg-primary d-flex justify-content-center p-2 text-decoration-none text-white">view</a>
+    </div>
+    {{-- <div style="border-radius: 10px" class="shadow col-md-3 gradienbiru p-2">
         <div>
             <h6 class="text-center text-white fw-bold">Statistik</h6>
         </div>
@@ -129,17 +164,16 @@
         <div>
             <h6 class="text-center text-white fw-bold">Notification</h6>
         </div>
-    </div>
+    </div> --}}
 </div>
 <div class="d-flex justify-content-between m-4">
     <div class="col-md-8 p-0">p</div>
     <div class="col-md-3 p-0">p</div>
 </div>
 {{-- script --}}
-<script>
+{{-- <script>
     $(document).ready(function () {
         $('#bukanav').click(function () {
-            // $('#dashboard').text('/menuplay')
             if($('#bukanav').hasClass('open')){
                 $('#bukanav').removeClass('open btn-primary');
                 $('#bukanav').addClass('btn-danger');
@@ -157,7 +191,7 @@
             }
         })
     });
-</script>
+</script> --}}
 
 {{-- chart --}}
 {{-- <script>

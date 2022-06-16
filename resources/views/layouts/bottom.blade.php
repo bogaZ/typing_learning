@@ -45,6 +45,27 @@
     //     })
     // })
 </script>
+<script>
+    $(document).ready(function () {
+        $('#bukanav').click(function () {
+            if($('#bukanav').hasClass('open')){
+                $('#bukanav').removeClass('open btn-primary');
+                $('#bukanav').addClass('btn-danger');
+                $('#icbukanav').removeClass('fa fa-bars');
+                $('#icbukanav').addClass('fa fa-times');
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            }else{
+                $('#bukanav').removeClass('btn-danger');
+                $('#bukanav').addClass('open btn-primary');
+                $('#icbukanav').removeClass('fa fa-times');
+                $('#icbukanav').addClass('fa fa-bars');
+                document.getElementById("mySidebar").style.width = "75px";
+                document.getElementById("main").style.marginLeft= "75px";
+            }
+        })
+    });
+</script>
 
 @endrole
 

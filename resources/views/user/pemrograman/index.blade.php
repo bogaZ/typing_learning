@@ -1,6 +1,8 @@
 <div class="row">
-    <div class="d-grid mx-auto">
-        <button id="kembali" class="btn btn-danger block">Kembali</button>
+    <div class="col-md-4">
+        <div class="mx-auto">
+            <a id="kembali" href="#" class="text-decoration-none fw-bold">Kembali</a>
+        </div>
     </div>
 </div>
 <br>

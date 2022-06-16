@@ -25,6 +25,7 @@ class CustomController extends Controller
     public function index()
     {
         //
+        // $tanggal = ['']
         $namakarakter = karakter::all()->where('user_id', Auth::user()->id);
         return view('user.custom.index', compact('namakarakter'));
     }
