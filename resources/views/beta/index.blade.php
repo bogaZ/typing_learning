@@ -22,7 +22,7 @@
                 <ul class="result-details">
                     <li class="time">
                         <p>Time left:</p>
-                        <span><b></b>s</span>
+                        <span><b>0</b>s</span>
                     </li>
                     <li class="mistake">
                         <p>Mistakes:</p>
@@ -64,7 +64,7 @@
         timeout = document.getElementById("timeout");
 
         let timer,
-        maxTime = 10,
+        maxTime = 0,
         timeLeft = maxTime,
         charIndex = mistakes = isTyping = 0;
 
@@ -88,14 +88,15 @@
         function initTyping() {
             const characters = typingText.querySelectorAll("span");
             let typeChar = inpField.value.split("")[charIndex];
-            console.log(typeChar);
-            if (charIndex < characters.length - 1 && timeLeft > 0) {
+            // console.log(typeChar);
+            if (charIndex < characters.length - 1 && timeLeft > -1) {
                 if(!isTyping){
+                    // console.log(isTyping);
                     timer = setInterval(initTimer, 1000);
                     isTyping = true;
                 }
                 // characters[charIndex].innerHTML.(&lt;, "<");
-                console.log(characters[charIndex].innerText);
+                // console.log(characters[charIndex].innerText);
                 if(typeChar == null){
                     charIndex--;
                     if(characters[charIndex].classList.contains("incorrect")){
@@ -114,6 +115,7 @@
                         console.log("incorrect");
                     }
                     charIndex++;
+                    // console.log(charIndex);
                 }
                 characters.forEach(span => span.classList.remove("active"));
                 characters[charIndex].classList.add("active");
@@ -126,16 +128,17 @@
                 cpmTag.innerText = charIndex - mistakes;
             } else {
                 inpField.value = "";
+                timeout.innerText = "Finish";
+                timeout.style.color = "green";
                 clearInterval(timer);
             }
         }
 
         function initTimer(){
-            if(timeLeft > 0){
-                timeLeft--;
+            if(timeLeft > -1){
+                timeLeft++;
                 timeTag.innerText = timeLeft;
             }else {
-                
                 clearInterval(timer);
                 timeout.innerText = "waktu habis";
                 timeout.style.color = "red";
@@ -147,6 +150,8 @@
         function reset(){
             randomParagraph();
             inpField.value = "";
+            timeout.innerText = "";
+            timeout.style.color = "";
             clearInterval(timer);
             timeLeft = maxTime,
             charIndex = mistakes = isTyping = 0;
