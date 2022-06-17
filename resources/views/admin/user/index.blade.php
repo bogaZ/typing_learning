@@ -59,7 +59,7 @@
                         @if (!empty($data->getRoleNames()))
                             @foreach ($data->getRoleNames() as $role)
                             <div class="d-flex align-items-center">
-                                <label for="" class="m-0 badge badge-success">{{$role}}</label>                                
+                                <label for="" class="m-0 p-1 text-capitalize badge badge-success">{{$role}}</label>                                
                             </div>
                             @endforeach
                             
@@ -135,4 +135,7 @@
         })
     });
 </script> --}}
+<script>
+    document.getElementById("user").classList.add("aktif-link");
+</script>
 @endsection

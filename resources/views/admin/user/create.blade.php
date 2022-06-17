@@ -51,7 +51,7 @@
 <div class="d-flex justify-content-between m-4">
 </div>
 {{-- script --}}
-<script>
+{{-- <script>
     $(document).ready(function () {
         $('#bukanav').click(function () {
             // $('#dashboard').text('/menuplay')
@@ -72,5 +72,8 @@
             }
         })
     });
+</script> --}}
+<script>
+    document.getElementById("user").classList.add("aktif-link");
 </script>
 @endsection

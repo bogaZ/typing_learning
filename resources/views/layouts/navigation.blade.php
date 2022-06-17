@@ -104,11 +104,11 @@
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
             </div> --}}
             {{-- <a href="#" class="position-relative align-item-center border-end border-5 border-bottom border-primary"><div class="d-flex align-items-center"><i id="dashboard" class="bi bi-speedometer"></i><p class="m-0">Dashboard</p></div></a> --}}
-            <a href="/home" alt="dashboard" class="{{ Route::is('about') ? 'bg-primary' : '' }} d-flex align-items-center" style="font-size: 14px"><i class="bi bi-speedometer" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dashboard</a>
-            <a href="{{route('user.index')}}" id="user" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-person" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User</a>
-            <a href="#" alt="dashboard" class="d-flex align-items-center {{ Request::path() === '/home/user' ? 'aktif-link' : '' }}" style="font-size: 14px"><i class="bi bi-graph-up" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Statistik</a>
-            <a href="#" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-bell" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notification</a>
-            <a href="#" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-trash" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Trash</a>
+            <a id="dashboard" href="/home" alt="dashboard" class="{{ Route::is('about') ? 'bg-primary' : '' }} d-flex align-items-center" style="font-size: 14px"><i class="bi bi-speedometer" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dashboard</a>
+            <a id="user" href="{{route('user.index')}}" id="user" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-person" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User</a>
+            <a id="" href="#" alt="dashboard" class="d-flex align-items-center {{ Request::path() === '/home/user' ? 'aktif-link' : '' }}" style="font-size: 14px"><i class="bi bi-graph-up" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Statistik</a>
+            <a id="" href="#" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-bell" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notification</a>
+            <a id="" href="#" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-trash" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Trash</a>
             
         </div>
         <div>
@@ -144,6 +144,9 @@
             </div>
         </div>
     </div>
+    {{-- <script>
+        document.getElementById("dashboard").classList.add("aktif-link");
+    </script> --}}
 @endrole
 @auth
 @else

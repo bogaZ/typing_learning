@@ -118,7 +118,7 @@
             <h6 class="text-center text-white fw-bold p-2 border-bottom m-0">User</h6>
             <div class="px-4 py-2 d-flex align-items-center justify-content-between">
                 <i class="bi bi-person text-white" style="font-size: 50px"></i>
-                <div class="d-flex">
+                <div class="d-flex justify-content-evenly">
                     <span class="h4 m-0 text-white">{{$jumlahuser}}</span>
                     <p class="text-white m-0">&nbsp;pendaftar</p>
                 </div>
@@ -148,7 +148,7 @@
                 <i class="bi bi-bell text-white" style="font-size: 50px"></i>
                 <div class="d-flex">
                     <span class="h4 m-0 text-white">{{$jumlahuser}}</span>
-                    <p class="text-white m-0">&nbsp;pendaftar</p>
+                    <p class="text-white m-0">&nbsp;pemberitahuan</p>
                 </div>
             </div>
             {{-- <a href="{{route('user.index')}}" class="btn btn-light mx-5 text-center" style="border-radius: 20px" type="button">View</a> --}}
@@ -246,6 +246,9 @@
 <div id="chartContainer" style="height: 300px; width: 100%;"></div>
 <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+<script>
+    document.getElementById("dashboard").classList.add("aktif-link");
+</script>
 @endrole
 {{-- end admin home --}}
 @endsection
