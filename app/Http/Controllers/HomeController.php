@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -14,6 +18,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        // $this->middleware('role:admin',['only'=>['index']]);
     }
 
     /**
@@ -23,6 +28,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $username = Auth::user()->name;
+        $jumlahuser = User::all()->count();
+        return view('home', compact('username', 'jumlahuser'));
     }
 }
