@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/menu', 'Typing\MenuController@getmenu')->name('indexmenu');
+Route::get('/playcustom', 'Typing\MenuController@getplaycustom')->name('indexplaycustom');
 Route::get('/menuplay', 'Typing\MenuController@getplay')->name('indexplay');
 Route::get('/kesulitan', 'Typing\MenuController@getkesulitan')->name('tingkatkesulitan');
 Route::get('/kesulitan/pemrograman', 'Typing\MenuController@getpemrograman')->name('pemrograman');

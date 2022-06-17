@@ -20,6 +20,7 @@ wpmTag = document.querySelector(".wpm span"),
 cpmTag = document.querySelector(".cpm span");
 btnTry = document.querySelector("button");
 timeout = document.getElementById("timeout");
+// var coba = {!! json_encode($test->toArray()) !!};
 
 let timer,
 maxTime = 5,

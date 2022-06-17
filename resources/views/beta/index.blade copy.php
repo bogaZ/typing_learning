@@ -41,10 +41,53 @@
             </div>
         </div>
     </div>
+    {{-- <script src="{{asset('bagus/beta/paragraphs.js')}}"></script> --}}
+    {{-- <script>
+        var coba = {!! json_encode($test->toArray()) !!};
+        var user = {{$test}}
+        console.log(users);
+        console.log(user);
+    </script> --}}
     <script>
         var coba = {!! json_encode($test->toArray()) !!};
         var co = <?php echo json_encode($test); ?>;
-        console.log(coba);
+        // var teks = coba[0].karakter.replace(/(\r\n|\n|\r)/gm, "\n");
+
+
+        // var user = {{$test}}
+        // const coba = map(ele=>ele.nama);
+
+        // var result = coba.find(obj => {
+            // Returns the object where
+            // the given property has some value 
+        //     return obj.id === 1
+        // })
+
+        // result = result.replace(\n, "");
+        // console.log(result.karakter.replace(/[\r\n]/g, ""));
+
+        console.log(coba[0].karakter);
+        // console.log(value);
+        // console.log(co);
+        
+        // console.log(user);
+        // var posts = {{ $test->toJson() }};
+
+        // posts.forEach(function(post) {
+        // // do something
+        //     console.log(post);
+        // });
+
+        // var x = [{id: 1, a: true},
+        //     {id: 2, a: true},
+        //     {id: 3, a: true},
+        //     {id: 4, a: true}];
+
+        // var a = x.select(function(obj) {
+        //     return obj.id = 2;
+        // });
+
+        // console.log(a);
 
         const paragraphs =[
             "semoga\ncepat lulus\namiinn",
@@ -62,6 +105,7 @@
         cpmTag = document.querySelector(".cpm span");
         btnTry = document.querySelector("button");
         timeout = document.getElementById("timeout");
+        // var coba = {!! json_encode($test->toArray()) !!};
 
         let timer,
         maxTime = 10,
@@ -71,8 +115,15 @@
 
         function randomParagraph() {
             let randTeks = Math.floor(Math.random() * coba.length);
+            // let randIndex = Math.floor(Math.random() * paragraphs.length);
             typingText.innerHTML = "";
-            var teks = coba[randTeks].karakter.toString().replace(/(\r\n|\n|\r)/gm, "\n");
+
+            var teks = coba[randTeks].karakter.replace(/(\r\n|\n|\r)/gm, "\n");
+            
+            // coba[0].karakter.split("").forEach(span => {
+            //     let spanTag = `<span>${span}</span>`;
+            //     typingText.innerHTML += spanTag;
+            // });
 
             teks.split("").forEach(span => {
                 let spanTag = `<span>${span}</span>`;
@@ -88,14 +139,11 @@
         function initTyping() {
             const characters = typingText.querySelectorAll("span");
             let typeChar = inpField.value.split("")[charIndex];
-            console.log(typeChar);
             if (charIndex < characters.length - 1 && timeLeft > 0) {
                 if(!isTyping){
                     timer = setInterval(initTimer, 1000);
                     isTyping = true;
                 }
-                // characters[charIndex].innerHTML.(&lt;, "<");
-                console.log(characters[charIndex].innerText);
                 if(typeChar == null){
                     charIndex--;
                     if(characters[charIndex].classList.contains("incorrect")){
@@ -103,12 +151,11 @@
                     }
                     characters[charIndex].classList.remove("correct", "incorrect");
                 }else{
-                    if(characters[charIndex].innerText === typeChar){
-                        // character same
+                    if(characters[charIndex].innerHTML === typeChar){
                         characters[charIndex].classList.add("correct");
+                        //
                         console.log("correct");
                     }else{
-                        // charachter not same
                         mistakes++;
                         characters[charIndex].classList.add("incorrect");
                         console.log("incorrect");
@@ -141,7 +188,7 @@
                 timeout.style.color = "red";
             }
         }
-        // console.log(paragraphs);
+        console.log(paragraphs);
         // console.log(paragraphs.replace(/(\r\n|\n|\r)/gm, ""));
 
         function reset(){

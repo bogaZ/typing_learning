@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-@role('pengguna')
+@role('user')
     <div class="container">
         @if (session('sukses'))
             <div class="alert alert-success" role="alert">

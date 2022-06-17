@@ -57,7 +57,7 @@
         </div>
     </div>
 </nav> --}}
-@role('pengguna')
+@role('user')
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5 py-2 mb-5">
         <a href="{{route('welcome')}}" class="navbar-brand p-0">
             <h1 class="m-0"><i class="fa fa-keyboard me-2 text-white"></i>NgeTeks</h1>

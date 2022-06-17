@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Typing;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\karakter;
 
 class MenuController extends Controller
 {
     //beta
     public function getbeta(){
-        return view('beta.index');
+        $test = karakter::all();
+        return view('beta.index', compact('test'));
     }
 
     //
@@ -39,4 +41,9 @@ class MenuController extends Controller
     public function getjs(){
         return view('user.pemrograman.js');
     }
+    public function getplaycustom(){
+        $karakter = karakter::first();
+        return view('user.playwithcustom.index', compact('karakter'));
+    }
+
 }

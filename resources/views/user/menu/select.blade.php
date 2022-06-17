@@ -19,6 +19,7 @@
     <div class="d-grid mx-auto">
         <button id="custom" class="fw-bold btn btn-primary block">Mulai Karakter Sendiri</button>
     </div>
+    <a href="{{route('indexplaycustom')}}">play</a>
 </div>
 <script>
     $(document).ready(function(){
@@ -29,7 +30,7 @@
             $('#content').load('/kesulitan')
         })
         $('#custom').click(function () {
-            $('#content').load('/custom')
+            $('#content').load('/playcustom')
         })
     })
 </script>

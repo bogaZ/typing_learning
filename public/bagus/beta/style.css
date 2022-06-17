@@ -47,6 +47,7 @@ body{
     text-align: justify;
     letter-spacing: 1px;
     word-break: break-all;
+    white-space: break-spaces;
 }
 
 .content-box .content {
@@ -161,6 +162,7 @@ body{
 .content button:active{
     transform: scale(0.97);
 }
+
 
 /* .content-box .content {
     display: flex;
