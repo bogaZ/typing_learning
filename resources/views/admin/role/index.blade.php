@@ -1,4 +1,3 @@
-@role('admin')
 @extends('layouts.master')
 
 @section('content')
@@ -15,17 +14,17 @@
         <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
             <p class="m-0">
                 <a href="{{route('home')}}" class="text-decoration-none">Dashboard</a>
-                / Character
+                / Type Character
             </p>
         </div>
     </div>
 </div>
 <div class="m-4">
     <div class="d-flex justify-content-between">
-        <a href="{{route('character.index')}}" class="btn btn-primary shadow">Type Character</a>
-        <a href="{{route('custom.create')}}" class="btn btn-success shadow">Tambah Character</a>
+        <a href="{{route('custom.index')}}" class="btn btn-primary shadow">Character</a>
+        <a href="{{route('character.create')}}" class="btn btn-success shadow">Tambah Type Character</a>
         {{-- <div>
-            <a href="{{route('custom.create')}}" class="btn btn-success shadow">Tambah Type</a>
+            <a href="{{route('custom.create')}}" class="btn btn-success shadow">Tambah Character</a>
         </div> --}}
     </div>
     @if(session()->get('sukses'))
@@ -36,14 +35,13 @@
 </div>
 <div class="d-flex mx-4">
     <div class="col-md-12 w-100 p-0 shadow p-4 rounded bg-white rounded-3">
+        {{-- <button class="btn btn-success mb-3">Tambah +</button> --}}
         <table id="example1" class="display my-3 border rounded rounded-3 border-dark" style="width:100%">
             <thead class="gradienbiru text-white">
                 <tr>
                     <th>No</th>
-                    <th>Nama Pembuat</th>
-                    <th>Nama text</th>
-                    <th>Teks</th>
-                    <th>Tipe Text</th>
+                    {{-- <th>Id</th> --}}
+                    <th>Name</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -51,15 +49,25 @@
                 @foreach($alldata as $i=>$data)
                 <tr>
                     <td>{{++$i}}.</td>
-                    @if($data->user->name == 'admin')
-                    <td class="text-success fw-bold">{{$data->user->name}}</td>
-                    @else
-                    <td class="text-primary fw-bold">{{$data->user->name}}</td>
-                    @endif
-                    <td>{{$data->nama}}</td>
-                    {{-- <td style="text-overflow: ellipsis; overflow: hidden;">{{$data->karakter}}</td> --}}
-                    <td class="limittext">{{$data->karakter}}</td>
-                    <td>{{$data->type->name}}</td>
+                    {{-- <td>
+                        <a href="{{route('user.show', $data->id)}}" class="text-decoration-none text-primary">
+                            {{$data->name}}
+                        </a>
+                    </td>
+                    <td>{{$data->id}}</td>
+                    <td>{{$data->email}}</td>
+                    <td>
+                        @if (!empty($data->getRoleNames()))
+                            @foreach ($data->getRoleNames() as $role)
+                            <div class="d-flex align-items-center">
+                                <label for="" class="m-0 p-1 text-capitalize badge badge-success">{{$role}}</label>                                
+                            </div>
+                            @endforeach
+                            
+                        @endif
+                    </td> --}}
+                    {{-- <td>{{$data->id}}</td> --}}
+                    <td>{{$data->name}}</td>
                     {{-- <td><button class="btn btn-secondary"><i class="bi bi-pencil-square"></i></button></td> --}}
                     <td>
                         <div class="btn-group">
@@ -67,9 +75,9 @@
                                 <i class="bi bi-pencil-square text-white"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-lg-end">
-                                <li><a href="{{route('custom.edit', $data->id)}}" class="dropdown-item"><i class="bi bi-pencil-fill text-secondary"></i>&nbsp;Ubah</a></li>
+                                <li><a href="{{route('character.edit', $data->id)}}" class="dropdown-item">Ubah</a></li>
                                 <li>
-                                    <a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete{{$data->id}}"><i class="bi bi-x-square-fill text-danger"></i>&nbsp;Hapus</a>
+                                    <a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete{{$data->id}}">Hapus</a>
                                 </li>
                             </ul>
                         </div>
@@ -88,10 +96,10 @@
                         <div class="modal-body text-center row">
                             <i class="bi bi-exclamation-circle" style="font-size: 50px"></i>
                             <h4 class="m-0 p-3">
-                                Apakah anda yakin mau menghapus karakter "{{$data->nama}}"?
+                                Apakah anda yakin mau menghapus type character "{{$data->name}}"?
                             </h4>
                         </div>
-                        <form id="logout-form" action="{{ route('custom.destroy', $data->id) }}" method="POST">
+                        <form id="logout-form" action="{{ route('character.destroy', $data->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <div class="m-3 d-flex justify-content-evenly">
@@ -107,62 +115,7 @@
 </div>
 <div class="d-flex justify-content-between m-4">
 </div>
-<script type="text/JavaScript">
-    document.getElementById("charactertext").classList.add("aktif-link");
+<script>
+    document.getElementById("user").classList.add("aktif-link");
 </script>
 @endsection
-@endrole
-@role('user')
-<div class="row">
-    <div class="col-md-4 p-0">
-        <div class="mx-auto">
-            <a id="kembali" href="#" class="text-decoration-none fw-bold">Kembali</a>
-        </div>
-    </div>
-    <h5 class="text-center fw-bold">Karakter belum dibuat</h5>
-    @foreach ($namakarakter as $cek)
-    <div class="col-md-12 p-0 mb-3">
-        <div class="d-flex align-items-center justify-content-between">
-            <div class="">
-                <a href="" class="text-decoration-none">{{$cek->nama}}</a>
-            </div>
-            <div class="">
-                <form action="{{route('custom.destroy', $cek->id)}}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger"><i class="bi bi-trash-fill text-white"></i></button>
-                </form>
-            </div>
-        </div>
-    </div>
-    @endforeach
-    {{-- <div class="col-md-12 p-0 mb-3">
-        <div class="d-flex align-items-center justify-content-between">
-            <div class="">
-                <a href="" class="text-decoration-none">p</a>
-            </div>
-            <div class="">
-                <button class="btn btn-danger"><i class="bi bi-trash-fill text-white"></i></button>
-            </div>
-        </div>
-    </div> --}}
-    <button id="create" class="btn btn-success">membuat karakter</button>
-</div>
-<script>
-    var create = '{{route('custom.create')}}';
-    var edit = '{{route('custom.index')}}';
-    var index = '{{route('custom.index')}}';
-    var home = '{{route('indexmenu')}}';
-    $(document).ready(function(){
-        $('#create').click(function () {
-            $('#content').load(create)
-        })
-        $('#edit').click(function () {
-            $('#content').load(edit)
-        })
-        $('#kembali').click(function () {
-            $('#content').load(home)
-        })
-    })
-</script>
-@endrole

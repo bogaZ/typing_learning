@@ -20,12 +20,17 @@
     </div>
 </div>
 <div class="m-4">
-    <div class="d-flex flex-row-reverse">
+    <div class="d-flex justify-content-between">
+        <a href="{{route('role.index')}}" class="btn btn-primary shadow">Role</a>
         <a href="{{route('user.create')}}" class="btn btn-success shadow">Tambah</a>
     </div>
     @if(session()->get('sukses'))
         <div class="alert alert-success mt-4">
             {{session()->get('sukses')}}
+        </div>
+    @elseif(session()->get('gagal'))
+        <div class="alert alert-danger mt-4">
+            {{session()->get('gagal')}}
         </div>
     @endif
 </div>
@@ -73,10 +78,12 @@
                                 <i class="bi bi-pencil-square text-white"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-lg-end">
-                                <li><a href="{{route('user.edit', $data->id)}}" class="dropdown-item">Ubah</a></li>
+                                <li><a href="{{route('user.edit', $data->id)}}" class="dropdown-item"><i class="bi bi-pencil-fill text-secondary"></i>&nbsp;Ubah</a></li>
+                                @if($data->admin != 'admin' && $data->id != 1)
                                 <li>
-                                    <a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete{{$data->id}}">Hapus</a>
+                                    <a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete{{$data->id}}"><i class="bi bi-x-square-fill text-danger"></i>&nbsp;Hapus</a>
                                 </li>
+                                @endif
                             </ul>
                         </div>
                     </td>

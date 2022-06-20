@@ -33,9 +33,10 @@
     </div>
 </div>
 <script>
+    var indexplay = '{{route('indexplay')}}';
     $(document).ready(function(){
         $('#kembali').click(function () {
-            $('#content').load('/menuplay')
+            $('#content').load(indexplay)
         })
         $('#mudah').click(function () {
             $('#content').load('/mudah/play')

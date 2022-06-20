@@ -34,6 +34,9 @@
                 <input type="email" name="email" value="{{$user->email}}" class="form-control" placeholder="email" id="email">
                 <label for="role">Role</label>
                 {{-- <input type="role" name="role" id="role"> --}}
+                @if($user->id == 1 && $user->name == 'admin')
+                <span type="text" class="form-control" placeholder="admin" style="background-color: #e9ecef; cursor: default">admin</span>
+                @else
                 <select name="role" id="role" class="form-control">
                     <option value="" disabled selected hidden>pilih role</option>
                     @foreach($role as $roles)
@@ -43,6 +46,7 @@
                             @endif class="">{{$roles->name}}</option>
                     @endforeach
                 </select>
+                @endif
                 <label for="password">Password</label>
                 <input type="password" name="password" class="form-control" placeholder="password" id="password">
                 <label for="konfirmasi-password">Konfirmasi Password</label>

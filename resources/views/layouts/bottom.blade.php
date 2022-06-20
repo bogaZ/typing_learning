@@ -24,7 +24,7 @@
 </script>
 
 
-@role('pengguna')
+@role('user')
 {{-- <script>
     var mengetikkata = CodeMirror.fromTextArea(
         document.getElementById('mengetikkata'),{

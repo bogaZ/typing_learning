@@ -29,7 +29,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 
 {{-- codemirror --}}
-@role('pengguna')
+@role('user')
 <link rel="stylesheet" href="{{ asset('codemirror/lib/codemirror.css')}}">
 <link rel="stylesheet" href="{{ asset('codemirror/theme/dracula.css')}}">
 <script src="{{ asset('codemirror/lib/codemirror.js') }}"></script>
@@ -87,6 +87,10 @@
           color: #3490dc;
           border-color: #3490dc;
         }
+        /* .icon-aktif{
+          color: #3490dc;
+        } */
+
         nav div a{
           color: grey;
           border-bottom: transparent 1px solid;
@@ -157,8 +161,18 @@
           .sidebar {padding-top: 15px;}
           .sidebar a {font-size: 18px;}
         }
-    </style>
 
+        .limittext{
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 350px;
+          white-space: nowrap;
+        }
+
+        #example1_wrapper{
+          overflow: auto;
+        }
+    </style>
     {{-- chart --}}
 
     

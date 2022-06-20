@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Typing;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\karakter;
+use App\User;
+use App\type;
 use Auth;
+use DB;
 
 class CustomController extends Controller
 {
@@ -26,8 +29,12 @@ class CustomController extends Controller
     {
         //
         // $tanggal = ['']
+        $alldata = karakter::all();
+        $username = Auth::user()->name;
+        // return view('admin.charactertext.index', compact('username', 'alldata'));
+
         $namakarakter = karakter::all()->where('user_id', Auth::user()->id);
-        return view('user.custom.index', compact('namakarakter'));
+        return view('user.custom.index', compact('namakarakter', 'alldata', 'username'));
     }
 
     /**
@@ -39,8 +46,10 @@ class CustomController extends Controller
     {
         //
         $userid = Auth::user()->id;
-
-        return view('user.custom.create', compact('userid'));
+        $coba = User::first();
+        $username = Auth::user()->name;
+        $typecharacter = type::all();
+        return view('user.custom.create', compact('userid', 'coba', 'username', 'typecharacter'));
     }
 
     /**
@@ -52,12 +61,21 @@ class CustomController extends Controller
     public function store(Request $request)
     {
         //
+        $userid = Auth::user()->id;
+        $role_id = DB::table('model_has_roles')->where('model_id', $userid)->value('role_id');
         $karakter = new karakter;
         $karakter->user_id = Auth::User()->id;
         $karakter->karakter = $request->karakter;
         $karakter->nama = $request->nama;
-        $karakter->save();
+        if($role_id == 1){
+            $karakter->type_id = $request->typecharacter;
+            $karakter->save();
 
+            return back()->with('sukses', 'Karakter berhasil dibuat');
+        }
+        $karakter->type_id = "1";
+        $karakter->save();
+        
         return redirect('home')->with('sukses', 'Karakter berhasil dibuat');
     }
 
@@ -70,6 +88,8 @@ class CustomController extends Controller
     public function show($id)
     {
         //
+        $karakter = karakter::find($id);
+        return view('user.custom.show', compact('karakter'));
     }
 
     /**
@@ -81,6 +101,10 @@ class CustomController extends Controller
     public function edit($id)
     {
         //
+        $karakter = karakter::find($id);
+        $username = Auth::user()->name;
+        $typecharacter = type::all();
+        return view('user.custom.edit', compact('username', 'karakter', 'typecharacter'));
     }
 
     /**

@@ -19,18 +19,21 @@
     <div class="d-grid mx-auto">
         <button id="custom" class="fw-bold btn btn-primary block">Mulai Karakter Sendiri</button>
     </div>
-    <a href="{{route('indexplaycustom')}}">play</a>
+    {{-- <a href="{{route('indexplaycustom')}}">play</a> --}}
 </div>
 <script>
+    var home = '{{route('indexmenu')}}';
+    var indexplaykesulitan = '{{route('tingkatkesulitan')}}';
+    var indexplaycustom = '{{route('indexplaycustom')}}';
     $(document).ready(function(){
         $('#kembali').click(function () {
-            $('#content').load('/menu')
+            $('#content').load(home)
         })
         $('#mulai').click(function () {
-            $('#content').load('/kesulitan')
+            $('#content').load(indexplaykesulitan)
         })
         $('#custom').click(function () {
-            $('#content').load('/playcustom')
+            $('#content').load(indexplaycustom)
         })
     })
 </script>

@@ -98,11 +98,15 @@ class UserController extends Controller
         $user = User::find($id);
         $user->name = $request->nama;
         $user->email = $request->email;
-        $user->assignRole($request->role);
+        if($id != 1){
+            $user->assignRole($request->role);
+        }else{
+            $user->assignRole('admin');
+        }
         $user->password = Hash::make($request->password);
         $user->update();
 
-        return redirect()->route('user.index')->with('sukses', 'User berhasil diubah!');
+        return redirect()->route('user.index')->with('sukses', 'User '.$user->name.' berhasil diubah!');
     }
 
     /**
@@ -114,9 +118,15 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
-        User::find($id)->delete();
-
-        return back()->with('sukses', 'User berhasil dihapus!');
-        // User::find($id)->delete;
+        if(Auth::user()->id == 1){
+            if(Auth::user()->id == $id){
+                return back()->with('gagal', 'Anda tidak dapat menghapus admin!');
+            }
+            User::find($id)->delete();
+    
+            return back()->with('sukses', 'User berhasil dihapus!');
+            // User::find($id)->delete;
+        }
+        return back()->with('gagal', 'Anda tidak mendapat hak akses menghapus user!');
     }
 }

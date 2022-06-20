@@ -72,13 +72,15 @@
                                     <button id="reload" class="btn btn-secondary block"><i class="bi bi-arrow-clockwise"></i></button>
                                 </div>
                             </div>
-                            <script>
+                            <script type="text/javaScript">
+                                var indexcustom = '{{route('custom.index')}}';
+                                var indexplay = '{{route('indexplay')}}';
                                 $(document).ready(function(){
                                     $('#mulai').click(function () {
-                                        $('#content').load('/menuplay')
+                                        $('#content').load(indexplay)
                                     })
                                     $('#custom').click(function () {
-                                        $('#content').load('/menucustom')
+                                        $('#content').load(indexcustom)
                                     })
                                 })
                             </script>

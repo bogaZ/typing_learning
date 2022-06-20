@@ -27,12 +27,14 @@
     </div>
 </div>
 <script>
+    var indexplay = '{{route('indexplay')}}';
+    var indexcustom = '{{route('custom.index')}}';
     $(document).ready(function(){
         $('#mulai').click(function () {
-            $('#content').load('/menuplay')
+            $('#content').load(indexplay)
         })
         $('#custom').click(function () {
-            $('#content').load('/menucustom')
+            $('#content').load(indexcustom)
         })
     })
 </script>
