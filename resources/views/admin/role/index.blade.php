@@ -14,15 +14,15 @@
         <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
             <p class="m-0">
                 <a href="{{route('home')}}" class="text-decoration-none">Dashboard</a>
-                / Type Character
+                / Role
             </p>
         </div>
     </div>
 </div>
 <div class="m-4">
     <div class="d-flex justify-content-between">
-        <a href="{{route('custom.index')}}" class="btn btn-primary shadow">Character</a>
-        <a href="{{route('character.create')}}" class="btn btn-success shadow">Tambah Type Character</a>
+        <a href="{{route('user.index')}}" class="btn btn-primary shadow">User</a>
+        <a href="{{route('role.create')}}" class="btn btn-success shadow">Tambah Role</a>
         {{-- <div>
             <a href="{{route('custom.create')}}" class="btn btn-success shadow">Tambah Character</a>
         </div> --}}
@@ -99,7 +99,7 @@
                                 Apakah anda yakin mau menghapus type character "{{$data->name}}"?
                             </h4>
                         </div>
-                        <form id="logout-form" action="{{ route('character.destroy', $data->id) }}" method="POST">
+                        <form id="logout-form" action="{{ route('role.destroy', $data->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <div class="m-3 d-flex justify-content-evenly">

@@ -25,7 +25,8 @@ Route::get('/kesulitan/pemrograman', 'Typing\MenuController@getpemrograman')->na
 Route::get('/kesulitan/pemrograman/php', 'Typing\MenuController@getphp')->name('php');
 Route::get('/kesulitan/pemrograman/js', 'Typing\MenuController@getjs')->name('js');
 Route::get('/customindex', 'Typing\MenuController@getcustom')->name('indexcustom');
-Route::get('/mudah/play', 'Typing\PlayingController@playmudah')->name('playamudah');
+Route::get('/mudah/play', 'Typing\PlayingController@playmudah')->name('playmudah');
+Route::get('/normal/play', 'Typing\PlayingController@playnormal')->name('playnormal');
 // Route::get('/custom/play', 'Typing\MenuController@getcustom')->name('indexcustom');
 
 Route::group(['prefix'=> 'home'], function () {

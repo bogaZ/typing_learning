@@ -9,14 +9,14 @@
             </button>
         </div>
         <div class="d-flex align-items-center justify-content-center col-md-4 p-3 m-0">
-            <h3 class="m-0">Create Type Character</h3>
+            <h3 class="m-0">Create Role</h3>
         </div>
         <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
             <p class="m-0">
                 <a href="{{route('home')}}" class="text-decoration-none">Dashboard</a>
                 /
-                <a href="{{route('character.index')}}" class="text-decoration-none">Character</a>
-                / Create Type Character
+                <a href="{{route('role.index')}}" class="text-decoration-none">Role</a>
+                / Create Role
             </p>
         </div>
     </div>
@@ -24,9 +24,9 @@
 <div class="m-4">
     <div class="p-0 d-flex justify-content-center">
         <div class="p-5 card bg-white shadow col-md-5">
-            <form action="{{route('character.store')}}" method="post">
+            <form action="{{route('role.store')}}" method="post">
                 @csrf
-                <label for="characterinput">nama type character</label>
+                <label for="characterinput">Nama Role</label>
                 <input type="text" name="name" id="characterinput" class="form-control mb-3">
                 <button type="submit" class="btn btn-primary col-md-12">Submit</button>
             </form>

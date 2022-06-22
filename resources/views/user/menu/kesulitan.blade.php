@@ -17,7 +17,8 @@
 <br>
 <div class="row">
     <div class="d-grid mx-auto">
-        <button id="normal" class="btn btn-primary block">Normal</button>
+        {{-- <button id="normal" class="btn btn-primary block">Normal</button> --}}
+        <a id="normal" href="{{route('playnormal')}}" class="btn btn-primary block">Normal</a>
     </div>
 </div>
 <br>
@@ -34,15 +35,16 @@
 </div>
 <script>
     var indexplay = '{{route('indexplay')}}';
+    var playnormal = '{{route('playnormal')}}';
     $(document).ready(function(){
         $('#kembali').click(function () {
             $('#content').load(indexplay)
         })
         $('#mudah').click(function () {
-            $('#content').load('/mudah/play')
+            $('#content').load(playnormal)
         })
         $('#normal').click(function () {
-            $('#content').load('/playcustom')
+            $('#content').load('/normal/play')
         })
         $('#susah').click(function () {
             $('#content').load('/kesulitan')

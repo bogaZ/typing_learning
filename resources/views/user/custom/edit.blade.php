@@ -24,7 +24,7 @@
     </div>
     <div class="d-flex justify-content-center">
         <div class="card p-5 shadow col-md-6 mx-4">
-            <form action="{{route('custom.update')}}" method="POST">
+            <form action="{{route('custom.update', $karakter->id)}}" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-md-12">

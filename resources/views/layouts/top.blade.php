@@ -30,10 +30,14 @@
 
 {{-- codemirror --}}
 @role('user')
+{{-- css --}}
+{{-- <link rel="stylesheet" href="{{asset('bagus/play/style.css')}}"> --}}
+{{-- js --}}
 <link rel="stylesheet" href="{{ asset('codemirror/lib/codemirror.css')}}">
 <link rel="stylesheet" href="{{ asset('codemirror/theme/dracula.css')}}">
 <script src="{{ asset('codemirror/lib/codemirror.js') }}"></script>
 <script src="{{ asset('codemirror/mode/xml/xml.js')}}"></script>
+
 @endrole
 
 {{-- datatable js --}}
@@ -83,9 +87,10 @@
 
         .aktif-link {
           border-right: solid 4px;
-          border-bottom: solid 1px;
+          /* border-bottom: solid 1px; */
           color: #3490dc;
-          border-color: #3490dc;
+          background-color: rgb(205, 223, 255)
+          /* border-color: #3490dc; */
         }
         /* .icon-aktif{
           color: #3490dc;

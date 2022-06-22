@@ -1,8 +1,4 @@
 <div class="row">
-    {{-- <div>
-        <h6 class="fw-bold text-center">{{$kata}}</h6>
-        <p>jumlah kata: {{$jumlahkata}}</p>
-    </div> --}}
     <div class="col-md-4">
         <div class="mx-auto">
             <a id="kembali" href="#" class="text-decoration-none fw-bold">Kembali</a>

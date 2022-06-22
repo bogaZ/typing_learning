@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 use DB;
+use App\Role;
 
 class RoleController extends Controller
 {
@@ -46,6 +47,12 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         //
+        $role = new Role();
+        $role->name = $request->name;
+        $role->guard_name = 'web';
+        $role->save();
+
+        return redirect()->route('role.index')->with('sukses', 'type berhasil dibuat!');
     }
 
     /**
@@ -84,6 +91,12 @@ class RoleController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $role = new Role();
+        $role->name = $request->name;
+        $role->guard_name = 'web';
+        $role->save();
+
+        return redirect()->route('role.index')->with('sukses', 'type berhasil dibuat!');
     }
 
     /**
