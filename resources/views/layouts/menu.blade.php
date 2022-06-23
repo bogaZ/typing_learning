@@ -1,14 +1,10 @@
-<div class="" id="content">
+{{-- <div class="" id="content">
     <h6 class="text-center fw-bold">Pilih</h6>
     <br>
     <div class="row">
         <div class="d-grid mx-auto">
             <button id="mulai" class="btn btn-primary block fw-bold">Mulai</button>
         </div>
-        {{-- {{$kata}}
-        <br>
-        jumlah:
-        {{$jumlahkata}} --}}
     </div>
     <br>
     <div class="row">
@@ -37,5 +33,53 @@
             $('#content').load(indexcustom)
         })
     })
-</script>
-@include('user.ubahbahasa.reload')
+</script> --}}
+{{-- @include('user.ubahbahasa.reload') --}}
+
+<div class="col-md-12">
+    <a class="text-right flex-row-reverse d-flex text-dark fw-bold text-decoration-none">Dashboard</a>
+</div>
+<div class="col-md-12">
+    <div class="shadow p-3 mb-5 rounded border border-dark bg-white">
+        <div class="card-body">
+            <div class="my-5 mx-5">
+                <div class="">
+                    <h6 class="text-center fw-bold">Pilih</h6>
+                    <br>
+                    <div class="row">
+                        <div class="d-grid mx-auto">
+                            <button id="mulai" class="btn btn-primary block fw-bold">Mulai</button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="d-grid mx-auto">
+                            <button id="custom" class="btn btn-primary block fw-bold">Buat Karakter</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="d-grid col-md-6 justify-content-md-start">
+                        <button id="setting" class="btn btn-secondary block"><i class="bi bi-gear-fill"></i></button>
+                    </div>
+                    <div class="d-grid col-md-6 justify-content-md-end">
+                        <button id="reload" class="btn btn-secondary block"><i class="bi bi-arrow-clockwise"></i></button>
+                    </div>
+                </div>
+                <script type="text/javaScript">
+                    var indexcustom = '{{route('custom.index')}}';
+                    var indexplay = '{{route('indexplay')}}';
+                    $(document).ready(function(){
+                        $('#mulai').click(function () {
+                            $('#content').load(indexplay)
+                        })
+                        $('#custom').click(function () {
+                            $('#content').load(indexcustom)
+                        })
+                    })
+                </script>
+            </div>
+        </div>
+    </div>
+</div>

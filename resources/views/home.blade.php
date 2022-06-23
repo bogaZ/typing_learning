@@ -33,28 +33,21 @@
             </div>
         </div> --}}
         {{-- user bahasa --}}
-        <div class="row justify-content-center">
-            <div class="col-md-8">
+        <div class="row" id="content">
+            {{-- <div class="col-md-12">
+                <a class="text-right flex-row-reverse d-flex text-dark fw-bold text-decoration-none">Dashboard</a>
+            </div>
+            <div class="col-md-12">
                 <div class="shadow p-3 mb-5 rounded border border-dark bg-white">
                     <div class="card-body">
-                        <div class="my-5 mx-5" id="content">
-                            {{-- <div class="row">
-                                <div class="d-grid mx-auto">
-                                    <button id="kembali" class="btn btn-danger block">Kembali</button>
-                                </div>
-                            </div>
-                            <br> --}}
-                            <div class="" id="content">
+                        <div class="my-5 mx-5">
+                            <div class="">
                                 <h6 class="text-center fw-bold">Pilih</h6>
                                 <br>
                                 <div class="row">
                                     <div class="d-grid mx-auto">
                                         <button id="mulai" class="btn btn-primary block fw-bold">Mulai</button>
                                     </div>
-                                    {{-- {{$kata}}
-                                    <br>
-                                    jumlah:
-                                    {{$jumlahkata}} --}}
                                 </div>
                                 <br>
                                 <div class="row">
@@ -87,10 +80,22 @@
                         </div>
                     </div>
                 </div>
+            </div> --}}
+            @include('layouts.menu')
+        </div>
+    </div>
+
+    {{-- <div class="col-md-12">
+        <a class="text-right flex-row-reverse d-flex text-dark fw-bold text-decoration-none">Dashboard</a>
+    </div>
+    <div class="col-md-12">
+        <div class="shadow p-3 mb-5 rounded border border-dark bg-white">
+            <div class="card-body">
+                <div class="my-5 mx-5">
+                </div>
             </div>
         </div>
-        
-    </div>
+    </div> --}}
 @endrole
 {{-- end user home --}}
 

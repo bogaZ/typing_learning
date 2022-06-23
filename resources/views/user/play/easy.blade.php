@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-4">
         <div class="mx-auto">
-            <a id="kembali" href="#" class="text-decoration-none fw-bold">Kembali</a>
+            <a id="kembali" href="javascript:void(0)" class="text-decoration-none fw-bold">Kembali</a>
         </div>
     </div>
     <div class="col-md-4">
@@ -19,9 +19,6 @@
     </div>
     <div class="col-md-2 d-grid">
         <span>Score: </span>
-        {{-- <button type="submit" class="btn btn-primary">simpan</button>
-        <button type="submit" class="btn btn-primary my-3">reset</button>
-        <button type="submit" class="btn btn-danger">hapus</button> --}}
     </div>
 </div>
 {{-- <script>
@@ -37,9 +34,10 @@
      });
 </script> --}}
 <script>
+    var tingkatkesulitan = '{{route('tingkatkesulitan')}}';
     $(document).ready(function(){
         $('#kembali').click(function () {
-            $('#content').load('/menuplay')
+            $('#content').load(tingkatkesulitan)
         })
     })
 </script>
