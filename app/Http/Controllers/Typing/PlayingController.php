@@ -11,12 +11,13 @@ class PlayingController extends Controller
 {
     //easy mode
     public function playmudah(){
-        $katas = karakter::where('type_id', 2)->inRandomOrder()->limit(1)->get();
-        foreach($katas as $data){
-            $kata = $data->karakter;
-        }
-        $jumlahkata = strlen($kata);
-        return view('user.play.easy', compact('kata', 'jumlahkata'));
+        // $katas = karakter::where('type_id', 2)->inRandomOrder()->limit(1)->get();
+        // foreach($katas as $data){
+        //     $kata = $data->karakter;
+        // }
+        // $jumlahkata = strlen($kata);
+        $kata = karakter::where('type_id', 2)->get();
+        return view('user.play.easy', compact('kata'));
     }
     //normal mode
     public function playnormal(){
