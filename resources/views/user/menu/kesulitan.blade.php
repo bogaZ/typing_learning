@@ -35,16 +35,17 @@
 </div>
 <script>
     var indexplay = '{{route('indexplay')}}';
+    var playmudah = '{{route('playmudah')}}';
     var playnormal = '{{route('playnormal')}}';
     $(document).ready(function(){
         $('#kembali').click(function () {
             $('#content').load(indexplay)
         })
         $('#mudah').click(function () {
-            $('#content').load(playnormal)
+            $('#content').load(playmudah)
         })
         $('#normal').click(function () {
-            $('#content').load('/normal/play')
+            $('#content').load(playnormal)
         })
         $('#susah').click(function () {
             $('#content').load('/kesulitan')
