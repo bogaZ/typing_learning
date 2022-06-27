@@ -173,7 +173,7 @@
             let randTeks = Math.floor(Math.random() * co.length);
             typingText.innerHTML = "";
             var teks = co[randTeks].karakter.toString().replace(/(\r\n|\n|\r)/gm, "\n");
-            console.log(co[randTeks].karakter.trim());
+            // console.log(co[randTeks].karakter.trim());
             teks.split("").forEach(span => {
                 let spanTag = `<span>${span}</span>`;
                 typingText.innerHTML += spanTag;
@@ -198,7 +198,7 @@
             let typeChar = inpField.value.split("")[charIndex];
             let TypeWords = inpField.value.split("")[charcpm];
             // console.log(TypeWords);
-            console.log(characters[0].innerText.split(""));
+            // console.log(characters[0].innerText.split(""));
             if (charIndex < characters.length - 1 && timeLeft > -1) {
                 if(!isTyping){
                     // console.log(isTyping);
@@ -221,27 +221,27 @@
                     if(characters[charIndex].innerText === typeChar){
                         // character same
                         characters[charIndex].classList.add("correct");
-                        console.log("correct");
+                        // console.log("correct");
                     }else{
                         // charachter not same
                         mistakes++;
                         characters[charIndex].classList.add("incorrect");
-                        console.log("incorrect");
+                        // console.log("incorrect");
                     }
                     charIndex++;
                     // console.log(charIndex);
                 }
                 characters.forEach(span => span.classList.remove("active"));
                 characters[charIndex].classList.add("active");
-                console.log("charindex "+charIndex);
-                console.log("charindex "+characters.length);
+                // console.log("charindex "+charIndex);
+                // console.log("charindex "+characters.length);
                 // console.log("charindex"+)
             
                 let wpm = Math.round((((charIndex - mistakes) / 5) / (maxTime - timeLeft)) * 60);
                 // let tesss = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
                 let cpmresult = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
                 cpmresult = cpmresult < 0 || cpmresult === Infinity ? 0 : cpmresult;
-                console.log(cpmresult);
+                // console.log(cpmresult);
                 mistageTag.innerHTML = mistakes;
                 wpmTag.innerText = cpmresult;
                 cpmTag.innerText = charIndex - mistakes;
