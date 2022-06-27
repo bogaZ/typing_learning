@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\karakter;
 use App\User;
 use App\type;
+use App\Bahasa;
 use Auth;
 use DB;
 
@@ -49,7 +50,8 @@ class CustomController extends Controller
         $coba = User::first();
         $username = Auth::user()->name;
         $typecharacter = type::all();
-        return view('user.custom.create', compact('userid', 'coba', 'username', 'typecharacter'));
+        $allbahasa = Bahasa::all();
+        return view('user.custom.create', compact('userid', 'coba', 'username', 'allbahasa', 'typecharacter'));
     }
 
     /**
@@ -68,11 +70,13 @@ class CustomController extends Controller
         $karakter->karakter = $request->karakter;
         $karakter->nama = $request->nama;
         if($role_id == 1){
+            $karakter->bahasa_id = $request->bahasa;
             $karakter->type_id = $request->typecharacter;
             $karakter->save();
-
+            
             return back()->with('sukses', 'Karakter berhasil dibuat');
         }
+        $karakter->bahasa_id = "1";
         $karakter->type_id = "1";
         $karakter->save();
         

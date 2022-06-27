@@ -13,5 +13,8 @@ class karakter extends Model
     public function type(){
         return $this->belongsTo(type::class);
     }
+    public function bahasa(){
+        return $this->belongsTo(Bahasa::class);
+    }
 
 }

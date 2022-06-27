@@ -51,6 +51,16 @@
                         </select>
                     </div>
                 </div>
+                <div class="row my-3">
+                    <div class="col-md-12 d-grid">
+                        <select name="bahasa" id="" class="form-control">
+                            <option value="" hidden selected disabled class="">Pilih Bahasa</option>
+                            @foreach($allbahasa as $bahasa)
+                                <option value="{{$bahasa->id}}" class="">{{$bahasa->bahasa}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
                 {{$coba->role}}
                 <div class="row">
                     <div class="col-md-6 d-grid">

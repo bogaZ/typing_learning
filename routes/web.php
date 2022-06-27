@@ -39,6 +39,7 @@ Route::group(['prefix'=> 'home'], function () {
     Route::resource('/user', 'User\UserController');
     Route::resource('/role', 'Admin\RoleController');
     Route::resource('/character', 'Admin\TypeController');
+    Route::resource('/bahasa', 'Admin\BahasaController');
 });
 
 // beta

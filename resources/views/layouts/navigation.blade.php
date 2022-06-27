@@ -113,6 +113,7 @@
             <a id="charactertext" href="{{route('custom.index')}}" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i id="" class="bi bi-file-earmark-text-fill" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Text</a>
             <a id="" href="#" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-bell" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notification</a>
             <a id="" href="#" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-trash" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Trash</a>
+            <a id="" href="{{route('bahasa.index')}}" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-trash" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bahasa</a>
             
         </div>
         <div>
