@@ -62,9 +62,11 @@
         <a href="{{route('welcome')}}" class="navbar-brand p-0">
             <h1 class="m-0"><i class="fa fa-keyboard me-2 text-white"></i>NgeTeks</h1>
         </a>
+        @if(!Route::has('playmudah'))
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars"></span>
         </button>
+        @endif
         <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
             @auth
                 <a href="{{route('home')}}" class="btn btn-primary py-2 px-4 ms-3">Home</a>

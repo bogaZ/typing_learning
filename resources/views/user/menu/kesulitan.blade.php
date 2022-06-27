@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="d-grid mx-auto">
                         {{-- <button id="mudah" class="btn btn-primary block">Mudah</button> --}}
-                        <a id="mudah" href="{{route('playmudah')}}" class="btn btn-primary block">Normal</a>
+                        <a id="mudah" href="{{route('playmudah')}}" class="btn btn-primary block">Mudah</a>
                     </div>
                 </div>
                 <br>

@@ -182,3 +182,16 @@
 
     
 @endrole
+@auth
+@if(Route::has('playnormal'))
+<style>
+  .bg-play {
+    background: rgb(160 203 255);
+  }
+  /* @media screen and (max-height: 450px) {
+    .ul {display: flex}
+  } */
+</style>
+<link rel="stylesheet" href="{{asset('bagus/beta/style.css')}}">
+@endif
+@endauth

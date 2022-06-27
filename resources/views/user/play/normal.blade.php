@@ -1,73 +1,129 @@
-{{-- <div class="wrapper">
-    <textarea name="text" class="input-field" id="" cols="30" rows="10"></textarea>
-    <div class="content-box">
-        <p id="timeout" class="text-center"></p>
-        <div class="typing-text">
-            <p>{{$kata}}</p>
-        </div>
-        <div class="content">
-            <ul class="result-details">
-                <li class="time">
-                    <p>Time left:</p>
-                    <span><b>0</b>s</span>
-                </li>
-                <li class="mistake">
-                    <p>Mistakes:</p>
-                    <span>0</span>
-                </li>
-                <li class="wpm">
-                    <p>WPM:</p>
-                    <span>0</span>
-                </li>
-                <li class="cpm">
-                    <p>CPM:</p>
-                    <span>0</span>
-                </li>
-            </ul>
-            <button>Try</button>
-        </div>
+{{-- @extends('layouts.master') --}}
+{{-- @include('layouts.top') --}}
+{{-- <!doctype HTML5>
+<html>
+<head>
+    @include('layouts.top')
+</head>
+
+<body>
+    @include('layouts.navigation') --}}
+    {{-- <div id="app">
+        @include('layouts.navigation')
+        <main class="" id="main">
+            @yield('content')
+        </main>
     </div>
-</div> --}}
+
+    @include('layouts.bottom') --}}
+{{-- </body>
+</html>
+@include('layouts.navigation') --}}
+
+{{-- @section('content') --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Beta</title>
+    <title>Normal - NgeTeks</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{asset('bagus/beta/style.css')}}">
-    {{-- <script src="{{asset('bagus/beta/script.js')}}"></script>
-    <script src="{{asset('bagus/beta/paragraphs.js')}}"></script> --}}
 </head>
 <body>
-    <div class="wrapper">
-        {{-- <input type="text" class="input-field"> --}}
-        <textarea name="text" class="input-field" id="" cols="30" rows="10"></textarea>
-        <div class="content-box">
-            <p id="timeout" class="text-center"></p>
-            <div class="typing-text">
-                <p></p>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5 py-2 mb-5">
+        <a href="{{route('welcome')}}" class="navbar-brand p-0">
+            <h1 class="m-0 font-nunnis"><i class="fa fa-keyboard me-2 text-white"></i>NgeTeks</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+            @auth
+                <a href="{{route('home')}}" class="btn btn-primary py-2 px-4 ms-3">Home</a>
+                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();" class="btn btn-danger py-2 px-4 ms-3">Keluar</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            @else
+                @if(Route::has('login'))
+                @else
+                    <a href="{{ route('login') }}" class="btn btn-primary py-2 px-4 ms-3">Login</a>
+
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="btn btn-primary py-2 px-4 ms-3">Register</a>
+                    @endif
+                @endif
+            @endauth
+        </div>
+    </nav>
+
+    {{-- <div class="card m-5 shadow border-none">
+        <div class="wrapper">
+            <textarea name="text" class="input-field" id="" cols="30" rows="10"></textarea>
+            <div class="content-box">
+                <p id="timeout" class="text-center"></p>
+                <div class="typing-text">
+                    <p></p>
+                </div>
+                <div class="content d-flex align-items-center">
+                    <ul class="result-details m-0">
+                        <li class="time">
+                            <p class="m-0">Time left:</p>
+                            <span><b>0</b>s</span>
+                        </li>
+                        <li class="mistake">
+                            <p class="m-0">Mistakes:</p>
+                            <span>0</span>
+                        </li>
+                        <li class="wpm">
+                            <p class="m-0">WPM:</p>
+                            <span>0</span>
+                        </li>
+                        <li class="cpm">
+                            <p class="m-0">CPM:</p>
+                            <span>0</span>
+                        </li>
+                    </ul>
+                    <button>Try</button>
+                </div>
             </div>
-            <div class="content">
-                <ul class="result-details">
-                    <li class="time">
-                        <p>Time left:</p>
-                        <span><b>0</b>s</span>
-                    </li>
-                    <li class="mistake">
-                        <p>Mistakes:</p>
-                        <span>0</span>
-                    </li>
-                    <li class="wpm">
-                        <p>WPM:</p>
-                        <span>0</span>
-                    </li>
-                    <li class="cpm">
-                        <p>CPM:</p>
-                        <span>0</span>
-                    </li>
-                </ul>
-                <button>Try</button>
+        </div>
+    </div> --}}
+    
+    <div class="card m-5 shadow border-none">
+        <div class="wrapper">
+            <textarea name="text" class="input-field" id="" cols="30" rows="10"></textarea>
+            <div class="content-box">
+                <p id="timeout" class="text-center"></p>
+                <div class="typing-text">
+                    <p></p>
+                </div>
+                <div class="content d-flex align-items-center">
+                    <ul class="result-details m-0">
+                        <li class="time">
+                            <p class="m-0">Time left:</p>
+                            <span><b>0</b>s</span>
+                        </li>
+                        <li class="mistake">
+                            <p class="m-0">Mistakes:</p>
+                            <span>0</span>
+                        </li>
+                        <li class="wpm">
+                            <p class="m-0">WPM:</p>
+                            <span>0</span>
+                        </li>
+                        <li class="cpm">
+                            <p class="m-0">CPM:</p>
+                            <span>0</span>
+                        </li>
+                    </ul>
+                    <button>Try</button>
+                </div>
             </div>
         </div>
     </div>
@@ -188,5 +244,7 @@
         inpField.addEventListener("input", initTyping);
         btnTry.addEventListener("click", reset);
     </script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> --}}
 </body>
 </html>
+{{-- @endsection --}}
