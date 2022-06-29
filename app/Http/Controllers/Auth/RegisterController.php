@@ -5,9 +5,13 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Bahasa_user;
+// use App\Role;
+use Spatie\Permission\Models\Role;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 class RegisterController extends Controller
 {
@@ -53,6 +57,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'bahasa' => ['required', 'string'],
         ]);
     }
 
@@ -64,10 +69,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        // $userid = Auth::user()->id;
+        $userid = $user->id;
+        $bahasa = Bahasa_user::create([
+            'user_id' => $userid,
+            'bahasa_id' => $data['bahasa']
+        ]);
+        $bahasa->save();
+        $role = Role::find(2);
+        $user->assignRole($role);
+        return $user;
     }
 }

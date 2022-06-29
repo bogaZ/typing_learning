@@ -41,6 +41,22 @@
 
                         <div class="form-group mx-5 justify-content-center">
                             <div class="">
+                                <select name="bahasa" id="bahasa" class="text-center form-control">
+                                    <option selected hidden disabled>pilih bahasa</option>
+                                    <option value="2" class="text-center">Indonesia</option>
+                                    <option value="3" class="text-center">Inggris</option>
+                                </select>
+
+                                @error('bahasa')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group mx-5 justify-content-center">
+                            <div class="">
                                 <input id="password" type="password" placeholder="kata sandi" class="text-center form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
