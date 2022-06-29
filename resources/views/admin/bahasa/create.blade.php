@@ -35,4 +35,7 @@
 </div>
 <div>
 </div>
+<script>
+    document.getElementById("bahasa").classList.add("aktif-link");
+</script>
 @endsection

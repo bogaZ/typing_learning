@@ -108,12 +108,12 @@
             {{-- <a href="#" class="position-relative align-item-center border-end border-5 border-bottom border-primary"><div class="d-flex align-items-center"><i id="dashboard" class="bi bi-speedometer"></i><p class="m-0">Dashboard</p></div></a> --}}
             <a id="dashboard" href="{{route('home')}}" alt="dashboard" class="{{ Route::is('about') ? 'bg-primary' : '' }} d-flex align-items-center" style="font-size: 14px"><i class="bi bi-speedometer" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dashboard</a>
             <a id="user" href="{{route('user.index')}}" id="user" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-person-fill" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User</a>
-            <a id="" href="#" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-graph-up" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Statistik</a>
+            <a id="statistik" href="#" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-graph-up" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Statistik</a>
             <a id="role" href="#" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-person-lines-fill" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Role</a>
             <a id="charactertext" href="{{route('custom.index')}}" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i id="" class="bi bi-file-earmark-text-fill" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Text</a>
-            <a id="" href="#" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-bell" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notification</a>
-            <a id="" href="#" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-trash" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Trash</a>
-            <a id="" href="{{route('bahasa.index')}}" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-trash" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bahasa</a>
+            <a id="notifikasi" href="#" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-bell" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notification</a>
+            <a id="trash" href="#" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-trash" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Trash</a>
+            <a id="bahasa" href="{{route('bahasa.index')}}" alt="bahasa" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-globe2" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bahasa</a>
             
         </div>
         <div>
@@ -153,8 +153,7 @@
         document.getElementById("dashboard").classList.add("aktif-link");
     </script> --}}
 @endrole
-@auth
-@else
+@guest
     <nav id="nav" class="navbar-expand-lg navbar-dark bg-dark px-5 py-2 mb-5" style="height: 60px">
         <div class="d-flex justify-content-between">
             <div>

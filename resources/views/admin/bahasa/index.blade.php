@@ -138,6 +138,6 @@
     });
 </script> --}}
 <script>
-    document.getElementById("user").classList.add("aktif-link");
+    document.getElementById("bahasa").classList.add("aktif-link");
 </script>
 @endsection

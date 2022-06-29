@@ -113,6 +113,13 @@
 @section('content') --}}
     {{-- <div class="d-flex justify-content-center"> --}}
         <div class="d-flex justify-content-center">
+            <select name="" id="" class="py-1 px-3 rounded border-none shadow" style="appearance: none;">
+                <option disabled hidden selected>Pilih Bahasa</option>
+                <option value="1" class="">Indonesia</option>
+                <option value="2" class="">Inggris</option>
+            </select>
+        </div>
+        <div class="d-flex justify-content-center my-3">
             <div class="col-md-8">
                 <div class="card shadow border-none">
                     <div class="wrapper">
