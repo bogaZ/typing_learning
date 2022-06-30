@@ -6,6 +6,9 @@ use Illuminate\Support\Arr;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\karakter;
+use App\User;
+use App\Bahasa_user;
+use Auth;
 
 class PlayingController extends Controller
 {
@@ -16,8 +19,12 @@ class PlayingController extends Controller
         //     $kata = $data->karakter;
         // }
         // $jumlahkata = strlen($kata);
-        $kata = karakter::where('type_id', 2)->get();
-        return view('user.play.easy', compact('kata'));
+        $uid = Auth::user();
+        $bahasaindonesia = 2;
+        $bahasainggris = 3;
+        // $bahasa = Bahasa_user::where('user_id', $uid)->get();
+        $kata = karakter::where(['type_id' => 2, 'bahasa_id' => $uid->bahasa_id])->get();
+        return view('user.play.easy', compact('kata', 'uid', 'bahasaindonesia', 'bahasainggris'));
     }
     //normal mode
     public function playnormal(){
@@ -41,5 +48,12 @@ class PlayingController extends Controller
     //custom mode
     public function playcustom(){
         return view('user.playwithcustom.index');
+    }
+    public function ubahbahasa(Request $request, $id){
+        // $uid = Auth::user()->id;
+        $bahasa = User::find($id);
+        $bahasa->bahasa_id = $request->bahasa;
+        $bahasa->save();
+        return back();
     }
 }

@@ -34,6 +34,7 @@ Route::group(['prefix'=> 'home'], function () {
     Route::group(['prefix'=> 'menuplay'], function () {
         Route::get('/playcustom', 'Typing\MenuController@getplaycustom')->name('indexplaycustom');
         Route::get('/kesulitan', 'Typing\MenuController@getkesulitan')->name('tingkatkesulitan');
+        Route::post('/gantibahasa/{id}', 'Typing\PlayingController@ubahbahasa')->name('ubahbahasa');
     });
     Route::resource('/custom', 'Typing\CustomController');
     Route::resource('/user', 'User\UserController');

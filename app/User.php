@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'bahasa_id',
     ];
 
     /**
@@ -41,5 +41,8 @@ class User extends Authenticatable
 
     public function karakter(){
         return $this->hasMany(karakter::class);
+    }
+    public function Bahasa(){
+        return $this->belongsTo(Bahasa::class);
     }
 }

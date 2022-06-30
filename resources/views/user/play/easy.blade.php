@@ -112,13 +112,21 @@
 
 @section('content') --}}
     {{-- <div class="d-flex justify-content-center"> --}}
-        <div class="d-flex justify-content-center">
-            <select name="" id="" class="py-1 px-3 rounded border-none shadow" style="appearance: none;">
-                <option disabled hidden selected>Pilih Bahasa</option>
-                <option value="1" class="">Indonesia</option>
-                <option value="2" class="">Inggris</option>
-            </select>
-        </div>
+        <form action="{{route('ubahbahasa', $uid->id)}}" method="post">
+            @csrf
+            <div class="d-flex justify-content-center">
+                <select name="bahasa" id="" class="py-1 px-3 rounded border-none shadow" style="appearance: none;">
+                    <option disabled hidden selected>Pilih Bahasa</option>
+                    {{-- @foreach ($allbahasa as $bahasa)
+                        
+                    <option value="hidden" class="">{{$bahasa->bahasa}}</option>
+                    @endforeach --}}
+                    <option value="2" class="">Indonesia</option>
+                    <option value="3" class="">Inggris</option>
+                </select>
+                <button type="submit" class="btn btn-primary">ubah bahasa</button>
+            </div>
+        </form>
         <div class="d-flex justify-content-center my-3">
             <div class="col-md-8">
                 <div class="card shadow border-none">

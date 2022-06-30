@@ -13,11 +13,14 @@ class CreateBahasaUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('bahasa_users', function (Blueprint $table) {
+        // Schema::create('bahasa_users', function (Blueprint $table) {
             // $table->id();
-            $table->foreignId('user_id');
-            $table->integer('bahasa_id');
-            $table->timestamps();
+        //     $table->foreignId('user_id');
+        //     $table->integer('bahasa_id');
+        //     $table->timestamps();
+        // });
+        Schema::table('users', function (Blueprint $table) {
+            $table->bigInteger('bahasa_id')->nullable();
         });
     }
 
@@ -28,6 +31,9 @@ class CreateBahasaUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bahasa_users');
+        // Schema::dropIfExists('bahasa_users');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('bahasa_id');
+        });
     }
 }
