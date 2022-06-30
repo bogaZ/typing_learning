@@ -115,16 +115,19 @@
         <form action="{{route('ubahbahasa', $uid->id)}}" method="post">
             @csrf
             <div class="d-flex justify-content-center">
-                <select name="bahasa" id="" class="py-1 px-3 rounded border-none shadow" style="appearance: none;">
-                    <option disabled hidden selected>Pilih Bahasa</option>
-                    {{-- @foreach ($allbahasa as $bahasa)
-                        
-                    <option value="hidden" class="">{{$bahasa->bahasa}}</option>
-                    @endforeach --}}
-                    <option value="2" class="">Indonesia</option>
-                    <option value="3" class="">Inggris</option>
+                <select name="bahasa" id="" class="py-1 px-3 rounded border-none shadow me-1" style="appearance: none;">
+                    {{-- <option disabled hidden selected>Pilih Bahasa</option> --}}
+                    @foreach ($allbahasa as $bahasa)
+                    <option value={{$bahasa->id}}
+                        @if ($bahasa->id == $uid->bahasa_id)
+                            selected
+                        @endif
+                        class="">{{$bahasa->bahasa}}</option>
+                    @endforeach
+                    {{-- <option value="2" class="">Indonesia</option>
+                    <option value="3" class="">Inggris</option> --}}
                 </select>
-                <button type="submit" class="btn btn-primary">ubah bahasa</button>
+                <button type="submit" class="ms-1 btn btn-primary">ubah bahasa</button>
             </div>
         </form>
         <div class="d-flex justify-content-center my-3">

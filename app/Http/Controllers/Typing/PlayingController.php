@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\karakter;
 use App\User;
+use App\Bahasa;
 use App\Bahasa_user;
 use Auth;
 
@@ -20,11 +21,12 @@ class PlayingController extends Controller
         // }
         // $jumlahkata = strlen($kata);
         $uid = Auth::user();
+        $allbahasa = Bahasa::where('id', '!=', 1)->get();
         $bahasaindonesia = 2;
         $bahasainggris = 3;
         // $bahasa = Bahasa_user::where('user_id', $uid)->get();
         $kata = karakter::where(['type_id' => 2, 'bahasa_id' => $uid->bahasa_id])->get();
-        return view('user.play.easy', compact('kata', 'uid', 'bahasaindonesia', 'bahasainggris'));
+        return view('user.play.easy', compact('kata', 'uid', 'bahasaindonesia', 'bahasainggris', 'allbahasa'));
     }
     //normal mode
     public function playnormal(){

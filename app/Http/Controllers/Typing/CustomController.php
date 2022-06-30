@@ -33,8 +33,12 @@ class CustomController extends Controller
         $alldata = karakter::all();
         $username = Auth::user()->name;
         // return view('admin.charactertext.index', compact('username', 'alldata'));
-
         $namakarakter = karakter::all()->where('user_id', Auth::user()->id);
+        $userid = Auth::user()->id;
+        $role_id = DB::table('model_has_roles')->where('model_id', $userid)->value('role_id');
+        if($role_id == 1){
+            return view('admin.custom.index', compact('namakarakter', 'alldata', 'username'));
+        }
         return view('user.custom.index', compact('namakarakter', 'alldata', 'username'));
     }
 
@@ -51,6 +55,10 @@ class CustomController extends Controller
         $username = Auth::user()->name;
         $typecharacter = type::all();
         $allbahasa = Bahasa::all();
+        $role_id = DB::table('model_has_roles')->where('model_id', $userid)->value('role_id');
+        if($role_id == 1){
+            return view('admin.custom.create', compact('userid', 'coba', 'username', 'allbahasa', 'typecharacter'));
+        }
         return view('user.custom.create', compact('userid', 'coba', 'username', 'allbahasa', 'typecharacter'));
     }
 
@@ -93,6 +101,11 @@ class CustomController extends Controller
     {
         //
         $karakter = karakter::find($id);
+        $userid = Auth::user()->id;
+        $role_id = DB::table('model_has_roles')->where('model_id', $userid)->value('role_id');
+        if($role_id == 1){
+            return view('admin.custom.show', compact('karakter'));
+        }
         return view('user.custom.show', compact('karakter'));
     }
 
@@ -108,6 +121,11 @@ class CustomController extends Controller
         $karakter = karakter::find($id);
         $username = Auth::user()->name;
         $typecharacter = type::all();
+        $userid = Auth::user()->id;
+        $role_id = DB::table('model_has_roles')->where('model_id', $userid)->value('role_id');
+        if($role_id == 1){
+            return view('admin.custom.edit', compact('username', 'karakter', 'typecharacter'));
+        }
         return view('user.custom.edit', compact('username', 'karakter', 'typecharacter'));
     }
 
