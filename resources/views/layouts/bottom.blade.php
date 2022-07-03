@@ -80,3 +80,6 @@
 
 <!-- Template Javascript -->
 <script src="{{asset('bagus/js/main.js')}}"></script>
+{{-- <script type="Text/JavaScript">
+    $('.canvasjs-chart-credit').remove();
+</script> --}}

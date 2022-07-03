@@ -8,94 +8,13 @@
                 {{ session('sukses') }}
             </div>
         @endif
-        {{-- user home --}}
-        {{-- <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="shadow p-3 mb-5 rounded border border-dark bg-white">
-                    <div class="card-body">
-                        <div class="my-5 mx-5" id="content">
-                            <h6 class="text-center fw-bold">Pilih Bahasa</h6>
-                            <br>
-                            <div class="row">
-                                <div class="d-grid mx-auto">
-                                    <button id="bahasaindonesia" class="btn btn-primary block fw-bold">bahasa indonesia</button>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="d-grid mx-auto">
-                                    <button id="bahasainggris" class="btn btn-primary block fw-bold">bahasa inggris</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-        {{-- user bahasa --}}
         <div class="row" id="content">
-            {{-- <div class="col-md-12">
-                <a class="text-right flex-row-reverse d-flex text-dark fw-bold text-decoration-none">Dashboard</a>
-            </div>
-            <div class="col-md-12">
-                <div class="shadow p-3 mb-5 rounded border border-dark bg-white">
-                    <div class="card-body">
-                        <div class="my-5 mx-5">
-                            <div class="">
-                                <h6 class="text-center fw-bold">Pilih</h6>
-                                <br>
-                                <div class="row">
-                                    <div class="d-grid mx-auto">
-                                        <button id="mulai" class="btn btn-primary block fw-bold">Mulai</button>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="d-grid mx-auto">
-                                        <button id="custom" class="btn btn-primary block fw-bold">Buat Karakter</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="d-grid col-md-6 justify-content-md-start">
-                                    <button id="setting" class="btn btn-secondary block"><i class="bi bi-gear-fill"></i></button>
-                                </div>
-                                <div class="d-grid col-md-6 justify-content-md-end">
-                                    <button id="reload" class="btn btn-secondary block"><i class="bi bi-arrow-clockwise"></i></button>
-                                </div>
-                            </div>
-                            <script type="text/javaScript">
-                                var indexcustom = '{{route('custom.index')}}';
-                                var indexplay = '{{route('indexplay')}}';
-                                $(document).ready(function(){
-                                    $('#mulai').click(function () {
-                                        $('#content').load(indexplay)
-                                    })
-                                    $('#custom').click(function () {
-                                        $('#content').load(indexcustom)
-                                    })
-                                })
-                            </script>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
             @include('layouts.menu')
         </div>
     </div>
-
-    {{-- <div class="col-md-12">
-        <a class="text-right flex-row-reverse d-flex text-dark fw-bold text-decoration-none">Dashboard</a>
-    </div>
-    <div class="col-md-12">
-        <div class="shadow p-3 mb-5 rounded border border-dark bg-white">
-            <div class="card-body">
-                <div class="my-5 mx-5">
-                </div>
-            </div>
-        </div>
-    </div> --}}
+    <script type="text/javaScript">
+        $('body').addClass('bg-play');
+    </script>
 @endrole
 {{-- end user home --}}
 

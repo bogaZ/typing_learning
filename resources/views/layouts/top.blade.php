@@ -38,6 +38,8 @@
 <script src="{{ asset('codemirror/lib/codemirror.js') }}"></script>
 <script src="{{ asset('codemirror/mode/xml/xml.js')}}"></script>
 
+
+
 @endrole
 
 {{-- datatable js --}}
@@ -51,7 +53,11 @@
 
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+<style>
+  .canvasjs-chart-credit{
+    display: none !important;
+  }
+</style>
 @role('admin')
     <style>
 
@@ -105,7 +111,6 @@
           height: 100%;
           width: 75px;
           position: fixed;
-          /* z-index: 1; */
           top: 0;
           left: 0;
           overflow-x: hidden;
@@ -116,10 +121,8 @@
         .sidebar a {
           padding: 8px 32px 8px 32px;
           text-decoration: none;
-          /* font-size: 18px; */
           display: block;
           transition: 0.7s;
-          /* color: grey; */
         }
         
         .sidebar a:hover {
@@ -178,7 +181,6 @@
           overflow: auto;
         }
     </style>
-    {{-- chart --}}
 
     
 @endrole
@@ -188,10 +190,10 @@
   .bg-play {
     background: rgb(160 203 255);
   }
-  /* @media screen and (max-height: 450px) {
-    .ul {display: flex}
-  } */
 </style>
 <link rel="stylesheet" href="{{asset('bagus/beta/style.css')}}">
+  
 @endif
 @endauth
+
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script> --}}

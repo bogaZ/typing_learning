@@ -40,7 +40,7 @@
     <a class="text-right flex-row-reverse d-flex text-dark fw-bold text-decoration-none">Dashboard</a>
 </div>
 <div class="col-md-12">
-    <div class="shadow p-3 mb-5 rounded border border-dark bg-white">
+    <div class="shadow p-3 mb-5 rounded border-none bg-white">
         <div class="card-body">
             <div class="my-5 mx-5">
                 <div class="">
@@ -57,19 +57,26 @@
                             <button id="custom" class="btn btn-primary block fw-bold">Buat Karakter</button>
                         </div>
                     </div>
+                    <br>
+                    <div class="row">
+                        <div class="d-grid mx-auto">
+                            <a href="{{route('statistik.index')}}" class="btn btn-primary fw-bold">Statistik</a>
+                        </div>
+                    </div>
                 </div>
                 <br>
-                <div class="row">
-                    <div class="d-grid col-md-6 justify-content-md-start">
+                <div class="d-flex justify-content-between">
+                    <div class="p-0">
                         <button id="setting" class="btn btn-secondary block"><i class="bi bi-gear-fill"></i></button>
                     </div>
-                    <div class="d-grid col-md-6 justify-content-md-end">
+                    <div class="p-0">
                         <button id="reload" class="btn btn-secondary block"><i class="bi bi-arrow-clockwise"></i></button>
                     </div>
                 </div>
                 <script type="text/javaScript">
                     var indexcustom = '{{route('custom.index')}}';
                     var indexplay = '{{route('indexplay')}}';
+                    // var indexstatistik = '{{route('statistik.index')}}';
                     $(document).ready(function(){
                         $('#mulai').click(function () {
                             $('#content').load(indexplay)
@@ -77,6 +84,9 @@
                         $('#custom').click(function () {
                             $('#content').load(indexcustom)
                         })
+                        // $('#statistik').click(function () {
+                        //     $('#content').load(indexstatistik)
+                        // })
                     })
                 </script>
             </div>

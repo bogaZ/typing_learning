@@ -62,19 +62,22 @@
         <a href="{{route('welcome')}}" class="navbar-brand p-0">
             <h1 class="m-0"><i class="fa fa-keyboard me-2 text-white"></i>NgeTeks</h1>
         </a>
-        @if(!Route::has('playmudah'))
+        @if(Route::has('playmudah'))
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars"></span>
         </button>
         @endif
         <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
             @auth
-                <a href="{{route('home')}}" class="btn btn-primary py-2 px-4 ms-3">Home</a>
-                <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();" class="btn btn-danger py-2 px-4 ms-3">Keluar</a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
+                <div class="d-flex justify-content-end">
+                    <a href="{{route('home')}}" class="btn btn-primary py-2 px-4">Home</a>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();" class="btn btn-danger py-2 px-4 ms-3">Keluar</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                    
+                </div>
             @else
                 @if(Route::has('login'))
                 @else

@@ -13,5 +13,9 @@
     </div>
 
     @include('layouts.bottom')
+    {{-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> --}}
+    {{-- <script type="Text/JavaScript">
+        $('.canvasjs-chart-credit').remove();
+    </script> --}}
 </body>
 </html>
