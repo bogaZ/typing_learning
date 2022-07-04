@@ -5,17 +5,16 @@
 </head>
 
 <body>
+    @if(Route::has('home'))
+    <div>
+    @else
     <div id="app">
+    @endif
         @include('layouts.navigation')
         <main class="" id="main">
             @yield('content')
         </main>
     </div>
-
     @include('layouts.bottom')
-    {{-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> --}}
-    {{-- <script type="Text/JavaScript">
-        $('.canvasjs-chart-credit').remove();
-    </script> --}}
 </body>
 </html>

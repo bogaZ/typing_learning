@@ -1,173 +1,86 @@
-{{-- <div class="row">
-    <div class="col-md-4">
-        <div class="mx-auto">
-            <a id="kembali" href="javascript:void(0)" class="text-decoration-none fw-bold">Kembali</a>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <h6 class="fw-bold text-center">Easy Mode</h6>
-    </div>
-    <div>
-        <h6 class="fw-bold text-center border">{{$kata}}</h6>
-        <div class="d-flex justify-content-between">
-            <p>Jumlah kata: {{$jumlahkata}}</p>
-            <p>Waktu sisa: </p>
-        </div>
-    </div>
-    <div class="col-md-10">
-        <textarea id="mengetikkata" class="form-control" placeholder="ketik disini....." style="overflow: hidden; resize: none; height: 150px"></textarea>
-    </div>
-    <div class="col-md-2 d-grid">
-        <span>Score: </span>
-    </div>
-</div> --}}
-{{-- <script>
-    $('textarea').maxlength({
-        alwaysShow: true,
-        threshold: 10,
-        warningClass: "label label-success",
-        limitReachedClass: "label label-danger",
-        separator: ' out of ',
-        preText: 'You write ',
-        postText: ' chars.',
-        validate: true
-     });
-</script> --}}
-{{-- <script>
-    var tingkatkesulitan = '{{route('tingkatkesulitan')}}';
-    $(document).ready(function(){
-        $('#kembali').click(function () {
-            $('#content').load(tingkatkesulitan)
-        })
-    })
-</script> --}}
-{{-- <script>
-    $(document).ready(function(){
-        $('#kembali').click(function () {
-            if(document.getElementById)
-            $('#content').load('/pertanyaanktp')
-            elseif(id 2)
-            $('#content').load('/pertanyaanktp')
-            elseif(id 3)
-            $('#content').load('/pertanyaanktp')
-            else
-        })
-    })
-</script> --}}
-{{-- <script>
-    var mengetikkata = CodeMirror.fromTextArea(
-        document.getElementById('mengetikkata'),{
-            mode: "xml",
-            theme: "dracula",
-            lineNumbers: true,
-            autoCloseTags: true
-        }
-    )
-</script> --}}
-
-{{-- <div class="wrapper">
-    <textarea name="text" class="input-field" id="" cols="30" rows="10"></textarea>
-    <div class="content-box">
-        <p id="timeout" class="text-center"></p>
-        <div class="typing-text">
-            <p>{{$kata}}</p>
-        </div>
-        <div class="content">
-            <ul class="result-details">
-                <li class="time">
-                    <p>Time left:</p>
-                    <span><b>0</b>s</span>
-                </li>
-                <li class="mistake">
-                    <p>Mistakes:</p>
-                    <span>0</span>
-                </li>
-                <li class="wpm">
-                    <p>WPM:</p>
-                    <span>0</span>
-                </li>
-                <li class="cpm">
-                    <p>CPM:</p>
-                    <span>0</span>
-                </li>
-            </ul>
-            <button>Try</button>
-        </div>
-    </div>
-</div> --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {{-- <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mode mudah - NgeTeks</title>
-    <link rel="stylesheet" href="{{asset('bagus/beta/style.css')}}"> --}}
-
     @include('layouts.top')
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
 <body class="bg-play">
     @include('layouts.navigation')
-{{-- @extends('layouts.master')
-
-@section('content') --}}
-    {{-- <div class="d-flex justify-content-center"> --}}
-        <form action="{{route('ubahbahasa', $uid->id)}}" method="post">
-            @csrf
-            <div class="d-flex justify-content-center">
-                <select name="bahasa" id="" class="py-1 px-3 rounded border-none shadow me-1" style="appearance: none;">
-                    {{-- <option disabled hidden selected>Pilih Bahasa</option> --}}
-                    @foreach ($allbahasa as $bahasa)
-                    <option value={{$bahasa->id}}
-                        @if ($bahasa->id == $uid->bahasa_id)
-                            selected
-                        @endif
-                        class="">{{$bahasa->bahasa}}</option>
-                    @endforeach
-                    {{-- <option value="2" class="">Indonesia</option>
-                    <option value="3" class="">Inggris</option> --}}
-                </select>
-                <button type="submit" class="ms-1 btn btn-primary">ubah bahasa</button>
-            </div>
-        </form>
-        <div class="d-flex justify-content-center my-3">
-            <div class="col-md-8">
-                <div class="card shadow border-none">
-                    <div class="wrapper">
-                        <textarea name="text" class="input-field" id="" cols="30" rows="10"></textarea>
-                        <div class="content-box">
-                            <p id="timeout" class="text-center"></p>
-                            <div class="typing-text">
-                                <p></p>
-                            </div>
-                            <div class="content d-flex">
-                                <ul class="result-details m-0 d-flex align-items-center p-0">
-                                    <li class="time">
-                                        <p class="m-0">Time:</p>
-                                        <span><b>0</b>s</span>
-                                    </li>
-                                    <li class="mistake">
-                                        <p class="m-0">Miss:</p>
-                                        <span>0</span>
-                                    </li>
-                                    <li class="wpm">
-                                        <p class="m-0">Words:</p>
-                                        <span>0</span>
-                                    </li>
-                                    <li class="cpm">
-                                        <p class="m-0">Correct:</p>
-                                        <span>0</span>
-                                    </li>
-                                </ul>
-                                <button id="resettext" class="btn btn-dark">Reset Karakter</button>
-                            </div>
+    <form action="{{route('ubahbahasa', $uid->id)}}" method="post">
+        @csrf
+        <div class="d-flex justify-content-center">
+            <select name="bahasa" id="" class="py-1 px-3 rounded border-none shadow me-1" style="appearance: none;">
+                @foreach ($allbahasa as $bahasa)
+                <option value={{$bahasa->id}}
+                    @if ($bahasa->id == $uid->bahasa_id)
+                        selected
+                    @endif
+                    class="">{{$bahasa->bahasa}}</option>
+                @endforeach
+            </select>
+            <button type="submit" class="ms-1 btn btn-primary">ubah bahasa</button>
+        </div>
+    </form>
+    <div class="d-flex justify-content-center my-3">
+        <div class="col-md-8">
+            <div class="card shadow border-none">
+                <div class="wrapper">
+                    <textarea name="text" class="input-field" id="" cols="30" rows="10"></textarea>
+                    <div class="content-box">
+                        <p id="timeout" class="text-center"></p>
+                        <div class="typing-text">
+                            <p></p>
+                        </div>
+                        <div class="content d-flex">
+                            <ul class="result-details m-0 d-flex align-items-center p-0">
+                                <li class="time">
+                                    <p class="m-0">Time:</p>
+                                    <span><b>0</b>s</span>
+                                </li>
+                                <li class="mistake">
+                                    <p class="m-0">Miss:</p>
+                                    <span>0</span>
+                                </li>
+                                <li class="wpm">
+                                    <p class="m-0">Words:</p>
+                                    <span>0</span>
+                                </li>
+                                <li class="cpm">
+                                    <p class="m-0">Correct:</p>
+                                    <span>0</span>
+                                </li>
+                            </ul>
+                            <button id="resettext" class="btn btn-dark">Reset Karakter</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    {{-- </div> --}}
+    </div>
     <script type="text/JavaScript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        let data = {!! json_encode($statistik) !!};
+        console.log(data);
+        // console.log(data);
+    
+        // $(".btn-submit").click(function(e){
+    
+        //     e.preventDefault();
+    
+        //     var name = $("input[name=name]").val();
+        //     var password = $("input[name=password]").val();
+        //     var email = $("input[name=email]").val();
+    
+            
+    
+        // });
+
         // {{-- var coba = {!! json_encode($kata->toArray()) !!}; --}}
         var co = {!! json_encode($kata) !!};
         // var co = <?php echo json_encode($kata); ?>;
@@ -215,7 +128,7 @@
             // const charwords = typingText.querySelectorAll("span");
             let typeChar = inpField.value.split("")[charIndex];
             let TypeWords = inpField.value.split("")[charcpm];
-            // console.log(TypeWords);
+            // console.log(characters);
             // console.log(characters[0].innerText.split(""));
             if (charIndex < characters.length - 1 && timeLeft > -1) {
                 if(!isTyping){
@@ -269,7 +182,30 @@
                 timeout.style.color = "green";
                 // alert(timer);
                 clearInterval(timer);
-                // $("#modal-result").show()
+
+                //data store statistik
+                console.log(timer)
+                let _token = $('meta[name="csrf-token"]').attr('content');
+                $.ajax({
+                    type:'POST',
+                    url:"{{ route('statistik.store') }}",
+                    data:{
+                        speed_typing: 2,
+                        time: 2,
+                        user_id: 3,
+                        karakter_id: 2,
+                        _token: _token
+                    },
+                    // success:function(data){
+                    //     console.log(data);
+                        // if(data) {
+                        //     $('.success').text(data.success);
+                        //     // $("#ajaxform")[0].reset();
+                        // }
+                    // },
+                });
+
+                // window.location.href = "{{route('statistik.store')}}";
             }
         }
 

@@ -18,6 +18,7 @@ class CreateStatistiksTable extends Migration
             $table->integer('user_id');
             $table->integer('karakter_id');
             $table->integer('speed_typing');
+            $table->integer('time');
             $table->timestamps();
         });
     }

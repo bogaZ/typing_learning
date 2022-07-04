@@ -49,7 +49,7 @@
                     <p class="text-white m-0">&nbsp;pendaftar</p>
                 </div>
             </div>
-            {{-- <a href="{{route('user.index')}}" class="btn btn-light mx-5 text-center" style="border-radius: 20px" type="button">View</a> --}}
+            
         </div>
         <a href="{{route('user.index')}}" class="bg-primary d-flex justify-content-center p-2 text-decoration-none text-white">view</a>
     </div>
@@ -63,7 +63,7 @@
                     <p class="text-white m-0">&nbsp;pengunjung</p>
                 </div>
             </div>
-            {{-- <a href="{{route('user.index')}}" class="btn btn-light mx-5 text-center" style="border-radius: 20px" type="button">View</a> --}}
+            
         </div>
         <a href="{{route('user.index')}}" class="bg-primary d-flex justify-content-center p-2 text-decoration-none text-white">view</a>
     </div>
@@ -77,104 +77,20 @@
                     <p class="text-white m-0">&nbsp;pemberitahuan</p>
                 </div>
             </div>
-            {{-- <a href="{{route('user.index')}}" class="btn btn-light mx-5 text-center" style="border-radius: 20px" type="button">View</a> --}}
         </div>
         <a href="{{route('user.index')}}" class="bg-primary d-flex justify-content-center p-2 text-decoration-none text-white">view</a>
     </div>
-    {{-- <div style="border-radius: 10px" class="shadow col-md-3 gradienbiru p-2">
-        <div>
-            <h6 class="text-center text-white fw-bold">Statistik</h6>
-        </div>
-    </div>
-    <div style="border-radius: 10px" class="shadow col-md-3 gradienbiru p-2">
-        <div>
-            <h6 class="text-center text-white fw-bold">Notification</h6>
-        </div>
-    </div> --}}
 </div>
 <div class="d-flex justify-content-between m-4">
-    <div class="col-md-8 p-0">p</div>
-    <div class="col-md-3 p-0">p</div>
+    <div class="col-md-8 p-0 card d-flex justify-content-center">
+        <canvas id="Chart" style="width:100%;" class="p-3 bg-white rounded border-none shadow"></canvas>
+    </div>
+    <div class="col-md-3 p-0 card">p</div>
 </div>
-{{-- script --}}
-{{-- <script>
-    $(document).ready(function () {
-        $('#bukanav').click(function () {
-            if($('#bukanav').hasClass('open')){
-                $('#bukanav').removeClass('open btn-primary');
-                $('#bukanav').addClass('btn-danger');
-                $('#icbukanav').removeClass('fa fa-bars');
-                $('#icbukanav').addClass('fa fa-times');
-                document.getElementById("mySidebar").style.width = "250px";
-                document.getElementById("main").style.marginLeft = "250px";
-            }else{
-                $('#bukanav').removeClass('btn-danger');
-                $('#bukanav').addClass('open btn-primary');
-                $('#icbukanav').removeClass('fa fa-times');
-                $('#icbukanav').addClass('fa fa-bars');
-                document.getElementById("mySidebar").style.width = "75px";
-                document.getElementById("main").style.marginLeft= "75px";
-            }
-        })
-    });
-</script> --}}
-
-{{-- chart --}}
-{{-- <script>
-    window.onload = function () {
-    
-    var dataPoints = [];
-    
-    var options = {
-        theme: "light2",
-        title: {
-            text: "Live Chart from JSON Data"
-        },
-        data: [{
-            type: "spline",
-            dataPoints: dataPoints
-        }]
-    };
-    
-    $("#chartContainer").CanvasJSChart(options);
-    updateData();
-    
-    // Initial Values
-    var xValue = 0;
-    var yValue = 10;
-    var newDataCount = 6;
-    
-    function addData(data) {
-        if (newDataCount != 1) {
-            $.each(data, function (key, value) {
-                dataPoints.push({ x: value[0], y: parseInt(value[1]) });
-                xValue++;
-                yValue = parseInt(value[1]);
-            });
-            newDataCount = 1;
-        } else {
-            //dataPoints.shift();
-            dataPoints.push({ x: data[0][0], y: parseInt(data[0][1]) });
-            xValue++;
-            yValue = parseInt(data[0][1]);
-        }
-        $("#chartContainer").CanvasJSChart().render();
-        setTimeout(updateData, 1500);
-    }
-    
-    function updateData() {
-        $.getJSON("https://canvasjs.com/services/data/datapoints.php?xstart=" + xValue + "&ystart=" + yValue + "&length=" + newDataCount + "type=json", addData);
-    }
-    
-    }
-</script> --}}
-
-<div id="chartContainer" style="height: 300px; width: 100%;"></div>
-<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.js"></script> --}}
 <script>
     document.getElementById("dashboard").classList.add("aktif-link");
 </script>
-@endrole
-{{-- end admin home --}}
+@include('admin.dashboardstats')
 @endsection
+@endrole

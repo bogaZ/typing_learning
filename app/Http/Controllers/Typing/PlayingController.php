@@ -9,6 +9,7 @@ use App\karakter;
 use App\User;
 use App\Bahasa;
 use App\Bahasa_user;
+use App\Statistik;
 use Auth;
 
 class PlayingController extends Controller
@@ -25,8 +26,9 @@ class PlayingController extends Controller
         $bahasaindonesia = 2;
         $bahasainggris = 3;
         // $bahasa = Bahasa_user::where('user_id', $uid)->get();
+        $statistik = Statistik::all();
         $kata = karakter::where(['type_id' => 2, 'bahasa_id' => $uid->bahasa_id])->get();
-        return view('user.play.easy', compact('kata', 'uid', 'bahasaindonesia', 'bahasainggris', 'allbahasa'));
+        return view('user.play.easy', compact('kata', 'statistik', 'uid', 'bahasaindonesia', 'bahasainggris', 'allbahasa'));
     }
     //normal mode
     public function playnormal(){

@@ -42,6 +42,7 @@
 
 @endrole
 
+
 {{-- datatable js --}}
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" defer></script>
 <script>
@@ -49,15 +50,15 @@
     $('#example1').DataTable();
   });
 </script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.js"></script>
 
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<style>
+{{-- <style>
   .canvasjs-chart-credit{
     display: none !important;
   }
-</style>
+</style> --}}
 @role('admin')
     <style>
 
@@ -181,9 +182,24 @@
           overflow: auto;
         }
     </style>
-
-    
 @endrole
+
+@role('user')
+<style>
+  .gradienbiru2 {
+    font-family: "poppins", sans-serif;
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(230,230,255,1) 0%, rgba(233,237,255,1) 100%);
+  }
+
+  .gradienbiru {
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,108,255,1) 0%, rgba(148,174,255,1) 100%);
+  }
+</style>
+@endrole
+
+
 @auth
 @if(Route::has('playnormal'))
 <style>
@@ -195,5 +211,3 @@
   
 @endif
 @endauth
-
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script> --}}

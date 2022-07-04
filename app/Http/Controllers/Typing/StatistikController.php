@@ -28,6 +28,7 @@ class StatistikController extends Controller
     public function create()
     {
         //
+        
     }
 
     /**
@@ -39,6 +40,10 @@ class StatistikController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->all();
+        
+        return response()->json(['success'=>'Got Simple Ajax Request.']);
+        // return back();
     }
 
     /**
