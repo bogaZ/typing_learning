@@ -1,39 +1,9 @@
-{{-- <script type="Text/JavaScript">
-    var xValues = [50,60,70,80,90,100,110,120,130,140,150];
-    var yValues = [7,8,8,9,9,9,10,11,14,14,15];
-    
-    new Chart("myChart", {
-      type: "line",
-      data: {
-        labels: xValues,
-        datasets: [{
-          fill: false,
-          lineTension: 0,
-          backgroundColor: "rgba(0,0,255,1.0)",
-          borderColor: "rgba(0,0,255,0.1)",
-          data: yValues
-        }]
-      },
-      options: {
-        legend: {display: false},
-        scales: {
-          yAxes: [{ticks: {min: 6, max:16}}],
-        }
-      }
-    });
-</script> --}}
-
 <script type="Text/Javascript">
     var xValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
     var yValues = [7,8,8,9,9,9,10,11,14,14,15,50];
     var easymode = [3, 5, 6, 7, 8, 9, 4, 4, 10];
     var normalmode = [5, 6, 8, 2, 8, 9, 2, 9, 20];
     var hardmode = [7, 8, 8, 9, 6, 8, 3, 8, 23, 10];
-    // let myChart = null;
-    // Chart.destroy();
-    // if(myChart != null){
-    //     myChart.destroy();
-    // }
     
     new Chart("Chart", {
     type: "line",
@@ -87,7 +57,7 @@
         plugins: {
             title: {
                 display: true,
-                text: 'Statistik',
+                text: 'Users Play Stats',
                 padding: {
                     top: 10,
                     bottom: 30
@@ -113,9 +83,40 @@
         }
     }
     });
-    // if(myChart != null){
-    //     myChart.destroy();
-    // }
-    // Chart.destroy();
+
+    // <block:setup:1>
+    const piedata = {
+        labels: [
+            'custom',
+            'indonesia',
+            'inggris'
+        ],
+        datasets: [{
+            label: 'My First Dataset',
+            data: [300, 50, 100],
+            backgroundColor: [
+            'blue',
+            'red',
+            'orange'
+            ],
+            hoverOffset: 4
+        }]
+    };
+
+    var pieChart = new Chart(pie, {
+        type: 'pie',
+        data: piedata,
+        options: {
+            responsive: true,
+            // maintainAspectRatio: false,
+            legend: {display: false},
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Character Stats',
+                }
+            },
+        }
+    });
     
 </script>

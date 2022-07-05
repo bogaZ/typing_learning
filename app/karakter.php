@@ -17,4 +17,6 @@ class karakter extends Model
         return $this->belongsTo(Bahasa::class);
     }
 
+    protected $fillable  = ['user_id','karakter_id', 'speed_typing', 'time'];
+
 }

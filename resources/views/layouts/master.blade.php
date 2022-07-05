@@ -5,11 +5,17 @@
 </head>
 
 <body>
+    @role('admin')
     @if(Route::has('home'))
-    <div>
+        <div>
     @else
-    <div id="app">
+        <div id="app">
     @endif
+    @endrole
+
+    @role('user')
+        <div id="app">
+    @endrole
         @include('layouts.navigation')
         <main class="" id="main">
             @yield('content')

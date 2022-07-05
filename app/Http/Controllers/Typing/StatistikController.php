@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Typing;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
+use App\Statistik;
 
 class StatistikController extends Controller
 {
@@ -40,9 +41,21 @@ class StatistikController extends Controller
     public function store(Request $request)
     {
         //
-        $data = $request->all();
+        // Statistik::create($request->all());
+        $uid = Auth::user()->id;
+
+        $data = new Statistik;
+
+        $data->speed_typing = $request->typing;
+        // $data->speed_typing = 2;
+        $data->time = $request->time;
+        $data->karakter_id = $request->karakter_id;
+
+        $data->user_id = $uid;
+        $data->save();
         
-        return response()->json(['success'=>'Got Simple Ajax Request.']);
+        return response()->json($data);
+        // return response()->json(['success'=>'Got Simple Ajax Request.']);
         // return back();
     }
 

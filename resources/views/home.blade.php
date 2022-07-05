@@ -16,6 +16,7 @@
         $('body').addClass('bg-play');
     </script>
 @endrole
+
 {{-- end user home --}}
 
 {{-- admin home --}}
@@ -60,7 +61,7 @@
                 <i class="bi bi-graph-up text-white" style="font-size: 50px"></i>
                 <div class="d-flex">
                     <span class="h4 m-0 text-white">{{$jumlahuser}}</span>
-                    <p class="text-white m-0">&nbsp;pengunjung</p>
+                    <p class="text-white m-0">&nbsp;orang mengetik</p>
                 </div>
             </div>
             
@@ -85,12 +86,15 @@
     <div class="col-md-8 p-0 card d-flex justify-content-center">
         <canvas id="Chart" style="width:100%;" class="p-3 bg-white rounded border-none shadow"></canvas>
     </div>
-    <div class="col-md-3 p-0 card">p</div>
+    <div class="col-md-3 p-0 card">
+        <canvas id="pie" style="height: 100%" class="p-3 bg-white rounded border-none shadow"></canvas>
+        <p style="height: 100%" class="m-0 bg-light card p-3"></p>
+    </div>
 </div>
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.js"></script> --}}
 <script>
     document.getElementById("dashboard").classList.add("aktif-link");
 </script>
 @include('admin.dashboardstats')
-@endsection
 @endrole
+@endsection

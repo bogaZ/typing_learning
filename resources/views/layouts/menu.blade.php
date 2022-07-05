@@ -87,6 +87,9 @@
                         // $('#statistik').click(function () {
                         //     $('#content').load(indexstatistik)
                         // })
+                        $('#reload').click(function () {
+                            location.reload(true)
+                        })
                     })
                 </script>
             </div>

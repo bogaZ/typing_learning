@@ -24,6 +24,9 @@
     </form>
     <div class="d-flex justify-content-center my-3">
         <div class="col-md-8">
+            <div>
+                #<label for="" id="karakter-id">#</label>
+            </div>
             <div class="card shadow border-none">
                 <div class="wrapper">
                     <textarea name="text" class="input-field" id="" cols="30" rows="10"></textarea>
@@ -59,14 +62,14 @@
         </div>
     </div>
     <script type="text/JavaScript">
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+        // $.ajaxSetup({
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     }
+        // });
 
         let data = {!! json_encode($statistik) !!};
-        console.log(data);
+        // console.log(data);
         // console.log(data);
     
         // $(".btn-submit").click(function(e){
@@ -90,9 +93,10 @@
         mistageTag = document.querySelector(".mistake span"),
         timeTag = document.querySelector(".time span b"),
         wpmTag = document.querySelector(".wpm span"),
-        cpmTag = document.querySelector(".cpm span");
-        btnTry = document.querySelector("#resettext");
-        timeout = document.getElementById("timeout");
+        cpmTag = document.querySelector(".cpm span"),
+        btnTry = document.querySelector("#resettext"),
+        timeout = document.getElementById("timeout"),
+        idkarakter = document.getElementById("karakter-id");
 
         let timer,
         maxTime = 0,
@@ -102,7 +106,9 @@
 
         function randomParagraph() {
             let randTeks = Math.floor(Math.random() * co.length);
+            // console.log(randTeks);
             typingText.innerHTML = "";
+            idkarakter.innerText = randTeks + 1;
             var teks = co[randTeks].karakter.toString().replace(/(\r\n|\n|\r)/gm, "\n");
             // console.log(co[randTeks].karakter.trim());
             teks.split("").forEach(span => {
@@ -121,9 +127,30 @@
 
             document.addEventListener("keydown", () => inpField.focus());
             typingText.addEventListener("click", () => inpField.focus());
+            return randTeks;
+        }
+        const testes = randomParagraph();
+        // console.log(testes);
+        // let testes = querySelector("label").innerText;
+        // console.log(idkarakter.innerHTML);
+
+        function reset(){
+            randomParagraph();
+            inpField.value = "";
+            timeout.innerText = "";
+            timeout.style.color = "";
+            clearInterval(timer);
+            timeLeft = maxTime,
+            charIndex = mistakes = isTyping = 0;
+            timeTag.innerText = timeLeft;
+            mistageTag.innerText = mistakes;
+            wpmTag.innerText = 0;
+            cpmTag.innerText = 0;
+
         }
 
         function initTyping() {
+            console.log(testes);
             const characters = typingText.querySelectorAll("span");
             // const charwords = typingText.querySelectorAll("span");
             let typeChar = inpField.value.split("")[charIndex];
@@ -184,25 +211,32 @@
                 clearInterval(timer);
 
                 //data store statistik
-                console.log(timer)
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                // console.log(randomParagraph());
+                let cpmresult = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
+                cpmresult = cpmresult < 0 || cpmresult === Infinity ? 0 : cpmresult;
+                let time = timeLeft;
                 let _token = $('meta[name="csrf-token"]').attr('content');
                 $.ajax({
-                    type:'POST',
-                    url:"{{ route('statistik.store') }}",
+                    type: "POST",
+                    url: "{{route('statistik.store')}}",
                     data:{
-                        speed_typing: 2,
-                        time: 2,
-                        user_id: 3,
-                        karakter_id: 2,
+                        karakter_id: testes,
+                        typing: cpmresult,
+                        time: time,
                         _token: _token
                     },
-                    // success:function(data){
-                    //     console.log(data);
-                        // if(data) {
-                        //     $('.success').text(data.success);
-                        //     // $("#ajaxform")[0].reset();
-                        // }
-                    // },
+                    success:function(response){
+                        console.log(response);
+                        if(response) {
+                            $('.success').text(response.success);
+                        }
+                    },
                 });
 
                 // window.location.href = "{{route('statistik.store')}}";
@@ -226,24 +260,27 @@
         // console.log(paragraphs);
         // console.log(paragraphs.replace(/(\r\n|\n|\r)/gm, ""));
 
-        function reset(){
-            randomParagraph();
-            inpField.value = "";
-            timeout.innerText = "";
-            timeout.style.color = "";
-            clearInterval(timer);
-            timeLeft = maxTime,
-            charIndex = mistakes = isTyping = 0;
-            timeTag.innerText = timeLeft;
-            mistageTag.innerText = mistakes;
-            wpmTag.innerText = 0;
-            cpmTag.innerText = 0;
+        // function reset(){
+        //     randomParagraph();
+        //     inpField.value = "";
+        //     timeout.innerText = "";
+        //     timeout.style.color = "";
+        //     clearInterval(timer);
+        //     timeLeft = maxTime,
+        //     charIndex = mistakes = isTyping = 0;
+        //     timeTag.innerText = timeLeft;
+        //     mistageTag.innerText = mistakes;
+        //     wpmTag.innerText = 0;
+        //     cpmTag.innerText = 0;
 
-        }
+        // }
         
-        randomParagraph();
+        // randomParagraph();
         inpField.addEventListener("input", initTyping);
-        btnTry.addEventListener("click", reset);
+        // btnTry.addEventListener("click", reset);
+        $(btnTry).click(function () {
+            location.reload(true)
+        })
     </script>
 {{-- @endsection --}}
 </body>
