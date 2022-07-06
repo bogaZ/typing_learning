@@ -68,26 +68,8 @@
         //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         //     }
         // });
-
         let data = {!! json_encode($statistik) !!};
-        // console.log(data);
-        // console.log(data);
-    
-        // $(".btn-submit").click(function(e){
-    
-        //     e.preventDefault();
-    
-        //     var name = $("input[name=name]").val();
-        //     var password = $("input[name=password]").val();
-        //     var email = $("input[name=email]").val();
-    
-            
-    
-        // });
-
-        // {{-- var coba = {!! json_encode($kata->toArray()) !!}; --}}
         var co = {!! json_encode($kata) !!};
-        // var co = <?php echo json_encode($kata); ?>;
 
         const typingText = document.querySelector(".typing-text p"),
         inpField = document.querySelector(".wrapper .input-field"),
@@ -98,7 +80,6 @@
         btnTry = document.querySelector("#resettext"),
         timeout = document.getElementById("timeout"),
         idkarakter = document.getElementById("karakter-id");
-        $('#hidetext').hide();
 
         let timer,
         maxTime = 0,
@@ -106,13 +87,11 @@
         charIndex = mistakes = isTyping = charcpm = 0;
 
 
+        let randTeks;
         function randomParagraph() {
-            let randTeks = Math.floor(Math.random() * co.length);
-            // console.log(randTeks);
+            randTeks = Math.floor(Math.random() * co.length);
             typingText.innerHTML = "";
-            let idkarakterinput = co[randTeks].id;
-            $(idkarakter).addClass(idkarakterinput);
-            idkarakter.innerText = idkarakterinput;
+            idkarakter.innerText = randTeks + 1;
             var teks = co[randTeks].karakter.toString().replace(/(\r\n|\n|\r)/gm, "\n");
             // console.log(co[randTeks].karakter.trim());
             teks.split("").forEach(span => {
@@ -131,13 +110,9 @@
 
             document.addEventListener("keydown", () => inpField.focus());
             typingText.addEventListener("click", () => inpField.focus());
-            return co[randTeks].id;
+            return randTeks;
         }
-        // const testes = randomParagraph();
-        randomParagraph();
-        // console.log(testes);
-        // let testes = querySelector("label").innerText;
-        console.log(idkarakter.innerText);
+        const testes = randomParagraph();
 
         function reset(){
             randomParagraph();
@@ -155,29 +130,18 @@
             cpmTag.innerText = 0;
 
         }
-        let testes = btnTry.addEventListener("click", reset);
-        console.log(testes);
 
         function initTyping() {
-            // console.log(testes);
+            console.log(randTeks);
             const characters = typingText.querySelectorAll("span");
-            // const charwords = typingText.querySelectorAll("span");
             let typeChar = inpField.value.split("")[charIndex];
             let TypeWords = inpField.value.split("")[charcpm];
-            // console.log(characters);
-            // console.log(characters[0].innerText.split(""));
             if (charIndex < characters.length - 1 && timeLeft > -1) {
                 if(!isTyping){
                     // console.log(isTyping);
                     timer = setInterval(initTimer, 1000);
                     isTyping = true;
                 }
-                // characters[charIndex].innerHTML.(&lt;, "<");
-                // console.log(characters[charIndex].innerText);
-
-                // if(characters[charIndex].innerText === TypeWords){
-
-                // }
                 if(typeChar == null){
                     charIndex--;
                     if(characters[charIndex].classList.contains("incorrect")){
@@ -193,16 +157,12 @@
                         // charachter not same
                         mistakes++;
                         characters[charIndex].classList.add("incorrect");
-                        // console.log("incorrect");
                     }
                     charIndex++;
-                    // console.log(charIndex);
                 }
                 characters.forEach(span => span.classList.remove("active"));
                 characters[charIndex].classList.add("active");
-                // console.log("charindex "+charIndex);
-                // console.log("charindex "+characters.length);
-                // console.log("charindex"+)
+
             
                 let wpm = Math.round((((charIndex - mistakes) / 5) / (maxTime - timeLeft)) * 60);
                 // let tesss = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
@@ -216,26 +176,24 @@
                 inpField.value = "";
                 timeout.innerText = "Finish";
                 timeout.style.color = "green";
-                // alert(timer);
                 clearInterval(timer);
 
-                //data store statistik
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
                 });
 
-                // console.log(randomParagraph());
                 let cpmresult = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
                 cpmresult = cpmresult < 0 || cpmresult === Infinity ? 0 : cpmresult;
                 let time = timeLeft;
+                let karakter_id = co[randTeks].id;
                 let _token = $('meta[name="csrf-token"]').attr('content');
                 $.ajax({
                     type: "POST",
                     url: "{{route('statistik.store')}}",
                     data:{
-                        karakter_id: testes,
+                        karakter_id: karakter_id,
                         typing: cpmresult,
                         time: time,
                         _token: _token
@@ -247,18 +205,10 @@
                         }
                     },
                 });
-                // document.addEventListener("keydown", () => $('#hidetext').focus());
-                // typingText.addEventListener("click", () => $('#hidetext').focus());
                 $(typingText).prop('disabled', true);
                 $(inpField).prop('disabled', true);
-                
-                // window.location.href = "{{route('statistik.store')}}";
             }
         }
-
-        // function initWords(){
-
-        // }
 
         function initTimer(){
             if(timeLeft > -1){
@@ -270,32 +220,9 @@
                 timeout.style.color = "red";
             }
         }
-        // console.log(paragraphs);
-        // console.log(paragraphs.replace(/(\r\n|\n|\r)/gm, ""));
 
-        // function reset(){
-        //     randomParagraph();
-        //     $(typingText).prop('disabled', false);
-        //     $(inpField).prop('disabled', false);
-        //     inpField.value = "";
-        //     timeout.innerText = "";
-        //     timeout.style.color = "";
-        //     clearInterval(timer);
-        //     timeLeft = maxTime,
-        //     charIndex = mistakes = isTyping = 0;
-        //     timeTag.innerText = timeLeft;
-        //     mistageTag.innerText = mistakes;
-        //     wpmTag.innerText = 0;
-        //     cpmTag.innerText = 0;
-        // }
-        
-        // randomParagraph();
         inpField.addEventListener("input", initTyping);
-        // btnTry.addEventListener("click", reset);
-        // $(btnTry).click(function () {
-        //     location.reload(true)
-        // })
+        btnTry.addEventListener("click", reset);
     </script>
-{{-- @endsection --}}
 </body>
 </html>

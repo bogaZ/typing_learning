@@ -115,6 +115,8 @@
 
         function reset(){
             randomParagraph();
+            $(typingText).prop('disabled', false);
+            $(inpField).prop('disabled', false);
             inpField.value = "";
             timeout.innerText = "";
             timeout.style.color = "";
@@ -202,6 +204,8 @@
                         }
                     },
                 });
+                $(typingText).prop('disabled', true);
+                $(inpField).prop('disabled', true);
             }
         }
 
@@ -215,19 +219,6 @@
                 timeout.style.color = "red";
             }
         }
-        // function reset(){
-        //     randomParagraph();
-        //     inpField.value = "";
-        //     timeout.innerText = "";
-        //     timeout.style.color = "";
-        //     clearInterval(timer);
-        //     timeLeft = maxTime,
-        //     charIndex = mistakes = isTyping = 0;
-        //     timeTag.innerText = timeLeft;
-        //     mistageTag.innerText = mistakes;
-        //     wpmTag.innerText = 0;
-        //     cpmTag.innerText = 0;
-        // }
 
         inpField.addEventListener("input", initTyping);
         btnTry.addEventListener("click", reset);
