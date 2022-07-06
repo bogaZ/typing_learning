@@ -7,7 +7,7 @@
 </head>
 <body class="bg-play">
     @include('layouts.navigation')
-    <form action="{{route('ubahbahasa', $uid->id)}}" method="post">
+    {{-- <form action="{{route('ubahbahasa', $uid->id)}}" method="post">
         @csrf
         <div class="d-flex justify-content-center">
             <select name="bahasa" id="" class="py-1 px-3 rounded border-none shadow me-1" style="appearance: none;">
@@ -21,7 +21,7 @@
             </select>
             <button type="submit" class="ms-1 btn btn-primary">ubah bahasa</button>
         </div>
-    </form>
+    </form> --}}
     <div class="d-flex justify-content-center my-3">
         <div class="col-md-8">
             <div>
@@ -30,6 +30,7 @@
             <div class="card shadow border-none">
                 <div class="wrapper">
                     <textarea name="text" class="input-field" id="" cols="30" rows="10"></textarea>
+                    <textarea name="" id="hidetext" cols="30" rows="10"></textarea>
                     <div class="content-box">
                         <p id="timeout" class="text-center"></p>
                         <div class="typing-text">
@@ -97,6 +98,7 @@
         btnTry = document.querySelector("#resettext"),
         timeout = document.getElementById("timeout"),
         idkarakter = document.getElementById("karakter-id");
+        $('#hidetext').hide();
 
         let timer,
         maxTime = 0,
@@ -104,12 +106,13 @@
         charIndex = mistakes = isTyping = charcpm = 0;
 
 
-        let randTeks;
         function randomParagraph() {
-            randTeks = Math.floor(Math.random() * co.length);
+            let randTeks = Math.floor(Math.random() * co.length);
             // console.log(randTeks);
             typingText.innerHTML = "";
-            idkarakter.innerText = randTeks + 1;
+            let idkarakterinput = co[randTeks].id;
+            $(idkarakter).addClass(idkarakterinput);
+            idkarakter.innerText = idkarakterinput;
             var teks = co[randTeks].karakter.toString().replace(/(\r\n|\n|\r)/gm, "\n");
             // console.log(co[randTeks].karakter.trim());
             teks.split("").forEach(span => {
@@ -128,15 +131,18 @@
 
             document.addEventListener("keydown", () => inpField.focus());
             typingText.addEventListener("click", () => inpField.focus());
-            return randTeks;
+            return co[randTeks].id;
         }
-        const testes = randomParagraph();
+        // const testes = randomParagraph();
+        randomParagraph();
         // console.log(testes);
         // let testes = querySelector("label").innerText;
-        // console.log(idkarakter.innerHTML);
+        console.log(idkarakter.innerText);
 
         function reset(){
             randomParagraph();
+            $(typingText).prop('disabled', false);
+            $(inpField).prop('disabled', false);
             inpField.value = "";
             timeout.innerText = "";
             timeout.style.color = "";
@@ -149,9 +155,11 @@
             cpmTag.innerText = 0;
 
         }
+        let testes = btnTry.addEventListener("click", reset);
+        console.log(testes);
 
         function initTyping() {
-            console.log(randTeks);
+            // console.log(testes);
             const characters = typingText.querySelectorAll("span");
             // const charwords = typingText.querySelectorAll("span");
             let typeChar = inpField.value.split("")[charIndex];
@@ -222,13 +230,12 @@
                 let cpmresult = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
                 cpmresult = cpmresult < 0 || cpmresult === Infinity ? 0 : cpmresult;
                 let time = timeLeft;
-                let karakter_id = co[randTeks].id;
                 let _token = $('meta[name="csrf-token"]').attr('content');
                 $.ajax({
                     type: "POST",
                     url: "{{route('statistik.store')}}",
                     data:{
-                        karakter_id: karakter_id,
+                        karakter_id: testes,
                         typing: cpmresult,
                         time: time,
                         _token: _token
@@ -240,7 +247,11 @@
                         }
                     },
                 });
-
+                // document.addEventListener("keydown", () => $('#hidetext').focus());
+                // typingText.addEventListener("click", () => $('#hidetext').focus());
+                $(typingText).prop('disabled', true);
+                $(inpField).prop('disabled', true);
+                
                 // window.location.href = "{{route('statistik.store')}}";
             }
         }
@@ -264,6 +275,8 @@
 
         // function reset(){
         //     randomParagraph();
+        //     $(typingText).prop('disabled', false);
+        //     $(inpField).prop('disabled', false);
         //     inpField.value = "";
         //     timeout.innerText = "";
         //     timeout.style.color = "";
@@ -274,12 +287,11 @@
         //     mistageTag.innerText = mistakes;
         //     wpmTag.innerText = 0;
         //     cpmTag.innerText = 0;
-
         // }
         
         // randomParagraph();
         inpField.addEventListener("input", initTyping);
-        btnTry.addEventListener("click", reset);
+        // btnTry.addEventListener("click", reset);
         // $(btnTry).click(function () {
         //     location.reload(true)
         // })

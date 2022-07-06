@@ -49,7 +49,8 @@
 <script>
     var indexplay = '{{route('indexplay')}}';
     // var playmudah = '{{route('playmudah')}}';
-    // var playnormal = '{{route('playnormal')}}';
+    var playnormal = '{{route('playnormal')}}';
+    var pemrograman = '{{route('pemrograman')}}';
     $(document).ready(function(){
         $('#kembali').click(function () {
             $('#content').load(indexplay)
@@ -64,7 +65,7 @@
             $('#content').load('/kesulitan')
         })
         $('#pemrograman').click(function () {
-            $('#content').load('/kesulitan/pemrograman')
+            $('#content').load(pemrograman)
         })
     })
 </script>
