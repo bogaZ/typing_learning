@@ -67,26 +67,8 @@
         //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         //     }
         // });
-
         let data = {!! json_encode($statistik) !!};
-        // console.log(data);
-        // console.log(data);
-    
-        // $(".btn-submit").click(function(e){
-    
-        //     e.preventDefault();
-    
-        //     var name = $("input[name=name]").val();
-        //     var password = $("input[name=password]").val();
-        //     var email = $("input[name=email]").val();
-    
-            
-    
-        // });
-
-        // {{-- var coba = {!! json_encode($kata->toArray()) !!}; --}}
         var co = {!! json_encode($kata) !!};
-        // var co = <?php echo json_encode($kata); ?>;
 
         const typingText = document.querySelector(".typing-text p"),
         inpField = document.querySelector(".wrapper .input-field"),
@@ -107,7 +89,6 @@
         let randTeks;
         function randomParagraph() {
             randTeks = Math.floor(Math.random() * co.length);
-            // console.log(randTeks);
             typingText.innerHTML = "";
             idkarakter.innerText = randTeks + 1;
             var teks = co[randTeks].karakter.toString().replace(/(\r\n|\n|\r)/gm, "\n");
@@ -131,9 +112,6 @@
             return randTeks;
         }
         const testes = randomParagraph();
-        // console.log(testes);
-        // let testes = querySelector("label").innerText;
-        // console.log(idkarakter.innerHTML);
 
         function reset(){
             randomParagraph();
@@ -153,23 +131,14 @@
         function initTyping() {
             console.log(randTeks);
             const characters = typingText.querySelectorAll("span");
-            // const charwords = typingText.querySelectorAll("span");
             let typeChar = inpField.value.split("")[charIndex];
             let TypeWords = inpField.value.split("")[charcpm];
-            // console.log(characters);
-            // console.log(characters[0].innerText.split(""));
             if (charIndex < characters.length - 1 && timeLeft > -1) {
                 if(!isTyping){
                     // console.log(isTyping);
                     timer = setInterval(initTimer, 1000);
                     isTyping = true;
                 }
-                // characters[charIndex].innerHTML.(&lt;, "<");
-                // console.log(characters[charIndex].innerText);
-
-                // if(characters[charIndex].innerText === TypeWords){
-
-                // }
                 if(typeChar == null){
                     charIndex--;
                     if(characters[charIndex].classList.contains("incorrect")){
@@ -185,16 +154,12 @@
                         // charachter not same
                         mistakes++;
                         characters[charIndex].classList.add("incorrect");
-                        // console.log("incorrect");
                     }
                     charIndex++;
-                    // console.log(charIndex);
                 }
                 characters.forEach(span => span.classList.remove("active"));
                 characters[charIndex].classList.add("active");
-                // console.log("charindex "+charIndex);
-                // console.log("charindex "+characters.length);
-                // console.log("charindex"+)
+
             
                 let wpm = Math.round((((charIndex - mistakes) / 5) / (maxTime - timeLeft)) * 60);
                 // let tesss = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
@@ -208,17 +173,14 @@
                 inpField.value = "";
                 timeout.innerText = "Finish";
                 timeout.style.color = "green";
-                // alert(timer);
                 clearInterval(timer);
 
-                //data store statistik
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
                 });
 
-                // console.log(randomParagraph());
                 let cpmresult = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
                 cpmresult = cpmresult < 0 || cpmresult === Infinity ? 0 : cpmresult;
                 let time = timeLeft;
@@ -240,14 +202,8 @@
                         }
                     },
                 });
-
-                // window.location.href = "{{route('statistik.store')}}";
             }
         }
-
-        // function initWords(){
-
-        // }
 
         function initTimer(){
             if(timeLeft > -1){
@@ -259,9 +215,6 @@
                 timeout.style.color = "red";
             }
         }
-        // console.log(paragraphs);
-        // console.log(paragraphs.replace(/(\r\n|\n|\r)/gm, ""));
-
         // function reset(){
         //     randomParagraph();
         //     inpField.value = "";
@@ -274,16 +227,10 @@
         //     mistageTag.innerText = mistakes;
         //     wpmTag.innerText = 0;
         //     cpmTag.innerText = 0;
-
         // }
-        
-        // randomParagraph();
+
         inpField.addEventListener("input", initTyping);
         btnTry.addEventListener("click", reset);
-        // $(btnTry).click(function () {
-        //     location.reload(true)
-        // })
     </script>
-{{-- @endsection --}}
 </body>
 </html>
