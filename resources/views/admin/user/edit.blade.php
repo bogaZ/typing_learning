@@ -2,16 +2,16 @@
 
 @section('content')
 <div class="m-4">
-    <div class="d-flex">
+    <div class="d-flex align-items-center">
         <div class="col-md-4 p-0">
             <button class="btn openbtn btn-primary open shadow" id="bukanav" type="button">
                 <span id="icbukanav" class="fa fa-bars"></span>
             </button>
         </div>
-        <div class="d-flex align-items-center justify-content-center col-md-4 p-0 m-0">
+        <div class="d-flex text-center align-items-center justify-content-center col-md-4 p-0 m-0">
             <h3 class="m-0">Mengubah User</h3>
         </div>
-        <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
+        <div class="d-flex text-center align-items-center flex-row-reverse col-md-4 p-0">
             <p class="m-0">
                 <a href="{{route('home')}}" class="text-decoration-none">Dashboard</a>
                 /

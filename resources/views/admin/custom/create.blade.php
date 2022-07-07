@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <textarea class="form-control" maxlength="1000" id="jmltextarea" name="karakter" placeholder="ketik disini karakter....." style="overflow: hidden; resize: none; height: 150px"></textarea>
+                        <textarea onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}" class="form-control" maxlength="1000" id="jmltextarea" name="karakter" placeholder="ketik disini karakter....." style="overflow: hidden; resize: none; height: 150px"></textarea>
                     </div>
                 </div>
                 <div class="row my-3">

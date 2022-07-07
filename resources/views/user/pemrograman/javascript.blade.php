@@ -29,8 +29,7 @@
             </div>
             <div class="card shadow border-none">
                 <div class="wrapper">
-                    <textarea name="text" class="input-field" id="" cols="30" rows="10"></textarea>
-                    <textarea name="" id="hidetext" cols="30" rows="10"></textarea>
+                    <textarea name="text" class="input-field" id="tabstextarea" cols="30" rows="10" onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}"></textarea>
                     <div class="content-box">
                         <p id="timeout" class="text-center"></p>
                         <div class="typing-text">
@@ -81,7 +80,21 @@
         timeout = document.getElementById("timeout"),
         idkarakter = document.getElementById("karakter-id");
 
+        // $('#tabstextarea').keydown(function (e) {
+        //     var keyCode = e.keyCode || e.which;
+
+        //     if (keyCode === $.ui.keyCode.TAB) {
+        //         e.preventDefault();
+
+        //         const TAB_SIZE = 4;
+
+        //         // The one-liner that does the magic
+        //         document.execCommand('insertText', false, ' '.repeat(TAB_SIZE));
+        //     }
+        // });
+
         let timer,
+        index = 0,
         maxTime = 0,
         timeLeft = maxTime,
         charIndex = mistakes = isTyping = charcpm = 0;
@@ -130,18 +143,49 @@
             cpmTag.innerText = 0;
 
         }
+        // const textarea = document.querySelector('textarea')
+
+        // textarea.addEventListener('keydown', (e) => {
+        // if (e.keyCode === 9) {
+        //     e.preventDefault()
+
+        //     textarea.setRangeText(
+        //     '  ',
+        //     textarea.selectionStart,
+        //     textarea.selectionStart,
+        //     'end'
+        //     )
+        // }
+        // });
 
         function initTyping() {
-            console.log(randTeks);
             const characters = typingText.querySelectorAll("span");
             let typeChar = inpField.value.split("")[charIndex];
             let TypeWords = inpField.value.split("")[charcpm];
+            console.log(typeChar.charCodeAt(index));
+            // console.log(typeChar);
+            // console.log(characters[charIndex].innerHTML);
+            // console.log(TypeWords);
+
+            // klik tabs
+            // var keyCode = e.keyCode || e.which;
+            // if (keyCode === $.ui.keyCode.TAB) {
+            //     e.preventDefault();
+
+            //     const TAB_SIZE = 4;
+
+            //     // The one-liner that does the magic
+            //     document.execCommand('insertText', false, ' '.repeat(TAB_SIZE));
+            // }
+
             if (charIndex < characters.length - 1 && timeLeft > -1) {
+                // console.log(charIndex);
                 if(!isTyping){
                     // console.log(isTyping);
                     timer = setInterval(initTimer, 1000);
                     isTyping = true;
                 }
+
                 if(typeChar == null){
                     charIndex--;
                     if(characters[charIndex].classList.contains("incorrect")){
@@ -149,7 +193,7 @@
                     }
                     characters[charIndex].classList.remove("correct", "incorrect");
                 }else{
-                    if(characters[charIndex].innerText === typeChar){
+                    if(characters[charIndex].innerText === typeChar && characters[charIndex].innerHTML === typeChar){
                         // character same
                         characters[charIndex].classList.add("correct");
                         // console.log("correct");
@@ -221,6 +265,7 @@
             }
         }
 
+        // inpField.addEventListener("input", initTyping);
         inpField.addEventListener("input", initTyping);
         btnTry.addEventListener("click", reset);
     </script>

@@ -39,8 +39,8 @@
         </div>
     </div>
 </div>
-<div class="d-flex justify-content-between mx-4">
-    <div class="p-0 shadow col-md-3 gradienbiru">
+<div class="row justify-content-between mx-4">
+    <div class="p-0 shadow col-lg-3 mb-3 gradienbiru">
         <div class="d-flex flex-column">
             <h6 class="text-center text-white fw-bold p-2 border-bottom m-0">User</h6>
             <div class="px-4 py-2 d-flex align-items-center justify-content-between">
@@ -54,21 +54,21 @@
         </div>
         <a href="{{route('user.index')}}" class="bg-primary d-flex justify-content-center p-2 text-decoration-none text-white">view</a>
     </div>
-    <div class="p-0 shadow col-md-3 gradienbiru">
+    <div class="p-0 shadow col-lg-3 mb-3 gradienbiru">
         <div class="d-flex flex-column">
             <h6 class="text-center text-white fw-bold p-2 border-bottom m-0">Statistik</h6>
             <div class="px-4 py-2 d-flex align-items-center justify-content-between">
                 <i class="bi bi-graph-up text-white" style="font-size: 50px"></i>
                 <div class="d-flex">
-                    <span class="h4 m-0 text-white">{{$jumlahuser}}</span>
-                    <p class="text-white m-0">&nbsp;orang mengetik</p>
+                    <span class="h4 m-0 text-white">{{$jumlahmengetik}}</span>
+                    <p class="text-white m-0">&nbsp;mengetik</p>
                 </div>
             </div>
             
         </div>
         <a href="{{route('user.index')}}" class="bg-primary d-flex justify-content-center p-2 text-decoration-none text-white">view</a>
     </div>
-    <div class="p-0 shadow col-md-3 gradienbiru">
+    <div class="p-0 shadow col-lg-3 mb-3 gradienbiru">
         <div class="d-flex flex-column">
             <h6 class="text-center text-white fw-bold p-2 border-bottom m-0">Notification</h6>
             <div class="px-4 py-2 d-flex align-items-center justify-content-between">
@@ -82,13 +82,13 @@
         <a href="{{route('user.index')}}" class="bg-primary d-flex justify-content-center p-2 text-decoration-none text-white">view</a>
     </div>
 </div>
-<div class="d-flex justify-content-between m-4">
-    <div class="col-md-8 p-0 card d-flex justify-content-center">
-        <canvas id="Chart" style="width:100%;" class="p-3 bg-white rounded border-none shadow"></canvas>
+<div class="row justify-content-between mx-4">
+    <div class="col-lg-8 p-0 mb-3 d-flex justify-content-center">
+        <canvas id="Chart" style="width:100%; max-height: 400px" class="p-3 bg-white rounded border-none shadow"></canvas>
     </div>
-    <div class="col-md-3 p-0 card">
-        <canvas id="pie" style="height: 100%" class="p-3 bg-white rounded border-none shadow"></canvas>
-        <p style="height: 100%" class="m-0 bg-light card p-3"></p>
+    <div class="col-lg-3 p-0 mb-3">
+        <canvas id="pie" style="height: 100%; max-height: 400px" class="p-3 bg-white rounded border-none shadow"></canvas>
+        {{-- <p style="height: 100%" class="m-0 bg-light card p-3"></p> --}}
     </div>
 </div>
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.js"></script> --}}

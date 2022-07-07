@@ -7,6 +7,7 @@ use Auth;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\User;
+use App\Statistik;
 
 class HomeController extends Controller
 {
@@ -30,6 +31,7 @@ class HomeController extends Controller
     {
         $username = Auth::user()->name;
         $jumlahuser = User::all()->count();
-        return view('home', compact('username', 'jumlahuser'));
+        $jumlahmengetik = Statistik::all()->count();
+        return view('home', compact('username', 'jumlahuser', 'jumlahmengetik'));
     }
 }

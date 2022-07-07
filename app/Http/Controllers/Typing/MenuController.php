@@ -54,11 +54,9 @@ class MenuController extends Controller
         $allbahasa = Bahasa::where('id', '!=', 1)->get();
         $bahasaindonesia = 2;
         $bahasainggris = 3;
-        // $bahasa = Bahasa_user::where('user_id', $uid)->get();
         $statistik = Statistik::all();
-        $kata = karakter::where(['type_id' => 2])->get();
+        $kata = karakter::where(['type_id' => 5])->get();
         return view('user.pemrograman.javascript', compact('kata', 'statistik', 'uid', 'bahasaindonesia', 'bahasainggris', 'allbahasa'));
-        // return view('user.pemrograman.javascript');
     }
 
 }
