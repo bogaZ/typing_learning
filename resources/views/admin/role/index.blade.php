@@ -116,6 +116,6 @@
 <div class="d-flex justify-content-between m-4">
 </div>
 <script>
-    document.getElementById("user").classList.add("aktif-link");
+    document.getElementById("role").classList.add("aktif-link");
 </script>
 @endsection

@@ -29,7 +29,7 @@
             </button>
         </div>
         <div class="d-flex align-items-center justify-content-center col-md-4 p-0 m-0">
-            <h3 class="m-0 fw-bold">Home</h3>
+            <h3 class="m-0 fw-bold">Dashboard</h3>
         </div>
         <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
             <p class="m-0">
@@ -88,9 +88,16 @@
     </div>
     <div class="col-lg-3 p-0 mb-3">
         <canvas id="pie" style="height: 100%; max-height: 400px" class="p-3 bg-white rounded border-none shadow"></canvas>
+        <div class="bg-white p-3 rounded border-none shadow my-3">
+            <h6 class="text-center fw-bold">percentace</h6>
+            <p class="m-0">custom: {{$karakter->where('bahasa_id', 1)->count() * 100 / $karakter->count()}}%</p>
+            <p class="m-0">indonesia: {{$karakter->where('bahasa_id', 2)->count() * 100 / $karakter->count()}}%</p>
+            <p class="m-0">inggris: {{$karakter->where('bahasa_id', 3)->count() * 100 / $karakter->count()}}%</p>
+        </div>
         {{-- <p style="height: 100%" class="m-0 bg-light card p-3"></p> --}}
     </div>
 </div>
+{{-- {{$users}} --}}
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.js"></script> --}}
 <script>
     document.getElementById("dashboard").classList.add("aktif-link");

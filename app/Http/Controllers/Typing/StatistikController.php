@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 use App\Statistik;
+use Carbon\Carbon;
 
 class StatistikController extends Controller
 {
@@ -18,7 +19,15 @@ class StatistikController extends Controller
     {
         //
         $uid = Auth::user()->id;
-        return view('user.statistik.index', compact('uid'));
+        if($uid == 1){
+            $username = Auth::user()->username;
+            $alldata = Statistik::orderBy('created_at', 'DESC')->get();
+            return view('admin.statistik.index', compact('username', 'alldata'));
+        }
+        $alldata = Statistik::where('user_id', $uid)->orderBy('created_at', 'DESC')->get();
+        // $date = today();
+        // $alldata = Statistik::where('user_id', $uid)->orderBy('created_at', 'DESC')->whereDate('created_at', Carbon::now()->subDays(4))->get();
+        return view('user.statistik.index', compact('uid', 'alldata'));
     }
 
     /**

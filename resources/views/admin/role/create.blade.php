@@ -35,4 +35,7 @@
 </div>
 <div>
 </div>
+<script>
+    document.getElementById("role").classList.add("aktif-link");
+</script>
 @endsection

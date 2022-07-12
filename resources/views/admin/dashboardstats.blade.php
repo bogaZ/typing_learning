@@ -1,7 +1,30 @@
 <script type="Text/Javascript">
-    var xValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    // let karaktercount = {!! json_encode($karakter->count()) !!};
+    let month = {!! json_encode($month) !!};
+    let easyuser = {!! json_encode($userArreasy) !!};
+    // console.log(easyuser.jumlah);
+    // var output = easyuser.map(({jumlah}) => jumlah);
+    easyuser.forEach(element => {
+        console.log(element);
+    });
+    // console.log(easyuser['jumlah']);
+    // for (let item of easyuser) {
+    //     output.push(item.jumlah);
+    // }
+    // console.log(output);
+    console.log(easyuser["jumlah"]);
+    console.log(month);
+
+    let customcount = {!! json_encode($karakter->where('bahasa_id', 1)->count()) !!};
+    // customcount = customcount*100/karaktercount;
+    let indonesiacount = {!! json_encode($karakter->where('bahasa_id', 2)->count()) !!};
+    // indonesiacount = indonesiacount*100/karaktercount;
+    let inggriscount = {!! json_encode($karakter->where('bahasa_id', 3)->count()) !!};
+    // inggriscount = inggriscount*100/karaktercount;
+
+    var xValues = month;
     var yValues = [7,8,8,9,9,9,10,11,14,14,15,50];
-    var easymode = [3, 5, 6, 7, 8, 9, 4, 4, 10];
+    var easymode = easyuser;
     var normalmode = [5, 6, 8, 2, 8, 9, 2, 9, 20];
     var hardmode = [7, 8, 8, 9, 6, 8, 3, 8, 23, 10];
     
@@ -93,7 +116,7 @@
         ],
         datasets: [{
             label: 'My First Dataset',
-            data: [300, 50, 100],
+            data: [customcount, indonesiacount, inggriscount],
             backgroundColor: [
             'blue',
             'red',

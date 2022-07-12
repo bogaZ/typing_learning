@@ -24,23 +24,39 @@
                 <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
             </div>
         </div>
-        <div class="card p-3 shadow border-none my-3">
+        <div class="card p-5 shadow border-none my-3">
+            <div class="text-center fw-bold">Riwayat Mengetik</div>
             <table id="example1" class="display my-3 border rounded rounded-3 border-dark" style="width:100%">
                 <thead class="gradienbiru text-white">
                     <tr>
                         <th>No</th>
-                        <th>Nama Pembuat</th>
-                        <th>Nama text</th>
+                        {{-- <th>Nama Pembuat</th> --}}
+                        {{-- <th>Nama text</th> --}}
                         <th>Teks</th>
                         <th>Tipe Text</th>
+                        <th>Score</th>
+                        <th>Time Result</th>
+                        <th>Time Typing</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody class="gradienbiru2 text-dark">
-
+                    @forelse ($alldata as $i => $data)
                     <tr>
+                        <td>{{++$i}}</td>
+                        <td>{{$data->karakter->karakter}}</td>
+                        <td>{{$data->karakter->type->name}}</td>
+                        <td>{{$data->speed_typing}}</td>
+                        <td>{{$data->time}}</td>
+                        <td>{{$data->created_at->diffForHumans()}}</td>
                     </tr>
-                    
+                    @empty
+                    {{-- <tr> --}}
+                        {{-- <td> --}}
+                            {{-- </td> --}}
+                    {{-- </tr> --}}
+                        <p class="bg-danger text-white p-1 text-center">no product</p> 
+                    @endforelse
                 </tbody>
             </table>
         </div>
