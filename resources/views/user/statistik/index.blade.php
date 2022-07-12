@@ -23,6 +23,15 @@
             <div class="d-flex justify-content-center">
                 <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
             </div>
+            <div class="d-flex justify-content-center">
+                <div>
+                    <div>Nilai tertinggi:</div>
+                    <div>Mudah= <span>{{$maxnilai->max('speed_typing')}}</span></div>
+                    <div>Normal= <span>{{$maxnilai->max('speed_typing')}}</span></div>
+                    <div>Hard= <span>{{$maxnilai->max('speed_typing')}}</span></div>
+                    <div>Programing= <span>{{$maxnilai->max('speed_typing')}}</span></div>
+                </div>
+            </div>
         </div>
         <div class="card p-5 shadow border-none my-3">
             <div class="text-center fw-bold">Riwayat Mengetik</div>
@@ -37,7 +46,7 @@
                         <th>Score</th>
                         <th>Time Result</th>
                         <th>Time Typing</th>
-                        <th>Action</th>
+                        {{-- <th>Action</th> --}}
                     </tr>
                 </thead>
                 <tbody class="gradienbiru2 text-dark">
@@ -46,7 +55,7 @@
                         <td>{{++$i}}</td>
                         <td>{{$data->karakter->karakter}}</td>
                         <td>{{$data->karakter->type->name}}</td>
-                        <td>{{$data->speed_typing}}</td>
+                        <td>{{$data->speed_typing}}Kpm</td>
                         <td>{{$data->time}}</td>
                         <td>{{$data->created_at->diffForHumans()}}</td>
                     </tr>

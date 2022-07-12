@@ -69,6 +69,7 @@
         // });
         let data = {!! json_encode($statistik) !!};
         var co = {!! json_encode($kata) !!};
+        // $(textarea).hide();
 
         const typingText = document.querySelector(".typing-text p"),
         inpField = document.querySelector(".wrapper .input-field"),

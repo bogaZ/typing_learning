@@ -25,9 +25,10 @@ class StatistikController extends Controller
             return view('admin.statistik.index', compact('username', 'alldata'));
         }
         $alldata = Statistik::where('user_id', $uid)->orderBy('created_at', 'DESC')->get();
+        $maxnilai = Statistik::where(['user_id'=> $uid]);
         // $date = today();
         // $alldata = Statistik::where('user_id', $uid)->orderBy('created_at', 'DESC')->whereDate('created_at', Carbon::now()->subDays(4))->get();
-        return view('user.statistik.index', compact('uid', 'alldata'));
+        return view('user.statistik.index', compact('uid', 'alldata', 'maxnilai'));
     }
 
     /**
