@@ -1,96 +1,40 @@
-{{-- <div class="row">
-    <div class="d-grid mx-auto">
-        <button id="kembali" class="btn btn-danger block">Kembali</button>
-    </div>
-</div>
-<br>
-<div class="row">
-    <div class="d-grid mx-auto">
-        <button id="PHP" class="btn btn-primary block">Ini PHP</button>
-    </div>
-</div>
-<br>
-<div class="row">
-    <div class="d-grid mx-auto">
-        <button id="JS" class="btn btn-primary block">JavaScript</button>
-    </div>
-</div>
-<br>
-<script>
-    $(document).ready(function(){
-        $('#kembali').click(function () {
-            $('#content').load('/menuplay')
-        })
-        $('#PHP').click(function () {
-            $('#content').load('/kesulitan/pemrograman/php')
-        })
-        $('#JS').click(function () {
-            $('#content').load('/kesulitan/pemrograman/js')
-        })
-    })
-</script> --}}
-
-{{-- <div class="row">
-    <div class="my-3 mx-1">
-        <a id="kembali" href="#" class="text-decoration-none fw-bold">Kembali</a>
-    </div>
-    <div>
-        <h6 class="fw-bold text-center">{{$kata}}</h6>
-        <p>jumlah kata: {{$jumlahkata}}</p>
-    </div>
-    <div class="col-md-10">
-        <textarea class="form-control" placeholder="ketik disini....." style="overflow: hidden; resize: none; height: 150px"></textarea>
-    </div>
-    <div class="col-md-2 d-grid">
-    </div>
-</div> --}}
-
-<div class="row">
-    {{-- <div>
-        <h6 class="fw-bold text-center">{{$kata}}</h6>
-        <p>jumlah kata: {{$jumlahkata}}</p>
-    </div> --}}
-    <div class="col-md-4">
+<div class="row bg-white p-5 rounded">
+    <div class="col-md-4 p-0">
         <div class="mx-auto">
             <a id="kembali" href="#" class="text-decoration-none fw-bold">Kembali</a>
         </div>
     </div>
     <div class="col-md-4">
-        <h6 class="fw-bold text-center">PHP Mode</h6>
+        <p class="fw-bold text-center">PHP Mode</p>
     </div>
-    <div>
-        <h6 class="fw-bold text-center border">"echo 'mengetik bahasa pemrograman';"</h6>
+    <div class="p-0">
+        <div class="typing-text">
+            <p class="bg-white shadow border-none rounded py-4 px-3">"echo 'mengetik bahasa pemrograman';"</p>
+        </div>
         <div class="d-flex justify-content-between">
-            <p>Jumlah kata: </p>
-            <p>Waktu sisa: </p>
+            <p>Jumlah kata: 0</p>
+            <p>Waktu sisa: 0</p>
         </div>
     </div>
-    <div class="col-md-10 border">
+    <div class="col-sm-12 p-0 border-none">
         <textarea id="mengetikkata" class="form-control" placeholder="ketik disini....." style="overflow: hidden; resize: none; height: 150px"></textarea>
     </div>
-    <div class="col-md-2 d-grid">
-        <span>Score: </span>
-        {{-- <button type="submit" class="btn btn-primary">simpan</button>
-        <button type="submit" class="btn btn-primary my-3">reset</button>
-        <button type="submit" class="btn btn-danger">hapus</button> --}}
+    <div class="col-sm-12 d-grid p-0">
+        <div class=" pm">
+            <span class="text-white p-3">Score: </span>
+        </div>
     </div>
 </div>
-{{-- <script>
-    $('textarea').maxlength({
-        alwaysShow: true,
-        threshold: 10,
-        warningClass: "label label-success",
-        limitReachedClass: "label label-danger",
-        separator: ' out of ',
-        preText: 'You write ',
-        postText: ' chars.',
-        validate: true
-     });
-</script> --}}
+<style>
+    .pm{
+        background-color: blue;
+    }
+</style>
 <script>
+    var pemrograman = '{{route('pemrograman')}}';
     $(document).ready(function(){
         $('#kembali').click(function () {
-            $('#content').load('/menuplay')
+            $('#content').load(pemrograman)
         })
     })
 </script>

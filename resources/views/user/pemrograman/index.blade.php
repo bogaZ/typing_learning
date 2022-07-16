@@ -43,6 +43,7 @@
 <script>
     var indexplay = '{{route('indexplay')}}';
     var select = '{{route('indexplay')}}';
+    var php = '{{route('php')}}';
     $(document).ready(function(){
         $('#kembali').click(function () {
             $('#content').load(indexplay)
@@ -50,8 +51,8 @@
         $('#select').click(function () {
             $('#content').load(indexplay)
         })
-        $('#PHP').click(function () {
-            $('#content').load('/kesulitan/pemrograman/php')
+        $('#php').click(function () {
+            $('#content').load(php)
         })
         $('#js').click(function () {
             $('#content').load('/kesulitan/pemrograman/js')

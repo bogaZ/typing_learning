@@ -43,8 +43,8 @@
                 </div>
                 <div class="row my-3">
                     <div class="col-md-12 d-grid">
-                        <select name="typecharacter" id="" class="form-control">
-                            <option value="" hidden selected disabled class="">Pilih Type</option>
+                        <select name="typecharacter" id="selecttype" class="form-control">
+                            <option value="" id="" hidden selected disabled class="">Pilih Type</option>
                             @foreach($typecharacter as $type)
                                 <option value="{{$type->id}}" class="">{{$type->name}}</option>
                             @endforeach
@@ -53,10 +53,10 @@
                 </div>
                 <div class="row my-3">
                     <div class="col-md-12 d-grid">
-                        <select name="bahasa" id="" class="form-control">
-                            <option value="" hidden selected disabled class="">Pilih Bahasa</option>
+                        <select name="bahasa" id="selectbahasa" class="form-control" disabled>
+                            <option value="" id="" hidden selected disabled class="">Pilih Bahasa</option>
                             @foreach($allbahasa as $bahasa)
-                                <option value="{{$bahasa->id}}" class="">{{$bahasa->bahasa}}</option>
+                                <option value="{{$bahasa->id}}" class="pilihbahasa">{{$bahasa->bahasa}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -73,7 +73,64 @@
             </form>
         </div>
     </div>
+    <style>
+        select[disabled]{
+            color:#aaa;
+        }
+    </style>
     <script>
+        var allbahasa = {!! json_encode($allbahasa) !!};
+        var allbahasacount = {!! json_encode($allbahasa->count()) !!};
+        // console.log(allbahasacount);
+        function chainSelect(current, target){
+            var value1 = $(current).on('change', function(){
+                if($(this).find(':selected').val() != ''){
+                    $(target).removeAttr('disabled');
+                    var value = $(this).find(':selected').text();
+                    let banyakpilih = allbahasa.length;
+
+                    if(value == 'pemrograman'){
+                        console.log('sukses')
+                        $(target+" option[value='1']").hide();
+                        $(target+" option[value='2']").hide();
+                        $(target+" option[value='3']").hide();
+                        for (let index = 4; index <= banyakpilih; index++) {
+                            $(target+" option[value="+index+"]").show();
+                        }
+                    }else{
+                        $(target+" option[value='1']").show();
+                        $(target+" option[value='2']").show();
+                        $(target+" option[value='3']").show();
+                        for (let index = 4; index <= banyakpilih; index++) {
+                            $(target+" option[value="+index+"]").hide();
+                        }
+                    }
+                }else{
+                    $(target).prop('disabled', 'disabled').val(null);
+                }
+
+                // var now = $('#selecttype option:selected').val();
+                // var x = document.getElementById("selectbahasa");
+                // console.log(this);
+                // var y = 2;
+                // if(now == 5){
+                //     $("#selectbahasa option[value="+y+"]").hide();
+                // }else{
+                //     $("#selectbahasa option[value='1']").show();
+                //     $("#selectbahasa option[value='2']").hide();
+                //     $("#selectbahasa option[value='3']").hide();
+                // }
+
+                return value;
+            });
+            return value1;
+        }
+        type = chainSelect('select#selecttype', '#selectbahasa');
+        // console.log(type);
+        // var now = $('#selecttype option:selected').val();
+        // console.log(now);
+        // if()
+
         $(document).ready(function(){
             $('#kembali').click(function () {
                 $('#content').load('/menucustom')
