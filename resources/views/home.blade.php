@@ -12,6 +12,7 @@
             @include('layouts.menu')
         </div>
     </div>
+    @include('edit')
     <script type="text/javaScript">
         $('body').addClass('bg-play');
     </script>
@@ -83,8 +84,42 @@
     </div>
 </div>
 <div class="row justify-content-between mx-4">
-    <div class="col-lg-8 p-0 mb-3 d-flex justify-content-center">
-        <canvas id="Chart" style="width:100%; max-height: 400px" class="p-3 bg-white rounded border-none shadow"></canvas>
+    <div class="col-lg-8 p-0 mb-3">
+        {{-- <div class="mb-3 p-0 m-0 col-md-12 border-none d-flex">
+            <select name="" id="" class="form-control col-md-3 me-2 border-none shadow">
+                <option value="">Hari</option>
+                <option value="">Minggu</option>
+                <option value="">Bulan</option>
+            </select>
+            <button type="button" class="col-md-2 btn btn-primary shadow">submit</button>
+        </div> --}}
+        <div class="bg-white p-5 rounded shadow mb-3">
+            <h2 class="fw-bold text-center">Statistik Hari Ini</h2>
+            <table id="" class="my-3 rounded rounded-3" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Tingkat Kesulitan</th>
+                        <th>Scrore Tertinggi</th>
+                        <th>Total Dimainkan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($scoreStats as $item)    
+                    <tr>
+                        <td>{{$item['nama']}}</td>
+                        <td>{{$item['high_score']}}</td>
+                        <td>{{$item['jumlah_dimainkan']}}</td>
+                        {{-- <td>{{$item['nama']}}</td>
+                        <td>{{$item['nama']}}</td> --}}
+                        {{-- <td>n</td>
+                        <td>n</td>
+                        <td>n</td> --}}
+                    </tr>
+                    @endforeach
+
+                </tbody>
+            </table>
+        </div>
     </div>
     <div class="col-lg-3 p-0 mb-3">
         <canvas id="pie" style="height: 100%; max-height: 400px" class="p-3 bg-white rounded border-none shadow"></canvas>

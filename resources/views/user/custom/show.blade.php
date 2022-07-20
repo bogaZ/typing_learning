@@ -66,7 +66,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="mx-auto">
-                                    <a id="kembali" href="#" class="text-decoration-none fw-bold">Kembali</a>
+                                    <a id="kembali" href="javascript:history.back();" class="text-decoration-none fw-bold">Kembali</a>
                                 </div>
                             </div>
                             <div class="col-md-4">

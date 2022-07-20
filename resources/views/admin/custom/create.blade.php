@@ -85,12 +85,12 @@
         function chainSelect(current, target){
             var value1 = $(current).on('change', function(){
                 if($(this).find(':selected').val() != ''){
+                    console.log(this);
                     $(target).removeAttr('disabled');
                     var value = $(this).find(':selected').text();
                     let banyakpilih = allbahasa.length;
 
                     if(value == 'pemrograman'){
-                        console.log('sukses')
                         $(target+" option[value='1']").hide();
                         $(target+" option[value='2']").hide();
                         $(target+" option[value='3']").hide();
@@ -98,6 +98,7 @@
                             $(target+" option[value="+index+"]").show();
                         }
                     }else{
+                        // $("#selectbahasa").find(':selected').val()
                         $(target+" option[value='1']").show();
                         $(target+" option[value='2']").show();
                         $(target+" option[value='3']").show();
@@ -109,27 +110,11 @@
                     $(target).prop('disabled', 'disabled').val(null);
                 }
 
-                // var now = $('#selecttype option:selected').val();
-                // var x = document.getElementById("selectbahasa");
-                // console.log(this);
-                // var y = 2;
-                // if(now == 5){
-                //     $("#selectbahasa option[value="+y+"]").hide();
-                // }else{
-                //     $("#selectbahasa option[value='1']").show();
-                //     $("#selectbahasa option[value='2']").hide();
-                //     $("#selectbahasa option[value='3']").hide();
-                // }
-
                 return value;
             });
             return value1;
         }
         type = chainSelect('select#selecttype', '#selectbahasa');
-        // console.log(type);
-        // var now = $('#selecttype option:selected').val();
-        // console.log(now);
-        // if()
 
         $(document).ready(function(){
             $('#kembali').click(function () {

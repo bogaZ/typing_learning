@@ -8,6 +8,7 @@ use App\karakter;
 use App\User;
 use App\type;
 use App\Bahasa;
+use App\Activity;
 use Auth;
 use DB;
 
@@ -77,16 +78,24 @@ class CustomController extends Controller
         $karakter->user_id = Auth::User()->id;
         $karakter->karakter = $request->karakter;
         $karakter->nama = $request->nama;
+
+        $log = new Activity;
+        $log->user_id = $userid;
+        $log->activity = "store";
         if($role_id == 1){
             $karakter->bahasa_id = $request->bahasa;
             $karakter->type_id = $request->typecharacter;
             $karakter->save();
+            $log->log = "membuat karakter baru (custom) yang memiliki id ". $karakter->id ;
+            $log->save();
             
             return back()->with('sukses', 'Karakter berhasil dibuat');
         }
         $karakter->bahasa_id = "1";
         $karakter->type_id = "1";
         $karakter->save();
+        $log->log = "membuat karakter baru (custom) yang memiliki id ". $karakter->id ;
+        $log->save();
         
         return redirect('home')->with('sukses', 'Karakter berhasil dibuat');
     }

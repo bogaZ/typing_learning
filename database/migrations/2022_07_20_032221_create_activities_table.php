@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStatistiksTable extends Migration
+class CreateActivitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateStatistiksTable extends Migration
      */
     public function up()
     {
-        Schema::create('statistiks', function (Blueprint $table) {
+        Schema::create('activities', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('karakter_id');
-            $table->string('kesulitan');
-            $table->integer('speed_typing');
-            $table->integer('time');
+            $table->string('activity');
+            $table->string('log');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateStatistiksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('statistiks');
+        Schema::dropIfExists('activities');
     }
 }

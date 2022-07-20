@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 use App\Statistik;
+use App\Activity;
 use Carbon\Carbon;
 
 class StatistikController extends Controller
@@ -25,7 +26,8 @@ class StatistikController extends Controller
             return view('admin.statistik.index', compact('username', 'alldata'));
         }
         $alldata = Statistik::where('user_id', $uid)->orderBy('created_at', 'DESC')->get();
-        $maxnilai = Statistik::where(['user_id'=> $uid]);
+        // $maxnilai = Statistik::where(['user_id'=> $uid]);
+        $maxnilai = Statistik::get();
         // $date = today();
         // $alldata = Statistik::where('user_id', $uid)->orderBy('created_at', 'DESC')->whereDate('created_at', Carbon::now()->subDays(4))->get();
         return view('user.statistik.index', compact('uid', 'alldata', 'maxnilai'));
@@ -53,6 +55,7 @@ class StatistikController extends Controller
         //
         // Statistik::create($request->all());
         $uid = Auth::user()->id;
+        // $kesulitan = type::all();
 
         $data = new Statistik;
 
@@ -60,9 +63,19 @@ class StatistikController extends Controller
         // $data->speed_typing = 2;
         $data->time = $request->time;
         $data->karakter_id = $request->karakter_id;
+        // $data->kesulitan = $kesulitan->where('id', $request->karakter_id)->get('name');
+        $data->kesulitan = $request->kesulitan;
 
         $data->user_id = $uid;
         $data->save();
+
+        $log = new Activity;
+        $log->user_id = $uid;
+        $log->activity = "store";
+        $log->log = "mengetik karakter dengan id statistik ". $data->id ;
+        $log->save();
+
+
         
         return response()->json($data);
         // return response()->json(['success'=>'Got Simple Ajax Request.']);

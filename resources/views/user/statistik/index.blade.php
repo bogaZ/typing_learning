@@ -26,10 +26,10 @@
             <div class="d-flex justify-content-center">
                 <div>
                     <div>Nilai tertinggi:</div>
-                    <div>Mudah= <span>{{$maxnilai->max('speed_typing')}}</span></div>
-                    <div>Normal= <span>{{$maxnilai->max('speed_typing')}}</span></div>
-                    <div>Hard= <span>{{$maxnilai->max('speed_typing')}}</span></div>
-                    <div>Programing= <span>{{$maxnilai->max('speed_typing')}}</span></div>
+                    <div>Mudah= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'mudah')->max('speed_typing')}}</span></div>
+                    <div>Normal= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'normal')->max('speed_typing')}}</span></div>
+                    <div>Hard= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'susah')->max('speed_typing')}}</span></div>
+                    <div>Programing= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'pemrograman')->max('speed_typing')}}</span></div>
                 </div>
             </div>
         </div>
@@ -60,17 +60,17 @@
                         <td>{{$data->created_at->diffForHumans()}}</td>
                     </tr>
                     @empty
-                    {{-- <tr> --}}
-                        {{-- <td> --}}
-                            {{-- </td> --}}
-                    {{-- </tr> --}}
-                        <p class="bg-danger text-white p-1 text-center">no product</p> 
+                    <tr>
+                        <td colspan="6">
+                            <p class="text-danger p-1 text-center">belum mengetik</p> 
+                        </td>
+                    </tr>
                     @endforelse
                 </tbody>
             </table>
         </div>
     </div>
-    <script>
+    {{-- <script>
         var xValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
         var yValues = [7,8,8,9,9,9,10,11,14,14,15,50];
         var easymode = [3, 5, 6, 7, 8, 9, 4, 4, 10];
@@ -154,7 +154,8 @@
             }
         }
         });
-    </script>
+    </script> --}}
+    @include('user.statistik.show')
     @include('layouts.bottom')
 </body>
 </html>

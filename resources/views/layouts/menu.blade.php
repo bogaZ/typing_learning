@@ -67,7 +67,7 @@
                 <br>
                 <div class="d-flex justify-content-between">
                     <div class="p-0">
-                        <button id="setting" class="btn btn-secondary block"><i class="bi bi-gear-fill"></i></button>
+                        <button id="settingmodal" class="btn btn-secondary block"><i class="bi bi-gear-fill"></i></button>
                     </div>
                     <div class="p-0">
                         <button id="reload" class="btn btn-secondary block"><i class="bi bi-arrow-clockwise"></i></button>

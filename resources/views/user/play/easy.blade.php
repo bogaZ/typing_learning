@@ -24,8 +24,13 @@
     </form>
     <div class="d-flex justify-content-center my-3">
         <div class="col-md-8">
-            <div>
-                #<label for="" id="karakter-id">#</label>
+            <div class="d-flex justify-content-between">
+                <div>
+                    #<label for="" id="karakter-id">#</label>
+                </div>
+                <div>
+                    tingkat kesulitan:<label for="" id="karakter-level">mudah</label>
+                </div>
             </div>
             <div class="card shadow border-none">
                 <div class="wrapper">
@@ -80,6 +85,8 @@
         btnTry = document.querySelector("#resettext"),
         timeout = document.getElementById("timeout"),
         idkarakter = document.getElementById("karakter-id");
+        karakter_level = document.getElementById("karakter-level").innerText;
+        console.log(karakter_level);
 
         let timer,
         maxTime = 0,
@@ -187,6 +194,7 @@
                 let cpmresult = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
                 cpmresult = cpmresult < 0 || cpmresult === Infinity ? 0 : cpmresult;
                 let time = timeLeft;
+                // let tingkat_kesulitan = karakter_level;
                 let karakter_id = co[randTeks].id;
                 let _token = $('meta[name="csrf-token"]').attr('content');
                 $.ajax({
@@ -195,6 +203,7 @@
                     data:{
                         karakter_id: karakter_id,
                         typing: cpmresult,
+                        kesulitan: karakter_level,
                         time: time,
                         _token: _token
                     },
