@@ -22,7 +22,7 @@ class PlayingController extends Controller
         // }
         // $jumlahkata = strlen($kata);
         $uid = Auth::user();
-        $allbahasa = Bahasa::where('id', '!=', 1)->get();
+        $allbahasa = Bahasa::where('id', 2)->orwhere('id', 3)->get();
         $bahasaindonesia = 2;
         $bahasainggris = 3;
         // $bahasa = Bahasa_user::where('user_id', $uid)->get();

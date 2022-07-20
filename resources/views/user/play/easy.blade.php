@@ -26,9 +26,10 @@
         <div class="col-md-8">
             <div class="d-flex justify-content-between">
                 <div>
-                    #<label for="" id="karakter-id">#</label>
+                    <a href="javascript:history.back()" class="text-decoration-none text-dark fw-bold">kembali</a>
                 </div>
                 <div>
+                    #<label for="" id="karakter-id">#</label>
                     tingkat kesulitan:<label for="" id="karakter-level">mudah</label>
                 </div>
             </div>
@@ -143,7 +144,7 @@
             const characters = typingText.querySelectorAll("span");
             let typeChar = inpField.value.split("")[charIndex];
             let TypeWords = inpField.value.split("")[charcpm];
-            if (charIndex < characters.length - 1 && timeLeft > -1) {
+            if (charIndex < characters.length -1 && timeLeft > -1) {
                 if(!isTyping){
                     // console.log(isTyping);
                     timer = setInterval(initTimer, 1000);
@@ -159,6 +160,9 @@
                     if(characters[charIndex].innerText === typeChar){
                         // character same
                         characters[charIndex].classList.add("correct");
+                        // if(charIndex == characters.length){
+                            
+                        // }
                         // console.log("correct");
                     }else{
                         // charachter not same
@@ -180,6 +184,15 @@
                 wpmTag.innerText = cpmresult;
                 cpmTag.innerText = charIndex - mistakes;
             } else {
+                if(charIndex == characters.length -1){
+                    if(characters[charIndex].innerText === typeChar){
+                        characters[charIndex].classList.add("correct");
+                        console.log("terakhir");
+                    }else{
+                        characters[charIndex].classList.add("incorrect");
+                        // mistakes++;
+                    }
+                }
                 inpField.value = "";
                 timeout.innerText = "Finish";
                 timeout.style.color = "green";
