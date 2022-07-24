@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKaraktersTable extends Migration
+class CreatePemrogramenTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,9 @@ class CreateKaraktersTable extends Migration
      */
     public function up()
     {
-        Schema::create('karakters', function (Blueprint $table) {
+        Schema::create('pemrogramen', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->integer('type_id');
-            $table->integer('bahasa_id');
-            $table->integer('pemrograman_id')->nullable();
-            $table->string('nama');
-            $table->string('karakter', 1000);
+            $table->string('bahasa');
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ class CreateKaraktersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('karakters');
+        Schema::dropIfExists('pemrogramen');
     }
 }

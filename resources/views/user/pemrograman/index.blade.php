@@ -1,9 +1,10 @@
-<div class="flex-row-reverse d-flex">
-    <a class="text-right text-dark fw-bold text-decoration-none">Pemrograman</a> /
-    <a class="text-right fw-bold text-decoration-none" href="javascript:void(0)" id="select">Select</a> /
-    <a id="dashboard" class="text-right fw-bold text-decoration-none" href="javascript:void(0)">Dashboard</a>
+<div class="flex-row-reverse d-flex pemrograman">
+    <a class="text-right text-dark fw-bold text-decoration-none pemrograman">Pemrograman</a> <i class="pemrograman">/</i>
+    <a class="text-right fw-bold text-decoration-none pemrograman kembalikesulitan" href="javascript:void(0)" id="select">Kesulitan</a> <i class="pemrograman">/</i>
+    <a class="text-right fw-bold text-decoration-none pemrograman kembalimulai" href="javascript:void(0)" id="select">Select</a> <i class="pemrograman">/</i>
+    <a id="dashboard" class="text-right fw-bold text-decoration-none pemrograman kembali" href="javascript:void(0)">Dashboard</a>
 </div>
-<div class="col-md-12">
+<div class="col-md-12 pemrograman">
     <div class="shadow p-3 mb-5 rounded border border-dark bg-white">
         <div class="card-body">
             <div class="my-5 mx-5">
@@ -15,7 +16,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="mx-auto">
-                            <a id="kembali" href="javascript:void(0)" class="text-decoration-none fw-bold">Kembali</a>
+                            <a href="javascript:void(0)" class="text-decoration-none fw-bold kembalikesulitan">Kembali</a>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -40,7 +41,7 @@
         </div>
     </div>
 </div>
-<script>
+{{-- <script>
     var indexplay = '{{route('indexplay')}}';
     var select = '{{route('indexplay')}}';
     var php = '{{route('php')}}';
@@ -58,4 +59,4 @@
             $('#content').load('/kesulitan/pemrograman/js')
         })
     })
-</script>
+</script> --}}

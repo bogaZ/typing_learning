@@ -10,11 +10,81 @@
         @endif
         <div class="row" id="content">
             @include('layouts.menu')
+            @include('user.menu.select')
+            @include('user.menu.kesulitan')
+            @include('user.pemrograman.index')
         </div>
     </div>
     @include('edit')
+    {{-- <script type="text/javaScript">
+        $(document).ready(function(){
+            const ganti1 = document.getElementById("ganti1");
+            const ganti2 = document.getElementById("ganti2");
+            const ganti3 = $("#ganti3");
+            var item = ganti2;
+            var item1 = "mantap";
+            $("#content").val().click(function () {
+                $(this).replaceWith(item1);
+                console.log(item);
+                // ganti2.remove();
+                // ganti2.prependTo("#ganti1");
+            })
+        })
+    </script> --}}
     <script type="text/javaScript">
         $('body').addClass('bg-play');
+        $('.menu').show();
+        $('.mulai').hide();
+        $('.kesulitan').hide();
+        $('.pemrograman').hide();
+
+        $(document).ready(function(){
+            $('.kembali').click(function () {
+                $('.menu').show()
+                $('.kesulitan').hide();
+                $('.pemrograman').hide();
+                $('.mulai').hide()
+            })
+
+            $('#mulai').click(function () {
+                $('.menu').hide()
+                $('.mulai').show()
+            })
+            $('.kembalimulai').click(function () {
+                $('.menu').hide()
+                $('.kesulitan').hide();
+                $('.pemrograman').hide();
+                $('.mulai').show()
+            })
+
+            $('#kesulitan').click(function () {
+                $('.mulai').hide()
+                $('.kesulitan').show()
+            })
+            $('.kembalikesulitan').click(function () {
+                $('.mulai').hide()
+                $('.menu').hide();
+                $('.pemrograman').hide();
+                $('.kesulitan').show()
+            })
+
+            $('#pemrograman').click(function () {
+                $('.kesulitan').hide()
+                $('.pemrograman').show()
+            })
+            $('#kembalipemrograman').click(function () {
+                $('.kesulitan').hide()
+                $('.menu').hide();
+                $('.mulai').hide();
+                $('.pemrograman').show()
+            })
+
+            $('.dashboard').click(function () {
+                $('.mulai').hide()
+                $('.kesulitan').hide()
+                $('.menu').show()
+            })
+        })
     </script>
 @endrole
 

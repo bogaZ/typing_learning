@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Bahasa;
+use App\Pemrograman;
 use Auth;
 
-class BahasaController extends Controller
+class PemrogramanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +17,10 @@ class BahasaController extends Controller
     public function index()
     {
         //
-        $alldata = Bahasa::all();
+        $alldata = Pemrograman::all();
         $username = Auth::user()->name;
         
-        return view('admin.bahasa.index', compact('username', 'alldata'));
+        return view('admin.bahasa.pemrograman', compact('username', 'alldata'));
     }
 
     /**
@@ -44,11 +44,11 @@ class BahasaController extends Controller
     public function store(Request $request)
     {
         //
-        $bahasa = new Bahasa();
+        $bahasa = new Pemrograman();
         $bahasa->bahasa = $request->name;
         $bahasa->save();
 
-        return redirect()->route('bahasa.index')->with('sukses', 'type berhasil dibuat!');
+        return redirect()->route('pemrograman.index')->with('sukses', 'type berhasil dibuat!');
     }
 
     /**
@@ -94,7 +94,7 @@ class BahasaController extends Controller
     public function destroy($id)
     {
         //
-        $hapus = Bahasa::find($id);
+        $hapus = Pemrograman::find($id);
         $hapus->delete();
 
         return back()->with('sukses', 'Bahasa berhasil dihapus');

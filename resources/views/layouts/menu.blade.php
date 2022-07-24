@@ -36,10 +36,10 @@
 </script> --}}
 {{-- @include('user.ubahbahasa.reload') --}}
 
-<div class="col-md-12">
+<div class="col-md-12 menu">
     <a class="text-right flex-row-reverse d-flex text-dark fw-bold text-decoration-none">Dashboard</a>
 </div>
-<div class="col-md-12">
+<div class="col-md-12 menu">
     <div class="shadow p-3 mb-5 rounded border-none bg-white">
         <div class="card-body">
             <div class="my-5 mx-5">
@@ -63,6 +63,18 @@
                             <a href="{{route('statistik.index')}}" class="btn btn-primary fw-bold">Statistik</a>
                         </div>
                     </div>
+                    {{-- <br>
+                    <div class="row">
+                        <div class="d-grid mx-auto">
+                            <a id="ganti1" href="#" class="btn btn-primary fw-bold">ganti1</a>
+                        </div>
+                        <div class="d-grid mx-auto">
+                            <a id="ganti2" href="#" class="btn btn-primary fw-bold">ganti2</a>
+                        </div>
+                        <div class="d-grid mx-auto">
+                            <a id="ganti3" href="#" class="btn btn-primary fw-bold">ganti3</a>
+                        </div>
+                    </div> --}}
                 </div>
                 <br>
                 <div class="d-flex justify-content-between">
@@ -73,7 +85,27 @@
                         <button id="reload" class="btn btn-secondary block"><i class="bi bi-arrow-clockwise"></i></button>
                     </div>
                 </div>
-                <script type="text/javaScript">
+                {{-- <script type="text/javaScript">
+                    var ganti1 = $('#ganti1');
+                    var ganti2 = $("#ganti2").get();
+                    var ganti3 = $("#ganti3");
+                    console.log(ganti2);
+
+                    $("#ganti1").on("click", function(event){
+                        console.log(ganti1);
+                        ganti1.hide();
+                    })
+
+                    // $(document).ready(function(){
+                    //     $("#ganti1").click(function () {
+                    //         $(this).remove();
+                    //     })
+                    //     $("#ganti2").click(function () {
+                    //         $("#ganti1").remove();
+                    //     })
+                    // })
+                </script> --}}
+                {{-- <script type="text/javaScript">
                     var indexcustom = '{{route('custom.index')}}';
                     var indexplay = '{{route('indexplay')}}';
                     // var indexstatistik = '{{route('statistik.index')}}';
@@ -91,7 +123,7 @@
                             location.reload(true)
                         })
                     })
-                </script>
+                </script> --}}
             </div>
         </div>
     </div>

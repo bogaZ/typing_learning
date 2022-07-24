@@ -9,7 +9,7 @@
             </button>
         </div>
         <div class="d-flex align-items-center justify-content-center col-md-4 p-3 m-0">
-            <h3 class="m-0">Bahasa Character</h3>
+            <h3 class="m-0">Bahasa Pemrograman</h3>
         </div>
         <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
             <p class="m-0">
@@ -22,10 +22,10 @@
 <div class="m-4">
     <div class="d-flex justify-content-between">
         <div>
-            <button disabled class="btn btn-primary shadow"><i class="bi bi-circle-fill text-white"></i> Bahasa Karakter</button>
-            <a href="{{route('pemrograman.index')}}" class="btn btn-primary shadow"><i class="bi bi-circle text-white"></i> Bahasa Pemrograman</a>
+            <a href="{{route('bahasa.index')}}" class="btn btn-primary shadow"><i class="bi bi-circle text-white"></i> Bahasa Karakter</a>
+            <button disabled class="btn btn-primary shadow"><i class="bi bi-circle-fill text-white"></i> Bahasa Pemrograman</button>
         </div>
-        <a href="{{route('bahasa.create')}}" class="btn btn-success shadow">Tambah Bahasa</a>
+        <a href="{{route('pemrograman.create')}}" class="btn btn-success shadow">Tambah Bahasa</a>
         {{-- <div>
             <a href="{{route('custom.create')}}" class="btn btn-success shadow">Tambah Character</a>
         </div> --}}
@@ -99,10 +99,10 @@
                         <div class="modal-body text-center row">
                             <i class="bi bi-exclamation-circle" style="font-size: 50px"></i>
                             <h4 class="m-0 p-3">
-                                Apakah anda yakin mau menghapus bahasa karakter "{{$data->bahasa}}"?
+                                Apakah anda yakin mau menghapus bahasa pemrograman "{{$data->bahasa}}"?
                             </h4>
                         </div>
-                        <form id="logout-form" action="{{ route('bahasa.destroy', $data->id) }}" method="POST">
+                        <form id="logout-form" action="{{ route('pemrograman.destroy', $data->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <div class="m-3 d-flex justify-content-evenly">

@@ -9,6 +9,7 @@ use App\User;
 use App\type;
 use App\Bahasa;
 use App\Activity;
+use App\Pemrograman;
 use Auth;
 use DB;
 
@@ -56,9 +57,10 @@ class CustomController extends Controller
         $username = Auth::user()->name;
         $typecharacter = type::all();
         $allbahasa = Bahasa::all();
+        $allpemrograman = Pemrograman::all();
         $role_id = DB::table('model_has_roles')->where('model_id', $userid)->value('role_id');
         if($role_id == 1){
-            return view('admin.custom.create', compact('userid', 'coba', 'username', 'allbahasa', 'typecharacter'));
+            return view('admin.custom.create', compact('userid', 'allpemrograman', 'coba', 'username', 'allbahasa', 'typecharacter'));
         }
         return view('user.custom.create', compact('userid', 'coba', 'username', 'allbahasa', 'typecharacter'));
     }
@@ -84,6 +86,7 @@ class CustomController extends Controller
         $log->activity = "store";
         if($role_id == 1){
             $karakter->bahasa_id = $request->bahasa;
+            $karakter->pemrograman_id = $request->pemrograman;
             $karakter->type_id = $request->typecharacter;
             $karakter->save();
             $log->log = "membuat karakter baru (custom) yang memiliki id ". $karakter->id ;

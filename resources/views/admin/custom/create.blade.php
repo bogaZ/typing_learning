@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-center">
-        <div class="card p-5 shadow col-md-6 mx-4">
+        <div class="card p-5 shadow col-md-6 mx-4 mb-4">
             <form action="{{route('custom.store')}}" method="POST">
                 @csrf
                 <div class="row">
@@ -61,6 +61,16 @@
                         </select>
                     </div>
                 </div>
+                <div class="row my-3">
+                    <div class="col-md-12 d-grid">
+                        <select name="pemrograman" id="selectpemrograman" class="form-control" disabled>
+                            <option value="" id="" hidden selected disabled class="">Pilih Bahasa Pemrograman</option>
+                            @foreach($allpemrograman as $bahasa)
+                                <option value="{{$bahasa->id}}" class="pilihbahasa">{{$bahasa->bahasa}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
                 {{$coba->role}}
                 <div class="row">
                     <div class="col-md-6 d-grid">
@@ -81,40 +91,27 @@
     <script>
         var allbahasa = {!! json_encode($allbahasa) !!};
         var allbahasacount = {!! json_encode($allbahasa->count()) !!};
-        // console.log(allbahasacount);
-        function chainSelect(current, target){
+
+        function chainSelect(current, target, bahasatarget){
             var value1 = $(current).on('change', function(){
                 if($(this).find(':selected').val() != ''){
-                    console.log(this);
-                    $(target).removeAttr('disabled');
+                    $(bahasatarget).removeAttr('disabled');
                     var value = $(this).find(':selected').text();
-                    let banyakpilih = allbahasa.length;
-
+                    
                     if(value == 'pemrograman'){
-                        $(target+" option[value='1']").hide();
-                        $(target+" option[value='2']").hide();
-                        $(target+" option[value='3']").hide();
-                        for (let index = 4; index <= banyakpilih; index++) {
-                            $(target+" option[value="+index+"]").show();
-                        }
+                        $(target).removeAttr('disabled');
                     }else{
-                        // $("#selectbahasa").find(':selected').val()
-                        $(target+" option[value='1']").show();
-                        $(target+" option[value='2']").show();
-                        $(target+" option[value='3']").show();
-                        for (let index = 4; index <= banyakpilih; index++) {
-                            $(target+" option[value="+index+"]").hide();
-                        }
+                        $(target).attr('disabled', 'disabled');
                     }
                 }else{
                     $(target).prop('disabled', 'disabled').val(null);
                 }
-
                 return value;
             });
             return value1;
         }
-        type = chainSelect('select#selecttype', '#selectbahasa');
+
+        type = chainSelect('select#selecttype', '#selectpemrograman', '#selectbahasa');
 
         $(document).ready(function(){
             $('#kembali').click(function () {
