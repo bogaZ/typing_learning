@@ -1,11 +1,11 @@
 <div class="flex-row-reverse d-flex pemrograman">
-    <a class="text-right text-dark fw-bold text-decoration-none pemrograman">Pemrograman</a> <i class="pemrograman">/</i>
+    {{-- <a class="text-right text-dark fw-bold text-decoration-none pemrograman">Pemrograman</a> <i class="pemrograman">/</i>
     <a class="text-right fw-bold text-decoration-none pemrograman kembalikesulitan" href="javascript:void(0)" id="select">Kesulitan</a> <i class="pemrograman">/</i>
     <a class="text-right fw-bold text-decoration-none pemrograman kembalimulai" href="javascript:void(0)" id="select">Select</a> <i class="pemrograman">/</i>
-    <a id="dashboard" class="text-right fw-bold text-decoration-none pemrograman kembali" href="javascript:void(0)">Dashboard</a>
+    <a id="dashboard" class="text-right fw-bold text-decoration-none pemrograman kembali" href="javascript:void(0)">Dashboard</a> --}}
 </div>
 <div class="col-md-12 pemrograman">
-    <div class="shadow p-3 mb-5 rounded border border-dark bg-white">
+    <div class="shadow p-3 mb-5 rounded bg-white">
         <div class="card-body">
             <div class="my-5 mx-5">
 

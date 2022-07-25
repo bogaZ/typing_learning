@@ -28,8 +28,11 @@
                 @csrf
                 <div class="row">
                     <div class="col-md-12">
-                        <div>
-                            <span name="jmlchars" id="jmlchars"></span> sisa karakter
+                        <div class="d-flex justify-content-between">
+                            <label for="">Teks</label>
+                            <div>
+                                <span name="jmlchars" id="jmlchars"></span> sisa karakter
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -38,10 +41,16 @@
                 </div>
                 <div class="row my-3">
                     <div class="col-md-12 d-grid">
+                        <label for="">Nama Karakter</label>
+                    </div>
+                    <div class="col-md-12 d-grid">
                         <input name="nama" maxlength="25" placeholder="nama karater yang dibuat" class="form-control" style="width: auto" class="rounded">
                     </div>
                 </div>
                 <div class="row my-3">
+                    <div class="col-md-12 d-grid">
+                        <label for="">Tipe</label>
+                    </div>
                     <div class="col-md-12 d-grid">
                         <select name="typecharacter" id="selecttype" class="form-control">
                             <option value="" id="" hidden selected disabled class="">Pilih Type</option>
@@ -53,6 +62,9 @@
                 </div>
                 <div class="row my-3">
                     <div class="col-md-12 d-grid">
+                        <label for="">Bahasa Karakter</label>
+                    </div>
+                    <div class="col-md-12 d-grid">
                         <select name="bahasa" id="selectbahasa" class="form-control" disabled>
                             <option value="" id="" hidden selected disabled class="">Pilih Bahasa</option>
                             @foreach($allbahasa as $bahasa)
@@ -62,6 +74,9 @@
                     </div>
                 </div>
                 <div class="row my-3">
+                    <div class="col-md-12 d-grid">
+                        <label for="">Bahasa Pemrograman</label>
+                    </div>
                     <div class="col-md-12 d-grid">
                         <select name="pemrograman" id="selectpemrograman" class="form-control" disabled>
                             <option value="" id="" hidden selected disabled class="">Pilih Bahasa Pemrograman</option>

@@ -41,6 +41,7 @@ class CustomController extends Controller
         if($role_id == 1){
             return view('admin.custom.index', compact('namakarakter', 'alldata', 'username'));
         }
+        $alldata = karakter::where('user_id', Auth::user()->id)->orderBy('updated_at', 'DESC')->get();
         return view('user.custom.index', compact('namakarakter', 'alldata', 'username'));
     }
 
@@ -165,6 +166,6 @@ class CustomController extends Controller
         $hapus = karakter::find($id);
         $hapus->delete();
 
-        return redirect('home')->with('sukses', 'Karakter berhasil dibuat');
+        return redirect('home')->with('sukses', 'Karakter berhasil dihapus');
     }
 }

@@ -37,7 +37,7 @@
 {{-- @include('user.ubahbahasa.reload') --}}
 
 <div class="col-md-12 menu">
-    <a class="text-right flex-row-reverse d-flex text-dark fw-bold text-decoration-none">Dashboard</a>
+    {{-- <a class="text-right flex-row-reverse d-flex text-dark fw-bold text-decoration-none">Dashboard</a> --}}
 </div>
 <div class="col-md-12 menu">
     <div class="shadow p-3 mb-5 rounded border-none bg-white">
@@ -54,7 +54,8 @@
                     <br>
                     <div class="row">
                         <div class="d-grid mx-auto">
-                            <button id="custom" class="btn btn-primary block fw-bold">Buat Karakter</button>
+                            {{-- <button id="custom" class="btn btn-primary block fw-bold">Buat Karakter</button> --}}
+                            <a href="{{route('custom.index')}}" class="btn btn-primary fw-bold">Custom</a>
                         </div>
                     </div>
                     <br>
@@ -79,10 +80,10 @@
                 <br>
                 <div class="d-flex justify-content-between">
                     <div class="p-0">
-                        <button id="settingmodal" class="btn btn-secondary block"><i class="bi bi-gear-fill"></i></button>
+                        <button id="settingmodal" class="btn btn-secondary block" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-gear-fill"></i> Pengaturan profil</button>
                     </div>
                     <div class="p-0">
-                        <button id="reload" class="btn btn-secondary block"><i class="bi bi-arrow-clockwise"></i></button>
+                        <button id="reload" class="btn btn-secondary block"><i class="bi bi-globe2"></i> Bahasa mengetik</button>
                     </div>
                 </div>
                 {{-- <script type="text/javaScript">

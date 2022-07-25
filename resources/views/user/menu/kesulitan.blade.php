@@ -1,10 +1,10 @@
 <div class="flex-row-reverse d-flex kesulitan">
-    <a class="text-right text-dark fw-bold text-decoration-none kesulitan">Kesulitan</a><i class="kesulitan">/</i>
+    {{-- <a class="text-right text-dark fw-bold text-decoration-none kesulitan">Kesulitan</a><i class="kesulitan">/</i>
     <a class="text-right fw-bold text-decoration-none kesulitan kembalimulai" href="javascript:void(0)">Select</a><i class="kesulitan">/</i>
-    <a class="text-right fw-bold text-decoration-none kesulitan kembali" href="javascript:void(0)">Dashboard</a>
+    <a class="text-right fw-bold text-decoration-none kesulitan kembali" href="javascript:void(0)">Dashboard</a> --}}
 </div>
 <div class="col-md-12 kesulitan">
-    <div class="shadow p-3 mb-5 rounded border border-dark bg-white">
+    <div class="shadow p-3 mb-5 rounded bg-white">
         <div class="card-body">
             <div class="my-5 mx-5">
                 <div class="row">
@@ -28,13 +28,21 @@
                 <div class="row">
                     <div class="d-grid mx-auto">
                         {{-- <button id="normal" class="btn btn-primary block">Normal</button> --}}
+                        @if($statistik >= 150)
                         <a id="normal" href="{{route('playnormal')}}" class="btn btn-primary block">Normal</a>
+                        @else
+                        <a id="" href="{{route('playnormal')}}" class="btn btn-primary block disabled"><i class="bi bi-lock-fill"></i> Normal</a>
+                        @endif
                     </div>
                 </div>
                 <br>
                 <div class="row">
                     <div class="d-grid mx-auto">
-                        <button id="susah" class="btn btn-primary block">Susah</button>
+                        @if($statistik >= 170)
+                        <a id="susah" href="{{route('playsusah')}}" class="btn btn-primary block">Susah</a>
+                        @else
+                        <a id="" class="btn btn-primary block disabled"><i class="bi bi-lock-fill"></i> Susah</a>
+                        @endif
                     </div>
                 </div>
                 <br>

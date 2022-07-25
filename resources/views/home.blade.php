@@ -10,9 +10,27 @@
         @endif
         <div class="row" id="content">
             @include('layouts.menu')
-            @include('user.menu.select')
+            {{-- @include('user.menu.select') --}}
             @include('user.menu.kesulitan')
             @include('user.pemrograman.index')
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                ...
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+            </div>
         </div>
     </div>
     @include('edit')
@@ -48,14 +66,25 @@
 
             $('#mulai').click(function () {
                 $('.menu').hide()
-                $('.mulai').show()
+                $('.kesulitan').show()
             })
             $('.kembalimulai').click(function () {
-                $('.menu').hide()
+                $('.menu').show()
                 $('.kesulitan').hide();
                 $('.pemrograman').hide();
-                $('.mulai').show()
+                $('.mulai').hide()
             })
+
+            // $('#mulai').click(function () {
+            //     $('.menu').hide()
+            //     $('.mulai').show()
+            // })
+            // $('.kembalimulai').click(function () {
+            //     $('.menu').hide()
+            //     $('.kesulitan').hide();
+            //     $('.pemrograman').hide();
+            //     $('.mulai').show()
+            // })
 
             $('#kesulitan').click(function () {
                 $('.mulai').hide()
@@ -164,7 +193,7 @@
             <button type="button" class="col-md-2 btn btn-primary shadow">submit</button>
         </div> --}}
         <div class="bg-white p-5 rounded shadow mb-3">
-            <h2 class="fw-bold text-center">Statistik Hari Ini</h2>
+            <h4 class="fw-bold text-center">Statistik Hari Ini</h4>
             <table id="" class="my-3 rounded rounded-3" style="width:100%">
                 <thead>
                     <tr>

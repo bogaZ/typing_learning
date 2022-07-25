@@ -33,7 +33,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $username = Auth::user()->name;
+        $user = Auth::user();
+        $username = $user->name;
+        $uid = $user->id;
+        $statistik = Statistik::where('user_id', $uid)->max('speed_typing');
+
         $jumlahuser = User::all()->count();
         $jumlahmengetik = Statistik::all()->count();
         $karakter = karakter::all();
@@ -106,6 +110,6 @@ class HomeController extends Controller
             }
         }
         // return json_encode($scoreStats);
-        return view('home', compact('username', 'type', 'jumlahuser', 'jumlahmengetik', 'karakter', 'month', 'users', 'userArreasy', 'scoreStats'));
+        return view('home', compact('username', 'statistik', 'type', 'jumlahuser', 'jumlahmengetik', 'karakter', 'month', 'users', 'userArreasy', 'scoreStats'));
     }
 }

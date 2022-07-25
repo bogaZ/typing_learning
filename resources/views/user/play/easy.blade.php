@@ -26,7 +26,8 @@
         <div class="col-md-8">
             <div class="d-flex justify-content-between">
                 <div>
-                    <a href="javascript:history.back()" class="text-decoration-none text-dark fw-bold">kembali</a>
+                    <a href="{{route('home')}}" class="text-decoration-none text-dark fw-bold">kembali</a>
+                    {{-- <a href="javascript:history.back()" class="text-decoration-none text-dark fw-bold">kembali</a> --}}
                 </div>
                 <div>
                     #<label for="" id="karakter-id">#</label>

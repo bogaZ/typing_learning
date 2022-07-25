@@ -38,7 +38,10 @@ class MenuController extends Controller
         return view('layouts.menu', compact('kata', 'jumlahkata'));
     }
     public function getcustom(){
-        return view('user.custom.index');
+        $uid = Auth::user()->id;
+        $alldata = karakter::where(['user_id' => $uid]);
+        
+        return view('user.custom.index', compact('alldata'));
     }
     public function getpemrograman(){
         return view('user.pemrograman.index');

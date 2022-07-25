@@ -94,5 +94,9 @@ class TypeController extends Controller
     public function destroy($id)
     {
         //
+        $hapus = type::find($id);
+        $hapus->delete();
+
+        return back()->with('sukses', 'Karakter berhasil dihapus');
     }
 }

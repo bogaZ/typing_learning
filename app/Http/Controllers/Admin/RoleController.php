@@ -108,5 +108,9 @@ class RoleController extends Controller
     public function destroy($id)
     {
         //
+        $hapus = Role::find($id);
+        $hapus->delete();
+
+        return back()->with('sukses', 'Karakter berhasil dihapus');
     }
 }

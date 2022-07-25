@@ -96,7 +96,7 @@
                         <div class="modal-body text-center row">
                             <i class="bi bi-exclamation-circle" style="font-size: 50px"></i>
                             <h4 class="m-0 p-3">
-                                Apakah anda yakin mau menghapus type character "{{$data->name}}"?
+                                Apakah anda yakin mau menghapus role "{{$data->name}}"?
                             </h4>
                         </div>
                         <form id="logout-form" action="{{ route('role.destroy', $data->id) }}" method="POST">

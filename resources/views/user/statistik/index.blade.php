@@ -19,17 +19,32 @@
         @include('layouts.navigation')
     </div>
     <div class="container">
-        <div class="card p-3 shadow border-none">
-            <div class="d-flex justify-content-center">
-                <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+        <div class="row p-3">
+            <div class="card p-3 shadow border-none col-md-8">
+                <div class="d-flex justify-content-center">
+                    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div>
+                        <div>Nilai tertinggi:</div>
+                        <div>Mudah= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'mudah')->max('speed_typing')}}</span></div>
+                        <div>Normal= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'normal')->max('speed_typing')}}</span></div>
+                        <div>Hard= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'susah')->max('speed_typing')}}</span></div>
+                        <div>Programing= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'pemrograman')->max('speed_typing')}}</span></div>
+                    </div>
+                </div>
             </div>
-            <div class="d-flex justify-content-center">
-                <div>
-                    <div>Nilai tertinggi:</div>
-                    <div>Mudah= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'mudah')->max('speed_typing')}}</span></div>
-                    <div>Normal= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'normal')->max('speed_typing')}}</span></div>
-                    <div>Hard= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'susah')->max('speed_typing')}}</span></div>
-                    <div>Programing= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'pemrograman')->max('speed_typing')}}</span></div>
+            <div class="col-1"></div>
+            <div class="card p-3 shadow border-none col-md-3 justify-content-around">
+                <div class="d-flex justify-content-center">
+                    <h3 class="fw-bold">Top 5</h3>
+                </div>
+                <div class="d-flex flex-column text-dark fw-bold rounded border p-5">
+                    <p>1. user1 <span>250</span> kpm</p>
+                    <p>2. user2 <span>190</span> kpm</p>
+                    <p>3. user3 <span>180</span> kpm</p>
+                    <p>4. user4 <span>176</span> kpm</p>
+                    <p>5. user5 <span>10</span> kpm</p>
                 </div>
             </div>
         </div>

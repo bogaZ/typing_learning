@@ -186,6 +186,13 @@
 
 @role('user')
 <style>
+  .limittext{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 350px;
+    white-space: nowrap;
+  }
+  
   .gradienbiru2 {
     font-family: "poppins", sans-serif;
     background: rgb(2,0,36);

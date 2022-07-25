@@ -30,6 +30,7 @@ Route::get('/customindex', 'Typing\MenuController@getcustom')->name('indexcustom
 Route::group(['prefix'=> 'home'], function () {
     Route::get('/mudah/play', 'Typing\PlayingController@playmudah')->name('playmudah');
     Route::get('/normal/play', 'Typing\PlayingController@playnormal')->name('playnormal');
+    Route::get('/susah/play', 'Typing\PlayingController@playsusah')->name('playsusah');
     Route::get('/menuplay', 'Typing\MenuController@getplay')->name('indexplay');
     Route::group(['prefix'=> 'menuplay'], function () {
         Route::get('/playcustom', 'Typing\MenuController@getplaycustom')->name('indexplaycustom');
