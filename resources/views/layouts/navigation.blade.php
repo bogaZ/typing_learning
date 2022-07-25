@@ -181,8 +181,12 @@
     </a>
     <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
         <div class="d-flex justify-content-end">
-            <a href="{{route('home')}}" class="btn btn-primary py-2 px-4">Home</a>  
+            <a href="{{route('home')}}" class="btn btn-primary py-2 px-4">Home</a>
+            @if(Route::is('register'))
+            <a href="{{ route('login') }}" class="btn btn-primary py-2 px-4 ms-3">Login</a>          
+            @else
             <a href="{{ route('register') }}" class="btn btn-primary py-2 px-4 ms-3">Register</a>          
+            @endif
         </div>
     </div>
 </nav>
