@@ -9,12 +9,12 @@
             </button>
         </div>
         <div class="d-flex align-items-center justify-content-center col-md-4 p-3 m-0">
-            <h3 class="m-0">Character</h3>
+            <h3 class="m-0">Statistik</h3>
         </div>
         <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
             <p class="m-0">
                 <a href="{{route('home')}}" class="text-decoration-none">Dashboard</a>
-                / Type Character
+                / Statistik
             </p>
         </div>
     </div>
@@ -44,6 +44,7 @@
                     <th>Id</th>
                     <th>Character Type</th>
                     <th>Time Result</th>
+                    <th>Result</th>
                     <th>Time Typing</th>
                     <th>Action</th>
                 </tr>
@@ -56,6 +57,7 @@
                     <td>{{$data->id}}</td>
                     <td>{{$data->karakter->type->name}}</td>
                     <td>{{$data->time}}</td>
+                    <td>{{$data->speed_typing}} kpm</td>
                     <td>{{$data->created_at->diffForHumans()}}</td>
                     <td>
                         <div class="btn-group">

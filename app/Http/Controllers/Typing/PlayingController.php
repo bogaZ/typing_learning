@@ -21,12 +21,18 @@ class PlayingController extends Controller
         //     $kata = $data->karakter;
         // }
         // $jumlahkata = strlen($kata);
+        
         $uid = Auth::user();
         $allbahasa = Bahasa::where('id', 2)->orwhere('id', 3)->get();
         $bahasaindonesia = 2;
         $bahasainggris = 3;
         // $bahasa = Bahasa_user::where('user_id', $uid)->get();
         $statistik = Statistik::all();
+        if(Auth::guest()){
+            $kata = karakter::where(['type_id' => 2])->get();
+            return view('user.play.easy', compact('kata', 'statistik', 'uid', 'bahasaindonesia', 'bahasainggris', 'allbahasa'));
+        }
+        
         $kata = karakter::where(['type_id' => 2, 'bahasa_id' => $uid->bahasa_id])->get();
         return view('user.play.easy', compact('kata', 'statistik', 'uid', 'bahasaindonesia', 'bahasainggris', 'allbahasa'));
     }

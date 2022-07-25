@@ -7,6 +7,7 @@
 </head>
 <body class="bg-play">
     @include('layouts.navigation')
+    @role('user')
     <form action="{{route('ubahbahasa', $uid->id)}}" method="post">
         @csrf
         <div class="d-flex justify-content-center">
@@ -22,6 +23,7 @@
             <button type="submit" class="ms-1 btn btn-primary">ubah bahasa</button>
         </div>
     </form>
+    @endrole
     <div class="d-flex justify-content-center my-3">
         <div class="col-md-8">
             <div class="d-flex justify-content-between">
@@ -68,6 +70,7 @@
             </div>
         </div>
     </div>
+    @role('user')
     <script type="text/JavaScript">
         // $.ajaxSetup({
         //     headers: {
@@ -247,5 +250,9 @@
         inpField.addEventListener("input", initTyping);
         btnTry.addEventListener("click", reset);
     </script>
+    @endrole
+    @guest
+        @include('user.guest.js')
+    @endguest
 </body>
 </html>

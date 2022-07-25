@@ -218,3 +218,32 @@
   
 @endif
 @endauth
+
+@guest
+
+<style>
+  .limittext{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 350px;
+    white-space: nowrap;
+  }
+  
+  .gradienbiru2 {
+    font-family: "poppins", sans-serif;
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(230,230,255,1) 0%, rgba(233,237,255,1) 100%);
+  }
+
+  .gradienbiru {
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,108,255,1) 0%, rgba(148,174,255,1) 100%);
+  }
+</style>
+<style>
+  .bg-play {
+    background: rgb(160 203 255);
+  }
+</style>
+<link rel="stylesheet" href="{{asset('bagus/beta/style.css')}}">
+@endguest

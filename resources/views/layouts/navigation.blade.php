@@ -71,18 +71,13 @@
             @auth
                 <div class="d-flex justify-content-end">
                     <a href="{{route('home')}}" class="btn btn-primary py-2 px-4">Home</a>
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();" class="btn btn-danger py-2 px-4 ms-3">Keluar</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
+                    <a href="javascript:void(0)" class="btn btn-danger py-2 px-4 ms-3" style="font-size: 14px" data-bs-toggle="modal" data-bs-target="#logout">Keluar</a>
                     
                 </div>
             @else
                 @if(Route::has('login'))
                 @else
                     <a href="{{ route('login') }}" class="btn btn-primary py-2 px-4 ms-3">Login</a>
-
                     @if (Route::has('register'))
                         <a href="{{ route('register') }}" class="btn btn-primary py-2 px-4 ms-3">Register</a>
                     @endif
@@ -90,6 +85,29 @@
             @endauth
         </div>
     </nav>
+    <div class="modal fade" id="logout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="p-3 border-bottom text-center d-flex justify-content-center align-items-center">
+                    <h3 class="fw-bold text-center m-0" id="exampleModalLabel">Keluar</h3>
+                </div>
+                <div class="modal-body text-center row">
+                    <i class="bi bi-exclamation-circle" style="font-size: 50px"></i>
+                    <h4 class="m-0 p-3">
+                        Apakah anda yakin mau keluar?
+                    </h4>
+                </div>
+                <div class="m-3 d-flex justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                    {{-- <button type="submit" class="btn btn-primary">Save changes</button> --}}
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-danger py-2 px-4 ms-3">Ya</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endrole
 @role('admin')
     <nav id="mySidebar" class="p-0 sidebar bg-white shadow-lg d-flex justify-content-around flex-column">
@@ -123,7 +141,7 @@
         </div>
         <div>
             {{-- <a href="#modallogout" id="logout" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-box-arrow-in-right" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logout</a> --}}
-            <a href="javascript:void(0" class="d-flex align-items-center" style="font-size: 14px" data-bs-toggle="modal" data-bs-target="#logout">
+            <a href="javascript:void(0)" class="d-flex align-items-center" style="font-size: 14px" data-bs-toggle="modal" data-bs-target="#logout">
                 <i class="bi bi-box-arrow-in-right" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logout
             </a>
             {{-- <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-box-arrow-in-right" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logout</a> --}}
@@ -157,34 +175,15 @@
     </script> --}}
 @endrole
 @guest
-    <nav id="nav" class="navbar-expand-lg navbar-dark bg-dark px-5 py-2 mb-5" style="height: 60px">
-        <div class="d-flex justify-content-between">
-            <div>
-                <a href="{{route('welcome')}}" class="navbar-brand p-0">
-                    <h1 class="m-0"><i class="fa fa-keyboard me-2 text-white"></i>NgeTeks</h1>
-                </a>
-            </div>
-            {{-- <div>
-                <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();" class="btn btn-danger py-2 px-4 ms-3">Keluar</a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </div> --}}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5 py-2 mb-5">
+    <a href="{{route('welcome')}}" class="navbar-brand p-0">
+        <h1 class="m-0"><i class="fa fa-keyboard me-2 text-white"></i>NgeTeks</h1>
+    </a>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+        <div class="d-flex justify-content-end">
+            <a href="{{route('home')}}" class="btn btn-primary py-2 px-4">Home</a>  
+            <a href="{{ route('register') }}" class="btn btn-primary py-2 px-4 ms-3">Register</a>          
         </div>
-        
-        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-            @auth
-            @else
-                @if(Route::has('login'))
-                @else
-                    <a href="{{ route('login') }}" class="btn btn-primary py-2 px-4 ms-3">Login</a>
-
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="btn btn-primary py-2 px-4 ms-3">Register</a>
-                    @endif
-                @endif
-            @endauth
-        </div>
-    </nav>
+    </div>
+</nav>
 @endauth

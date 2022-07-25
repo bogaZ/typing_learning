@@ -22,7 +22,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
+        // $this->middleware('guest');
         // $this->middleware('role:admin',['only'=>['index']]);
     }
 
@@ -33,6 +34,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if(Auth::guest()){
+            return view('home');
+        }
         $user = Auth::user();
         $username = $user->name;
         $uid = $user->id;
