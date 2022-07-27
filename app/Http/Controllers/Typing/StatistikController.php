@@ -25,10 +25,11 @@ class StatistikController extends Controller
             $alldata = Statistik::orderBy('created_at', 'DESC')->get();
             return view('admin.statistik.index', compact('username', 'alldata'));
         }
-        // $statistik = Statistik::where('user_id', $uid);
+        
         $easy = Statistik::where('user_id', $uid)->where('kesulitan', 'mudah')->orderBy('created_at', 'DESC')->limit(10)->get();
         $normal = Statistik::where('user_id', $uid)->where('kesulitan', 'normal')->orderBy('created_at', 'DESC')->limit(10)->get();
         $hard = Statistik::where('user_id', $uid)->where('kesulitan', 'susah')->orderBy('created_at', 'DESC')->limit(10)->get();
+        $pemrograman = Statistik::where('user_id', $uid)->where('kesulitan', 'pemrograman')->orderBy('created_at', 'DESC')->limit(10)->get();
         $alldata = Statistik::where('user_id', $uid)->orderBy('created_at', 'DESC')->get();
 
         $datastatistik = Statistik::where('user_id', $uid)->select('id', 'created_at')->get()->groupBy(function($date) {
@@ -49,17 +50,8 @@ class StatistikController extends Controller
                 $userArr[$i] = 0;    
             }
         }
-        // $tes = $userArr->bulan;
-
-        // return json_encode($userArr["bulan"]["7"]);
-        // return json_encode($datastatistik);
-
-        // $maxnilai = Statistik::where(['user_id'=> $uid]);
         $maxnilai = Statistik::get();
-        // $date = today();
-        // $alldata = Statistik::where('user_id', $uid)->orderBy('created_at', 'DESC')->whereDate('created_at', Carbon::now()->subDays(4))->get();
-        // return json_encode($easy);
-        return view('user.statistik.index', compact('uid', 'alldata', 'maxnilai', 'userArr', 'easy', 'normal', 'hard'));
+        return view('user.statistik.index', compact('uid', 'pemrograman', 'alldata', 'maxnilai', 'userArr', 'easy', 'normal', 'hard'));
     }
 
     /**

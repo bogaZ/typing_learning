@@ -25,27 +25,12 @@
 
 @role('user')
 <script>
-    var statsy = {!! json_encode($userArr) !!};
-    let jan = statsy[1],
-    feb = statsy[2],
-    mar = statsy[3],
-    apr = statsy[4],
-    mei = statsy[5],
-    jun = statsy[6],
-    jul = statsy[7],
-    agu = statsy[8],
-    sep = statsy[9],
-    okt = statsy[10],
-    nov = statsy[11],
-    des = statsy[12];
+    var yValues = [
+        @foreach($userArr as $data)
+        '{{$data}}',
+        @endforeach
+    ];
     var xValues = ["jan", "feb", "mar", "apr", "mei", "jun", "jul", "agu", "sep", "okt", "nov", "des"];
-    var yValues = [jan, feb, mar, apr, mei, jun, jul, agu, sep, okt, nov, des];
-    
-    //   var yValues = [7,8,8,9,9,9,10,11,14,14,15,50];
-    //   var yValues = [7,8,8,9,9,9,10,11,14,14,15,50];
-    var easymode = [3, 5, 6, 7, 8, 9, 4, 4, 10];
-    var normalmode = [5, 6, 8, 2, 8, 9, 2, 9, 20];
-    var hardmode = [7, 8, 8, 9, 6, 8, 3, 8, 23, 10];
 
     new Chart("myChart", {
         type: "line",
@@ -59,37 +44,8 @@
                 backgroundColor: "rgba(0,0,255,1.0)",
                 borderColor: "rgba(0,0,255,0.1)",
                 data: yValues,
-                backgroundColor: "blue",
-                borderColor: "#dad9ff"
-            },{
-                label: "Easy Text",
-                fill: false,
-                lineTension: 0,
-                backgroundColor: "rgba(0,0,255,1.0)",
-                borderColor: "rgba(0,0,255,0.1)",
-                data: easymode,
-                pointBackgroundColor: "green",
                 backgroundColor: "green",
                 borderColor: "#97ffbb"
-            },{
-                label: "Normal Text",
-                fill: false,
-                lineTension: 0,
-                backgroundColor: "rgba(0,0,255,1.0)",
-                borderColor: "rgba(0,0,255,0.1)",
-                data: normalmode,
-                borderColor: "#ffdda1",
-                pointBackgroundColor: "orange",
-                backgroundColor: "orange"
-            },{
-                label: "Hard Text",
-                fill: false,
-                lineTension: 0,
-                backgroundColor: "rgba(0,0,255,1.0)",
-                borderColor: "rgba(0,0,255,0.1)",
-                data: hardmode,
-                borderColor: "#ffc2c0",
-                backgroundColor: "red"
             }]
         },
         options: {
@@ -99,10 +55,13 @@
             plugins: {
                 title: {
                     display: true,
-                    text: 'Statistik',
+                    text: 'Statistik Jumlah Dimainkan',
                     padding: {
                         top: 10,
                         bottom: 30
+                    },
+                    font: {
+                        size: 16
                     }
                 }
             },
@@ -110,7 +69,10 @@
                 yValues: {
                     title: {
                         display: true,
-                        text: 'Score'
+                        text: 'Score',
+                        font: {
+                            size: 15
+                        }
                     },
                     beginAtZero: true,
                     //   max: 300,
@@ -118,31 +80,58 @@
                 xValues: {
                     title: {
                         display: true,
-                        text: 'Bulan'
+                        text: 'Bulan',
+                        font: {
+                            size: 15
+                        }
                     }
                 }
             }
         }
     });
+    $('#pilihwaktugrafik').on('change', function() {
+        // console.log(this.value);
+        myChartPerform.update();
+    });
 </script>
 
 <script>
-    var easyData = {!! json_encode($easy) !!};
+    var easyData = [
+        @foreach($easy->reverse() as $data)
+        '{{$data->speed_typing}}',
+        @endforeach
+    ];
+    var normalData = [
+        @foreach($normal->reverse() as $data)
+        '{{$data->speed_typing}}',
+        @endforeach
+    ];
+    var hardData = [
+        @foreach($hard->reverse() as $data)
+        '{{$data->speed_typing}}',
+        @endforeach
+    ];
+    var pemrogramanData = [
+        @foreach($pemrograman->reverse() as $data)
+        '{{$data->speed_typing}}',
+        @endforeach
+    ];
     // console.log(easyData[0].speed_typing);
-    easyData.forEach(element => {
-        easyData = element.speed_typing;
-        console.log(easyData);
-    });
+    // easyData.forEach(element => {
+    //     easyData = element.speed_typing;
+    //     console.log(easyData);
+    // });
 
     var xPerform = [1,2,3,4,5,6,7,8,9,10];
+    var xPerformWeek = [1,2,3,4,5,6,7];
     console.log(xPerform);
-    new Chart("myChartPerform", {
+    const myChartPerform = new Chart("myChartPerform", {
         type: "line",
         data: {
             label:"a",
             labels: xPerform,
             datasets: [{
-                label: "Hard Text",
+                label: "Easy",
                 fill: false,
                 lineTension: 0,
                 backgroundColor: "rgba(0,0,255,1.0)",
@@ -152,8 +141,8 @@
                     '{{$data->speed_typing}}',
                     @endforeach
                 ],
-                borderColor: "#ffc2c0",
-                backgroundColor: "red"
+                backgroundColor: "blue",
+                borderColor: "#dad9ff"
             }]
         },
         options: {
@@ -163,10 +152,13 @@
             plugins: {
                 title: {
                     display: true,
-                    text: 'Statistik',
+                    text: 'Statistik 10 Permainan Terakhir',
                     padding: {
                         top: 10,
                         bottom: 30
+                    },
+                    font: {
+                        size: 16
                     }
                 }
             },
@@ -174,7 +166,10 @@
                 yValues: {
                     title: {
                         display: true,
-                        text: 'Score'
+                        text: 'Score (Kpm)',
+                        font: {
+                            size: 15
+                        }
                     },
                     beginAtZero: true,
                     //   max: 300,
@@ -182,11 +177,34 @@
                 xValues: {
                     title: {
                         display: true,
-                        text: '10 permainan terakhir'
+                        // text: '10 permainan terakhir'
                     }
                 }
             }
         }
+    });
+
+
+    $('#pilihwaktugrafik').on('change', function() {
+        // console.log(this.value);
+        if(this.value == "easy"){
+            // myChartPerform.data.labels = xPerformWeek;
+            myChartPerform.data.datasets[0].label = "Easy";
+            myChartPerform.data.datasets[0].data = easyData;
+        }
+        if(this.value == "normal"){
+            myChartPerform.data.datasets[0].label = "Normal";
+            myChartPerform.data.datasets[0].data = normalData;
+        }
+        if(this.value == "hard"){
+            myChartPerform.data.datasets[0].label = "Hard";
+            myChartPerform.data.datasets[0].data = hardData;
+        }
+        if(this.value == "pemrograman"){
+            myChartPerform.data.datasets[0].label = "Pemrograman";
+            myChartPerform.data.datasets[0].data = pemrogramanData;
+        }
+        myChartPerform.update();
     });
 </script>
 @endrole

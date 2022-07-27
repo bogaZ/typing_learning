@@ -24,13 +24,24 @@
                 <div class="d-flex justify-content-center">
                     <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
                 </div>
-                <div class="d-flex justify-content-center border">
+                <div class="d-flex flex-column p-3 border">
+                    {{-- <div>
+                        <select name="" id="pilihwaktugrafik">
+                            <option value="easy">easy</option>
+                            <option value="normal">normal</option>
+                            <option value="hard">hard</option>
+                            <option value="pemrograman">pemrograman</option>
+                        </select>
+                    </div> --}}
                     <div>
-                        <div>Nilai tertinggi:</div>
-                        <div>Mudah= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'mudah')->max('speed_typing')}}</span></div>
-                        <div>Normal= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'normal')->max('speed_typing')}}</span></div>
-                        <div>Hard= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'susah')->max('speed_typing')}}</span></div>
-                        <div>Programing= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'pemrograman')->max('speed_typing')}}</span></div>
+                        <div class="text-center">Nilai tertinggi:</div>
+                        <br>
+                        <div class="d-flex justify-content-around">
+                            <div>Mudah= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'mudah')->max('speed_typing')}}</span></div>
+                            <div>Normal= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'normal')->max('speed_typing')}}</span></div>
+                            <div>Hard= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'susah')->max('speed_typing')}}</span></div>
+                            <div>Programing= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'pemrograman')->max('speed_typing')}}</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -52,6 +63,15 @@
             <div class="card p-3 shadow border-none col-md-12">
                 <div class="d-flex justify-content-center">
                     <canvas id="myChartPerform" style="width:100%;max-width:800px"></canvas>
+                </div>
+                <div class="d-flex justify-content-center flex-column align-items-center">
+                    <label for="pilihwaktugrafik" class="fw-bold">Pilih Jenis Statistik: </label>
+                    <select name="" id="pilihwaktugrafik" class="col-2 form-control">
+                        <option value="easy">easy</option>
+                        <option value="normal">normal</option>
+                        <option value="hard">hard</option>
+                        <option value="pemrograman">pemrograman</option>
+                    </select>
                 </div>
             </div>
             <div class="col-1"></div>
