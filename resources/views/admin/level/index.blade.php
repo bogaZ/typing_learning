@@ -1,4 +1,3 @@
-@role('admin')
 @extends('layouts.master')
 
 @section('content')
@@ -10,26 +9,23 @@
             </button>
         </div>
         <div class="d-flex align-items-center justify-content-center col-md-4 p-3 m-0">
-            <h3 class="m-0">Character</h3>
+            <h3 class="m-0">Level</h3>
         </div>
         <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
             <p class="m-0">
                 <a href="{{route('home')}}" class="text-decoration-none">Dashboard</a>
-                / Character
+                / Level
             </p>
         </div>
     </div>
 </div>
 <div class="m-4">
     <div class="d-flex justify-content-between">
-        <div>
+        <div>            
             <a href="{{route('character.index')}}" class="btn btn-primary shadow">Type Character</a>
-            <a href="{{route('level.index')}}" class="btn btn-primary shadow">Level</a>
+            <a href="{{route('custom.index')}}" class="btn btn-primary shadow">Character</a>
         </div>
-        <a href="{{route('custom.create')}}" class="btn btn-success shadow">Tambah Character</a>
-        {{-- <div>
-            <a href="{{route('custom.create')}}" class="btn btn-success shadow">Tambah Type</a>
-        </div> --}}
+        <a href="{{route('level.create')}}" class="btn btn-success shadow">Tambah Level</a>
     </div>
     @if(session()->get('sukses'))
         <div class="alert alert-success mt-4">
@@ -43,10 +39,7 @@
             <thead class="gradienbiru text-white">
                 <tr>
                     <th>No</th>
-                    <th>Nama Pembuat</th>
-                    <th>Nama text</th>
-                    <th>Teks</th>
-                    <th>Tipe Text</th>
+                    <th>Level</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -54,25 +47,16 @@
                 @foreach($alldata as $i=>$data)
                 <tr>
                     <td>{{++$i}}.</td>
-                    @if($data->user->name == 'admin')
-                    <td class="text-success fw-bold">{{$data->user->name}}</td>
-                    @else
-                    <td class="text-primary fw-bold">{{$data->user->name}}</td>
-                    @endif
-                    <td>{{$data->nama}}</td>
-                    {{-- <td style="text-overflow: ellipsis; overflow: hidden;">{{$data->karakter}}</td> --}}
-                    <td class="limittext">{{$data->karakter}}</td>
-                    <td>{{$data->type->name}}</td>
-                    {{-- <td><button class="btn btn-secondary"><i class="bi bi-pencil-square"></i></button></td> --}}
+                    <td>{{$data->level}}</td>
                     <td>
                         <div class="btn-group">
                             <button type="button" class="btn btn-secondary rounded" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                                 <i class="bi bi-pencil-square text-white"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-lg-end">
-                                <li><a href="{{route('custom.edit', $data->id)}}" class="dropdown-item"><i class="bi bi-pencil-fill text-secondary"></i>&nbsp;Ubah</a></li>
+                                <li><a href="{{route('bahasa.edit', $data->id)}}" class="dropdown-item">Ubah</a></li>
                                 <li>
-                                    <a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete{{$data->id}}"><i class="bi bi-x-square-fill text-danger"></i>&nbsp;Hapus</a>
+                                    <a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete{{$data->id}}">Hapus</a>
                                 </li>
                             </ul>
                         </div>
@@ -81,7 +65,7 @@
                 @endforeach
             </tbody>
         </table>
-        @foreach($alldata as $data)
+        {{-- @foreach($alldata as $data)
             <div class="modal fade" id="delete{{$data->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
@@ -91,10 +75,10 @@
                         <div class="modal-body text-center row">
                             <i class="bi bi-exclamation-circle" style="font-size: 50px"></i>
                             <h4 class="m-0 p-3">
-                                Apakah anda yakin mau menghapus karakter "{{$data->nama}}"?
+                                Apakah anda yakin mau menghapus bahasa karakter "{{$data->bahasa}}"?
                             </h4>
                         </div>
-                        <form id="logout-form" action="{{ route('custom.destroy', $data->id) }}" method="POST">
+                        <form id="logout-form" action="{{ route('bahasa.destroy', $data->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <div class="m-3 d-flex justify-content-evenly">
@@ -105,13 +89,12 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+        @endforeach --}}
     </div>
 </div>
 <div class="d-flex justify-content-between m-4">
 </div>
-<script type="text/JavaScript">
-    document.getElementById("charactertext").classList.add("aktif-link");
+<script>
+    document.getElementById("bahasa").classList.add("aktif-link");
 </script>
 @endsection
-@endrole

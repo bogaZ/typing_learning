@@ -67,7 +67,7 @@
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-2">
             <a href="{{route('welcome')}}" class="navbar-brand p-0">
-                <h1 class="m-0"><i class="fa fa-keyboard me-2"></i>NgeTeks</h1>
+                <h1 class="m-0" id="ngeteks"><i class="fa fa-keyboard me-2"></i>NgeTeks</h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -171,7 +171,7 @@
                         </div>
                         <div class="ps-4">
                             <h5 class="text-white mb-0">Jumlah Pendaftar</h5>
-                            <h1 class="text-white mb-0" data-toggle="counter-up">10.354</h1>
+                            <h1 class="text-white mb-0" data-toggle="counter-up">{{$user}}</h1>
                         </div>
                     </div>
                 </div>
@@ -192,8 +192,8 @@
                             <i class="fa fa-user-tie text-dark"></i>
                         </div>
                         <div class="ps-4">
-                            <h5 class="text-white mb-0">Pengguna Online</h5>
-                            <h1 class="text-white mb-0" data-toggle="counter-up">3.345</h1>
+                            <h5 class="text-white mb-0">Pengguna Bermain</h5>
+                            <h1 class="text-white mb-0" data-toggle="counter-up">{{$statistik}}</h1>
                         </div>
                     </div>
                 </div>
@@ -237,7 +237,7 @@
 
 
     <!-- About Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    {{-- <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-7">
@@ -274,7 +274,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- About End -->
 
 
@@ -334,7 +334,7 @@
 
 
     <!-- Service Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    {{-- <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
                 <h5 class="fw-bold text-primary text-uppercase">Layanan Tersedia</h5>
@@ -410,7 +410,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Service End -->
 
 
@@ -486,7 +486,7 @@
 
 
     <!-- Quote Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    {{-- <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-7">
@@ -543,7 +543,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Quote End -->
 
 
@@ -740,7 +740,7 @@
 
 
     <!-- Vendor Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    {{-- <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5 mb-5">
             <div class="bg-white">
                 <div class="owl-carousel vendor-carousel">
@@ -756,7 +756,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Vendor End -->
     
 
@@ -779,44 +779,43 @@
                     </div>
                 </div> --}}
                 <div class="col-lg-12">
-                    <div class="row gx-5">
-                        <div class="col-lg-4 col-md-12 pt-5 mb-5">
-                            <div class="section-title section-title-sm position-relative pb-3 mb-4">
-                                <h3 class="text-light mb-0">Get In Touch</h3>
-                            </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-4 col-md-12 pt-5 mb-3">
+                            <h3 class="text-light mb-3">Get In Touch</h3>
                             <div class="d-flex mb-2">
                                 <i class="bi bi-geo-alt text-primary me-2"></i>
-                                <p class="mb-0">123 Street, New York, USA</p>
+                                <p class="mb-0">Rogojampi, Banyuwangi, ID</p>
                             </div>
                             <div class="d-flex mb-2">
                                 <i class="bi bi-envelope-open text-primary me-2"></i>
-                                <p class="mb-0">info@example.com</p>
+                                <p class="mb-0">email@gmail.com</p>
                             </div>
                             <div class="d-flex mb-2">
                                 <i class="bi bi-telephone text-primary me-2"></i>
                                 <p class="mb-0">+012 345 67890</p>
                             </div>
-                            <div class="d-flex mt-4">
+                            {{-- <div class="d-flex mt-4">
                                 <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
                                 <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
                                 <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
                                 <a class="btn btn-primary btn-square" href="#"><i class="fab fa-instagram fw-normal"></i></a>
-                            </div>
+                            </div> --}}
                         </div>
-                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
-                            <div class="section-title section-title-sm position-relative pb-3 mb-4">
-                                <h3 class="text-light mb-0">Quick Links</h3>
-                            </div>
+                        <div class="col-lg-3 col-md-12 pt-0 pt-lg-5 mb-3">
+                            <h3 class="text-light mb-3">Quick Links</h3>
                             <div class="link-animated d-flex flex-column justify-content-start">
                                 <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
                                 <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
-                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
-                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Meet The Team</a>
-                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Blog</a>
                                 <a class="text-light" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                        <div class="row col-md-12 justify-content-center mb-5">
+                            <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                            <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                            <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                            <a class="btn btn-primary btn-square" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                        </div>
+                        {{-- <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
                             <div class="section-title section-title-sm position-relative pb-3 mb-4">
                                 <h3 class="text-light mb-0">Popular Links</h3>
                             </div>
@@ -828,7 +827,7 @@
                                 <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Blog</a>
                                 <a class="text-light" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -853,7 +852,7 @@
 
 
     <!-- Back to Top -->
-    <a href="#spinner" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <a href="#ngeteks" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
     <!-- JavaScript Libraries -->

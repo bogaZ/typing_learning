@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\User;
+use App\Statistik;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $statistik = Statistik::count();
+    $user = User::count();
+    return view('welcome', compact('user', 'statistik'));
 })->name('welcome');
 
 Auth::routes();
@@ -38,6 +42,7 @@ Route::group(['prefix'=> 'home'], function () {
         Route::post('/gantibahasa/{id}', 'Typing\PlayingController@ubahbahasa')->name('ubahbahasa');
     });
     Route::resource('/custom', 'Typing\CustomController');
+    Route::resource('/level', 'Admin\LevelController');
     Route::resource('/user', 'User\UserController');
     Route::resource('/role', 'Admin\RoleController');
     Route::resource('/character', 'Admin\TypeController');

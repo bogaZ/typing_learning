@@ -24,7 +24,7 @@
                 <div class="d-flex justify-content-center">
                     <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
                 </div>
-                <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center border">
                     <div>
                         <div>Nilai tertinggi:</div>
                         <div>Mudah= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'mudah')->max('speed_typing')}}</span></div>
@@ -47,6 +47,14 @@
                     <p>5. user5 <span>10</span> kpm</p>
                 </div>
             </div>
+        </div>
+        <div class="row p-3">
+            <div class="card p-3 shadow border-none col-md-12">
+                <div class="d-flex justify-content-center">
+                    <canvas id="myChartPerform" style="width:100%;max-width:800px"></canvas>
+                </div>
+            </div>
+            <div class="col-1"></div>
         </div>
         <div class="card p-5 shadow border-none my-3">
             <div class="text-center fw-bold">Riwayat Mengetik</div>
@@ -83,6 +91,7 @@
                     @endforelse
                 </tbody>
             </table>
+            {{-- {{$easy->speed_typing}} --}}
         </div>
     </div>
     {{-- <script>

@@ -9,7 +9,7 @@
             </button>
         </div>
         <div class="d-flex align-items-center justify-content-center col-md-4 p-3 m-0">
-            <h3 class="m-0">Character</h3>
+            <h3 class="m-0">Type Character</h3>
         </div>
         <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
             <p class="m-0">
@@ -21,7 +21,10 @@
 </div>
 <div class="m-4">
     <div class="d-flex justify-content-between">
-        <a href="{{route('custom.index')}}" class="btn btn-primary shadow">Character</a>
+        <div>
+            <a href="{{route('custom.index')}}" class="btn btn-primary shadow">Character</a>
+            <a href="{{route('level.index')}}" class="btn btn-primary shadow">Level</a>
+        </div>
         <a href="{{route('character.create')}}" class="btn btn-success shadow">Tambah Type Character</a>
         {{-- <div>
             <a href="{{route('custom.create')}}" class="btn btn-success shadow">Tambah Character</a>

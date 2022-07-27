@@ -1,4 +1,3 @@
-@role('admin')
 @extends('layouts.master')
 
 @section('content')
@@ -10,12 +9,12 @@
             </button>
         </div>
         <div class="d-flex align-items-center justify-content-center col-md-4 p-3 m-0">
-            <h3 class="m-0">Character</h3>
+            <h3 class="m-0">Bahasa Pemrograman</h3>
         </div>
         <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
             <p class="m-0">
                 <a href="{{route('home')}}" class="text-decoration-none">Dashboard</a>
-                / Character
+                / Bahasa
             </p>
         </div>
     </div>
@@ -23,12 +22,12 @@
 <div class="m-4">
     <div class="d-flex justify-content-between">
         <div>
-            <a href="{{route('character.index')}}" class="btn btn-primary shadow">Type Character</a>
-            <a href="{{route('level.index')}}" class="btn btn-primary shadow">Level</a>
+            <a href="{{route('bahasa.index')}}" class="btn btn-primary shadow"><i class="bi bi-circle text-white"></i> Bahasa Karakter</a>
+            <button disabled class="btn btn-primary shadow"><i class="bi bi-circle-fill text-white"></i> Bahasa Pemrograman</button>
         </div>
-        <a href="{{route('custom.create')}}" class="btn btn-success shadow">Tambah Character</a>
+        <a href="{{route('pemrograman.create')}}" class="btn btn-success shadow">Tambah Bahasa</a>
         {{-- <div>
-            <a href="{{route('custom.create')}}" class="btn btn-success shadow">Tambah Type</a>
+            <a href="{{route('custom.create')}}" class="btn btn-success shadow">Tambah Character</a>
         </div> --}}
     </div>
     @if(session()->get('sukses'))
@@ -39,14 +38,13 @@
 </div>
 <div class="d-flex mx-4">
     <div class="col-md-12 w-100 p-0 shadow p-4 rounded bg-white rounded-3">
+        {{-- <button class="btn btn-success mb-3">Tambah +</button> --}}
         <table id="example1" class="display my-3 border rounded rounded-3 border-dark" style="width:100%">
             <thead class="gradienbiru text-white">
                 <tr>
                     <th>No</th>
-                    <th>Nama Pembuat</th>
-                    <th>Nama text</th>
-                    <th>Teks</th>
-                    <th>Tipe Text</th>
+                    {{-- <th>Id</th> --}}
+                    <th>Name</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -54,15 +52,25 @@
                 @foreach($alldata as $i=>$data)
                 <tr>
                     <td>{{++$i}}.</td>
-                    @if($data->user->name == 'admin')
-                    <td class="text-success fw-bold">{{$data->user->name}}</td>
-                    @else
-                    <td class="text-primary fw-bold">{{$data->user->name}}</td>
-                    @endif
-                    <td>{{$data->nama}}</td>
-                    {{-- <td style="text-overflow: ellipsis; overflow: hidden;">{{$data->karakter}}</td> --}}
-                    <td class="limittext">{{$data->karakter}}</td>
-                    <td>{{$data->type->name}}</td>
+                    {{-- <td>
+                        <a href="{{route('user.show', $data->id)}}" class="text-decoration-none text-primary">
+                            {{$data->name}}
+                        </a>
+                    </td>
+                    <td>{{$data->id}}</td>
+                    <td>{{$data->email}}</td>
+                    <td>
+                        @if (!empty($data->getRoleNames()))
+                            @foreach ($data->getRoleNames() as $role)
+                            <div class="d-flex align-items-center">
+                                <label for="" class="m-0 p-1 text-capitalize badge badge-success">{{$role}}</label>                                
+                            </div>
+                            @endforeach
+                            
+                        @endif
+                    </td> --}}
+                    {{-- <td>{{$data->id}}</td> --}}
+                    <td>{{$data->bahasa}}</td>
                     {{-- <td><button class="btn btn-secondary"><i class="bi bi-pencil-square"></i></button></td> --}}
                     <td>
                         <div class="btn-group">
@@ -70,9 +78,9 @@
                                 <i class="bi bi-pencil-square text-white"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-lg-end">
-                                <li><a href="{{route('custom.edit', $data->id)}}" class="dropdown-item"><i class="bi bi-pencil-fill text-secondary"></i>&nbsp;Ubah</a></li>
+                                <li><a href="{{route('bahasa.edit', $data->id)}}" class="dropdown-item">Ubah</a></li>
                                 <li>
-                                    <a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete{{$data->id}}"><i class="bi bi-x-square-fill text-danger"></i>&nbsp;Hapus</a>
+                                    <a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete{{$data->id}}">Hapus</a>
                                 </li>
                             </ul>
                         </div>
@@ -91,10 +99,10 @@
                         <div class="modal-body text-center row">
                             <i class="bi bi-exclamation-circle" style="font-size: 50px"></i>
                             <h4 class="m-0 p-3">
-                                Apakah anda yakin mau menghapus karakter "{{$data->nama}}"?
+                                Apakah anda yakin mau menghapus bahasa pemrograman "{{$data->bahasa}}"?
                             </h4>
                         </div>
-                        <form id="logout-form" action="{{ route('custom.destroy', $data->id) }}" method="POST">
+                        <form id="logout-form" action="{{ route('pemrograman.destroy', $data->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <div class="m-3 d-flex justify-content-evenly">
@@ -110,8 +118,29 @@
 </div>
 <div class="d-flex justify-content-between m-4">
 </div>
-<script type="text/JavaScript">
-    document.getElementById("charactertext").classList.add("aktif-link");
+{{-- script --}}
+{{-- <script>
+    $(document).ready(function () {
+        $('#bukanav').click(function () {
+            if($('#bukanav').hasClass('open')){
+                $('#bukanav').removeClass('open btn-primary');
+                $('#bukanav').addClass('btn-danger');
+                $('#icbukanav').removeClass('fa fa-bars');
+                $('#icbukanav').addClass('fa fa-times');
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            }else{
+                $('#bukanav').removeClass('btn-danger');
+                $('#bukanav').addClass('open btn-primary');
+                $('#icbukanav').removeClass('fa fa-times');
+                $('#icbukanav').addClass('fa fa-bars');
+                document.getElementById("mySidebar").style.width = "75px";
+                document.getElementById("main").style.marginLeft= "75px";
+            }
+        })
+    });
+</script> --}}
+<script>
+    document.getElementById("bahasa").classList.add("aktif-link");
 </script>
 @endsection
-@endrole

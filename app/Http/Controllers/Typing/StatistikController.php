@@ -25,12 +25,41 @@ class StatistikController extends Controller
             $alldata = Statistik::orderBy('created_at', 'DESC')->get();
             return view('admin.statistik.index', compact('username', 'alldata'));
         }
+        // $statistik = Statistik::where('user_id', $uid);
+        $easy = Statistik::where('user_id', $uid)->where('kesulitan', 'mudah')->orderBy('created_at', 'DESC')->limit(10)->get();
+        $normal = Statistik::where('user_id', $uid)->where('kesulitan', 'normal')->orderBy('created_at', 'DESC')->limit(10)->get();
+        $hard = Statistik::where('user_id', $uid)->where('kesulitan', 'susah')->orderBy('created_at', 'DESC')->limit(10)->get();
         $alldata = Statistik::where('user_id', $uid)->orderBy('created_at', 'DESC')->get();
+
+        $datastatistik = Statistik::where('user_id', $uid)->select('id', 'created_at')->get()->groupBy(function($date) {
+            //return Carbon::parse($date->created_at)->format('Y'); // grouping by years
+            return Carbon::parse($date->created_at)->format('m'); // grouping by months
+        });
+        $usermcount = [];
+        $userArr = [];
+
+        foreach ($datastatistik as $key => $value) {
+            $usermcount[(int)$key] = count($value);
+        }
+
+        for($i = 1; $i <= 12; $i++){
+            if(!empty($usermcount[$i])){
+                $userArr[$i] = $usermcount[$i];    
+            }else{
+                $userArr[$i] = 0;    
+            }
+        }
+        // $tes = $userArr->bulan;
+
+        // return json_encode($userArr["bulan"]["7"]);
+        // return json_encode($datastatistik);
+
         // $maxnilai = Statistik::where(['user_id'=> $uid]);
         $maxnilai = Statistik::get();
         // $date = today();
         // $alldata = Statistik::where('user_id', $uid)->orderBy('created_at', 'DESC')->whereDate('created_at', Carbon::now()->subDays(4))->get();
-        return view('user.statistik.index', compact('uid', 'alldata', 'maxnilai'));
+        // return json_encode($easy);
+        return view('user.statistik.index', compact('uid', 'alldata', 'maxnilai', 'userArr', 'easy', 'normal', 'hard'));
     }
 
     /**
