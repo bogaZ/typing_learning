@@ -79,7 +79,16 @@ class CustomController extends Controller
         $role_id = DB::table('model_has_roles')->where('model_id', $userid)->value('role_id');
         $karakter = new karakter;
         $karakter->user_id = Auth::User()->id;
-        $karakter->karakter = $request->karakter;
+        
+        $tab = $request->karakter;
+        if (strpos($tab, "\t") !== FALSE){
+            $str = str_replace("\t", '  ', $tab);
+            $karakter->karakter = $str;
+        }
+        // if (strpos($str, "\t") !== FALSE)
+        // {
+        //     $str = str_replace("\t", ' ', $str);
+        // }
         $karakter->nama = $request->nama;
 
         $log = new Activity;

@@ -186,6 +186,13 @@
 
 @role('user')
 <style>
+  body{
+    background-image: url('{{asset('bagus/img/bg-image.png')}}');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+</style>
+<style>
   .limittext{
     overflow: hidden;
     text-overflow: ellipsis;
@@ -220,6 +227,13 @@
 @endauth
 
 @guest
+<style>
+  body{
+    background-image: url('{{asset('bagus/img/bg-image.png')}}');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+</style>
 
 <style>
   .limittext{

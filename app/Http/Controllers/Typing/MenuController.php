@@ -59,6 +59,8 @@ class MenuController extends Controller
         $bahasainggris = 3;
         $statistik = Statistik::all();
         $kata = karakter::where(['type_id' => 5])->get();
+        // $getkata = karakter::where(['type_id' => 5])->get();
+        // $kata = htmlentities($getkata);
         return view('user.pemrograman.javascript', compact('kata', 'statistik', 'uid', 'bahasaindonesia', 'bahasainggris', 'allbahasa'));
     }
 

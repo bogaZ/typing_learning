@@ -8,7 +8,7 @@
                 {{ session('sukses') }}
             </div>
         @endif
-        <div class="row" id="content">
+        <div class="row py-5" id="content">
             @include('layouts.menu')
             {{-- @include('user.menu.select') --}}
             @include('user.menu.kesulitan')
@@ -35,7 +35,7 @@
         })
     </script> --}}
     <script type="text/javaScript">
-        $('body').addClass('bg-play');
+        // $('body').addClass('bg-play');
         $('.menu').show();
         $('.mulai').hide();
         $('.kesulitan').hide();
