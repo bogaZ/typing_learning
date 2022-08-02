@@ -13,26 +13,19 @@
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.js" integrity="sha512-5m2r+g00HDHnhXQDbRLAfZBwPpPCaK+wPLV6lm8VQ+09ilGdHfXV7IVyKPkLOTfi4vTTUVJnz7ELs7cA87/GMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
-<body class="bg-play">
+<body class="">
     
     <div id="app">
         @include('layouts.navigation')
     </div>
     <div class="container">
+        <h3 class="fw-bold text-center">Menu statistik</h3>
         <div class="row p-3">
             <div class="card p-3 shadow border-none col-md-8">
                 <div class="d-flex justify-content-center">
                     <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
                 </div>
                 <div class="d-flex flex-column p-3 border">
-                    {{-- <div>
-                        <select name="" id="pilihwaktugrafik">
-                            <option value="easy">easy</option>
-                            <option value="normal">normal</option>
-                            <option value="hard">hard</option>
-                            <option value="pemrograman">pemrograman</option>
-                        </select>
-                    </div> --}}
                     <div>
                         <div class="text-center">Nilai tertinggi:</div>
                         <br>

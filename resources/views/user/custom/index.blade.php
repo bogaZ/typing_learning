@@ -159,7 +159,7 @@
     @endforeach
 </div>
 <script type="text/javascript">
-    $('body').addClass('bg-play');
+    // $('body').addClass('bg-play');
 </script>
 
 @endrole
