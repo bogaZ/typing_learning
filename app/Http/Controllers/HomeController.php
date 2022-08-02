@@ -11,6 +11,7 @@ use App\Statistik;
 use App\karakter;
 use App\Bahasa;
 use App\type;
+use App\Activity;
 use DB;
 use Carbon\Carbon;
 
@@ -45,6 +46,8 @@ class HomeController extends Controller
 
         $jumlahuser = User::all()->count();
         $jumlahmengetik = Statistik::all()->count();
+        // $jumlahnotif = Activity::whereget()->count();
+        $jumlahnotif = Activity::whereDate('created_at', date('Y-m-d'))->get()->count();
         $karakter = karakter::all();
         $type = type::all();
         // $tesjumlah = Statistik::GroupBy(DB::raw("Day(created_at)"))->count();
@@ -117,6 +120,6 @@ class HomeController extends Controller
         // return json_encode($scoreStats);
         // $uid = Auth::user();
         $allbahasa = Bahasa::where('id', 2)->orwhere('id', 3)->get();
-        return view('home', compact('username', 'allbahasa', 'user', 'statistik', 'type', 'jumlahuser', 'jumlahmengetik', 'karakter', 'month', 'users', 'userArreasy', 'scoreStats'));
+        return view('home', compact('username', 'jumlahnotif', 'allbahasa', 'user', 'statistik', 'type', 'jumlahuser', 'jumlahmengetik', 'karakter', 'month', 'users', 'userArreasy', 'scoreStats'));
     }
 }

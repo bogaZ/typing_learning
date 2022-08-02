@@ -132,7 +132,7 @@
             <a id="statistik" href="{{route('statistik.index')}}" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-graph-up" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Statistik</a>
             <a id="role" href="{{route('role.index')}}" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-person-lines-fill" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Role</a>
             <a id="charactertext" href="{{route('custom.index')}}" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i id="" class="bi bi-file-earmark-text-fill" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Text</a>
-            <a id="notifikasi" href="#" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-bell" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notification</a>
+            <a id="notifikasi" href="{{route('notifikasi.index')}}" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-bell" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notification</a>
             {{-- <a id="trash" href="#" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-trash" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Trash</a> --}}
             <a id="bahasa" href="{{route('bahasa.index')}}" alt="bahasa" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-globe2" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bahasa</a>
             

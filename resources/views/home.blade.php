@@ -143,7 +143,7 @@
             <div class="px-4 py-2 d-flex align-items-center justify-content-between">
                 <i class="bi bi-bell text-white" style="font-size: 50px"></i>
                 <div class="d-flex">
-                    <span class="h4 m-0 text-white">{{$jumlahuser}}</span>
+                    <span class="h4 m-0 text-white">{{$jumlahnotif}}</span>
                     <p class="text-white m-0">&nbsp;pemberitahuan</p>
                 </div>
             </div>

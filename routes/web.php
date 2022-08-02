@@ -62,6 +62,7 @@ Route::group(['prefix'=> 'home'], function () {
     Route::resource('/bahasa', 'Admin\BahasaController');
     Route::resource('/pemrograman', 'Admin\PemrogramanController');
     Route::resource('/statistik', 'Typing\StatistikController');
+    Route::resource('/notifikasi', 'Admin\NotifikasiController');
 });
 
 // beta
