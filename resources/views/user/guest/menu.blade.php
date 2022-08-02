@@ -1,7 +1,4 @@
 <div class="flex-row-reverse d-flex kesulitan">
-    {{-- <a class="text-right text-dark fw-bold text-decoration-none kesulitan">Kesulitan</a><i class="kesulitan">/</i>
-    <a class="text-right fw-bold text-decoration-none kesulitan kembalimulai" href="javascript:void(0)">Select</a><i class="kesulitan">/</i>
-    <a class="text-right fw-bold text-decoration-none kesulitan kembali" href="javascript:void(0)">Dashboard</a> --}}
 </div>
 <div class="col-md-12 kesulitan">
     <div class="shadow p-3 mb-5 rounded bg-white">

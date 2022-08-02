@@ -19,23 +19,7 @@
         @include('user.pengaturan.bahasa')
     </div>
     @include('edit')
-    {{-- <script type="text/javaScript">
-        $(document).ready(function(){
-            const ganti1 = document.getElementById("ganti1");
-            const ganti2 = document.getElementById("ganti2");
-            const ganti3 = $("#ganti3");
-            var item = ganti2;
-            var item1 = "mantap";
-            $("#content").val().click(function () {
-                $(this).replaceWith(item1);
-                console.log(item);
-                // ganti2.remove();
-                // ganti2.prependTo("#ganti1");
-            })
-        })
-    </script> --}}
     <script type="text/javaScript">
-        // $('body').addClass('bg-play');
         $('.menu').show();
         $('.mulai').hide();
         $('.kesulitan').hide();

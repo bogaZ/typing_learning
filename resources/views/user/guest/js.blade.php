@@ -1,12 +1,6 @@
 <script type="text/JavaScript">
-    // $.ajaxSetup({
-    //     headers: {
-    //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    //     }
-    // });
     let data = {!! json_encode($statistik) !!};
     var co = {!! json_encode($kata) !!};
-    // $(textarea).hide();
 
     const typingText = document.querySelector(".typing-text p"),
     inpField = document.querySelector(".wrapper .input-field"),
@@ -32,18 +26,11 @@
         typingText.innerHTML = "";
         idkarakter.innerText = randTeks + 1;
         var teks = co[randTeks].karakter.toString().replace(/(\r\n|\n|\r)/gm, "\n");
-        // console.log(co[randTeks].karakter.trim());
+        
         teks.split("").forEach(span => {
             let spanTag = `<span>${span}</span>`;
             typingText.innerHTML += spanTag;
         });
-
-        // var words = $('#name').val().split(' ');
-        // teks.split(' ').forEach(span =>{
-        //     let spanTag = `<span>${span}</span>`;
-        //     typingText.innerHTML += spanTag;
-            // console.log(spanTag);
-        // });
 
         typingText.querySelectorAll("span")[0].classList.add("active");
 
@@ -91,10 +78,6 @@
                 if(characters[charIndex].innerText === typeChar){
                     // character same
                     characters[charIndex].classList.add("correct");
-                    // if(charIndex == characters.length){
-                        
-                    // }
-                    // console.log("correct");
                 }else{
                     // charachter not same
                     mistakes++;

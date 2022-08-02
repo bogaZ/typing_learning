@@ -24,7 +24,7 @@
         </div>
     </form>
     @endrole
-    <div class="d-flex justify-content-center my-3">
+    <div class="d-flex justify-content-center my-3 py-5">
         <div class="col-md-8">
             <div class="d-flex justify-content-between">
                 <div>
@@ -72,14 +72,8 @@
     </div>
     @role('user')
     <script type="text/JavaScript">
-        // $.ajaxSetup({
-        //     headers: {
-        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //     }
-        // });
         let data = {!! json_encode($statistik) !!};
         var co = {!! json_encode($kata) !!};
-        // $(textarea).hide();
 
         const typingText = document.querySelector(".typing-text p"),
         inpField = document.querySelector(".wrapper .input-field"),
@@ -105,19 +99,11 @@
             typingText.innerHTML = "";
             idkarakter.innerText = randTeks + 1;
             var teks = co[randTeks].karakter.toString().replace(/(\r\n|\n|\r)/gm, "\n");
-            // console.log(co[randTeks].karakter.trim());
+            
             teks.split("").forEach(span => {
                 let spanTag = `<span>${span}</span>`;
                 typingText.innerHTML += spanTag;
             });
-
-            // var words = $('#name').val().split(' ');
-            // teks.split(' ').forEach(span =>{
-            //     let spanTag = `<span>${span}</span>`;
-            //     typingText.innerHTML += spanTag;
-                // console.log(spanTag);
-            // });
-
             typingText.querySelectorAll("span")[0].classList.add("active");
 
             document.addEventListener("keydown", () => inpField.focus());
@@ -164,10 +150,6 @@
                     if(characters[charIndex].innerText === typeChar){
                         // character same
                         characters[charIndex].classList.add("correct");
-                        // if(charIndex == characters.length){
-                            
-                        // }
-                        // console.log("correct");
                     }else{
                         // charachter not same
                         mistakes++;
@@ -180,10 +162,9 @@
 
             
                 let wpm = Math.round((((charIndex - mistakes) / 5) / (maxTime - timeLeft)) * 60);
-                // let tesss = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
                 let cpmresult = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
                 cpmresult = cpmresult < 0 || cpmresult === Infinity ? 0 : cpmresult;
-                // console.log(cpmresult);
+                
                 mistageTag.innerHTML = mistakes;
                 wpmTag.innerText = cpmresult;
                 cpmTag.innerText = charIndex - mistakes;
@@ -194,7 +175,7 @@
                         console.log("terakhir");
                     }else{
                         characters[charIndex].classList.add("incorrect");
-                        // mistakes++;
+                        mistakes++;
                     }
                 }
                 inpField.value = "";
@@ -211,7 +192,7 @@
                 let cpmresult = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
                 cpmresult = cpmresult < 0 || cpmresult === Infinity ? 0 : cpmresult;
                 let time = timeLeft;
-                // let tingkat_kesulitan = karakter_level;
+                
                 let karakter_id = co[randTeks].id;
                 let _token = $('meta[name="csrf-token"]').attr('content');
                 $.ajax({

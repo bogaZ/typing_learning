@@ -1,11 +1,6 @@
-<div class="container">
-    {{-- @if (session('sukses'))
-    @endif --}}
-    {{-- <div class="alert alert-danger">
-        daftar akun, untuk membuka fitur lain
-    </div> --}}
+<div class="container py-5">
     <div class="text-danger text-center">
-        daftar akun, untuk membuka fitur lain
+        daftar akun <a href="{{route('register')}}" class="text-decoration-none">disini</a>, untuk membuka fitur lain
     </div>
     <div class="row" id="content">
         <div class="col-md-12 menu">
@@ -42,7 +37,6 @@
 </div>
 @include('edit')
 <script type="text/javaScript">
-    $('body').addClass('bg-play');
     $('.menu').show();
     $('.mulai').hide();
     $('.kesulitan').hide();

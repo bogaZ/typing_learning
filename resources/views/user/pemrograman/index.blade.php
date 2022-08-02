@@ -33,7 +33,7 @@
                 <div class="row">
                     <div class="d-grid mx-auto">
                         <a href="{{route('js')}}" class="btn btn-primary fw-bold">JavaScript</a>
-                        <button id="js" class="fw-bold btn btn-primary block">JavaScript</button>
+                        {{-- <button id="js" class="fw-bold btn btn-primary block">JavaScript</button> --}}
                     </div>
                     {{-- <a href="{{route('indexplaycustom')}}">play</a> --}}
                 </div>
