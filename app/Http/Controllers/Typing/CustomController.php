@@ -80,11 +80,11 @@ class CustomController extends Controller
         $karakter = new karakter;
         $karakter->user_id = Auth::User()->id;
         
-        $tab = $request->karakter;
-        if (strpos($tab, "\t") !== FALSE){
-            $str = str_replace("\t", '  ', $tab);
-            $karakter->karakter = $str;
-        }
+        // $tab = $request->karakter;
+        // if (strpos($tab, "\t") !== FALSE){
+        //     $str = str_replace("\t", '  ', $tab);
+        // }
+        $karakter->karakter = $request->karakter;
         // if (strpos($str, "\t") !== FALSE)
         // {
         //     $str = str_replace("\t", ' ', $str);
