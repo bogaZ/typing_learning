@@ -49,14 +49,8 @@
         </div>
     </div>
     <script type="text/JavaScript">
-        // $.ajaxSetup({
-        //     headers: {
-        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //     }
-        // });
         let data = {!! json_encode($statistik) !!};
         var co = {!! json_encode($kata) !!};
-        // $(textarea).hide();
 
         const typingText = document.querySelector(".typing-text p"),
         inpField = document.querySelector(".wrapper .input-field"),
@@ -67,8 +61,6 @@
         btnTry = document.querySelector("#resettext"),
         timeout = document.getElementById("timeout"),
         idkarakter = document.getElementById("karakter-id");
-        // karakter_level = document.getElementById("karakter-level").innerText;
-        // console.log(karakter_level);
 
         let timer,
         maxTime = 0,
@@ -87,13 +79,6 @@
                 let spanTag = `<span>${span}</span>`;
                 typingText.innerHTML += spanTag;
             });
-
-            // var words = $('#name').val().split(' ');
-            // teks.split(' ').forEach(span =>{
-            //     let spanTag = `<span>${span}</span>`;
-            //     typingText.innerHTML += spanTag;
-                // console.log(spanTag);
-            // });
 
             typingText.querySelectorAll("span")[0].classList.add("active");
 
@@ -158,14 +143,6 @@
                         charIndex++;
                         characters.forEach(span => span.classList.remove("active"));
                         characters[charIndex].classList.add("active");
-
-                        // let wpm = Math.round((((charIndex - mistakes) / 5) / (maxTime - timeLeft)) * 60);
-                        // let cpmresult = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
-                        // cpmresult = cpmresult < 0 || cpmresult === Infinity ? 0 : cpmresult;
-                        // // console.log(cpmresult);
-                        // mistageTag.innerHTML = mistakes;
-                        // wpmTag.innerText = cpmresult;
-                        // cpmTag.innerText = charIndex - mistakes;
                         return false;
                     }else{
                         return true;
@@ -182,10 +159,6 @@
                     if(characters[charIndex].innerText === typeChar){
                         // character same
                         characters[charIndex].classList.add("correct");
-                        // if(charIndex == characters.length){
-                            
-                        // }
-                        // console.log("correct");
                     }else{
                         // charachter not same
                         mistakes++;
