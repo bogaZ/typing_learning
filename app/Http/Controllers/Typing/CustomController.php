@@ -110,7 +110,7 @@ class CustomController extends Controller
         $log->log = "membuat karakter baru (custom) yang memiliki id ". $karakter->id ;
         $log->save();
         
-        return redirect('home')->with('sukses', 'Karakter berhasil dibuat');
+        return redirect()->route('custom.index')->with('sukses', 'Karakter berhasil dibuat');
     }
 
     /**
@@ -175,6 +175,6 @@ class CustomController extends Controller
         $hapus = karakter::find($id);
         $hapus->delete();
 
-        return redirect('home')->with('sukses', 'Karakter berhasil dihapus');
+        return redirect()->route('custom.index')->with('sukses', 'Karakter berhasil dihapus');
     }
 }

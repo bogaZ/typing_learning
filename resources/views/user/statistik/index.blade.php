@@ -19,7 +19,7 @@
         @include('layouts.navigation')
     </div>
     <div class="container">
-        <h3 class="fw-bold text-center">Menu statistik</h3>
+        <h3 class="fw-bold text-center m-5">Menu statistik</h3>
         <div class="row p-3">
             <div class="card p-3 shadow border-none col-md-8">
                 <div class="d-flex justify-content-center">

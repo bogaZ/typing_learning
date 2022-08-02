@@ -191,6 +191,9 @@
     background-repeat: no-repeat;
     background-size: 100% 100%;
   }
+  #example1_wrapper{
+    overflow: auto;
+  }
 </style>
 <style>
   .limittext{
