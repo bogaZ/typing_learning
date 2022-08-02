@@ -9,6 +9,7 @@ use Spatie\Permission\Models\Permission;
 use App\User;
 use App\Statistik;
 use App\karakter;
+use App\Bahasa;
 use App\type;
 use DB;
 use Carbon\Carbon;
@@ -114,6 +115,8 @@ class HomeController extends Controller
             }
         }
         // return json_encode($scoreStats);
-        return view('home', compact('username', 'statistik', 'type', 'jumlahuser', 'jumlahmengetik', 'karakter', 'month', 'users', 'userArreasy', 'scoreStats'));
+        // $uid = Auth::user();
+        $allbahasa = Bahasa::where('id', 2)->orwhere('id', 3)->get();
+        return view('home', compact('username', 'allbahasa', 'user', 'statistik', 'type', 'jumlahuser', 'jumlahmengetik', 'karakter', 'month', 'users', 'userArreasy', 'scoreStats'));
     }
 }

@@ -26,6 +26,7 @@
         <div class="card p-5 shadow col-md-6 mx-4">
             <form action="{{route('custom.update', $karakter->id)}}" method="POST">
                 @csrf
+                @method('PATCH')
                 <div class="row">
                     <div class="col-md-12">
                         <div>

@@ -83,7 +83,8 @@
                         <button id="settingmodal" class="btn btn-secondary block" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-gear-fill"></i> Pengaturan profil</button>
                     </div>
                     <div class="p-0">
-                        <button id="reload" class="btn btn-secondary block"><i class="bi bi-globe2"></i> Bahasa mengetik</button>
+                        <button id="gantibahasakarakter" class="btn btn-secondary block" data-bs-toggle="modal" data-bs-target="#staticBackdrop1"><i class="bi bi-globe2"></i> Bahasa mengetik</button>
+                        {{-- <button id="gantibahasakarakter" class="btn btn-secondary block"><i class="bi bi-globe2"></i> Bahasa mengetik</button> --}}
                     </div>
                 </div>
                 {{-- <script type="text/javaScript">

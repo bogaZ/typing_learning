@@ -94,10 +94,23 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request, [
+            'nama'=> 'required',
+            'email'=> 'required|email|unique:users,email',
+            'password'=> 'required|same:passwordkonfirmasi',
+        ]);
+
         DB::table('model_has_roles')->where('model_id', $id)->delete();
         $user = User::find($id);
         $user->name = $request->nama;
         $user->email = $request->email;
+        if(Auth::user()->id != 1){
+            $user->assignRole('User');
+            $user->password = Hash::make($request->password);
+            $user->update();
+    
+            return redirect()->route('home')->with('sukses', 'User '.$user->name.' berhasil diubah!');
+        }
         if($id != 1){
             $user->assignRole($request->role);
         }else{

@@ -26,6 +26,8 @@ class StatistikController extends Controller
             return view('admin.statistik.index', compact('username', 'alldata'));
         }
         
+        $toptyping = Statistik::orderBy('speed_typing', 'DESC')->limit(5)->get();
+
         $easy = Statistik::where('user_id', $uid)->where('kesulitan', 'mudah')->orderBy('created_at', 'DESC')->limit(10)->get();
         $normal = Statistik::where('user_id', $uid)->where('kesulitan', 'normal')->orderBy('created_at', 'DESC')->limit(10)->get();
         $hard = Statistik::where('user_id', $uid)->where('kesulitan', 'susah')->orderBy('created_at', 'DESC')->limit(10)->get();
@@ -51,7 +53,7 @@ class StatistikController extends Controller
             }
         }
         $maxnilai = Statistik::get();
-        return view('user.statistik.index', compact('uid', 'pemrograman', 'alldata', 'maxnilai', 'userArr', 'easy', 'normal', 'hard'));
+        return view('user.statistik.index', compact('uid', 'toptyping', 'pemrograman', 'alldata', 'maxnilai', 'userArr', 'easy', 'normal', 'hard'));
     }
 
     /**

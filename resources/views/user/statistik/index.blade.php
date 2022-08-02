@@ -44,11 +44,9 @@
                     <h3 class="fw-bold">Top 5</h3>
                 </div>
                 <div class="d-flex flex-column text-dark fw-bold rounded border p-5">
-                    <p>1. user1 <span>250</span> kpm</p>
-                    <p>2. user2 <span>190</span> kpm</p>
-                    <p>3. user3 <span>180</span> kpm</p>
-                    <p>4. user4 <span>176</span> kpm</p>
-                    <p>5. user5 <span>10</span> kpm</p>
+                    @foreach($toptyping as $row => $data)
+                    <p>{{++$row}}. {{$data->user->name}} <span>{{$data->speed_typing}}</span> kpm</p>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -89,7 +87,7 @@
                     @forelse ($alldata as $i => $data)
                     <tr>
                         <td>{{++$i}}</td>
-                        <td>{{$data->karakter->karakter}}</td>
+                        <td class="limittext">{{$data->karakter->karakter}}</td>
                         <td>{{$data->karakter->type->name}}</td>
                         <td>{{$data->speed_typing}}Kpm</td>
                         <td>{{$data->time}}</td>

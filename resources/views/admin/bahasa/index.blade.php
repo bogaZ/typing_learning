@@ -1,5 +1,6 @@
 @extends('layouts.master')
 
+@role('admin')
 @section('content')
 <div class="m-4">
     <div class="d-flex align-items-center">
@@ -144,3 +145,4 @@
     document.getElementById("bahasa").classList.add("aktif-link");
 </script>
 @endsection
+@endrole

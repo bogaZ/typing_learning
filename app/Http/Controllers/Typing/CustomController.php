@@ -175,7 +175,7 @@ class CustomController extends Controller
         $log->user_id = $userid;
         $log->activity = "store";
         if($role_id == 1){
-            $karakter->bahasa_id = $request->bahasa;
+            // $karakter->bahasa_id = $request->bahasa;
             $karakter->pemrograman_id = $request->pemrograman;
             $karakter->type_id = $request->typecharacter;
             $karakter->save();
