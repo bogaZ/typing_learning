@@ -1,38 +1,54 @@
+@extends('layouts.master')
+
+@section('content')
+
 @role('user')
-<form action="{{route('custom.store')}}" method="POST">
-    @csrf
-    <div class="row">
+<div class="container py-5">
+    <form action="{{route('custom.update', $karakter->id)}}" method="POST">
+        @csrf
+        @method('PATCH')
         <div class="col-md-12">
-            <h6 class="fw-bold text-center">Membuat Karakter</h6>
-        </div>
-        <div class="my-3 mx-1 d-flex justify-content-between">
-            <a id="kembali" href="#" class="text-decoration-none fw-bold">Kembali</a>
-            <div>
-                <span name="jmlchars" id="jmlchars"></span> sisa karakter
+            <div class="shadow p-3 mb-5 rounded border border-dark bg-white">
+                <div class="card-body">
+                    <div class="my-5 mx-5">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h6 class="fw-bold text-center">Membuat Karakter</h6>
+                            </div>
+                            <div class="my-3 mx-1 d-flex justify-content-between">
+                                <a href="{{route('custom.index')}}" class="text-decoration-none fw-bold">Kembali</a>
+                                <div>
+                                    <span name="jmlchars" id="jmlchars"></span> sisa karakter
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <textarea class="form-control" maxlength="1000" id="jmltextarea" name="karakter" placeholder="ketik disini karakter....." style="overflow: hidden; resize: none; height: 150px">{{$karakter->karakter}}</textarea>
+                            </div>
+                        </div>
+                        <div class="row my-3">
+                            <div class="col-md-12 d-grid">
+                                <input name="nama" value="{{$karakter->nama}}" maxlength="25" placeholder="nama karater yang dibuat" class="form-control text-center" style="width: auto" class="rounded">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 d-grid">
+                                <button type="reset" class="btn btn-danger">reset</button>
+                            </div>
+                            <div class="col-md-6 d-grid">
+                                <button type="submit" class="btn btn-primary">submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-md-12">
-            <textarea class="form-control" maxlength="1000" id="jmltextarea" name="karakter" placeholder="ketik disini karakter....." style="overflow: hidden; resize: none; height: 150px"></textarea>
-        </div>
-    </div>
-    <div class="row my-3">
-        <div class="col-md-12 d-grid">
-            <input name="nama" maxlength="25" placeholder="nama karater yang dibuat" class="form-control text-center" style="width: auto" class="rounded">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 d-grid">
-            <button type="reset" class="btn btn-danger">reset</button>
-        </div>
-        <div class="col-md-6 d-grid">
-            <button type="submit" class="btn btn-primary">submit</button>
-        </div>
-    </div>
-</form>
+    </form>
+</div>
 <script>
+    var index = '{{route('custom.index')}}';
     $(document).ready(function(){
         $('#kembali').click(function () {
-            $('#content').load('/menucustom')
+            $('#content').load(index)
         })
     })
 
@@ -56,3 +72,5 @@
     
 </script>
 @endrole
+
+@endsection

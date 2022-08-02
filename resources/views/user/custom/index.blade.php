@@ -4,6 +4,11 @@
 @role('user')
 <h3 class="text-center m-5 fw-bold">Menu Custom</h3>
 <div class="container p-5 rounded bg-white shadow col-md-10">
+    @if (session('sukses'))
+        <div class="alert alert-success" role="alert">
+            {{ session('sukses') }}
+        </div>
+    @endif
     <div class="d-flex mb-3 flex-row-reverse">
         <a href="{{route('custom.create')}}" class="btn btn-success">Tambah Karakter</a>
     </div>
@@ -11,7 +16,6 @@
         <thead class="gradienbiru text-white">
             <tr>
                 <th>No</th>
-                {{-- <th>Id</th> --}}
                 <th>Nama</th>
                 <th>karakter</th>
                 <th>date</th>
@@ -26,8 +30,8 @@
                 <td class="limittext">{{$data->karakter}}</td>
                 <td>{{$data->updated_at->diffForHumans()}}</td>
                 <td class="d-flex justify-content-between">
-                    <a class="btn btn-success" href="{{route('bahasa.edit', $data->id)}}" class="dropdown-item"><i class="bi bi-play-fill"></i> Play</a>
-                    <a class="btn btn-primary" href="{{route('bahasa.edit', $data->id)}}" class="dropdown-item"><i class="bi bi-pencil-square"></i> Ubah</a>
+                    <a class="btn btn-success" href="{{route('custom.show', $data->id)}}" class="dropdown-item"><i class="bi bi-play-fill"></i> Play</a>
+                    <a class="btn btn-primary" href="{{route('custom.edit', $data->id)}}" class="dropdown-item"><i class="bi bi-pencil-square"></i> Ubah</a>
                     <a class="btn btn-danger" href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete{{$data->id}}"><i class="bi bi-trash"></i> Hapus</a>
                 </td>
             </tr>

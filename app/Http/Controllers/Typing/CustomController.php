@@ -10,6 +10,7 @@ use App\type;
 use App\Bahasa;
 use App\Activity;
 use App\Pemrograman;
+use App\Statistik;
 use Auth;
 use DB;
 
@@ -128,7 +129,10 @@ class CustomController extends Controller
         if($role_id == 1){
             return view('admin.custom.show', compact('karakter'));
         }
-        return view('user.custom.show', compact('karakter'));
+        $uid = Auth::user()->id;
+        $statistik = Statistik::all();
+        $kata = karakter::find($id);
+        return view('user.custom.show', compact('karakter', 'kata', 'uid', 'statistik'));
     }
 
     /**
@@ -161,6 +165,30 @@ class CustomController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $userid = Auth::user()->id;
+        $role_id = DB::table('model_has_roles')->where('model_id', $userid)->value('role_id');
+        $karakter = karakter::find($id);
+        $karakter->karakter = $request->karakter;
+        $karakter->nama = $request->nama;
+
+        $log = new Activity;
+        $log->user_id = $userid;
+        $log->activity = "store";
+        if($role_id == 1){
+            $karakter->bahasa_id = $request->bahasa;
+            $karakter->pemrograman_id = $request->pemrograman;
+            $karakter->type_id = $request->typecharacter;
+            $karakter->save();
+            $log->log = "update karakter baru (custom) yang memiliki id ". $karakter->id ;
+            $log->save();
+            
+            return back()->with('sukses', 'Karakter berhasil diupdate');
+        }
+        $karakter->save();
+        $log->log = "update karakter (custom) yang memiliki id ". $karakter->id ;
+        $log->save();
+        
+        return redirect()->route('custom.index')->with('sukses', 'Karakter berhasil diupdate');
     }
 
     /**

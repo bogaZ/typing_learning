@@ -1,113 +1,223 @@
-{{-- <form action="{{route('menucustom.store')}}" method="POST">
-    @csrf
-    <div class="row">
-        <div class="col-md-12">
-            <h6 class="fw-bold text-center">Membuat Karakter</h6>
-        </div>
-        <div class="my-3 mx-1 d-flex justify-content-between">
-            <a id="kembali" href="#" class="text-decoration-none fw-bold">Kembali</a>
-            <div>
-                <span name="jmlchars" id="jmlchars"></span> sisa karakter
-            </div>
-        </div>
-        <div class="col-md-12">
-            <textarea class="form-control" maxlength="1000" id="jmltextarea" name="karakter" placeholder="ketik disini karakter....." style="overflow: hidden; resize: none; height: 150px"></textarea>
-        </div>
-    </div>
-    <div class="row my-3">
-        <div class="col-md-12 d-grid">
-            <input name="nama" maxlength="25" placeholder="nama karater yang dibuat" class="form-control text-center" style="width: auto" class="rounded">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 d-grid">
-            <button type="reset" class="btn btn-danger">reset</button>
-        </div>
-        <div class="col-md-6 d-grid">
-            <button type="submit" class="btn btn-primary">submit</button>
-        </div>
-    </div>
-</form>
-<script>
-    $(document).ready(function(){
-        $('#kembali').click(function () {
-            $('#content').load('/menucustom')
-        })
-    })
-
-    $(document).ready(function(){
-        var jumlahChars     = 1000; //Jumlah karakter yang diizinkan di textarea
-        var countTextBox    = $('#jmltextarea') // Textarea input box
-        var charsCountEl    = $('#jmlchars'); // Sisa karakter yang dihitung akan ditampilkan di sini
-    
-        charsCountEl.text(jumlahChars); //nilai awal elemen countchars
-        countTextBox.keyup(function() { //pengguna melepaskan tombol pada keyboard
-            var thisChars = this.value.replace(/{.*}/g, '').length; //get chars count di textarea
-            if(thisChars > jumlahChars) //Jika melebihi karakter dari yang kita tentukan 
-            {
-                var CharsToDel = (thisChars-jumlahChars); // delete kata yang melebihi batas
-                this.value = this.value.substring(0,this.value.length-CharsToDel); //menghilangkan kelebihan karakter pada textarea
-            }else{ //jika tidak maka
-                charsCountEl.text( jumlahChars - thisChars ); //Jumlahkan sisa karakter
-            }
-        });
-    });
-    
-</script> --}}
-@extends('layouts.master')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @include('layouts.top')
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+</head>
+<body class="bg-play">
+    @include('layouts.navigation')
+    <div class="d-flex justify-content-center my-3 py-5">
         <div class="col-md-8">
-            <div class="shadow p-3 mb-5 rounded border border-dark bg-white">
-                <div class="card-body">
-                    <div class="my-5 mx-5" id="content">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="mx-auto">
-                                    <a id="kembali" href="javascript:history.back();" class="text-decoration-none fw-bold">Kembali</a>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <h6 class="fw-bold text-center">Custom Mode</h6>
-                            </div>
-                            <div>
-                                <h6 class="fw-bold text-center border">{{$karakter->karakter}}</h6>
-                                <div class="d-flex justify-content-between">
-                                    <p>Jumlah kata: </p>
-                                    <p>Waktu sisa: </p>
-                                </div>
-                            </div>
-                            <div class="col-md-10 border">
-                                <textarea id="mengetikkata" class="form-control" placeholder="ketik disini....." style="overflow: hidden; resize: none; height: 150px"></textarea>
-                            </div>
-                            <div class="col-md-2 d-grid">
-                                <span>Score: </span>
-                            </div>
-                            <script type="text/javaScript">
-                                var indexcustom = '{{route('indexplay')}}';
-                                $(document).ready(function(){
-                                    $('#kembali').click(function () {
-                                        $('#content').load(indexcustom)
-                                    })
-                                })
-                            </script>
+            <div class="d-flex justify-content-between">
+                <div>
+                    <a href="{{route('home')}}" class="text-decoration-none text-dark fw-bold">kembali</a>
+                    {{-- <a href="javascript:history.back()" class="text-decoration-none text-dark fw-bold">kembali</a> --}}
+                </div>
+                <div>
+                    #<label for="" id="karakter-id">#</label>
+                    tingkat kesulitan:<label for="" id="karakter-level">custom</label>
+                </div>
+            </div>
+            <div class="card shadow border-none">
+                <div class="wrapper">
+                    <textarea name="text" class="input-field" id="" cols="30" rows="10"></textarea>
+                    <div class="content-box">
+                        <p id="timeout" class="text-center"></p>
+                        <div class="typing-text">
+                            <p></p>
+                        </div>
+                        <div class="content d-flex">
+                            <ul class="result-details m-0 d-flex align-items-center p-0">
+                                <li class="time">
+                                    <p class="m-0">Time:</p>
+                                    <span><b>0</b>s</span>
+                                </li>
+                                <li class="mistake">
+                                    <p class="m-0">Miss:</p>
+                                    <span>0</span>
+                                </li>
+                                <li class="wpm">
+                                    <p class="m-0">Words:</p>
+                                    <span>0</span>
+                                </li>
+                                <li class="cpm">
+                                    <p class="m-0">Correct:</p>
+                                    <span>0</span>
+                                </li>
+                            </ul>
+                            <button id="resettext" class="btn btn-dark">Reset Karakter</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<script type="text/JavaScript">
-    var mengetikkata = CodeMirror.fromTextArea(
-        document.getElementById('mengetikkata'),{
-            mode: "xml",
-            theme: "dracula",
-            lineNumbers: true,
-            autoCloseTags: true
+    @role('user')
+    <script type="text/JavaScript">
+        let data = {!! json_encode($statistik) !!};
+        var co = {!! json_encode($kata) !!};
+
+        // console.log(co.karakter);
+        const typingText = document.querySelector(".typing-text p"),
+        inpField = document.querySelector(".wrapper .input-field"),
+        mistageTag = document.querySelector(".mistake span"),
+        timeTag = document.querySelector(".time span b"),
+        wpmTag = document.querySelector(".wpm span"),
+        cpmTag = document.querySelector(".cpm span"),
+        btnTry = document.querySelector("#resettext"),
+        timeout = document.getElementById("timeout"),
+        idkarakter = document.getElementById("karakter-id");
+        karakter_level = document.getElementById("karakter-level").innerText;
+        console.log(karakter_level);
+
+        let timer,
+        maxTime = 0,
+        timeLeft = maxTime,
+        charIndex = mistakes = isTyping = charcpm = 0;
+
+
+        let randTeks;
+        function randomParagraph() {
+            randTeks = Math.floor(Math.random() * co.length);
+            typingText.innerHTML = "";
+            idkarakter.innerText = co.id;
+            var teks = co.karakter.toString().replace(/(\r\n|\n|\r)/gm, "\n");
+            
+            teks.split("").forEach(span => {
+                let spanTag = `<span>${span}</span>`;
+                typingText.innerHTML += spanTag;
+            });
+            typingText.querySelectorAll("span")[0].classList.add("active");
+
+            document.addEventListener("keydown", () => inpField.focus());
+            typingText.addEventListener("click", () => inpField.focus());
+            return randTeks;
         }
-    )
-</script>
-@endsection
+        const testes = randomParagraph();
+
+        function reset(){
+            randomParagraph();
+            $(typingText).prop('disabled', false);
+            $(inpField).prop('disabled', false);
+            inpField.value = "";
+            timeout.innerText = "";
+            timeout.style.color = "";
+            clearInterval(timer);
+            timeLeft = maxTime,
+            charIndex = mistakes = isTyping = 0;
+            timeTag.innerText = timeLeft;
+            mistageTag.innerText = mistakes;
+            wpmTag.innerText = 0;
+            cpmTag.innerText = 0;
+
+        }
+
+        function initTyping() {
+            console.log(randTeks);
+            const characters = typingText.querySelectorAll("span");
+            let typeChar = inpField.value.split("")[charIndex];
+            let TypeWords = inpField.value.split("")[charcpm];
+            if (charIndex < characters.length -1 && timeLeft > -1) {
+                if(!isTyping){
+                    // console.log(isTyping);
+                    timer = setInterval(initTimer, 1000);
+                    isTyping = true;
+                }
+                if(typeChar == null){
+                    charIndex--;
+                    if(characters[charIndex].classList.contains("incorrect")){
+                        mistakes--;
+                    }
+                    characters[charIndex].classList.remove("correct", "incorrect");
+                }else{
+                    if(characters[charIndex].innerText === typeChar){
+                        // character same
+                        characters[charIndex].classList.add("correct");
+                    }else{
+                        // charachter not same
+                        mistakes++;
+                        characters[charIndex].classList.add("incorrect");
+                    }
+                    charIndex++;
+                }
+                characters.forEach(span => span.classList.remove("active"));
+                characters[charIndex].classList.add("active");
+
+            
+                let wpm = Math.round((((charIndex - mistakes) / 5) / (maxTime - timeLeft)) * 60);
+                let cpmresult = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
+                cpmresult = cpmresult < 0 || cpmresult === Infinity ? 0 : cpmresult;
+                
+                mistageTag.innerHTML = mistakes;
+                wpmTag.innerText = cpmresult;
+                cpmTag.innerText = charIndex - mistakes;
+            } else {
+                if(charIndex == characters.length -1){
+                    if(characters[charIndex].innerText === typeChar){
+                        characters[charIndex].classList.add("correct");
+                        console.log("terakhir");
+                    }else{
+                        characters[charIndex].classList.add("incorrect");
+                        mistakes++;
+                    }
+                }
+                inpField.value = "";
+                timeout.innerText = "Finish";
+                timeout.style.color = "green";
+                clearInterval(timer);
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                let cpmresult = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
+                cpmresult = cpmresult < 0 || cpmresult === Infinity ? 0 : cpmresult;
+                let time = timeLeft;
+                
+                // let karakter_id = co[randTeks].id;
+                // let _token = $('meta[name="csrf-token"]').attr('content');
+                // $.ajax({
+                //     type: "POST",
+                //     url: "{{route('statistik.store')}}",
+                //     data:{
+                //         karakter_id: karakter_id,
+                //         typing: cpmresult,
+                //         kesulitan: karakter_level,
+                //         time: time,
+                //         _token: _token
+                //     },
+                //     success:function(response){
+                //         console.log(response);
+                //         if(response) {
+                //             $('.success').text(response.success);
+                //         }
+                //     },
+                // });
+                $(typingText).prop('disabled', true);
+                $(inpField).prop('disabled', true);
+            }
+        }
+
+        function initTimer(){
+            if(timeLeft > -1){
+                timeLeft++;
+                timeTag.innerText = timeLeft;
+            }else {
+                clearInterval(timer);
+                timeout.innerText = "waktu habis";
+                timeout.style.color = "red";
+            }
+        }
+
+        inpField.addEventListener("input", initTyping);
+        btnTry.addEventListener("click", reset);
+    </script>
+    @endrole
+    @guest
+        @include('user.guest.js')
+    @endguest
+</body>
+</html>
