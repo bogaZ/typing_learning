@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\User;
 use App\Statistik;
+// use App\Mail\MailVerify;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,18 @@ Route::get('/', function () {
     $user = User::count();
     return view('welcome', compact('user', 'statistik'));
 })->name('welcome');
+
+Route::get('send-mail', function () {
+   
+    $details = [
+        'title' => 'Mail from Ngeteks',
+        'body' => 'This is for testing email using smtp'
+    ];
+   
+    \Mail::to('donlot60@gmail.com')->send(new \App\Mail\MailVerify($details));
+   
+    dd("Email is Sent.");
+});
 
 Auth::routes();
 
