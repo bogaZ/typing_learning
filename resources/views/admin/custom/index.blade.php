@@ -46,6 +46,7 @@
                     <th>Nama Pembuat</th>
                     <th>Nama text</th>
                     <th>Teks</th>
+                    <th>Bahasa</th>
                     <th>Tipe Text</th>
                     <th>Action</th>
                 </tr>
@@ -62,6 +63,7 @@
                     <td>{{$data->nama}}</td>
                     {{-- <td style="text-overflow: ellipsis; overflow: hidden;">{{$data->karakter}}</td> --}}
                     <td class="limittext">{{$data->karakter}}</td>
+                    <td>{{$data->bahasa->bahasa}}</td>
                     <td>{{$data->type->name}}</td>
                     {{-- <td><button class="btn btn-secondary"><i class="bi bi-pencil-square"></i></button></td> --}}
                     <td>

@@ -26,7 +26,8 @@
                 <br>
                 <div class="row">
                     <div class="d-grid mx-auto">
-                        <button id="php" class="fw-bold btn btn-primary block">PHP</button>
+                        {{-- <button id="php" class="fw-bold btn btn-primary block">PHP</button> --}}
+                        <a href="{{route('php')}}" class="btn btn-primary fw-bold">PHP</a>
                     </div>
                 </div>
                 <br>

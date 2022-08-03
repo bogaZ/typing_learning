@@ -17,8 +17,8 @@
             <tr>
                 <th>No</th>
                 <th>Nama</th>
-                <th>karakter</th>
-                <th>date</th>
+                <th>Karakter</th>
+                <th>Date</th>
                 <th>Action</th>
             </tr>
         </thead>

@@ -10,17 +10,28 @@
                 </button>
             </div>
             <div class="d-flex align-items-center justify-content-center col-md-4 p-3 m-0">
-                <h3 class="m-0">Create Character</h3>
+                <h3 class="m-0">Mengubah Character</h3>
             </div>
             <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
                 <p class="m-0">
                     <a href="{{route('home')}}" class="text-decoration-none">Dashboard</a>
                     /
                     <a href="{{route('custom.index')}}" class="text-decoration-none">Character</a>
-                    / Create Character
+                    / Mengubah Character
                 </p>
             </div>
         </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        @if(session()->get('sukses'))
+            <div class="alert alert-success mt-4 card shadow col-md-6 mx-4">
+                {{session()->get('sukses')}}
+            </div>
+        @elseif(session()->get('gagal'))
+            <div class="alert alert-danger mt-4 card shadow col-md-6 mx-4">
+                {{session()->get('gagal')}}
+            </div>
+        @endif
     </div>
     <div class="d-flex justify-content-center">
         <div class="card p-5 shadow col-md-6 mx-4">
@@ -34,7 +45,7 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <textarea class="form-control" maxlength="1000" id="jmltextarea" name="karakter" placeholder="ketik disini karakter....." style="overflow: hidden; resize: none; height: 150px">{{$karakter->karakter}}</textarea>
+                        <textarea onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}" class="form-control" maxlength="1000" id="jmltextarea" name="karakter" placeholder="ketik disini karakter....." style="overflow: hidden; resize: none; height: 150px">{{$karakter->karakter}}</textarea>
                     </div>
                 </div>
                 <div class="row my-3">

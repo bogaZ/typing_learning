@@ -33,7 +33,7 @@ class CustomController extends Controller
     {
         //
         // $tanggal = ['']
-        $alldata = karakter::all();
+        $alldata = karakter::orderBy('created_at', 'DESC')->get();
         $username = Auth::user()->name;
         // return view('admin.charactertext.index', compact('username', 'alldata'));
         $namakarakter = karakter::all()->where('user_id', Auth::user()->id);
@@ -100,7 +100,7 @@ class CustomController extends Controller
             $karakter->pemrograman_id = $request->pemrograman;
             $karakter->type_id = $request->typecharacter;
             $karakter->save();
-            $log->log = "membuat karakter baru (custom) yang memiliki id ". $karakter->id ;
+            $log->log = "Admin membuat karakter baru (custom) yang memiliki id ". $karakter->id ;
             $log->save();
             
             return back()->with('sukses', 'Karakter berhasil dibuat');
@@ -108,7 +108,8 @@ class CustomController extends Controller
         $karakter->bahasa_id = "1";
         $karakter->type_id = "1";
         $karakter->save();
-        $log->log = "membuat karakter baru (custom) yang memiliki id ". $karakter->id ;
+        $log->log = "User membuat karakter baru (custom) yang memiliki id ". $karakter->id ;
+        // $log->log = "User". Auth::user()->name ."membuat karakter baru (custom) yang memiliki id ". $karakter->id ;
         $log->save();
         
         return redirect()->route('custom.index')->with('sukses', 'Karakter berhasil dibuat');

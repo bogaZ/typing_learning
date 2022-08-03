@@ -23,6 +23,17 @@
         </div>
     </div>
     <div class="d-flex justify-content-center">
+        @if(session()->get('sukses'))
+            <div class="alert alert-success mt-4 card shadow col-md-6 mx-4">
+                {{session()->get('sukses')}}
+            </div>
+        @elseif(session()->get('gagal'))
+            <div class="alert alert-danger mt-4 card shadow col-md-6 mx-4">
+                {{session()->get('gagal')}}
+            </div>
+        @endif
+    </div>
+    <div class="d-flex justify-content-center">
         <div class="card p-5 shadow col-md-6 mx-4 mb-4">
             <form action="{{route('custom.store')}}" method="POST">
                 @csrf
