@@ -55,8 +55,8 @@
                                     <span>0</span>
                                 </li>
                                 <li class="wpm">
-                                    <p class="m-0">Words:</p>
-                                    <span>0</span>
+                                    <p class="m-0">Score:</p>
+                                    <span>0</span>kpm
                                 </li>
                                 <li class="cpm">
                                     <p class="m-0">Correct:</p>

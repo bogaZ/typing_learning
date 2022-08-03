@@ -76,15 +76,8 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'bahasa_id' => $data['bahasa'],
         ]);
-        // $userid = Auth::user()->id;
         $userid = $user->id;
         $bahasa = User::find($userid);
-        // $bahasa->bahasa_id = 
-        // $bahasa = Bahasa_user::create([
-        //     'user_id' => $userid,
-        //     'bahasa_id' => $data['bahasa']
-        // ]);
-        // $bahasa->save();
         $role = Role::find(2);
         $user->assignRole($role);
         return $user;

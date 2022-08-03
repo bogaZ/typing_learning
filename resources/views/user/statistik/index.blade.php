@@ -41,11 +41,11 @@
             <div class="col-1"></div>
             <div class="card p-3 shadow border-none col-md-3 justify-content-around">
                 <div class="d-flex justify-content-center">
-                    <h3 class="fw-bold">Top 5</h3>
+                    <h3 class="fw-bold">Top 5 Speed</h3>
                 </div>
                 <div class="d-flex flex-column text-dark fw-bold rounded border p-5">
                     @foreach($toptyping as $row => $data)
-                    <p>{{++$row}}. {{$data->user->name}} <span>{{$data->speed_typing}}</span> kpm</p>
+                    <p class="limittext m-0">{{++$row}}. {{$data->user->name}}</p><span class="mb-2"> speed: {{$data->speed_typing}} kpm</span>
                     @endforeach
                 </div>
             </div>

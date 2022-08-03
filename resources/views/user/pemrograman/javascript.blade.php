@@ -9,8 +9,15 @@
     @include('layouts.navigation')
     <div class="d-flex justify-content-center my-3">
         <div class="col-md-8">
-            <div>
-                #<label for="" id="karakter-id">#</label>
+            <div class="d-flex justify-content-between">
+                <div>
+                    <a href="{{route('home')}}" class="text-decoration-none text-dark fw-bold">kembali</a>
+                    {{-- <a href="javascript:history.back()" class="text-decoration-none text-dark fw-bold">kembali</a> --}}
+                </div>
+                <div>
+                    #<label for="" id="karakter-id">#</label>
+                    tingkat kesulitan:<label for="" id="karakter-level">pemrograman</label>
+                </div>
             </div>
             <div class="card shadow border-none">
                 <div class="wrapper">
@@ -33,8 +40,8 @@
                                     <span>0</span>
                                 </li>
                                 <li class="wpm">
-                                    <p class="m-0">Words:</p>
-                                    <span>0</span>
+                                    <p class="m-0">Score:</p>
+                                    <span>0</span>kpm
                                 </li>
                                 <li class="cpm">
                                     <p class="m-0">Correct:</p>
@@ -202,7 +209,7 @@
                 let cpmresult = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
                 cpmresult = cpmresult < 0 || cpmresult === Infinity ? 0 : cpmresult;
                 let time = timeLeft;
-                // let tingkat_kesulitan = karakter_level;
+                let karakter_level = "pemrograman";
                 let karakter_id = co[randTeks].id;
                 let _token = $('meta[name="csrf-token"]').attr('content');
                 $.ajax({

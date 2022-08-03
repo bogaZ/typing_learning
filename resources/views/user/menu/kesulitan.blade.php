@@ -23,7 +23,7 @@
                 <br>
                 <div class="row">
                     <div class="d-grid mx-auto">
-                        @if($statistik >= 150)
+                        @if($statistik >= 30)
                         <a id="normal" href="{{route('playnormal')}}" class="btn btn-primary block fw-bold">Normal</a>
                         @else
                         <a id="" href="{{route('playnormal')}}" class="btn btn-primary block fw-bold disabled"><i class="bi bi-lock-fill"></i> Normal</a>
@@ -33,7 +33,7 @@
                 <br>
                 <div class="row">
                     <div class="d-grid mx-auto">
-                        @if($statistik >= 170)
+                        @if($statistik >= 50)
                         <a id="susah" href="{{route('playsusah')}}" class="btn btn-primary block fw-bold">Susah</a>
                         @else
                         <a id="" class="btn btn-primary block fw-bold disabled"><i class="bi bi-lock-fill"></i> Susah</a>
