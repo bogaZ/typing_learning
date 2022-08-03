@@ -86,5 +86,9 @@ class NotifikasiController extends Controller
     public function destroy($id)
     {
         //
+        $hapus = Activity::find($id);
+        $hapus->delete();
+
+        return back()->with('sukses', 'Notifikasi berhasil dihapus');
     }
 }

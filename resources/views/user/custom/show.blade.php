@@ -77,9 +77,7 @@
         charIndex = mistakes = isTyping = charcpm = 0;
 
 
-        let randTeks;
         function randomParagraph() {
-            randTeks = Math.floor(Math.random() * co.length);
             typingText.innerHTML = "";
             idkarakter.innerText = co.id;
             var teks = co.karakter.toString().replace(/(\r\n|\n|\r)/gm, "\n");
@@ -92,7 +90,6 @@
 
             document.addEventListener("keydown", () => inpField.focus());
             typingText.addEventListener("click", () => inpField.focus());
-            return randTeks;
         }
         const testes = randomParagraph();
 
@@ -114,7 +111,6 @@
         }
 
         function initTyping() {
-            console.log(randTeks);
             const characters = typingText.querySelectorAll("span");
             let typeChar = inpField.value.split("")[charIndex];
             let TypeWords = inpField.value.split("")[charcpm];

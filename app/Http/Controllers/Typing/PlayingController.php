@@ -16,17 +16,10 @@ class PlayingController extends Controller
 {
     //easy mode
     public function playmudah(){
-        // $katas = karakter::where('type_id', 2)->inRandomOrder()->limit(1)->get();
-        // foreach($katas as $data){
-        //     $kata = $data->karakter;
-        // }
-        // $jumlahkata = strlen($kata);
-        
         $uid = Auth::user();
         $allbahasa = Bahasa::where('id', 2)->orwhere('id', 3)->get();
         $bahasaindonesia = 2;
         $bahasainggris = 3;
-        // $bahasa = Bahasa_user::where('user_id', $uid)->get();
         $statistik = Statistik::all();
         if(Auth::guest()){
             $kata = karakter::where(['type_id' => 2])->get();
@@ -38,40 +31,23 @@ class PlayingController extends Controller
     }
     //normal mode
     public function playnormal(){
-        // $katas = karakter::where('type_id', 2)->inRandomOrder()->limit(1)->get();
-        // foreach($katas as $data){
-        //     $kata = $data->karakter;
-        // }
-        // $kata = karakter::where('type_id', 2)->get();
-        // // $jumlahkata = strlen($kata);
-        // return view('user.play.normal', compact('kata'));
-
-
         $uid = Auth::user();
         $allbahasa = Bahasa::where('id', 2)->orwhere('id', 3)->get();
         $bahasaindonesia = 2;
         $bahasainggris = 3;
-        // $bahasa = Bahasa_user::where('user_id', $uid)->get();
         $statistik = Statistik::all();
         $kata = karakter::where(['type_id' => 3, 'bahasa_id' => $uid->bahasa_id])->get();
         return view('user.play.normal', compact('kata', 'statistik', 'uid', 'bahasaindonesia', 'bahasainggris', 'allbahasa'));
     }
     //susah mode
     public function playsusah(){
-        // $katas = karakter::where('type_id', 4)->inRandomOrder()->limit(1)->get();
-        // foreach($katas as $data){
-        //     $kata = $data->karakter;
-        // }
-        // $jumlahkata = strlen($kata);
-        // return view('user.play.hard', compact('kata', 'jumlahkata'));
-
         $uid = Auth::user();
         $allbahasa = Bahasa::where('id', 2)->orwhere('id', 3)->get();
         $bahasaindonesia = 2;
         $bahasainggris = 3;
         // $bahasa = Bahasa_user::where('user_id', $uid)->get();
         $statistik = Statistik::all();
-        $kata = karakter::where(['type_id' => 2, 'bahasa_id' => $uid->bahasa_id])->get();
+        $kata = karakter::where(['type_id' => 4, 'bahasa_id' => $uid->bahasa_id])->get();
         return view('user.play.hard', compact('kata', 'statistik', 'uid', 'bahasaindonesia', 'bahasainggris', 'allbahasa'));
     }
     //custom mode

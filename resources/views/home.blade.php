@@ -148,7 +148,7 @@
                 </div>
             </div>
         </div>
-        <a href="{{route('user.index')}}" class="bg-primary d-flex justify-content-center p-2 text-decoration-none text-white">view</a>
+        <a href="{{route('notifikasi.index')}}" class="bg-primary d-flex justify-content-center p-2 text-decoration-none text-white">view</a>
     </div>
 </div>
 <div class="row justify-content-between mx-4">

@@ -13,7 +13,7 @@
             label:"a",
             labels: xValues,
             datasets: [{
-                label: "Programing Text",
+                label: "Jumlah User mengetik",
                 fill: false,
                 lineTension: 0,
                 backgroundColor: "rgba(0,0,255,1.0)",
