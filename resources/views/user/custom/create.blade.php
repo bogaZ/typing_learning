@@ -21,12 +21,12 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <textarea class="form-control" maxlength="1000" id="jmltextarea" name="karakter" placeholder="ketik disini karakter....." style="overflow: hidden; resize: none; height: 150px"></textarea>
+                                <textarea class="form-control" required maxlength="1000" id="jmltextarea" name="karakter" placeholder="ketik disini karakter....." style="overflow: hidden; resize: none; height: 150px"></textarea>
                             </div>
                         </div>
                         <div class="row my-3">
                             <div class="col-md-12 d-grid">
-                                <input name="nama" maxlength="25" placeholder="nama karater yang dibuat" class="form-control text-center" style="width: auto" class="rounded">
+                                <input name="nama" maxlength="25" required placeholder="nama karater yang dibuat" class="form-control text-center" style="width: auto" class="rounded">
                             </div>
                         </div>
                         <div class="row">
