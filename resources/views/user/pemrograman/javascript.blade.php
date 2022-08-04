@@ -16,7 +16,7 @@
                 </div>
                 <div>
                     #<label for="" id="karakter-id">#</label>
-                    tingkat kesulitan:<label for="" id="karakter-level">pemrograman</label>
+                    tingkat kesulitan:<label for="" id="karakter-level">pemrograman js</label>
                 </div>
             </div>
             <div class="card shadow border-none">

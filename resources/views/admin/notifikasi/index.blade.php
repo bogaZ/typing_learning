@@ -57,7 +57,8 @@
                     <td>{{$data->user_id}}</td>
                     <td>{{$data->user->name}}</td>
                     <td>{{$data->activity}}</td>
-                    <td>{{$data->log}}</td>
+                    {{-- <td class="limittext">{{$data->log}}</td> --}}
+                    <td class="">{{$data->log}}</td>
                     <td>{{$data->created_at}}</td>
                     <td>
                         <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete{{$data->id}}">Hapus</button>

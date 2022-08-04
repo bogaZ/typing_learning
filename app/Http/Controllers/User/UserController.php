@@ -5,6 +5,9 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use App\karakter;
+use App\Activity;
+use App\Statistik;
 use Auth;
 use Spatie\Permission\Models\Role;
 use Hash;
@@ -135,9 +138,12 @@ class UserController extends Controller
             if(Auth::user()->id == $id){
                 return back()->with('gagal', 'Anda tidak dapat menghapus admin!');
             }
+            karakter::where('user_id', $id)->delete();
+            Activity::where('user_id', $id)->delete();
+            Statistik::where('user_id', $id)->delete();
+            return back()->with('sukses', 'User berhasil dihapus!');
             User::find($id)->delete();
     
-            return back()->with('sukses', 'User berhasil dihapus!');
             // User::find($id)->delete;
         }
         return back()->with('gagal', 'Anda tidak mendapat hak akses menghapus user!');

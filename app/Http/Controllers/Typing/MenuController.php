@@ -48,9 +48,15 @@ class MenuController extends Controller
     }
     public function getphp(){
 
-        $kata = 'apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini apakah saya akan makan hari ini';
-        $jumlahkata = strlen($kata);
-        return view('user.pemrograman.php', compact('kata', 'jumlahkata'));
+        $uid = Auth::user();
+        $allbahasa = Bahasa::where('id', '!=', 1)->get();
+        $bahasaindonesia = 2;
+        $bahasainggris = 3;
+        $statistik = Statistik::all();
+        $kata = karakter::where(['type_id' => 5, 'pemrograman_id' => 1])->get();
+        // $getkata = karakter::where(['type_id' => 5])->get();
+        // $kata = htmlentities($getkata);
+        return view('user.pemrograman.php', compact('kata', 'statistik', 'uid', 'bahasaindonesia', 'bahasainggris', 'allbahasa'));
     }
     public function getjs(){
         $uid = Auth::user();
@@ -58,7 +64,7 @@ class MenuController extends Controller
         $bahasaindonesia = 2;
         $bahasainggris = 3;
         $statistik = Statistik::all();
-        $kata = karakter::where(['type_id' => 5])->get();
+        $kata = karakter::where(['type_id' => 5, 'pemrograman_id' => 2])->get();
         // $getkata = karakter::where(['type_id' => 5])->get();
         // $kata = htmlentities($getkata);
         return view('user.pemrograman.javascript', compact('kata', 'statistik', 'uid', 'bahasaindonesia', 'bahasainggris', 'allbahasa'));

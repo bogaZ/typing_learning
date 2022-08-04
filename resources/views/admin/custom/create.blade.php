@@ -47,7 +47,12 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <textarea onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}" class="form-control" maxlength="1000" id="jmltextarea" name="karakter" placeholder="ketik disini karakter....." style="overflow: hidden; resize: none; height: 150px"></textarea>
+                        @error('karakter')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        <textarea required onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}" class="form-control @error('karakter') is-invalid @enderror" maxlength="1000" id="jmltextarea" name="karakter" placeholder="ketik disini karakter....." style="overflow: hidden; resize: none; height: 150px"></textarea>
                     </div>
                 </div>
                 <div class="row my-3">
@@ -55,7 +60,12 @@
                         <label for="">Nama Karakter</label>
                     </div>
                     <div class="col-md-12 d-grid">
-                        <input name="nama" maxlength="25" placeholder="nama karater yang dibuat" class="form-control" style="width: auto" class="rounded">
+                        @error('nama')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        <input name="nama" required maxlength="25" placeholder="nama karater yang dibuat" class="form-control @error('nama') is-invalid @enderror" style="width: auto" class="rounded">
                     </div>
                 </div>
                 <div class="row my-3">
@@ -64,7 +74,7 @@
                     </div>
                     <div class="col-md-12 d-grid">
                         <select name="typecharacter" id="selecttype" class="form-control">
-                            <option value="" id="" hidden selected disabled class="">Pilih Type</option>
+                            {{-- <option value="" id="" hidden selected disabled class="">Pilih Type</option> --}}
                             @foreach($typecharacter as $type)
                                 <option value="{{$type->id}}" class="">{{$type->name}}</option>
                             @endforeach
@@ -77,7 +87,7 @@
                     </div>
                     <div class="col-md-12 d-grid">
                         <select name="bahasa" id="selectbahasa" class="form-control" disabled>
-                            <option value="" id="" hidden selected disabled class="">Pilih Bahasa</option>
+                            {{-- <option value="" id="" hidden selected disabled class="">Pilih Bahasa</option> --}}
                             @foreach($allbahasa as $bahasa)
                                 <option value="{{$bahasa->id}}" class="pilihbahasa">{{$bahasa->bahasa}}</option>
                             @endforeach
@@ -90,7 +100,7 @@
                     </div>
                     <div class="col-md-12 d-grid">
                         <select name="pemrograman" id="selectpemrograman" class="form-control" disabled>
-                            <option value="" id="" hidden selected disabled class="">Pilih Bahasa Pemrograman</option>
+                            {{-- <option value="" id="" hidden selected disabled class="">Pilih Bahasa Pemrograman</option> --}}
                             @foreach($allpemrograman as $bahasa)
                                 <option value="{{$bahasa->id}}" class="pilihbahasa">{{$bahasa->bahasa}}</option>
                             @endforeach

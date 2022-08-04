@@ -80,16 +80,8 @@ class CustomController extends Controller
         $role_id = DB::table('model_has_roles')->where('model_id', $userid)->value('role_id');
         $karakter = new karakter;
         $karakter->user_id = Auth::User()->id;
-        
-        // $tab = $request->karakter;
-        // if (strpos($tab, "\t") !== FALSE){
-        //     $str = str_replace("\t", '  ', $tab);
-        // }
+
         $karakter->karakter = $request->karakter;
-        // if (strpos($str, "\t") !== FALSE)
-        // {
-        //     $str = str_replace("\t", ' ', $str);
-        // }
         $karakter->nama = $request->nama;
 
         $log = new Activity;
@@ -133,6 +125,12 @@ class CustomController extends Controller
         $uid = Auth::user()->id;
         $statistik = Statistik::all();
         $kata = karakter::find($id);
+        
+        $log = new Activity;
+        $log->user_id = $userid;
+        $log->activity = "show";
+        $log->log = "user bermain karakter custom yang memiliki id ". $kata->id ;
+        $log->save();
         return view('user.custom.show', compact('karakter', 'kata', 'uid', 'statistik'));
     }
 
@@ -153,6 +151,11 @@ class CustomController extends Controller
         if($role_id == 1){
             return view('admin.custom.edit', compact('username', 'karakter', 'typecharacter'));
         }
+        $log = new Activity;
+        $log->user_id = $userid;
+        $log->activity = "edit";
+        $log->log = "user ingin mengubah karakter custom yang memiliki id ". $karakter->id ;
+        $log->save();
         return view('user.custom.edit', compact('username', 'karakter', 'typecharacter'));
     }
 
@@ -174,19 +177,19 @@ class CustomController extends Controller
 
         $log = new Activity;
         $log->user_id = $userid;
-        $log->activity = "store";
+        $log->activity = "update";
         if($role_id == 1){
             // $karakter->bahasa_id = $request->bahasa;
             $karakter->pemrograman_id = $request->pemrograman;
             $karakter->type_id = $request->typecharacter;
             $karakter->save();
-            $log->log = "update karakter baru (custom) yang memiliki id ". $karakter->id ;
+            $log->log = "Admin update karakter (custom) yang memiliki id ". $karakter->id ;
             $log->save();
             
             return back()->with('sukses', 'Karakter berhasil diupdate');
         }
         $karakter->save();
-        $log->log = "update karakter (custom) yang memiliki id ". $karakter->id ;
+        $log->log = "user update karakter (custom) yang memiliki id ". $karakter->id ;
         $log->save();
         
         return redirect()->route('custom.index')->with('sukses', 'Karakter berhasil diupdate');
@@ -201,8 +204,23 @@ class CustomController extends Controller
     public function destroy($id)
     {
         //
+        $userid = Auth::user()->id;
         $hapus = karakter::find($id);
         $hapus->delete();
+
+        if($userid != 1){
+            $log = new Activity;
+            $log->user_id = $userid;
+            $log->activity = "delete";
+            $log->log = "user menghapus karakter custom yang memiliki id ". $hapus->id ;
+            $log->save();
+            return redirect()->route('custom.index')->with('sukses', 'Karakter berhasil dihapus');
+        }
+        $log = new Activity;
+        $log->user_id = $userid;
+        $log->activity = "delete";
+        $log->log = "Admin menghapus karakter custom yang memiliki id ". $hapus->id ;
+        $log->save();
 
         return redirect()->route('custom.index')->with('sukses', 'Karakter berhasil dihapus');
     }
