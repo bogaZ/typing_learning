@@ -62,11 +62,11 @@
         <a href="{{route('welcome')}}" class="navbar-brand p-0">
             <h1 class="m-0"><i class="fa fa-keyboard me-2 text-white"></i>NgeTeks</h1>
         </a>
-        @if(Route::has('playmudah'))
+        {{-- @if(Route::has('playmudah')) --}}
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars"></span>
         </button>
-        @endif
+        {{-- @endif --}}
         <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
             @auth
                 <div class="d-flex justify-content-end">

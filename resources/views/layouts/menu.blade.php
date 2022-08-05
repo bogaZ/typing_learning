@@ -1,5 +1,8 @@
 <div class="col-md-12 menu">
-    <a class="text-right flex-row-reverse d-flex text-dark fw-bold text-decoration-none">Halaman Menu</a>
+    <div class="d-flex align-items-center justify-content-between">
+        <h6 class="m-0 text-dark fw-bold text-decoration-none" title="Halaman menu">Halaman Menu</h6>
+        <a href="javascript:void(0)" title="bantuan" class="fw-bold text-decoration-none">Bantuan?</a>
+    </div>
 </div>
 <div class="col-md-12 menu">
     <div class="shadow p-3 mb-5 rounded border-none bg-white">

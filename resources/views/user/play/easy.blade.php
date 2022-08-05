@@ -236,6 +236,7 @@
         inpField.addEventListener("input", initTyping);
         btnTry.addEventListener("click", reset);
     </script>
+    @include('layouts.bottom')
     @endrole
     @guest
         @include('user.guest.js')
