@@ -85,6 +85,8 @@ class StatistikController extends Controller
         $data->speed_typing = $request->typing;
         // $data->speed_typing = 2;
         $data->time = $request->time;
+        $data->benar = $request->benar;
+        $data->salah = $request->salah;
         $data->karakter_id = $request->karakter_id;
         // $data->kesulitan = $kesulitan->where('id', $request->karakter_id)->get('name');
         $data->kesulitan = $request->kesulitan;

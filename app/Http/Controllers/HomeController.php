@@ -119,7 +119,8 @@ class HomeController extends Controller
         }
         // return json_encode($scoreStats);
         // $uid = Auth::user();
-        $allbahasa = Bahasa::where('id', 2)->orwhere('id', 3)->get();
+        // $allbahasa = Bahasa::where('id', 2)->orwhere('id', 3)->get();
+        $allbahasa = Bahasa::where('id', '!=', 1)->get();
         return view('home', compact('username', 'jumlahnotif', 'allbahasa', 'user', 'statistik', 'type', 'jumlahuser', 'jumlahmengetik', 'karakter', 'month', 'users', 'userArreasy', 'scoreStats'));
     }
 }

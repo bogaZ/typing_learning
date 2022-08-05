@@ -22,8 +22,8 @@
 <div class="m-4">
     <div class="d-flex justify-content-between">
         <div>            
-            <a href="{{route('character.index')}}" class="btn btn-primary shadow">Type Character</a>
-            <a href="{{route('custom.index')}}" class="btn btn-primary shadow">Character</a>
+            <a href="{{route('character.index')}}" class="btn btn-primary shadow">Tingkat Kesulitan Karakter</a>
+            <a href="{{route('custom.index')}}" class="btn btn-primary shadow">Karakter</a>
         </div>
         <a href="{{route('level.create')}}" class="btn btn-success shadow">Tambah Level</a>
     </div>
@@ -40,6 +40,7 @@
                 <tr>
                     <th>No</th>
                     <th>Level</th>
+                    <th>Score</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -48,15 +49,16 @@
                 <tr>
                     <td>{{++$i}}.</td>
                     <td>{{$data->level}}</td>
+                    <td>{{$data->score}} kpm</td>
                     <td>
                         <div class="btn-group">
                             <button type="button" class="btn btn-secondary rounded" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                                 <i class="bi bi-pencil-square text-white"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-lg-end">
-                                <li><a href="{{route('bahasa.edit', $data->id)}}" class="dropdown-item">Ubah</a></li>
+                                <li><a href="{{route('level.edit', $data->id)}}" title="ubah" class="dropdown-item">Ubah</a></li>
                                 <li>
-                                    <a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete{{$data->id}}">Hapus</a>
+                                    <a href="javascript:void(0)" title="hapus" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete{{$data->id}}">Hapus</a>
                                 </li>
                             </ul>
                         </div>
@@ -65,7 +67,7 @@
                 @endforeach
             </tbody>
         </table>
-        {{-- @foreach($alldata as $data)
+        @foreach($alldata as $data)
             <div class="modal fade" id="delete{{$data->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
@@ -75,10 +77,10 @@
                         <div class="modal-body text-center row">
                             <i class="bi bi-exclamation-circle" style="font-size: 50px"></i>
                             <h4 class="m-0 p-3">
-                                Apakah anda yakin mau menghapus bahasa karakter "{{$data->bahasa}}"?
+                                Apakah anda yakin mau menghapus level "{{$data->level}}" yang memiliki batas score "{{$data->score}} kpm"?
                             </h4>
                         </div>
-                        <form id="logout-form" action="{{ route('bahasa.destroy', $data->id) }}" method="POST">
+                        <form id="logout-form" action="{{ route('level.destroy', $data->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <div class="m-3 d-flex justify-content-evenly">
@@ -89,7 +91,7 @@
                     </div>
                 </div>
             </div>
-        @endforeach --}}
+        @endforeach
     </div>
 </div>
 <div class="d-flex justify-content-between m-4">

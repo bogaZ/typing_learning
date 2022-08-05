@@ -168,6 +168,7 @@
                 mistageTag.innerHTML = mistakes;
                 wpmTag.innerText = cpmresult;
                 cpmTag.innerText = charIndex - mistakes;
+                console.log("benar mengetik"+ (charIndex-mistakes));
             } else {
                 if(charIndex == characters.length -1){
                     if(characters[charIndex].innerText === typeChar){
@@ -194,12 +195,16 @@
                 let time = timeLeft;
                 
                 let karakter_id = co[randTeks].id;
+                let karakterbenar = charIndex - mistakes;
+                // console.log(karakterbenar);
                 let _token = $('meta[name="csrf-token"]').attr('content');
                 $.ajax({
                     type: "POST",
                     url: "{{route('statistik.store')}}",
                     data:{
                         karakter_id: karakter_id,
+                        benar: karakterbenar,
+                        salah: mistakes,
                         typing: cpmresult,
                         kesulitan: karakter_level,
                         time: time,

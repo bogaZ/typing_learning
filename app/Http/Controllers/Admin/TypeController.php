@@ -71,6 +71,9 @@ class TypeController extends Controller
     public function edit($id)
     {
         //
+        $username = Auth::user()->name;
+        $data = type::find($id);
+        return view('admin.charactertext.edit', compact('username', 'data'));
     }
 
     /**
@@ -83,6 +86,11 @@ class TypeController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $typecharacter = type::find($id);
+        $typecharacter->name = $request->name;
+        $typecharacter->save();
+
+        return redirect()->route('character.index')->with('sukses', 'type berhasil diubah!');
     }
 
     /**

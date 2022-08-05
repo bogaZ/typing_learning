@@ -9,14 +9,14 @@
             </button>
         </div>
         <div class="d-flex align-items-center justify-content-center col-md-4 p-3 m-0">
-            <h3 class="m-0">Menambah Level</h3>
+            <h3 class="m-0">Mengubah Level</h3>
         </div>
         <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
             <p class="m-0">
                 <a href="{{route('home')}}" class="text-decoration-none">Dashboard</a>
                 /
                 <a href="{{route('level.index')}}" class="text-decoration-none">Level</a>
-                / Menambah
+                / Mengubah
             </p>
         </div>
     </div>
@@ -24,12 +24,13 @@
 <div class="m-4">
     <div class="p-0 d-flex justify-content-center">
         <div class="p-5 card bg-white shadow col-md-5">
-            <form action="{{route('level.store')}}" method="post">
+            <form action="{{route('level.update', $data->id)}}" method="post">
                 @csrf
+                @method('PATCH')
                 <label for="levelinput">Level</label>
-                <input type="number" max="10" min="1" name="level" id="levelinput" required class="form-control mb-3">
+                <input type="number" max="10" min="1" name="level" value="{{$data->level}}" id="levelinput" required class="form-control mb-3">
                 <label for="scoreinput">Score</label>
-                <input type="number" max="200" min="0" name="score" id="scoreinput" required class="form-control mb-3">
+                <input type="number" max="200" min="0" name="score" id="scoreinput" value="{{$data->score}}" required class="form-control mb-3">
                 <button type="submit" class="btn btn-primary col-md-12">Submit</button>
             </form>
         </div>

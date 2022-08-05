@@ -9,12 +9,12 @@
             </button>
         </div>
         <div class="d-flex align-items-center justify-content-center col-md-4 p-3 m-0">
-            <h3 class="m-0">Type Character</h3>
+            <h3 class="m-0">Tingkat Kesulitan Mengetik</h3>
         </div>
         <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
             <p class="m-0">
                 <a href="{{route('home')}}" class="text-decoration-none">Dashboard</a>
-                / Type Character
+                / Tingkat Kesulitan Mengetik
             </p>
         </div>
     </div>
@@ -22,10 +22,10 @@
 <div class="m-4">
     <div class="d-flex justify-content-between">
         <div>
-            <a href="{{route('custom.index')}}" class="btn btn-primary shadow">Character</a>
+            <a href="{{route('custom.index')}}" class="btn btn-primary shadow">Karakter</a>
             <a href="{{route('level.index')}}" class="btn btn-primary shadow">Level</a>
         </div>
-        <a href="{{route('character.create')}}" class="btn btn-success shadow">Tambah Type Character</a>
+        <a href="{{route('character.create')}}" class="btn btn-success shadow">Tambah Tingkat Kesulitan</a>
         {{-- <div>
             <a href="{{route('custom.create')}}" class="btn btn-success shadow">Tambah Character</a>
         </div> --}}
@@ -44,8 +44,8 @@
                 <tr>
                     <th>No</th>
                     {{-- <th>Id</th> --}}
-                    <th>Name</th>
-                    <th>Action</th>
+                    <th>Nama</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody class="gradienbiru2 text-dark">

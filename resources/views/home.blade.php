@@ -139,7 +139,7 @@
     </div>
     <div class="p-0 shadow col-lg-3 mb-3 gradienbiru">
         <div class="d-flex flex-column">
-            <h6 class="text-center text-white fw-bold p-2 border-bottom m-0">Notification</h6>
+            <h6 class="text-center text-white fw-bold p-2 border-bottom m-0">Notifikasi</h6>
             <div class="px-4 py-2 d-flex align-items-center justify-content-between">
                 <i class="bi bi-bell text-white" style="font-size: 50px"></i>
                 <div class="d-flex">

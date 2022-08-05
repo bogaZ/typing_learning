@@ -8,7 +8,8 @@
         <div class="modal-content">
             <div class="d-flex justify-content-between p-3 align-items-center">
                 <div></div>
-                <h5 class="modal-title fw-bold" id="">Ganti Bahasa</h5>
+                {{-- <h5 class="modal-title fw-bold" id="">Ganti Bahasa</h5> --}}
+                <h5 class="modal-title fw-bold" id="">Pilih Bahasa</h5>
                 <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <hr class="m-0">

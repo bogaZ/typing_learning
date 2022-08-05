@@ -18,6 +18,8 @@ class CreateStatistiksTable extends Migration
             $table->integer('user_id');
             $table->integer('karakter_id');
             $table->string('kesulitan');
+            $table->string('benar');
+            $table->string('salah');
             $table->integer('speed_typing');
             $table->integer('time');
             $table->timestamps();

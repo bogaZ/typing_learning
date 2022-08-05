@@ -131,8 +131,8 @@
             <a id="user" href="{{route('user.index')}}" id="user" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-person-fill" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User</a>
             <a id="statistik" href="{{route('statistik.index')}}" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-graph-up" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Statistik</a>
             {{-- <a id="role" href="{{route('role.index')}}" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-person-lines-fill" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Role</a> --}}
-            <a id="charactertext" href="{{route('custom.index')}}" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i id="" class="bi bi-file-earmark-text-fill" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Text</a>
-            <a id="notifikasi" href="{{route('notifikasi.index')}}" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-bell" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notification</a>
+            <a id="charactertext" href="{{route('custom.index')}}" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i id="" class="bi bi-file-earmark-text-fill" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Teks</a>
+            <a id="notifikasi" href="{{route('notifikasi.index')}}" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-bell" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Notifikasi</a>
             {{-- <a id="trash" href="#" alt="dashboard" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-trash" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Trash</a> --}}
             <a id="bahasa" href="{{route('bahasa.index')}}" alt="bahasa" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-globe2" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bahasa</a>
             
@@ -142,7 +142,7 @@
         <div>
             {{-- <a href="#modallogout" id="logout" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-box-arrow-in-right" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logout</a> --}}
             <a href="javascript:void(0)" class="d-flex align-items-center" style="font-size: 14px" data-bs-toggle="modal" data-bs-target="#logout">
-                <i class="bi bi-box-arrow-in-right" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logout
+                <i class="bi bi-box-arrow-in-right" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Keluar
             </a>
             {{-- <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="d-flex align-items-center" style="font-size: 14px"><i class="bi bi-box-arrow-in-right" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logout</a> --}}
         </div>

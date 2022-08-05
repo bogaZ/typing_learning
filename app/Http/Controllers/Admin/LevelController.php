@@ -46,10 +46,11 @@ class LevelController extends Controller
     {
         //
         $level = new Level();
-        $level->level = $request->name;
+        $level->level = $request->level;
+        $level->score = $request->score;
         $level->save();
 
-        return redirect()->route('level.index')->with('sukses', 'level berhasil ditambahkan!');
+        return redirect()->route('level.index')->with('sukses', 'Level berhasil ditambahkan!');
     }
 
     /**
@@ -72,6 +73,10 @@ class LevelController extends Controller
     public function edit($id)
     {
         //
+        $uid = Auth::user();
+        $username = $uid->name;
+        $data = Level::find($id);
+        return view('admin.level.edit', compact('username', 'data'));
     }
 
     /**
@@ -84,6 +89,12 @@ class LevelController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $level = Level::find($id);
+        $level->level = $request->level;
+        $level->score = $request->score;
+        $level->save();
+
+        return redirect()->route('level.index')->with('sukses', 'Level berhasil diubah!');
     }
 
     /**

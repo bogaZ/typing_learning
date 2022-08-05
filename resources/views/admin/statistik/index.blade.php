@@ -40,12 +40,15 @@
             <thead class="gradienbiru text-white">
                 <tr>
                     <th>No</th>
-                    <th>Name</th>
-                    <th>Id</th>
-                    <th>Character Type</th>
-                    <th>Time Result</th>
-                    <th>Result</th>
-                    <th>Time Typing</th>
+                    <th>Nama User</th>
+                    <th>Id Karakter</th>
+                    <th>Tingkat Kesulitan</th>
+                    <th>Panjang Karakter</th>
+                    <th>Karakter Benar</th>
+                    <th>Karakter Salah</th>
+                    <th>Waktu Selesai</th>
+                    <th>Skor</th>
+                    <th>Waktu Mengetik</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -56,9 +59,13 @@
                     <td>{{$data->user->name}}</td>
                     <td>{{$data->id}}</td>
                     <td>{{$data->karakter->type->name}}</td>
-                    <td>{{$data->time}}</td>
+                    {{-- <td>{{$data->karakter->karakter}} detik</td> --}}
+                    <td>{{strlen($data->karakter->karakter)}} huruf</td>
+                    <td>{{$data->benar}} huruf</td>
+                    <td>{{$data->salah}} huruf</td>
+                    <td>{{$data->time}} detik</td>
                     <td>{{$data->speed_typing}} kpm</td>
-                    <td>{{$data->created_at->diffForHumans()}}</td>
+                    <td>{{$data->created_at}}</td>
                     <td>
                         <div class="btn-group">
                             <button type="button" class="btn btn-secondary rounded" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
