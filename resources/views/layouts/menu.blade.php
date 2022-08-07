@@ -1,6 +1,6 @@
-<div class="col-md-12 menu">
-    <div class="d-flex align-items-center justify-content-between">
-        <h6 class="m-0 text-dark fw-bold text-decoration-none" title="Halaman menu">Halaman Menu</h6>
+<div class="col-md-12 menu d-none">
+    <h3 class="m-0 text-dark fw-bold text-center m-3 text-decoration-none">Menu Utama</h6>
+    <div class="d-flex align-items-center justify-content-end">
         <a href="javascript:void(0)" title="bantuan" class="fw-bold text-decoration-none">Bantuan?</a>
     </div>
 </div>
@@ -23,14 +23,14 @@
                             <a href="{{route('custom.index')}}" class="btn btn-primary fw-bold">Custom</a>
                         </div>
                     </div>
-                    <br>
+                    {{-- <br>
                     <div class="row">
                         <div class="d-grid mx-auto">
                             <a href="{{route('statistik.index')}}" class="btn btn-primary fw-bold">Statistik</a>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
-                <br>
+                {{-- <br>
                 <div class="d-flex justify-content-between">
                     <div class="p-0">
                         <button id="settingmodal" class="btn btn-secondary block" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-gear-fill"></i> Pengaturan profil</button>
@@ -38,7 +38,7 @@
                     <div class="p-0">
                         <button id="gantibahasakarakter" class="btn btn-secondary block" data-bs-toggle="modal" data-bs-target="#staticBackdrop1"><i class="bi bi-globe2"></i> Ganti Bahasa mengetik</button>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

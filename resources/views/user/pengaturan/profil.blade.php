@@ -12,14 +12,14 @@
             </div>
             <hr class="m-0">
             <div class="modal-body">
-                <form action="" method="post" class="m-0 p-3">
+                {{-- <form action="" method="post" class="m-0 p-3"> --}}
                     {{-- <div class="d-flex justify-content-center">
                         <img style="width: 50%" class="p-0" src="{{asset('bagus/admin/img/profil.png')}}" alt="" srcset="">
                     </div> --}}
                     <label for="">Nama</label>
-                    <input type="text" name="nama" class="form-control mb-3" id="" placeholder="nama" value="{{$user->name}}">
+                    <input required type="text" name="nama" class="form-control mb-3" id="" placeholder="nama" value="{{$user->name}}">
                     <label for="">Email</label>
-                    <input type="email" name="email" class="form-control mb-3" id="" placeholder="email" value="{{$user->email}}">
+                    <input required type="email" name="email" class="form-control mb-3" id="" placeholder="email" value="{{$user->email}}">
                     <label for="">Password</label>
                     @error('password')
                     <span class="invalid-feedback" role="alert">
@@ -38,7 +38,7 @@
                     <input type="text" name="" class="form-control mb-3" id="" value="nama">
                     <label for="">Konfirmasi password baru</label>
                     <input type="text" name="" class="form-control mb-3" id="" value="nama"> --}}
-                </form>
+                {{-- </form> --}}
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

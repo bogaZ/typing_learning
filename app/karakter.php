@@ -16,6 +16,9 @@ class karakter extends Model
     public function bahasa(){
         return $this->belongsTo(Bahasa::class);
     }
+    public function pemrograman(){
+        return $this->belongsTo(Pemrograman::class);
+    }
     public function Level(){
         return $this->hasMany(Level::class);
     }

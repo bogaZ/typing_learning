@@ -20,67 +20,24 @@
     </div>
     @include('edit')
     <script type="text/javaScript">
-        $('.menu').show();
-        $('.mulai').hide();
-        $('.kesulitan').hide();
-        $('.pemrograman').hide();
-
-        $(document).ready(function(){
-            $('.kembali').click(function () {
-                $('.menu').show()
-                $('.kesulitan').hide();
-                $('.pemrograman').hide();
-                $('.mulai').hide()
-            })
-
+        $('.menu').removeClass('d-none');
+        
+        $(document).ready(function(){            
             $('#mulai').click(function () {
-                $('.menu').hide()
-                $('.kesulitan').show()
+                $('.menu').addClass('d-none');
+                $('.kesulitan').removeClass('d-none');
             })
             $('.kembalimulai').click(function () {
-                $('.menu').show()
-                $('.kesulitan').hide();
-                $('.pemrograman').hide();
-                $('.mulai').hide()
+                $('.menu').removeClass('d-none');
+                $('.kesulitan').addClass('d-none');
             })
-
-            // $('#mulai').click(function () {
-            //     $('.menu').hide()
-            //     $('.mulai').show()
-            // })
-            // $('.kembalimulai').click(function () {
-            //     $('.menu').hide()
-            //     $('.kesulitan').hide();
-            //     $('.pemrograman').hide();
-            //     $('.mulai').show()
-            // })
-
-            $('#kesulitan').click(function () {
-                $('.mulai').hide()
-                $('.kesulitan').show()
-            })
-            $('.kembalikesulitan').click(function () {
-                $('.mulai').hide()
-                $('.menu').hide();
-                $('.pemrograman').hide();
-                $('.kesulitan').show()
-            })
-
             $('#pemrograman').click(function () {
-                $('.kesulitan').hide()
-                $('.pemrograman').show()
+                $('.kesulitan').addClass('d-none');
+                $('.pemrograman').removeClass('d-none');
             })
             $('#kembalipemrograman').click(function () {
-                $('.kesulitan').hide()
-                $('.menu').hide();
-                $('.mulai').hide();
-                $('.pemrograman').show()
-            })
-
-            $('.dashboard').click(function () {
-                $('.mulai').hide()
-                $('.kesulitan').hide()
-                $('.menu').show()
+                $('.pemrograman').addClass('d-none');
+                $('.kesulitan').removeClass('d-none');
             })
         })
     </script>

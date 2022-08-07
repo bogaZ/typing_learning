@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\karakter;
 use App\Bahasa;
+use App\Pemrograman;
 use App\Statistik;
 use Auth;
 
@@ -46,28 +47,42 @@ class MenuController extends Controller
     public function getpemrograman(){
         return view('user.pemrograman.index');
     }
-    public function getphp(){
+    public function pemrograman($nama){
+        $uid = Auth::user();
+        $allbahasa = Bahasa::where('id', '!=', 1)->get();
+        $bahasaindonesia = 2;
+        $bahasainggris = 3;
+        $statistik = Statistik::all();
+        $id_pemrograman = Pemrograman::where('bahasa', $nama)->value('id');
+        $kata = karakter::where(['type_id' => 5, 'pemrograman_id' => $id_pemrograman])->get();
 
-        $uid = Auth::user();
-        $allbahasa = Bahasa::where('id', '!=', 1)->get();
-        $bahasaindonesia = 2;
-        $bahasainggris = 3;
-        $statistik = Statistik::all();
-        $kata = karakter::where(['type_id' => 5, 'pemrograman_id' => 1])->get();
-        // $getkata = karakter::where(['type_id' => 5])->get();
-        // $kata = htmlentities($getkata);
-        return view('user.pemrograman.php', compact('kata', 'statistik', 'uid', 'bahasaindonesia', 'bahasainggris', 'allbahasa'));
+        $username = $uid->name;
+        return view('user.pemrograman.play', compact('kata', 'username', 'nama', 'statistik', 'uid', 'bahasaindonesia', 'bahasainggris', 'allbahasa'));
     }
-    public function getjs(){
-        $uid = Auth::user();
-        $allbahasa = Bahasa::where('id', '!=', 1)->get();
-        $bahasaindonesia = 2;
-        $bahasainggris = 3;
-        $statistik = Statistik::all();
-        $kata = karakter::where(['type_id' => 5, 'pemrograman_id' => 2])->get();
-        // $getkata = karakter::where(['type_id' => 5])->get();
-        // $kata = htmlentities($getkata);
-        return view('user.pemrograman.javascript', compact('kata', 'statistik', 'uid', 'bahasaindonesia', 'bahasainggris', 'allbahasa'));
-    }
+    // public function getphp(){
+
+    //     $uid = Auth::user();
+    //     $allbahasa = Bahasa::where('id', '!=', 1)->get();
+    //     $bahasaindonesia = 2;
+    //     $bahasainggris = 3;
+    //     $statistik = Statistik::all();
+    //     $kata = karakter::where(['type_id' => 5, 'pemrograman_id' => 1])->get();
+    //     // $getkata = karakter::where(['type_id' => 5])->get();
+    //     // $kata = htmlentities($getkata);
+    //     $username = $uid->name;
+    //     return view('user.pemrograman.php', compact('kata', 'username', 'statistik', 'uid', 'bahasaindonesia', 'bahasainggris', 'allbahasa'));
+    // }
+    // public function getjs(){
+    //     $uid = Auth::user();
+    //     $allbahasa = Bahasa::where('id', '!=', 1)->get();
+    //     $bahasaindonesia = 2;
+    //     $bahasainggris = 3;
+    //     $statistik = Statistik::all();
+    //     $kata = karakter::where(['type_id' => 5, 'pemrograman_id' => 2])->get();
+    //     // $getkata = karakter::where(['type_id' => 5])->get();
+    //     // $kata = htmlentities($getkata);
+    //     $username = $uid->name;
+    //     return view('user.pemrograman.javascript', compact('kata', 'username', 'statistik', 'uid', 'bahasaindonesia', 'bahasainggris', 'allbahasa'));
+    // }
 
 }

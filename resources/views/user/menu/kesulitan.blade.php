@@ -1,6 +1,10 @@
-<div class="flex-row-reverse d-flex kesulitan">
+<div class="col-md-12 kesulitan d-none">
+    <h3 class="fw-bold text-center m-3" title="Halaman menu">Menu Kesulitan</h6>
+    <div class="d-flex align-items-center justify-content-end">
+        <a href="javascript:void(0)" title="bantuan" class="fw-bold text-decoration-none">Bantuan?</a>
+    </div>
 </div>
-<div class="col-md-12 kesulitan">
+<div class="col-md-12 kesulitan d-none">
     <div class="shadow p-3 mb-5 rounded bg-white">
         <div class="card-body">
             <div class="my-5 mx-5">

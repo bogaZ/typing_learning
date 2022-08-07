@@ -80,6 +80,9 @@ class UserController extends Controller
     public function edit($id)
     {
         //
+        // if(Auth::user()->id != 1){
+
+        // }
         $username = Auth::user()->name;
         $user = User::find($id);
         $role = Role::all();

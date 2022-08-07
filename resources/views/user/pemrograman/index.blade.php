@@ -1,43 +1,46 @@
-<div class="flex-row-reverse d-flex pemrograman">
-    {{-- <a class="text-right text-dark fw-bold text-decoration-none pemrograman">Pemrograman</a> <i class="pemrograman">/</i>
-    <a class="text-right fw-bold text-decoration-none pemrograman kembalikesulitan" href="javascript:void(0)" id="select">Kesulitan</a> <i class="pemrograman">/</i>
-    <a class="text-right fw-bold text-decoration-none pemrograman kembalimulai" href="javascript:void(0)" id="select">Select</a> <i class="pemrograman">/</i>
-    <a id="dashboard" class="text-right fw-bold text-decoration-none pemrograman kembali" href="javascript:void(0)">Dashboard</a> --}}
+<div class="col-md-12 pemrograman d-none">
+    <h3 class="fw-bold text-center m-3">Menu Bahasa Pemrograman Mengetik</h3>
+    <div class="d-flex align-items-center justify-content-end">
+        <a href="javascript:void(0)" title="bantuan" class="fw-bold text-decoration-none">Bantuan?</a>
+    </div>
 </div>
-<div class="col-md-12 pemrograman">
+{{-- ini halaman{{$nama}} --}}
+<div class="col-md-12 pemrograman d-none">
     <div class="shadow p-3 mb-5 rounded bg-white">
         <div class="card-body">
             <div class="my-5 mx-5">
-
-                {{-- <div class="flex-row-reverse d-flex">
-                    <a class="text-right text-dark fw-bold text-decoration-none">Select</a> /
-                    <a id="dashboard" class="text-right fw-bold text-decoration-none" href="javascript:void(0)">Dashboard</a>
-                </div> --}}
                 <div class="row">
                     <div class="col-md-4">
                         <div class="mx-auto">
-                            <a href="javascript:void(0)" class="text-decoration-none fw-bold kembalikesulitan">Kembali</a>
+                            <a href="javascript:void(0)" class="text-decoration-none fw-bold kembalikesulitan" id="kembalipemrograman">Kembali</a>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <h6 class="fw-bold text-center">Pilih</h6>
                     </div>
                 </div>
+                
+                @foreach($datapemrograman as $data)
                 <br>
                 <div class="row">
                     <div class="d-grid mx-auto">
-                        {{-- <button id="php" class="fw-bold btn btn-primary block">PHP</button> --}}
-                        <a href="{{route('php')}}" class="btn btn-primary fw-bold">PHP</a>
+                        <a href="{{route('playpemrograman', $data->bahasa)}}" class="btn btn-primary fw-bold">{{$data->bahasa}}</a>
                     </div>
                 </div>
-                <br>
+                @endforeach
+
+                {{-- <br>
                 <div class="row">
                     <div class="d-grid mx-auto">
                         <a href="{{route('js')}}" class="btn btn-primary fw-bold">JavaScript</a>
-                        {{-- <button id="js" class="fw-bold btn btn-primary block">JavaScript</button> --}}
                     </div>
-                    {{-- <a href="{{route('indexplaycustom')}}">play</a> --}}
-                </div>
+                </div> --}}
+
+
+                {{-- @foreach($datapemrograman as $data) --}}
+                {{-- {{$data->bahasa}} --}}
+                {{-- <a href="{{route('playpemrograman', $data->bahasa)}}">{{$data->bahasa}}</a>
+                @endforeach --}}
             </div>
         </div>
     </div>

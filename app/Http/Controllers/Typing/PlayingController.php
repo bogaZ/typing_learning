@@ -25,9 +25,9 @@ class PlayingController extends Controller
             $kata = karakter::where(['type_id' => 2])->get();
             return view('user.play.easy', compact('kata', 'statistik', 'uid', 'bahasaindonesia', 'bahasainggris', 'allbahasa'));
         }
-        
+        $username = $uid->name;
         $kata = karakter::where(['type_id' => 2, 'bahasa_id' => $uid->bahasa_id])->get();
-        return view('user.play.easy', compact('kata', 'statistik', 'uid', 'bahasaindonesia', 'bahasainggris', 'allbahasa'));
+        return view('user.play.easy', compact('kata', 'username', 'statistik', 'uid', 'bahasaindonesia', 'bahasainggris', 'allbahasa'));
     }
     //normal mode
     public function playnormal(){

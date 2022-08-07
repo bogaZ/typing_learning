@@ -58,7 +58,7 @@
     </div>
 </nav> --}}
 @role('user')
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5 py-2 mb-5">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5 py-2 mb-5 justify-content-between">
         <a href="{{route('welcome')}}" class="navbar-brand p-0">
             <h1 class="m-0"><i class="fa fa-keyboard me-2 text-white"></i>NgeTeks</h1>
         </a>
@@ -67,7 +67,7 @@
             <span class="fa fa-bars"></span>
         </button>
         {{-- @endif --}}
-        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+        {{-- <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
             @auth
                 <div class="d-flex justify-content-end">
                     <a href="{{route('home')}}" class="btn btn-primary py-2 px-4">Home</a>
@@ -83,6 +83,34 @@
                     @endif
                 @endif
             @endauth
+        </div> --}}
+        {{-- <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+            @auth
+                <div class="d-flex justify-content-end">
+                    <a href="{{route('home')}}" class="btn btn-primary py-2 px-4">Home</a>
+                    <a href="javascript:void(0)" class="btn btn-danger py-2 px-4 ms-3" style="font-size: 14px" data-bs-toggle="modal" data-bs-target="#logout">Keluar</a>
+                    
+                </div>
+            @else
+                @if(Route::has('login'))
+                @else
+                    <a href="{{ route('login') }}" class="btn btn-primary py-2 px-4 ms-3">Login</a>
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="btn btn-primary py-2 px-4 ms-3">Register</a>
+                    @endif
+                @endif
+            @endauth
+        </div> --}}
+        <div class="btn-group">
+            <a href="javascript:void(0)" type="button" title="menu" class="dropdown-toggle text-decoration-none text-white" data-bs-toggle="dropdown" aria-expanded="false">
+              {{$username}}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><button class="dropdown-item" type="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-person-fill"></i> Profil</button></li>
+              <li><a href="{{route('statistik.index')}}" class="dropdown-item"><i class="bi bi-graph-up"></i> Statistik</a></li>
+              <li><button class="dropdown-item" type="button"><i class="bi bi-gear-fill"></i> Pengaturan</button></li>
+              <li><button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#logout"><i class="bi bi-box-arrow-in-right"></i> Keluar</button></li>
+            </ul>
         </div>
     </nav>
     <div class="modal fade" id="logout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

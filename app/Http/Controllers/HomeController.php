@@ -9,6 +9,7 @@ use Spatie\Permission\Models\Permission;
 use App\User;
 use App\Statistik;
 use App\karakter;
+use App\Pemrograman;
 use App\Bahasa;
 use App\type;
 use App\Activity;
@@ -121,6 +122,7 @@ class HomeController extends Controller
         // $uid = Auth::user();
         // $allbahasa = Bahasa::where('id', 2)->orwhere('id', 3)->get();
         $allbahasa = Bahasa::where('id', '!=', 1)->get();
-        return view('home', compact('username', 'jumlahnotif', 'allbahasa', 'user', 'statistik', 'type', 'jumlahuser', 'jumlahmengetik', 'karakter', 'month', 'users', 'userArreasy', 'scoreStats'));
+        $datapemrograman = Pemrograman::all();
+        return view('home', compact('username', 'datapemrograman', 'jumlahnotif', 'allbahasa', 'user', 'statistik', 'type', 'jumlahuser', 'jumlahmengetik', 'karakter', 'month', 'users', 'userArreasy', 'scoreStats'));
     }
 }

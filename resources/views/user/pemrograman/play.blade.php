@@ -1,3 +1,7 @@
+{{-- ini halmaan
+
+{{$nama}} --}}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,24 +11,7 @@
 </head>
 <body class="bg-play">
     @include('layouts.navigation')
-    @role('user')
-    <form action="{{route('ubahbahasa', $uid->id)}}" method="post">
-        @csrf
-        <div class="d-flex justify-content-center">
-            <select name="bahasa" id="" class="py-1 px-3 rounded border-none shadow me-1" style="appearance: none;">
-                @foreach ($allbahasa as $bahasa)
-                <option value={{$bahasa->id}}
-                    @if ($bahasa->id == $uid->bahasa_id)
-                        selected
-                    @endif
-                    class="">{{$bahasa->bahasa}}</option>
-                @endforeach
-            </select>
-            <button type="submit" class="ms-1 btn btn-primary">ubah bahasa</button>
-        </div>
-    </form>
-    @endrole
-    <div class="d-flex justify-content-center my-3 py-5">
+    <div class="d-flex justify-content-center my-3">
         <div class="col-md-8">
             <div class="d-flex justify-content-between">
                 <div>
@@ -33,12 +20,14 @@
                 </div>
                 <div>
                     #<label for="" id="karakter-id">#</label>
-                    tingkat kesulitan:<label for="" id="karakter-level">mudah</label>
+                    tingkat kesulitan:<label for="" id="karakter-level">pemrograman {{$nama}}</label>
                 </div>
             </div>
             <div class="card shadow border-none">
                 <div class="wrapper">
-                    <textarea name="text" class="input-field" id="" cols="30" rows="10"></textarea>
+                    {{-- <textarea name="text" class="input-field" id="tabstextarea" cols="30" rows="10" onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}"></textarea> --}}
+                    {{-- <textarea name="text" class="mengetik" id="tabstextarea" cols="30" rows="10"></textarea> --}}
+                    <textarea name="text" class="input-field" id="tabstextarea" cols="30" rows="10"></textarea>
                     <div class="content-box">
                         <p id="timeout" class="text-center"></p>
                         <div class="typing-text">
@@ -70,7 +59,7 @@
             </div>
         </div>
     </div>
-    @role('user')
+    @include('layouts.bottom')
     <script type="text/JavaScript">
         let data = {!! json_encode($statistik) !!};
         var co = {!! json_encode($kata) !!};
@@ -84,8 +73,6 @@
         btnTry = document.querySelector("#resettext"),
         timeout = document.getElementById("timeout"),
         idkarakter = document.getElementById("karakter-id");
-        karakter_level = document.getElementById("karakter-level").innerText;
-        console.log(karakter_level);
 
         let timer,
         maxTime = 0,
@@ -99,11 +86,12 @@
             typingText.innerHTML = "";
             idkarakter.innerText = randTeks + 1;
             var teks = co[randTeks].karakter.toString().replace(/(\r\n|\n|\r)/gm, "\n");
-            
+            // console.log(co[randTeks].karakter.trim());
             teks.split("").forEach(span => {
                 let spanTag = `<span>${span}</span>`;
                 typingText.innerHTML += spanTag;
             });
+
             typingText.querySelectorAll("span")[0].classList.add("active");
 
             document.addEventListener("keydown", () => inpField.focus());
@@ -134,12 +122,45 @@
             const characters = typingText.querySelectorAll("span");
             let typeChar = inpField.value.split("")[charIndex];
             let TypeWords = inpField.value.split("")[charcpm];
+            let asciicode = characters[charIndex].innerHTML.charCodeAt(0);
+
             if (charIndex < characters.length -1 && timeLeft > -1) {
                 if(!isTyping){
                     // console.log(isTyping);
                     timer = setInterval(initTimer, 1000);
                     isTyping = true;
                 }
+
+                let poy = inpField.onkeydown = function(e) {
+                    if (e.keyCode === 9) { // tab was pressed
+                        console.log("tab");
+                        var val = this.value,
+                            start = this.selectionStart,
+                            end = this.selectionEnd;
+                        this.value = val.substring(0, start) + '\t' + val.substring(end);
+                        this.selectionStart = this.selectionEnd = start + 1;
+                        huruf = e.keyCode;
+                        let asciicode1 = characters[charIndex].innerHTML.charCodeAt(0);
+                        // console.log(asciicode1);
+
+                        if(e.keyCode === asciicode1){
+                            characters[charIndex].classList.add("correct");
+                            console.log("tab benar");
+                        }else{
+                            console.log(e.keyCode);
+                            console.log(asciicode);
+                            mistakes++;
+                            characters[charIndex].classList.add("incorrect");
+                        }
+                        charIndex++;
+                        characters.forEach(span => span.classList.remove("active"));
+                        characters[charIndex].classList.add("active");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                };
+
                 if(typeChar == null){
                     charIndex--;
                     if(characters[charIndex].classList.contains("incorrect")){
@@ -162,13 +183,13 @@
 
             
                 let wpm = Math.round((((charIndex - mistakes) / 5) / (maxTime - timeLeft)) * 60);
+                // let tesss = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
                 let cpmresult = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
                 cpmresult = cpmresult < 0 || cpmresult === Infinity ? 0 : cpmresult;
-                
+                // console.log(cpmresult);
                 mistageTag.innerHTML = mistakes;
                 wpmTag.innerText = cpmresult;
                 cpmTag.innerText = charIndex - mistakes;
-                console.log("benar mengetik"+ (charIndex-mistakes));
             } else {
                 if(charIndex == characters.length -1){
                     if(characters[charIndex].innerText === typeChar){
@@ -176,12 +197,9 @@
                         console.log("terakhir");
                     }else{
                         characters[charIndex].classList.add("incorrect");
-                        mistakes++;
+                        // mistakes++;
                     }
-                    charIndex++;
                 }
-                mistageTag.innerHTML = mistakes;
-
                 inpField.value = "";
                 timeout.innerText = "Finish";
                 timeout.style.color = "green";
@@ -196,18 +214,14 @@
                 let cpmresult = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
                 cpmresult = cpmresult < 0 || cpmresult === Infinity ? 0 : cpmresult;
                 let time = timeLeft;
-                
+                let karakter_level = "pemrograman";
                 let karakter_id = co[randTeks].id;
-                let karakterbenar = charIndex - mistakes;
-                // console.log(karakterbenar);
                 let _token = $('meta[name="csrf-token"]').attr('content');
                 $.ajax({
                     type: "POST",
                     url: "{{route('statistik.store')}}",
                     data:{
                         karakter_id: karakter_id,
-                        benar: karakterbenar,
-                        salah: mistakes,
                         typing: cpmresult,
                         kesulitan: karakter_level,
                         time: time,
@@ -239,10 +253,5 @@
         inpField.addEventListener("input", initTyping);
         btnTry.addEventListener("click", reset);
     </script>
-    @include('layouts.bottom')
-    @endrole
-    @guest
-        @include('user.guest.js')
-    @endguest
 </body>
 </html>

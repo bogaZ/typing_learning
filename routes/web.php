@@ -43,12 +43,14 @@ Route::get('/kesulitan/pemrograman/php', 'Typing\MenuController@getphp')->name('
 Route::get('/kesulitan/pemrograman/js', 'Typing\MenuController@getjs')->name('js');
 Route::get('/customindex', 'Typing\MenuController@getcustom')->name('indexcustom');
 // Route::get('/custom/play', 'Typing\MenuController@getcustom')->name('indexcustom');
-
 Route::group(['prefix'=> 'home'], function () {
     Route::get('/mudah/play', 'Typing\PlayingController@playmudah')->name('playmudah');
+});
+Route::group(['prefix'=> 'home', 'middleware' => 'auth'], function () {
     Route::get('/normal/play', 'Typing\PlayingController@playnormal')->name('playnormal');
     Route::get('/susah/play', 'Typing\PlayingController@playsusah')->name('playsusah');
     Route::get('/menuplay', 'Typing\MenuController@getplay')->name('indexplay');
+    Route::get('/pemrograman/{nama}/play', 'Typing\MenuController@pemrograman')->name('playpemrograman');
     Route::group(['prefix'=> 'menuplay'], function () {
         Route::get('/playcustom', 'Typing\MenuController@getplaycustom')->name('indexplaycustom');
         Route::get('/kesulitan', 'Typing\MenuController@getkesulitan')->name('tingkatkesulitan');
