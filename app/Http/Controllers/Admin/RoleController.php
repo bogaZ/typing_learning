@@ -18,6 +18,9 @@ class RoleController extends Controller
     public function index()
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $username = Auth::user()->name;
         $alldata = DB::table('roles')->get();
         // $alldata =
@@ -32,6 +35,9 @@ class RoleController extends Controller
     public function create()
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $username = Auth::user()->name;
         $alldata = DB::table('roles')->get();
         // $alldata =
@@ -47,6 +53,9 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $role = new Role();
         $role->name = $request->name;
         $role->guard_name = 'web';
@@ -75,6 +84,9 @@ class RoleController extends Controller
     public function edit($id)
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $username = Auth::user()->name;
         $alldata = DB::table('roles')->get();
         // $alldata =
@@ -91,6 +103,9 @@ class RoleController extends Controller
     public function update(Request $request, $id)
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $role = new Role();
         $role->name = $request->name;
         $role->guard_name = 'web';
@@ -108,6 +123,9 @@ class RoleController extends Controller
     public function destroy($id)
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $hapus = Role::find($id);
         $hapus->delete();
 

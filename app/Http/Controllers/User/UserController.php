@@ -23,6 +23,9 @@ class UserController extends Controller
     public function index()
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $alldata = User::all();
         $username = Auth::user()->name;
         return view('admin.user.index', compact('alldata', 'username'));
@@ -36,6 +39,9 @@ class UserController extends Controller
     public function create()
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $username = Auth::user()->name;
         $role = Role::all();
         return view('admin.user.create', compact('username', 'role'));
@@ -50,6 +56,9 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $user = new User();
         $user->name = $request->nama;
         $user->email =  $request->email;
@@ -83,6 +92,9 @@ class UserController extends Controller
         // if(Auth::user()->id != 1){
 
         // }
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $username = Auth::user()->name;
         $user = User::find($id);
         $role = Role::all();
@@ -137,6 +149,9 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         if(Auth::user()->id == 1){
             if(Auth::user()->id == $id){
                 return back()->with('gagal', 'Anda tidak dapat menghapus admin!');

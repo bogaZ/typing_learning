@@ -17,6 +17,9 @@ class NotifikasiController extends Controller
     public function index()
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $username = Auth::user()->name;
         $alldata = Activity::orderBy('created_at', 'DESC')->get();
         return view('admin.notifikasi.index', compact('alldata', 'username'));

@@ -18,6 +18,9 @@ class TypeController extends Controller
     public function index()
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $alldata = type::all();
         $username = Auth::user()->name;
         return view('admin.charactertext.index', compact('username', 'alldata'));
@@ -31,6 +34,9 @@ class TypeController extends Controller
     public function create()
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $username = Auth::user()->name;
         return view('admin.charactertext.create', compact('username'));
     }
@@ -44,6 +50,9 @@ class TypeController extends Controller
     public function store(Request $request)
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $typecharacter = new type();
         $typecharacter->name = $request->name;
         $typecharacter->save();
@@ -71,6 +80,9 @@ class TypeController extends Controller
     public function edit($id)
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $username = Auth::user()->name;
         $data = type::find($id);
         return view('admin.charactertext.edit', compact('username', 'data'));
@@ -86,6 +98,9 @@ class TypeController extends Controller
     public function update(Request $request, $id)
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $typecharacter = type::find($id);
         $typecharacter->name = $request->name;
         $typecharacter->save();
@@ -102,6 +117,9 @@ class TypeController extends Controller
     public function destroy($id)
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $hapus = type::find($id);
         $hapus->delete();
 

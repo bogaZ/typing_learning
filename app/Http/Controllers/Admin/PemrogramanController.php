@@ -17,6 +17,9 @@ class PemrogramanController extends Controller
     public function index()
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $alldata = Pemrograman::all();
         $username = Auth::user()->name;
         
@@ -31,6 +34,9 @@ class PemrogramanController extends Controller
     public function create()
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $username = Auth::user()->name;
         return view('admin.bahasa.create', compact('username'));
     }
@@ -44,6 +50,9 @@ class PemrogramanController extends Controller
     public function store(Request $request)
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $bahasa = new Pemrograman();
         $bahasa->bahasa = $request->name;
         $bahasa->save();
@@ -94,6 +103,9 @@ class PemrogramanController extends Controller
     public function destroy($id)
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $hapus = Pemrograman::find($id);
         $hapus->delete();
 

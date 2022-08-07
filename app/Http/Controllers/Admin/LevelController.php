@@ -17,6 +17,9 @@ class LevelController extends Controller
     public function index()
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $uid = Auth::user();
         $username = $uid->name;
         $alldata = Level::all();
@@ -31,6 +34,9 @@ class LevelController extends Controller
     public function create()
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $uid = Auth::user();
         $username = $uid->name;
         return view('admin.level.create', compact('username'));
@@ -45,6 +51,9 @@ class LevelController extends Controller
     public function store(Request $request)
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $level = new Level();
         $level->level = $request->level;
         $level->score = $request->score;
@@ -73,6 +82,9 @@ class LevelController extends Controller
     public function edit($id)
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $uid = Auth::user();
         $username = $uid->name;
         $data = Level::find($id);
@@ -89,6 +101,9 @@ class LevelController extends Controller
     public function update(Request $request, $id)
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $level = Level::find($id);
         $level->level = $request->level;
         $level->score = $request->score;
@@ -106,5 +121,8 @@ class LevelController extends Controller
     public function destroy($id)
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
     }
 }
