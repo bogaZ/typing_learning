@@ -20,8 +20,8 @@ class StatistikController extends Controller
     {
         //
         $uid = Auth::user()->id;
+        $username = Auth::user()->username;
         if($uid == 1){
-            $username = Auth::user()->username;
             $alldata = Statistik::orderBy('created_at', 'DESC')->get();
             return view('admin.statistik.index', compact('username', 'alldata'));
         }
@@ -53,7 +53,7 @@ class StatistikController extends Controller
             }
         }
         $maxnilai = Statistik::get();
-        return view('user.statistik.index', compact('uid', 'toptyping', 'pemrograman', 'alldata', 'maxnilai', 'userArr', 'easy', 'normal', 'hard'));
+        return view('user.statistik.index', compact('uid', 'username', 'toptyping', 'pemrograman', 'alldata', 'maxnilai', 'userArr', 'easy', 'normal', 'hard'));
     }
 
     /**

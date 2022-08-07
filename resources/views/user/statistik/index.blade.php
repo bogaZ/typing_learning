@@ -72,15 +72,16 @@
             <table id="example1" class="display my-3 border rounded rounded-3 border-dark" style="width:100%">
                 <thead class="gradienbiru text-white">
                     <tr>
-                        <th>No</th>
                         {{-- <th>Nama Pembuat</th> --}}
                         {{-- <th>Nama text</th> --}}
-                        <th>Teks</th>
-                        <th>Tipe Text</th>
-                        <th>Score</th>
-                        <th>Time Result</th>
-                        <th>Time Typing</th>
                         {{-- <th>Action</th> --}}
+                        <th>No</th>
+                        <th>Teks</th>
+                        <th>Kesulitan</th>
+                        <th>Bahasa</th>
+                        <th>Skor Mengetik</th>
+                        <th>Waktu</th>
+                        <th>Waktu Mengetik</th>
                     </tr>
                 </thead>
                 <tbody class="gradienbiru2 text-dark">
@@ -89,9 +90,16 @@
                         <td>{{++$i}}</td>
                         <td class="limittext">{{$data->karakter->karakter}}</td>
                         <td>{{$data->karakter->type->name}}</td>
-                        <td>{{$data->speed_typing}}Kpm</td>
-                        <td>{{$data->time}}</td>
-                        <td>{{$data->created_at->diffForHumans()}}</td>
+                        <td>
+                            @if ($data->karakter->pemrograman_id == null)
+                            {{$data->karakter->bahasa->bahasa}}
+                            @else
+                            {{$data->karakter->pemrograman->bahasa}}
+                            @endif
+                        </td>
+                        <td>{{$data->speed_typing}} Kpm</td>
+                        <td>{{$data->time}} detik</td>
+                        <td>{{$data->created_at}}</td>
                     </tr>
                     @empty
                     <tr>

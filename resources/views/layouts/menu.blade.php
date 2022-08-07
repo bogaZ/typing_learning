@@ -1,7 +1,7 @@
 <div class="col-md-12 menu d-none">
     <h3 class="m-0 text-dark fw-bold text-center m-3 text-decoration-none">Menu Utama</h6>
     <div class="d-flex align-items-center justify-content-end">
-        <a href="javascript:void(0)" title="bantuan" class="fw-bold text-decoration-none">Bantuan?</a>
+        <a href="javascript:void(0)" title="bantuan" class="fw-bold text-decoration-none" data-bs-toggle="modal" data-bs-target="#bantuan">Bantuan?</a>
     </div>
 </div>
 <div class="col-md-12 menu">

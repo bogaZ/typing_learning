@@ -17,6 +17,7 @@
         <!-- Modal -->
         @include('user.pengaturan.profil')
         @include('user.pengaturan.bahasa')
+        @include('user.pengaturan.help')
     </div>
     @include('edit')
     <script type="text/javaScript">

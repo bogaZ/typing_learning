@@ -197,9 +197,12 @@
                         console.log("terakhir");
                     }else{
                         characters[charIndex].classList.add("incorrect");
-                        // mistakes++;
+                        mistakes++;
                     }
+                    charIndex++;
                 }
+                mistageTag.innerHTML = mistakes;
+
                 inpField.value = "";
                 timeout.innerText = "Finish";
                 timeout.style.color = "green";
@@ -216,12 +219,15 @@
                 let time = timeLeft;
                 let karakter_level = "pemrograman";
                 let karakter_id = co[randTeks].id;
+                let karakterbenar = charIndex - mistakes;
                 let _token = $('meta[name="csrf-token"]').attr('content');
                 $.ajax({
                     type: "POST",
                     url: "{{route('statistik.store')}}",
                     data:{
                         karakter_id: karakter_id,
+                        benar: karakterbenar,
+                        salah: mistakes,
                         typing: cpmresult,
                         kesulitan: karakter_level,
                         time: time,

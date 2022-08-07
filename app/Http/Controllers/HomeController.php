@@ -10,6 +10,7 @@ use App\User;
 use App\Statistik;
 use App\karakter;
 use App\Pemrograman;
+use App\Level;
 use App\Bahasa;
 use App\type;
 use App\Activity;
@@ -50,7 +51,7 @@ class HomeController extends Controller
         // $jumlahnotif = Activity::whereget()->count();
         $jumlahnotif = Activity::whereDate('created_at', date('Y-m-d'))->get()->count();
         $karakter = karakter::all();
-        $type = type::all();
+        $type = type::get();
         // $tesjumlah = Statistik::GroupBy(DB::raw("Day(created_at)"))->count();
         $tesjumlah = Statistik::whereYear('created_at', date('Y'))->get();
 
@@ -122,7 +123,8 @@ class HomeController extends Controller
         // $uid = Auth::user();
         // $allbahasa = Bahasa::where('id', 2)->orwhere('id', 3)->get();
         $allbahasa = Bahasa::where('id', '!=', 1)->get();
-        $datapemrograman = Pemrograman::all();
-        return view('home', compact('username', 'datapemrograman', 'jumlahnotif', 'allbahasa', 'user', 'statistik', 'type', 'jumlahuser', 'jumlahmengetik', 'karakter', 'month', 'users', 'userArreasy', 'scoreStats'));
+        $datapemrograman = Pemrograman::get();
+        $alllevel = Level::get();
+        return view('home', compact('username', 'alllevel', 'datapemrograman', 'jumlahnotif', 'allbahasa', 'user', 'statistik', 'type', 'jumlahuser', 'jumlahmengetik', 'karakter', 'month', 'users', 'userArreasy', 'scoreStats'));
     }
 }
