@@ -21,15 +21,15 @@
 <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
+            @if (session('resent'))
+                <div class="alert alert-success" role="alert">
+                    {{ __('A fresh verification link has been sent to your email address.') }}
+                </div>
+            @endif
             <div class="card shadow">
                 <div class="card-header bg-white fw-bold text-center">{{ __('Verifikasi Alamat Email Kamu') }}</div>
 
                 <div class="p-3">
-                    @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
-                        </div>
-                    @endif
 
                     {{ __('Silahkan buka email kamu untuk verifikasi email, masuk di bagian kotak masuk atau spam dan tekan tombol konfirmasi.') }}<br>
                     {{ __('Jika kamu belum menerima email, tekan tombol di bawah') }}
