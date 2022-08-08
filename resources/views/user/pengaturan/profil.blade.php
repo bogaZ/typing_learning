@@ -21,19 +21,19 @@
                     <label for="">Email</label>
                     <input required type="email" name="email" class="form-control mb-3" id="" placeholder="email" value="{{$user->email}}">
                     <label for="">Password</label>
+                    <input required type="password" name="password" class="form-control mb-3 @error('password') is-invalid @enderror" placeholder="password">
                     @error('password')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                    <input type="password" name="password" class="form-control mb-3 @error('password') is-invalid @enderror" placeholder="password">
                     <label for="">Password konfirmasi</label>
+                    <input required type="password" name="password" placeholder="konfirmasi password" class="form-control mb-3 @error('passwordkonfirmasi') is-invalid @enderror">
                     @error('passwordkonfirmasi')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                    <input type="password" name="password" placeholder="konfirmasi password" class="form-control mb-3 @error('passwordkonfirmasi') is-invalid @enderror">
                     {{-- <label for="">Password</label>
                     <input type="text" name="" class="form-control mb-3" id="" value="nama">
                     <label for="">Konfirmasi password baru</label>
