@@ -103,7 +103,7 @@
         </div> --}}
         <div class="btn-group">
             <a href="javascript:void(0)" type="button" title="menu" class="dropdown-toggle text-decoration-none text-white" data-bs-toggle="dropdown" aria-expanded="false">
-              {{$username}}
+              {{Auth::user()->name}}
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
               <li><button class="dropdown-item" type="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-person-fill"></i> Profil</button></li>
@@ -145,7 +145,7 @@
         <div class="row justify-content-center">
             <img style="width: 80%" class="p-0" src="{{asset('bagus/admin/img/profil.png')}}" alt="" srcset="">
             {{-- <p href="#" alt="dashboard" class="" disabled style="font-size: 14px"><i class="bi bi-tras" style="font-size: 24px"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Halo&nbsp;{{$username}}</p> --}}
-            <p href="#" alt="dashboard" class="text-center p-3" disabled style="font-size: 14px">{{$username}}</p>
+            <p href="#" alt="dashboard" class="text-center p-3" disabled style="font-size: 14px">{{Auth::user()->name}}</p>
         </div>
         {{-- <div class="row justify-content-center">
         </div> --}}

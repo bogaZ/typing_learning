@@ -26,6 +26,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+        $this->middleware(['auth','verified']);
         // $this->middleware('auth');
         // $this->middleware('guest');
         // $this->middleware('role:admin',['only'=>['index']]);
