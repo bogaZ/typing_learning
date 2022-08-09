@@ -44,7 +44,7 @@
                 yValues: {
                     title: {
                         display: true,
-                        text: 'Jumlah kamu mengetik',
+                        text: 'Jumlah dimainkan',
                         font: {
                             size: 15
                         }
@@ -141,7 +141,7 @@
                 yValues: {
                     title: {
                         display: true,
-                        text: 'Score (Kpm)',
+                        text: 'Jumlah dimainkan',
                         font: {
                             size: 15
                         }

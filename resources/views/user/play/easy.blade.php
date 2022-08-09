@@ -253,6 +253,7 @@
         inpField.addEventListener("input", initTyping);
         btnTry.addEventListener("click", reset);
     </script>
+    @include('user.pengaturan.profil')
     @include('layouts.bottom')
     @endrole
     @guest

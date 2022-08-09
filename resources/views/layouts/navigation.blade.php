@@ -63,9 +63,9 @@
             <h1 class="m-0"><i class="fa fa-keyboard me-2 text-white"></i>NgeTeks</h1>
         </a>
         {{-- @if(Route::has('playmudah')) --}}
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars"></span>
-        </button>
+        </button> --}}
         {{-- @endif --}}
         {{-- <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
             @auth

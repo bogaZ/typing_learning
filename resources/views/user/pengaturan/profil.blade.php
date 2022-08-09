@@ -1,4 +1,4 @@
-<form action="{{route('user.update', $user->id)}}" method="post">
+<form action="{{route('user.update', Auth::user()->id)}}" method="post">
     @csrf
     @method('PATCH')
     {{-- {{$user->id}} --}}
@@ -17,9 +17,9 @@
                         <img style="width: 50%" class="p-0" src="{{asset('bagus/admin/img/profil.png')}}" alt="" srcset="">
                     </div> --}}
                     <label for="">Nama</label>
-                    <input required type="text" name="nama" class="form-control mb-3" id="" placeholder="nama" value="{{$user->name}}">
+                    <input required type="text" name="nama" class="form-control mb-3" id="" placeholder="nama" value="{{Auth::user()->name}}">
                     <label for="">Email</label>
-                    <input required type="email" name="email" class="form-control mb-3" id="" placeholder="email" value="{{$user->email}}">
+                    <input required type="email" name="email" class="form-control mb-3" id="" placeholder="email" value="{{Auth::user()->email}}">
                     <label for="">Password</label>
                     <input required type="password" name="password" class="form-control mb-3 @error('password') is-invalid @enderror" placeholder="password">
                     @error('password')

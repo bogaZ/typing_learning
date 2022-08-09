@@ -35,14 +35,14 @@
                             <div>Hard= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'susah')->max('speed_typing')}}</span></div>
                             <div>Programing= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'pemrograman')->max('speed_typing')}}</span></div>
                         </div>
-                        <div class="text-center">Level:</div>
+                        {{-- <div class="text-center">Level:</div>
                         
                         <div class="d-flex justify-content-around">
                             <div>Mudah= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'mudah')->max('speed_typing')}}</span></div>
                             <div>Normal= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'normal')->max('speed_typing')}}</span></div>
                             <div>Hard= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'susah')->max('speed_typing')}}</span></div>
                             <div>Programing= <span>{{$maxnilai->where('user_id', $uid)->where('kesulitan', 'pemrograman')->max('speed_typing')}}</span></div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -113,7 +113,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="6">
+                        <td colspan="8">
                             <p class="text-danger p-1 text-center">belum mengetik</p> 
                         </td>
                     </tr>
