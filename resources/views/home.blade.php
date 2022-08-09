@@ -18,6 +18,8 @@
         @include('user.pengaturan.profil')
         @include('user.pengaturan.bahasa')
         @include('user.pengaturan.help')
+        @include('user.pengaturan.alertnormal')
+        @include('user.pengaturan.alertsusah')
     </div>
     @include('edit')
     <script type="text/javaScript">

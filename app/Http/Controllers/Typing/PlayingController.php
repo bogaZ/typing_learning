@@ -16,6 +16,9 @@ class PlayingController extends Controller
 {
     //easy mode
     public function playmudah(){
+        if (Auth::user()->email_verified_at == null) {
+            return redirect()->route('verification.notice');
+        }
         $uid = Auth::user();
         $allbahasa = Bahasa::where('id', 2)->orwhere('id', 3)->get();
         $bahasaindonesia = 2;

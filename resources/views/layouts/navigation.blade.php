@@ -106,10 +106,15 @@
               {{Auth::user()->name}}
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
-              <li><button class="dropdown-item" type="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-person-fill"></i> Profil</button></li>
-              <li><a href="{{route('statistik.index')}}" class="dropdown-item"><i class="bi bi-graph-up"></i> Statistik</a></li>
-              <li><button class="dropdown-item" type="button"><i class="bi bi-gear-fill"></i> Pengaturan</button></li>
-              <li><button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#logout"><i class="bi bi-box-arrow-in-right"></i> Keluar</button></li>
+                {{-- <div style="white-space: pre-line" class="d-flex">
+                    Mudah : Level 1
+                    Normal: Level 1
+                    Susah : Level 1
+                </div> --}}
+                <li><button class="dropdown-item" type="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-person-fill"></i> Profil</button></li>
+                <li><a href="{{route('statistik.index')}}" class="dropdown-item"><i class="bi bi-graph-up"></i> Statistik</a></li>
+                {{-- <li><button class="dropdown-item" type="button"><i class="bi bi-gear-fill"></i> Pengaturan</button></li> --}}
+                <li><button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#logout"><i class="bi bi-box-arrow-in-right"></i> Keluar</button></li>
             </ul>
         </div>
     </nav>

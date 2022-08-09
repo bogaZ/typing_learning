@@ -35,20 +35,22 @@ Route::get('send-mail', function () {
 });
 
 // Auth::routes();
-Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/menu', 'Typing\MenuController@getmenu')->name('indexmenu');
-Route::get('/kesulitan/pemrograman', 'Typing\MenuController@getpemrograman')->name('pemrograman');
-Route::get('/kesulitan/pemrograman/php', 'Typing\MenuController@getphp')->name('php');
-Route::get('/kesulitan/pemrograman/js', 'Typing\MenuController@getjs')->name('js');
-Route::get('/customindex', 'Typing\MenuController@getcustom')->name('indexcustom');
+// Route::get('/menu', 'Typing\MenuController@getmenu')->name('indexmenu');
+// Route::get('/kesulitan/pemrograman', 'Typing\MenuController@getpemrograman')->name('pemrograman');
+// Route::get('/kesulitan/pemrograman/php', 'Typing\MenuController@getphp')->name('php');
+// Route::get('/kesulitan/pemrograman/js', 'Typing\MenuController@getjs')->name('js');
+// Route::get('/customindex', 'Typing\MenuController@getcustom')->name('indexcustom');
 // Route::get('/custom/play', 'Typing\MenuController@getcustom')->name('indexcustom');
+
+
+Auth::routes(['verify' => true]);
+Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix'=> 'home'], function () {
     Route::get('/mudah/play', 'Typing\PlayingController@playmudah')->name('playmudah');
 });
-Route::group(['prefix'=> 'home', 'middleware' => 'auth'], function () {
-    Route::group(['middleware' => 'verified'], function () {
+Route::group(['prefix'=> 'home', 'middleware' => 'auth', 'middleware' => 'verified'], function () {
+    // Route::group(['middleware' => 'verified'], function () {
         Route::get('/normal/play', 'Typing\PlayingController@playnormal')->name('playnormal');
         Route::get('/susah/play', 'Typing\PlayingController@playsusah')->name('playsusah');
         Route::get('/menuplay', 'Typing\MenuController@getplay')->name('indexplay');
@@ -67,7 +69,7 @@ Route::group(['prefix'=> 'home', 'middleware' => 'auth'], function () {
         Route::resource('/pemrograman', 'Admin\PemrogramanController');
         Route::resource('/statistik', 'Typing\StatistikController');
         Route::resource('/notifikasi', 'Admin\NotifikasiController');
-    });
+    // });
 });
 
 // beta

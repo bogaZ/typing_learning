@@ -290,17 +290,17 @@
                     <div class="row g-5">
                         <div class="col-12 wow zoomIn" data-wow-delay="0.2s">
                             <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                                <i class="fa fa-cubes text-white"></i>
+                                <i class="fas fa-signal text-white"></i>
                             </div>
-                            <h4>Terdapat 5 Level</h4>
-                            <p class="mb-0">Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor</p>
+                            <h4>Terdapat Level</h4>
+                            <p class="mb-0">Level yang digunakan untuk menuju ke tahap tingkat kesulitan berikutnya</p>
                         </div>
                         <div class="col-12 wow zoomIn" data-wow-delay="0.6s">
                             <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                                <i class="fa fa-award text-white"></i>
+                                <i class="fas fa-file-alt text-white"></i>
                             </div>
                             <h4>Kustom Teks</h4>
-                            <p class="mb-0">Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor</p>
+                            <p class="mb-0">Dapat membuat teks dan dapat dimainkan sendiri sesuai kebutuhan</p>
                         </div>
                     </div>
                 </div>
@@ -313,17 +313,17 @@
                     <div class="row g-5">
                         <div class="col-12 wow zoomIn" data-wow-delay="0.4s">
                             <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                                <i class="fa fa-users-cog text-white"></i>
+                                <i class="fas fa-chart-line text-white"></i>
                             </div>
                             <h4>Statistik</h4>
-                            <p class="mb-0">Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor</p>
+                            <p class="mb-0">Dapat memantau peningkatan anda latihan mengetik sepanjang waktu</p>
                         </div>
                         <div class="col-12 wow zoomIn" data-wow-delay="0.8s">
                             <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                                <i class="fa fa-phone-alt text-white"></i>
+                                <i class="fas fa-code text-white"></i>
                             </div>
                             <h4>Pemrograman Teks</h4>
-                            <p class="mb-0">Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor</p>
+                            <p class="mb-0">Dapat latihan mengetik sesuai dengan format mengetik bahasa pemrograman</p>
                         </div>
                     </div>
                 </div>

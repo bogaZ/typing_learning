@@ -10,14 +10,14 @@
                 </button>
             </div>
             <div class="d-flex align-items-center justify-content-center col-md-4 p-3 m-0">
-                <h3 class="m-0">Mengubah Character</h3>
+                <h3 class="m-0 text-center">Mengubah Karakter</h3>
             </div>
             <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
                 <p class="m-0">
                     <a href="{{route('home')}}" class="text-decoration-none">Dashboard</a>
                     /
-                    <a href="{{route('custom.index')}}" class="text-decoration-none">Character</a>
-                    / Mengubah Character
+                    <a href="{{route('custom.index')}}" class="text-decoration-none">Karakter</a>
+                    / Mengubah Karakter
                 </p>
             </div>
         </div>

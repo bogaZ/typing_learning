@@ -44,7 +44,7 @@
                 yValues: {
                     title: {
                         display: true,
-                        text: 'Score',
+                        text: 'Jumlah kamu mengetik',
                         font: {
                             size: 15
                         }

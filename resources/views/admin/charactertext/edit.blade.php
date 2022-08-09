@@ -9,14 +9,14 @@
             </button>
         </div>
         <div class="d-flex align-items-center justify-content-center col-md-4 p-3 m-0">
-            <h3 class="m-0">Membuat Tipe Karakter</h3>
+            <h3 class="m-0 text-center">Mengubah Tingkat Kesulitan</h3>
         </div>
         <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
             <p class="m-0">
                 <a href="{{route('home')}}" class="text-decoration-none">Dashboard</a>
                 /
-                <a href="{{route('character.index')}}" class="text-decoration-none">Karakter</a>
-                / Membuat Tipe Karakter
+                <a href="{{route('character.index')}}" class="text-decoration-none">Tingkat Kesulitan Mengetik</a>
+                / Mengubah
             </p>
         </div>
     </div>
@@ -27,7 +27,7 @@
             <form action="{{route('character.update', $data->id)}}" method="post">
                 @csrf
                 @method('PATCH')
-                <label for="characterinput">Nama Tipe Karakter</label>
+                <label for="characterinput">Nama Tingkat Kesulitan</label>
                 <input type="text" name="name" value="{{$data->name}}" id="characterinput" class="form-control mb-3">
                 <button type="submit" class="btn btn-primary col-md-12">Submit</button>
             </form>

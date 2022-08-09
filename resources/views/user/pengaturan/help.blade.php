@@ -60,24 +60,27 @@
                     {{-- <p class="m-0">2. Membuka Tombol Susah : Kamu harus mencapai level 3 atau mendapatkan minimal score 60 kpm dari tingkat kesulitan normal</p> --}}
                 </div>
                 <h5 class="fw-bold text-center">Mengetik Karakter</h5>
-                <h6 class="fw-bold">Mulai</h6>
+                <h6 class="fw-bold">Cara Bermain</h6>
                 <div class="mb-3">
-                    <p class="m-0">1. Tombol Play : kamu menuju ke menu tingkat kesulitan</p>
-                    <p class="m-0">2. Tombol Custom : kamu menuju ke menu custom</p>
+                    <p class="m-0">Pengguna cukup menekan tombol sesuai karakter yang ditampilkan pada web. Jika sesuai, maka warna pada huruf akan berubah menjadi warna hijau. Jika tidak sesuai, maka warna pada huruf akan berubah menjadi warna merah</p>
                 </div>
                 <h6 class="fw-bold">Tingkat Kesulitan</h6>
                 <div class="mb-3">
-                    <p class="m-0">1. Mudah : kamu menuju ke menu tingkat kesulitan</p>
-                    <p class="m-0">2. Normal : kamu menuju ke menu custom</p>
-                    <p class="m-0">3. Susah : kamu menuju ke menu custom</p>
-                    <p class="m-0">4. Pemrograman : kamu menuju ke menu custom</p>
+                    <p class="m-0">1. Mudah : Huruf yang ditampilkan hanya hanya huruf kecil dan besar</p>
+                    <p class="m-0">2. Normal : Huruf yang ditampilkan memiliki tambahan sedikit tanda simbol</p>
+                    <p class="m-0">3. Susah : Huruf yang ditampilkan mencangkup seluruhnya termasuk simbol</p>
+                    <p class="m-0">4. Pemrograman : Huruf yang yang ditampilkan memiliki format bahasa pemrograman</p>
+                </div>
+                <h6 class="fw-bold">Level</h6>
+                <div class="mb-3">
+                    <p class="m-0">Level merupakan pencapaian yang kamu lakukan selama mengetik. Pencapaian ini berdasarkan nilai skor karakter per menit (Kpm).</p>
+                    @foreach($alllevel as $i => $level)
+                    <p class="m-0">{{++$i}}. Level {{$level->level}} : Pencapaian kamu saat ini ketika skor mengetiknya mencapai {{$level->score}} kpm</p>
+                    @endforeach
                 </div>
                 <h6 class="fw-bold">Skor mengetik</h6>
                 <div class="mb-3">
                     <p>Skor karakter pe menit (Kpm) diperoleh dari perhitungan seluruh karakter yang benar dengan waktu mengetik yang kamu selesaikan (detik)</p>
-                    @foreach($alllevel as $i => $level)
-                    <p class="m-0">{{++$i}}. Level {{$level->level}} : Pencapaian kamu saat ini ketika skor mengetiknya mencapai {{$level->score}} kpm</p>
-                    @endforeach
                 </div>
                 <h6 class="fw-bold">Reset Karakter</h6>
                 <div class="mb-3">

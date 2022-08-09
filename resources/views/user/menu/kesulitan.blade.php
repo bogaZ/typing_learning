@@ -2,6 +2,7 @@
     <h3 class="fw-bold text-center m-3" title="Halaman menu">Menu Kesulitan</h6>
     <div class="d-flex align-items-center justify-content-end">
         <a href="javascript:void(0)" title="bantuan" class="fw-bold text-decoration-none" data-bs-toggle="modal" data-bs-target="#bantuan">Bantuan?</a>
+        {{-- <span title="level" class="fw-bold">Level: Mudah, Normal, Susah</span> --}}
     </div>
 </div>
 <div class="col-md-12 kesulitan d-none">
@@ -27,20 +28,20 @@
                 <br>
                 <div class="row">
                     <div class="d-grid mx-auto">
-                        @if($statistik >= 15)
+                        @if($statistik->where('kesulitan', 'mudah')->max('speed_typing') >= $level3)
                         <a id="normal" href="{{route('playnormal')}}" class="btn btn-primary block fw-bold">Normal</a>
                         @else
-                        <a id="" href="{{route('playnormal')}}" class="btn btn-primary block fw-bold disabled"><i class="bi bi-lock-fill"></i> Normal</a>
+                        <a id="" class="btn btn-primary block fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#normalalert"><i class="bi bi-lock-fill"></i> Normal</a>
                         @endif
                     </div>
                 </div>
                 <br>
                 <div class="row">
                     <div class="d-grid mx-auto">
-                        @if($statistik >= 25)
+                        @if($statistik->where('kesulitan', 'normal')->max('speed_typing') >= $level3)
                         <a id="susah" href="{{route('playsusah')}}" class="btn btn-primary block fw-bold">Susah</a>
                         @else
-                        <a id="" class="btn btn-primary block fw-bold disabled"><i class="bi bi-lock-fill"></i> Susah</a>
+                        <a id="" class="btn btn-primary block fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#susahalert"><i class="bi bi-lock-fill"></i> Susah</a>
                         @endif
                     </div>
                 </div>

@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth','verified']);
+        // $this->middleware(['verified']);
         // $this->middleware('auth');
         // $this->middleware('guest');
         // $this->middleware('role:admin',['only'=>['index']]);
@@ -41,11 +41,15 @@ class HomeController extends Controller
     {
         if(Auth::guest()){
             return view('home');
+        }elseif (Auth::user()->email_verified_at == null) {
+            return redirect()->route('verification.notice');
         }
+        
         $user = Auth::user();
         $username = $user->name;
         $uid = $user->id;
-        $statistik = Statistik::where('user_id', $uid)->max('speed_typing');
+        $statistik = Statistik::where('user_id', $uid);
+        // return json_encode($statistik);
 
         $jumlahuser = User::all()->count();
         $jumlahmengetik = Statistik::all()->count();
@@ -126,6 +130,9 @@ class HomeController extends Controller
         $allbahasa = Bahasa::where('id', '!=', 1)->get();
         $datapemrograman = Pemrograman::get();
         $alllevel = Level::get();
-        return view('home', compact('username', 'alllevel', 'datapemrograman', 'jumlahnotif', 'allbahasa', 'user', 'statistik', 'type', 'jumlahuser', 'jumlahmengetik', 'karakter', 'month', 'users', 'userArreasy', 'scoreStats'));
+        $mudahScore = Statistik::where('kesulitan', 'mudah')->max('speed_typing');
+        $normalScore = Statistik::where('kesulitan', 'normal')->max('speed_typing');
+        $level3 = Level::where('level', 3)->value('score');
+        return view('home', compact('username', 'mudahScore', 'normalScore', 'level3', 'alllevel', 'datapemrograman', 'jumlahnotif', 'allbahasa', 'user', 'statistik', 'type', 'jumlahuser', 'jumlahmengetik', 'karakter', 'month', 'users', 'userArreasy', 'scoreStats'));
     }
 }

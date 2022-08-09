@@ -10,9 +10,9 @@
         </div>
         <div class="d-flex align-items-center justify-content-center col-md-4 p-3 m-0">
             @if(!Route::is('bahasa.create'))
-            <h3 class="m-0">Membuat Bahasa Pemrograman</h3>
+            <h3 class="m-0 text-center">Membuat Bahasa Pemrograman</h3>
             @else
-            <h3 class="m-0">Membuat Bahasa Character</h3>
+            <h3 class="m-0 text-center">Membuat Bahasa Character</h3>
             @endif
         </div>
         <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
