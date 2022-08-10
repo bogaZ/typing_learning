@@ -50,9 +50,9 @@
                     @if($level->level == 3)
                     @foreach($type as $i => $alltype)
                     @if($alltype->name == 'normal')
-                    <p class="m-0">1. Membuka Tombol Normal : Kamu harus mencapai level 3 atau mendapatkan minimal score 60 kpm dari tingkat kesulitan mudah</p>
+                    <p class="m-0">1. Membuka Tombol Normal : Kamu harus mencapai level 3 atau mendapatkan minimal score {{$level->score}} kpm dari tingkat kesulitan mudah</p>
                     @elseif($alltype->name == 'susah')
-                    <p class="m-0">2. Membuka Tombol Susah : Kamu harus mencapai level 3 atau mendapatkan minimal score 60 kpm dari tingkat kesulitan normal</p>
+                    <p class="m-0">2. Membuka Tombol Susah : Kamu harus mencapai level 3 atau mendapatkan minimal score {{$level->score}} kpm dari tingkat kesulitan normal</p>
                     @endif
                     @endforeach
                     @endif

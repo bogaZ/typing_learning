@@ -29,7 +29,7 @@
                 <label for="levelinput">Level</label>
                 <input type="number" max="10" min="1" name="level" id="levelinput" required class="form-control mb-3">
                 <label for="scoreinput">Score</label>
-                <input type="number" max="200" min="0" name="score" id="scoreinput" required class="form-control mb-3">
+                <input type="number" max="300" min="0" name="score" id="scoreinput" required class="form-control mb-3">
                 <button type="submit" class="btn btn-primary col-md-12">Submit</button>
             </form>
         </div>
