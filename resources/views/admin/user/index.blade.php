@@ -42,7 +42,7 @@
             <thead class="gradienbiru text-white">
                 <tr>
                     <th>No</th>
-                    <th>Name</th>
+                    <th>Nama</th>
                     <th>id</th>
                     <th>Email</th>
                     <th>Role</th>

@@ -13,7 +13,7 @@
             label:"a",
             labels: xValues,
             datasets: [{
-                label: "Jumlah User mengetik",
+                label: "Kamu mengetik",
                 fill: false,
                 lineTension: 0,
                 backgroundColor: "rgba(0,0,255,1.0)",
@@ -30,7 +30,7 @@
             plugins: {
                 title: {
                     display: true,
-                    text: 'Statistik Jumlah Dimainkan',
+                    text: 'Statistik Kamu Mengetik',
                     padding: {
                         top: 10,
                         bottom: 30
@@ -106,7 +106,7 @@
             label:"a",
             labels: xPerform,
             datasets: [{
-                label: "Easy",
+                label: "Mudah",
                 fill: false,
                 lineTension: 0,
                 backgroundColor: "rgba(0,0,255,1.0)",
@@ -164,7 +164,7 @@
         // console.log(this.value);
         if(this.value == "easy"){
             // myChartPerform.data.labels = xPerformWeek;
-            myChartPerform.data.datasets[0].label = "Easy";
+            myChartPerform.data.datasets[0].label = "Mudah";
             myChartPerform.data.datasets[0].data = easyData;
         }
         if(this.value == "normal"){
@@ -172,7 +172,7 @@
             myChartPerform.data.datasets[0].data = normalData;
         }
         if(this.value == "hard"){
-            myChartPerform.data.datasets[0].label = "Hard";
+            myChartPerform.data.datasets[0].label = "Susah";
             myChartPerform.data.datasets[0].data = hardData;
         }
         if(this.value == "pemrograman"){

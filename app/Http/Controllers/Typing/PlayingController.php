@@ -25,7 +25,7 @@ class PlayingController extends Controller
             return redirect()->route('verification.notice');
         }
         $uid = Auth::user();
-        $allbahasa = Bahasa::where('id', 2)->orwhere('id', 3)->get();
+        $allbahasa = Bahasa::where('id', '!=', 1)->get();
         $bahasaindonesia = 2;
         $bahasainggris = 3;
         $statistik = Statistik::all();
@@ -40,7 +40,7 @@ class PlayingController extends Controller
     //normal mode
     public function playnormal(){
         $uid = Auth::user();
-        $allbahasa = Bahasa::where('id', 2)->orwhere('id', 3)->get();
+        $allbahasa = Bahasa::where('id', '!=', 1)->get();
         $bahasaindonesia = 2;
         $bahasainggris = 3;
         $statistik = Statistik::all();
@@ -50,7 +50,7 @@ class PlayingController extends Controller
     //susah mode
     public function playsusah(){
         $uid = Auth::user();
-        $allbahasa = Bahasa::where('id', 2)->orwhere('id', 3)->get();
+        $allbahasa = Bahasa::where('id', '!=', 1)->get();
         $bahasaindonesia = 2;
         $bahasainggris = 3;
         // $bahasa = Bahasa_user::where('user_id', $uid)->get();

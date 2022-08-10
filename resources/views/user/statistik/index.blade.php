@@ -66,9 +66,9 @@
                 <div class="d-flex justify-content-center flex-column align-items-center">
                     <label for="pilihwaktugrafik" class="fw-bold">Pilih Jenis Statistik: </label>
                     <select name="" id="pilihwaktugrafik" class="col-2 form-control">
-                        <option value="easy">easy</option>
+                        <option value="easy">mudah</option>
                         <option value="normal">normal</option>
-                        <option value="hard">hard</option>
+                        <option value="hard">susah</option>
                         <option value="pemrograman">pemrograman</option>
                     </select>
                 </div>
@@ -76,7 +76,7 @@
             <div class="col-1"></div>
         </div>
         <div class="card p-5 shadow border-none my-3">
-            <div class="text-center fw-bold">Riwayat Mengetik</div>
+            <div class="text-center fw-bold">Riwayat Bermain</div>
             <table id="example1" class="display my-3 border rounded rounded-3 border-dark" style="width:100%">
                 <thead class="gradienbiru text-white">
                     <tr>

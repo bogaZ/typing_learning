@@ -32,7 +32,13 @@
                     {{-- <a href="javascript:history.back()" class="text-decoration-none text-dark fw-bold">kembali</a> --}}
                 </div>
                 <div>
+                    @role('user')
                     Level <label for="" id="karakter-id">#</label>
+                    @endrole
+                    @guest
+                    <label for="" class="fw-bold">Guest</label>
+                    <label hidden for="" id="karakter-id"></label>
+                    @endguest
                     tingkat kesulitan:<label for="" id="karakter-level">mudah</label>
                 </div>
             </div>

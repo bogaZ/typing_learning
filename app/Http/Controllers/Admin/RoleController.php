@@ -87,10 +87,11 @@ class RoleController extends Controller
         if(Auth::user()->id != 1){
             abort(404);
         }
+        $role = Role::find($id);
         $username = Auth::user()->name;
         $alldata = DB::table('roles')->get();
         // $alldata =
-        return view('admin.role.edit', compact('alldata', 'username'));
+        return view('admin.role.edit', compact('alldata', 'role', 'username'));
     }
 
     /**
@@ -106,12 +107,11 @@ class RoleController extends Controller
         if(Auth::user()->id != 1){
             abort(404);
         }
-        $role = new Role();
+        $role = Role::find($id);
         $role->name = $request->name;
-        $role->guard_name = 'web';
         $role->save();
 
-        return redirect()->route('role.index')->with('sukses', 'type berhasil dibuat!');
+        return redirect()->route('role.index')->with('sukses', 'type berhasil diubah!');
     }
 
     /**

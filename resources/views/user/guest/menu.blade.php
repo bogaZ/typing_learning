@@ -1,6 +1,9 @@
 <div class="flex-row-reverse d-flex kesulitan">
 </div>
 <div class="col-md-12 kesulitan">
+    <h3 class="m-0 text-dark fw-bold text-center m-3 text-decoration-none">Menu Kesulitan</h6>
+</div>
+<div class="col-md-12 kesulitan">
     <div class="shadow p-3 mb-5 rounded bg-white">
         <div class="card-body">
             <div class="my-5 mx-5">

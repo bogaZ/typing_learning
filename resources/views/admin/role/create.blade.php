@@ -9,14 +9,14 @@
             </button>
         </div>
         <div class="d-flex align-items-center justify-content-center col-md-4 p-3 m-0">
-            <h3 class="m-0">Create Role</h3>
+            <h3 class="m-0">Membuat Role</h3>
         </div>
         <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
             <p class="m-0">
                 <a href="{{route('home')}}" class="text-decoration-none">Dashboard</a>
                 /
                 <a href="{{route('role.index')}}" class="text-decoration-none">Role</a>
-                / Create Role
+                / Membuat Role
             </p>
         </div>
     </div>

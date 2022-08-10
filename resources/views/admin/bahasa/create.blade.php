@@ -12,7 +12,7 @@
             @if(!Route::is('bahasa.create'))
             <h3 class="m-0 text-center">Membuat Bahasa Pemrograman</h3>
             @else
-            <h3 class="m-0 text-center">Membuat Bahasa Character</h3>
+            <h3 class="m-0 text-center">Membuat Bahasa Karakter</h3>
             @endif
         </div>
         <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
@@ -22,7 +22,7 @@
                 @if(!Route::is('bahasa.create'))
                 <a href="{{route('pemrograman.index')}}" class="text-decoration-none">Bahasa Pemrograman</a>
                 @else
-                <a href="{{route('bahasa.index')}}" class="text-decoration-none">Bahasa Character</a>
+                <a href="{{route('bahasa.index')}}" class="text-decoration-none">Bahasa Karakter</a>
                 @endif
                 / Membuat
             </p>

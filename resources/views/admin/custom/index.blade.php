@@ -48,7 +48,7 @@
                     <th>Teks</th>
                     <th>Bahasa</th>
                     <th>Tingkat Kesulitan</th>
-                    <th>Action</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody class="gradienbiru2 text-dark">

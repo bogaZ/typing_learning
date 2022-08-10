@@ -41,7 +41,6 @@
                 <tr>
                     <th>No</th>
                     <th>Nama User</th>
-                    <th>Id Karakter</th>
                     <th>Tingkat Kesulitan</th>
                     <th>Panjang Karakter</th>
                     <th>Karakter Benar</th>
@@ -49,7 +48,7 @@
                     <th>Waktu Selesai</th>
                     <th>Skor</th>
                     <th>Waktu Mengetik</th>
-                    <th>Action</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody class="gradienbiru2 text-dark">
@@ -57,7 +56,6 @@
                 <tr>
                     <td>{{++$i}}.</td>
                     <td>{{$data->user->name}}</td>
-                    <td>{{$data->id}}</td>
                     <td>{{$data->karakter->type->name}}</td>
                     {{-- <td>{{$data->karakter->karakter}} detik</td> --}}
                     <td>{{strlen($data->karakter->karakter)}} huruf</td>

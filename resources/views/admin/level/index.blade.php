@@ -40,8 +40,8 @@
                 <tr>
                     <th>No</th>
                     <th>Level</th>
-                    <th>Score</th>
-                    <th>Action</th>
+                    <th>Skor</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody class="gradienbiru2 text-dark">

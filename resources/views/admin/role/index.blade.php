@@ -9,7 +9,7 @@
             </button>
         </div>
         <div class="d-flex align-items-center justify-content-center col-md-4 p-3 m-0">
-            <h3 class="m-0">Character</h3>
+            <h3 class="m-0">Role</h3>
         </div>
         <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
             <p class="m-0">
@@ -41,8 +41,8 @@
                 <tr>
                     <th>No</th>
                     {{-- <th>Id</th> --}}
-                    <th>Name</th>
-                    <th>Action</th>
+                    <th>Nama</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody class="gradienbiru2 text-dark">
@@ -75,7 +75,7 @@
                                 <i class="bi bi-pencil-square text-white"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-lg-end">
-                                <li><a href="{{route('character.edit', $data->id)}}" class="dropdown-item">Ubah</a></li>
+                                <li><a href="{{route('role.edit', $data->id)}}" class="dropdown-item">Ubah</a></li>
                                 <li>
                                     <a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete{{$data->id}}">Hapus</a>
                                 </li>
