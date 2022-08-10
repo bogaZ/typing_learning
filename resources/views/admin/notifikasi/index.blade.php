@@ -42,9 +42,9 @@
             <thead class="gradienbiru text-white">
                 <tr>
                     <th>No</th>
-                    <th>User id</th>
+                    {{-- <th>User id</th> --}}
                     <th>Name</th>
-                    <th>Aktivitas</th>
+                    {{-- <th>Aktivitas</th> --}}
                     <th>Log</th>
                     <th>Waktu</th>
                     <th>Aksi</th>
@@ -54,9 +54,9 @@
                 @foreach($alldata as $i=>$data)
                 <tr>
                     <td>{{++$i}}.</td>
-                    <td>{{$data->user_id}}</td>
+                    {{-- <td>{{$data->user_id}}</td> --}}
                     <td>{{$data->user->name}}</td>
-                    <td>{{$data->activity}}</td>
+                    {{-- <td>{{$data->activity}}</td> --}}
                     {{-- <td class="limittext">{{$data->log}}</td> --}}
                     <td class="">{{$data->log}}</td>
                     <td>{{$data->created_at}}</td>
