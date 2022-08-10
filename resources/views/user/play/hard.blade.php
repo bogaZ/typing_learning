@@ -171,7 +171,9 @@
 
             
                 let wpm = Math.round((((charIndex - mistakes) / 5) / (maxTime - timeLeft)) * 60);
-                let cpmresult = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
+                // let cpmresult = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
+                cpmTag.innerText = charIndex - mistakes;
+                let cpmresult = Math.round(cpmTag.innerText * (60 / timeTag.innerText));
                 cpmresult = cpmresult < 0 || cpmresult === Infinity ? 0 : cpmresult;
                 
                 // akurasiTyping = ((charIndex - mistakes) * 100) / characters.length;
@@ -180,7 +182,6 @@
 
                 mistageTag.innerHTML = mistakes;
                 wpmTag.innerText = cpmresult;
-                cpmTag.innerText = charIndex - mistakes;
                 console.log("benar mengetik"+ (charIndex-mistakes));
             } else {
                 if(charIndex == characters.length -1){
@@ -206,12 +207,12 @@
                     }
                 });
 
-                let cpmresult = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
-                cpmresult = cpmresult < 0 || cpmresult === Infinity ? 0 : cpmresult;
                 let time = timeLeft;
                 
                 let karakter_id = co[randTeks].id;
                 let karakterbenar = charIndex - mistakes;
+                let cpmresult = Math.round(karakterbenar * (60 / time));
+                // cpmresult = cpmresult < 0 || cpmresult === Infinity ? 0 : cpmresult;
                 // console.log(karakterbenar);
                 let _token = $('meta[name="csrf-token"]').attr('content');
                 $.ajax({
@@ -252,6 +253,7 @@
         inpField.addEventListener("input", initTyping);
         btnTry.addEventListener("click", reset);
     </script>
+    @include('user.pengaturan.profil')
     @include('layouts.bottom')
     @endrole
     @guest
