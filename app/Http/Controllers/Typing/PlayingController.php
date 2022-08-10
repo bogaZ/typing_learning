@@ -16,7 +16,12 @@ class PlayingController extends Controller
 {
     //easy mode
     public function playmudah(){
-        if (Auth::user()->email_verified_at == null) {
+        // if (Auth::user()->email_verified_at == null) {
+        //     return redirect()->route('verification.notice');
+        // }
+        if(Auth::guest()){
+            // return view('home');
+        }elseif (Auth::user()->email_verified_at == null) {
             return redirect()->route('verification.notice');
         }
         $uid = Auth::user();

@@ -19,6 +19,7 @@
                     <div class="d-grid mx-auto">
                         {{-- <button id="mudah" class="btn btn-primary block">Mudah</button> --}}
                         <a id="mudah" href="{{route('playmudah')}}" class="btn btn-primary block">Mudah</a>
+                        {{-- <a href="javascript:void(0)" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#lock"><i class="bi bi-lock-fill"></i> Custom</a> --}}
                     </div>
                 </div>
                 <br>
@@ -28,7 +29,8 @@
                         {{-- @if($statistik >= 150)
                         <a id="normal" href="{{route('playnormal')}}" class="btn btn-primary block">Normal</a>
                         @else --}}
-                        <a id="" href="" class="btn btn-primary block disabled"><i class="bi bi-lock-fill"></i> Normal</a>
+                        {{-- <a id="" href="" class="btn btn-primary block disabled"><i class="bi bi-lock-fill"></i> Normal</a> --}}
+                        <a href="javascript:void(0)" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#lock"><i class="bi bi-lock-fill"></i> Normal</a>
                         {{-- @endif --}}
                     </div>
                 </div>
@@ -38,14 +40,16 @@
                         {{-- @if($statistik >= 170)
                         <a id="susah" href="{{route('playsusah')}}" class="btn btn-primary block">Susah</a>
                         @else --}}
-                        <a id="" class="btn btn-primary block disabled"><i class="bi bi-lock-fill"></i> Susah</a>
+                        {{-- <a id="" class="btn btn-primary block disabled"><i class="bi bi-lock-fill"></i> Susah</a> --}}
+                        <a href="javascript:void(0)" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#lock"><i class="bi bi-lock-fill"></i> Susah</a>
                         {{-- @endif --}}
                     </div>
                 </div>
                 <br>
                 <div class="row">
                     <div class="d-grid mx-auto">
-                        <button id="pemrograman" class="btn btn-primary block disabled"><i class="bi bi-lock-fill"></i> Pemrograman</button>
+                        {{-- <button id="pemrograman" class="btn btn-primary block disabled"><i class="bi bi-lock-fill"></i> Pemrograman</button> --}}
+                        <a href="javascript:void(0)" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#lock"><i class="bi bi-lock-fill"></i> Pemrograman</a>
                     </div>
                 </div>
             </div>

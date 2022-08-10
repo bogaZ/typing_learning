@@ -38,6 +38,6 @@
 <div>
 </div>
 <script>
-    document.getElementById("bahasa").classList.add("aktif-link");
+    document.getElementById("charactertext").classList.add("aktif-link");
 </script>
 @endsection

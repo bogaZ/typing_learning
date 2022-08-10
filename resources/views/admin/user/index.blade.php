@@ -46,7 +46,6 @@
                     <th>id</th>
                     <th>Email</th>
                     <th>Role</th>
-                    <th>Aktivitas</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -71,7 +70,6 @@
                             
                         @endif
                     </td>
-                    <td>1 menit lalu</td>
                     {{-- <td><button class="btn btn-secondary"><i class="bi bi-pencil-square"></i></button></td> --}}
                     <td>
                         <div class="btn-group">

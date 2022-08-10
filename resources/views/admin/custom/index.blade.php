@@ -23,7 +23,7 @@
 <div class="m-4">
     <div class="d-flex justify-content-between">
         <div>
-            <a href="{{route('character.index')}}" class="btn btn-primary shadow">Tingkat Kesulitan Mengetik</a>
+            {{-- <a href="{{route('character.index')}}" class="btn btn-primary shadow">Tingkat Kesulitan Mengetik</a> --}}
             <a href="{{route('level.index')}}" class="btn btn-primary shadow">Level</a>
         </div>
         <a href="{{route('custom.create')}}" class="btn btn-success shadow">Tambah Karakter</a>
@@ -44,10 +44,10 @@
                 <tr>
                     <th>No</th>
                     <th>Nama Pembuat</th>
-                    <th>Nama Teks</th>
+                    <th>Judul Teks</th>
                     <th>Teks</th>
                     <th>Bahasa</th>
-                    <th>Tipe Teks</th>
+                    <th>Tingkat Kesulitan</th>
                     <th>Action</th>
                 </tr>
             </thead>

@@ -22,7 +22,7 @@
 <div class="m-4">
     <div class="d-flex justify-content-between">
         <div>            
-            <a href="{{route('character.index')}}" class="btn btn-primary shadow">Tingkat Kesulitan Karakter</a>
+            {{-- <a href="{{route('character.index')}}" class="btn btn-primary shadow">Tingkat Kesulitan Karakter</a> --}}
             <a href="{{route('custom.index')}}" class="btn btn-primary shadow">Karakter</a>
         </div>
         <a href="{{route('level.create')}}" class="btn btn-success shadow">Tambah Level</a>
@@ -97,6 +97,6 @@
 <div class="d-flex justify-content-between m-4">
 </div>
 <script>
-    document.getElementById("bahasa").classList.add("aktif-link");
+    document.getElementById("charactertext").classList.add("aktif-link");
 </script>
 @endsection

@@ -33,7 +33,7 @@
                 </div>
                 <div>
                     #<label for="" id="karakter-id">#</label>
-                    tingkat kesulitan:<label for="" id="karakter-level">mudah</label>
+                    tingkat kesulitan:<label for="" id="karakter-level">normal</label>
                 </div>
             </div>
             <div class="card shadow border-none">

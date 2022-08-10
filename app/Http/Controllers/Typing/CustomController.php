@@ -76,6 +76,18 @@ class CustomController extends Controller
     public function store(Request $request)
     {
         //
+        // karakter
+        // nama
+        // typecharacter
+        // bahasa
+        $this->validate($request, [
+            'karakter'=> 'required',
+            'nama'=> 'required',
+            'typecharacter'=> 'required',
+            'bahasa'=> 'required',
+        ]);
+
+
         $userid = Auth::user()->id;
         $role_id = DB::table('model_has_roles')->where('model_id', $userid)->value('role_id');
         $karakter = new karakter;

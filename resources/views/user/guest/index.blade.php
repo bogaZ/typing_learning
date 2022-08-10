@@ -1,7 +1,7 @@
 <div class="container py-5">
-    <div class="text-danger text-center">
+    {{-- <div class="text-danger text-center">
         daftar akun <a href="{{route('register')}}" class="text-decoration-none">disini</a>, untuk membuka fitur lain
-    </div>
+    </div> --}}
     <div class="row" id="content">
         <div class="col-md-12 menu">
             <div class="shadow p-3 mb-5 rounded border-none bg-white">
@@ -18,21 +18,22 @@
                             <br>
                             <div class="row">
                                 <div class="d-grid mx-auto">
-                                    <a href="" class="btn btn-primary fw-bold disabled"><i class="bi bi-lock-fill"></i> Custom</a>
+                                    <a href="javascript:void(0)" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#lock"><i class="bi bi-lock-fill"></i> Custom</a>
                                 </div>
                             </div>
-                            <br>
+                            {{-- <br>
                             <div class="row">
                                 <div class="d-grid mx-auto">
                                     <a href="" class="btn btn-primary fw-bold disabled"><i class="bi bi-lock-fill"></i> Statistik</a>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         @include('user.guest.menu')
+        @include('user.guest.lock')
     </div>
 </div>
 @include('edit')

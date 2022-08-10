@@ -208,6 +208,7 @@
         }
         });
     </script> --}}
+    @include('user.pengaturan.profil')
     @include('user.statistik.show')
     @include('layouts.bottom')
 </body>
