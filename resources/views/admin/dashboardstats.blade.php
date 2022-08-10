@@ -43,7 +43,7 @@
             backgroundColor: "blue",
             borderColor: "#dad9ff"
         },{
-            label: "Easy Text",
+            label: "Mudah Teks",
             fill: false,
             lineTension: 0,
             backgroundColor: "rgba(0,0,255,1.0)",
@@ -53,7 +53,7 @@
             backgroundColor: "green",
             borderColor: "#97ffbb"
         },{
-            label: "Normal Text",
+            label: "Normal Teks",
             fill: false,
             lineTension: 0,
             backgroundColor: "rgba(0,0,255,1.0)",
@@ -63,7 +63,7 @@
             pointBackgroundColor: "orange",
             backgroundColor: "orange"
         },{
-            label: "Hard Text",
+            label: "Susah Teks",
             fill: false,
             lineTension: 0,
             backgroundColor: "rgba(0,0,255,1.0)",
@@ -136,7 +136,7 @@
             plugins: {
                 title: {
                     display: true,
-                    text: 'Character Stats',
+                    text: 'Statistik Karakter',
                 }
             },
         }

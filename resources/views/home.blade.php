@@ -127,7 +127,7 @@
                 <thead>
                     <tr>
                         <th>Tingkat Kesulitan</th>
-                        <th>Scrore Tertinggi</th>
+                        <th>Skor Tertinggi</th>
                         <th>Total Dimainkan</th>
                     </tr>
                 </thead>
@@ -152,7 +152,7 @@
     <div class="col-lg-3 p-0 mb-3">
         <canvas id="pie" style="height: 100%; max-height: 400px" class="p-3 bg-white rounded border-none shadow"></canvas>
         <div class="bg-white p-3 rounded border-none shadow my-3">
-            <h6 class="text-center fw-bold">percentace</h6>
+            <h6 class="text-center fw-bold">persentasi</h6>
             <p class="m-0">custom: {{round($karakter->where('bahasa_id', 1)->count() * 100 / $karakter->count(),2)}}%</p>
             <p class="m-0">indonesia: {{round($karakter->where('bahasa_id', 2)->count() * 100 / $karakter->count(),2)}}%</p>
             <p class="m-0">inggris: {{round($karakter->where('bahasa_id', 3)->count() * 100 / $karakter->count(),2)}}%</p>
