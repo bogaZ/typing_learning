@@ -10,18 +10,26 @@
         <div class="modal-body">
             <div class="p-3">
                 <h5 class="fw-bold text-center">Navigasi</h5>
+                <div class="row justify-content-center">
+                    <img src="{{asset('help/navigasi.JPG')}}" style="width: 50%" alt="" class="">
+                </div>
                 <h6 class="fw-bold">Menu Pilihan</h6>
                 <div class="mb-3">
                     <p class="m-0">1. Tombol Profil : Kamu menuju ke halaman profil</p>
                     <p class="m-0">2. Tombol Statistik : Kamu menuju ke halaman statistik</p>
-                    <p class="m-0">3. Tombol Pengaturan : Kamu menuju ke halaman pengaturan</p>
-                    <p class="m-0">4. Tombol Keluar : Kamu keluar dari akun yang kamu akses saat ini</p>
+                    <p class="m-0">3. Tombol Keluar : Kamu keluar dari akun yang kamu akses saat ini</p>
                 </div>
                 <h5 class="fw-bold text-center">Memilih Menu Konten</h5>
+                <div class="row justify-content-center">
+                    <img src="{{asset('help/menuutama.JPG')}}" style="width: 100%" alt="" class="border">
+                </div>
                 <h6 class="fw-bold">Menu Utama</h6>
                 <div class="mb-3">
                     <p class="m-0">1. Tombol Play : Kamu menuju ke menu tingkat kesulitan</p>
                     <p class="m-0">2. Tombol Custom : Kamu menuju ke menu custom</p>
+                </div>
+                <div class="row justify-content-center">
+                    <img src="{{asset('help/menukesulitan.JPG')}}" style="width: 100%" alt="" class="border">
                 </div>
                 <h6 class="fw-bold">Menu Kesulitan</h6>
                 <div class="mb-3">
@@ -30,12 +38,18 @@
                     <p class="m-0">3. Tombol Susah : Kamu akan mengetik pada tingkat kesulitan susah</p>
                     <p class="m-0">4. Tombol Pemrograman : Kamu akan mengetik pada tingkat kesulitan pemrograman</p>
                 </div>
+                <div class="row justify-content-center">
+                    <img src="{{asset('help/menucustom.JPG')}}" style="width: 100%" alt="" class="border">
+                </div>
                 <h6 class="fw-bold">Menu Custom</h6>
                 <div class="mb-3">
                     <p class="m-0">1. Tombol Tambah Karakter : Kamu akan diarahkan ke menu membuat karakter</p>
                     <p class="m-0">2. Tombol Play : Kamu akan memulai mengetik sesuai karakter yang kamu pilih</p>
                     <p class="m-0">3. Tombol Ubah : Kamu akan mengubah karakter yang kamu pilih</p>
                     <p class="m-0">4. Tombol Hapus : Kamu akan menghapus karakter yang kamu pilih</p>
+                </div>
+                <div class="row justify-content-center">
+                    <img src="{{asset('help/menupemrograman.JPG')}}" style="width: 100%" alt="" class="border">
                 </div>
                 <h6 class="fw-bold">Menu Pemrograman</h6>
                 <div class="mb-3">
@@ -44,7 +58,10 @@
                     @endforeach
                 </div>
                 <h5 class="fw-bold text-center">Membuka Fitur Terkunci</h5>
-                <h6 class="fw-bold">Syarat</h6>
+                <div class="row justify-content-center">
+                    <img src="{{asset('help/lock.JPG')}}" style="width: 100%" alt="" class="border">
+                </div>
+                <h6 class="fw-bold">Cara Membuka</h6>
                 <div class="mb-3">
                     @foreach($alllevel as $level)
                     @if($level->level == 3)
@@ -60,6 +77,9 @@
                     {{-- <p class="m-0">2. Membuka Tombol Susah : Kamu harus mencapai level 3 atau mendapatkan minimal score 60 kpm dari tingkat kesulitan normal</p> --}}
                 </div>
                 <h5 class="fw-bold text-center">Mengetik Karakter</h5>
+                <div class="row justify-content-center">
+                    <img src="{{asset('help/bermain.JPG')}}" style="width: 100%" alt="" class="border">
+                </div>
                 <h6 class="fw-bold">Cara Bermain</h6>
                 <div class="mb-3">
                     <p class="m-0">Pengguna cukup menekan tombol sesuai karakter yang ditampilkan pada web. Jika sesuai, maka warna pada huruf akan berubah menjadi warna hijau. Jika tidak sesuai, maka warna pada huruf akan berubah menjadi warna merah</p>
