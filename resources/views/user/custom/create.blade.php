@@ -6,7 +6,7 @@
 <div class="container">
     <form action="{{route('custom.store')}}" method="POST">
         @csrf
-        <div class="col-md-12">
+        <div class="col-md-12 p-5">
             <div class="shadow p-3 mb-5 rounded border border-dark bg-white">
                 <div class="card-body">
                     <div class="my-5 mx-5">
@@ -44,7 +44,6 @@
     </form>
 </div>
 <script>
-    $('body').addClass('bg-play');
     var index = '{{route('custom.index')}}';
     $(document).ready(function(){
         $('#kembali').click(function () {

@@ -13,7 +13,7 @@
                     <div class="my-5 mx-5">
                         <div class="row">
                             <div class="col-md-12">
-                                <h6 class="fw-bold text-center">Membuat Karakter</h6>
+                                <h6 class="fw-bold text-center">Mengubah Karakter</h6>
                             </div>
                             <div class="my-3 mx-1 d-flex justify-content-between">
                                 <a href="{{route('custom.index')}}" class="text-decoration-none fw-bold">Kembali</a>

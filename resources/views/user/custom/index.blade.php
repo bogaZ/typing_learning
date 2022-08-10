@@ -11,7 +11,8 @@
             {{ session('sukses') }}
         </div>
     @endif
-    <div class="d-flex mb-3 flex-row-reverse">
+    <div class="d-flex mb-3 justify-content-between">
+        <a href="{{route('home')}}" class="text-decoration-none fw-bold">kembali</a>
         <a href="{{route('custom.create')}}" class="btn btn-success">Tambah Karakter</a>
     </div>
     <table id="example1" class="display my-3 border rounded rounded-3 border-dark" style="width:100%">
@@ -20,8 +21,8 @@
                 <th>No</th>
                 <th>Nama</th>
                 <th>Karakter</th>
-                <th>Date</th>
-                <th>Action</th>
+                <th>Waktu Membuat</th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody class="gradienbiru2 text-dark">
@@ -30,7 +31,7 @@
                 <td>{{++$i}}.</td>
                 <td>{{$data->nama}}</td>
                 <td class="limittext">{{$data->karakter}}</td>
-                <td>{{$data->updated_at->diffForHumans()}}</td>
+                <td>{{$data->updated_at}}</td>
                 <td class="d-flex justify-content-between">
                     <a class="btn btn-success" href="{{route('custom.show', $data->id)}}" class="dropdown-item"><i class="bi bi-play-fill"></i> Play</a>
                     <a class="btn btn-primary" href="{{route('custom.edit', $data->id)}}" class="dropdown-item"><i class="bi bi-pencil-square"></i> Ubah</a>

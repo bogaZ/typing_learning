@@ -20,6 +20,7 @@
     </div>
     <div class="container">
         <h3 class="fw-bold text-center m-5">Menu statistik</h3>
+        <a href="{{route('home')}}" class="text-decoration-none fw-bold">kembali</a>
         <div class="row p-3">
             <div class="card p-3 shadow border-none mb-3 col-lg-8">
                 <div class="d-flex justify-content-center">
@@ -76,7 +77,7 @@
             <div class="col-1"></div>
         </div>
         <div class="card p-5 shadow border-none my-3">
-            <div class="text-center fw-bold">Riwayat Bermain</div>
+            <div class="text-center fw-bold h5">Riwayat Bermain</div>
             <table id="example1" class="display my-3 border rounded rounded-3 border-dark" style="width:100%">
                 <thead class="gradienbiru text-white">
                     <tr>

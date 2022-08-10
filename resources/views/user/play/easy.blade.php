@@ -33,7 +33,10 @@
                 </div>
                 <div>
                     @role('user')
-                    Level <label for="" id="karakter-id">#</label>
+                    {{-- Level @foreach($alllevel as $level)
+                        @endforeach --}}
+                    Level {{$alllevel}}
+                    <label for="" id="karakter-id" hidden>#</label>
                     @endrole
                     @guest
                     <label for="" class="fw-bold">Guest</label>
@@ -82,7 +85,6 @@
     </div>
     @role('user')
     <script type="text/JavaScript">
-        let data = {!! json_encode($statistik) !!};
         var co = {!! json_encode($kata) !!};
 
         const typingText = document.querySelector(".typing-text p"),

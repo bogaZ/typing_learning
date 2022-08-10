@@ -8,7 +8,7 @@
         </div>
         <hr class="m-0">
         <div class="modal-body">
-            <div class="p-3">
+            <div class="p-5">
                 <h5 class="fw-bold text-center">Navigasi</h5>
                 <div class="row justify-content-center">
                     <img src="{{asset('help/navigasi.JPG')}}" style="width: 50%" alt="" class="">
@@ -67,9 +67,9 @@
                     @if($level->level == 3)
                     @foreach($type as $i => $alltype)
                     @if($alltype->name == 'normal')
-                    <p class="m-0">1. Membuka Tombol Normal : Kamu harus mencapai level 3 atau mendapatkan minimal score {{$level->score}} kpm dari tingkat kesulitan mudah</p>
+                    <p class="m-0">1. Membuka Tombol Normal : Mainkan tingkat kesulitan mudah hingga mendapatkan skor {{$level->score}} kpm untuk membuka tombol normal</p>
                     @elseif($alltype->name == 'susah')
-                    <p class="m-0">2. Membuka Tombol Susah : Kamu harus mencapai level 3 atau mendapatkan minimal score {{$level->score}} kpm dari tingkat kesulitan normal</p>
+                    <p class="m-0">2. Membuka Tombol Susah : Mainkan tingkat kesulitan normal hingga mendapatkan skor {{$level->score}} kpm untuk membuka tombol susah</p>
                     @endif
                     @endforeach
                     @endif

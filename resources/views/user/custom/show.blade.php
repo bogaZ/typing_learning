@@ -15,7 +15,7 @@
                     {{-- <a href="javascript:history.back()" class="text-decoration-none text-dark fw-bold">kembali</a> --}}
                 </div>
                 <div>
-                    #<label for="" id="karakter-id">#</label>
+                    <label for="" id="karakter-id" hidden>#</label>
                     tingkat kesulitan:<label for="" id="karakter-level">custom</label>
                 </div>
             </div>
@@ -27,24 +27,28 @@
                         <div class="typing-text">
                             <p></p>
                         </div>
-                        <div class="content d-flex">
-                            <ul class="result-details m-0 d-flex align-items-center p-0">
+                        <div class="content row">
+                            <ul class="result-details m-0 mb-3 d-flex align-items-center p-0 col-12">
                                 <li class="time">
-                                    <p class="m-0">Time:</p>
+                                    <p class="m-0">Waktu:</p>
                                     <span><b>0</b>s</span>
                                 </li>
                                 <li class="mistake">
-                                    <p class="m-0">Miss:</p>
-                                    <span>0</span>
-                                </li>
-                                <li class="wpm">
-                                    <p class="m-0">Words:</p>
+                                    <p class="m-0">Salah:</p>
                                     <span>0</span>
                                 </li>
                                 <li class="cpm">
-                                    <p class="m-0">Correct:</p>
+                                    <p class="m-0">Benar:</p>
                                     <span>0</span>
                                 </li>
+                                <li class="wpm">
+                                    <p class="m-0">Skor:</p>
+                                    <span>0</span>kpm
+                                </li>
+                                {{-- <li class="percentase">
+                                    <p class="m-0">Akurasi:</p>
+                                    <span>0</span>%
+                                </li> --}}
                             </ul>
                             <button id="resettext" class="btn btn-dark">Reset Karakter</button>
                         </div>
@@ -54,6 +58,8 @@
         </div>
     </div>
     @role('user')
+    @include('user.pengaturan.profil')
+    @include('layouts.bottom')
     <script type="text/JavaScript">
         let data = {!! json_encode($statistik) !!};
         var co = {!! json_encode($kata) !!};

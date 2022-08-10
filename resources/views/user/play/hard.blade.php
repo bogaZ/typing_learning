@@ -32,7 +32,16 @@
                     {{-- <a href="javascript:history.back()" class="text-decoration-none text-dark fw-bold">kembali</a> --}}
                 </div>
                 <div>
-                    #<label for="" id="karakter-id">#</label>
+                    @role('user')
+                    {{-- Level @foreach($alllevel as $level)
+                        @endforeach --}}
+                    Level {{$alllevel}}
+                    <label for="" id="karakter-id" hidden>#</label>
+                    @endrole
+                    @guest
+                    <label for="" class="fw-bold">Guest</label>
+                    <label hidden for="" id="karakter-id"></label>
+                    @endguest
                     tingkat kesulitan:<label for="" id="karakter-level">susah</label>
                 </div>
             </div>
@@ -76,7 +85,6 @@
     </div>
     @role('user')
     <script type="text/JavaScript">
-        let data = {!! json_encode($statistik) !!};
         var co = {!! json_encode($kata) !!};
 
         const typingText = document.querySelector(".typing-text p"),
