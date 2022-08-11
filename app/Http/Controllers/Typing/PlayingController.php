@@ -22,6 +22,7 @@ class PlayingController extends Controller
         // }
         if(Auth::guest()){
             // return view('home');
+            // return view('user.play.easy', compact('kata', 'uid', 'bahasaindonesia', 'bahasainggris', 'allbahasa'));
         }elseif (Auth::user()->email_verified_at == null) {
             return redirect()->route('verification.notice');
         }
@@ -29,11 +30,12 @@ class PlayingController extends Controller
         $allbahasa = Bahasa::where('id', '!=', 1)->get();
         $bahasaindonesia = 2;
         $bahasainggris = 3;
-        $statistik = Statistik::where(['user_id' => Auth::user()->id, 'kesulitan' => 'mudah'])->max('speed_typing');
         if(Auth::guest()){
+            $statistik = Statistik::all();
             $kata = karakter::where(['type_id' => 2])->get();
-            return view('user.play.easy', compact('kata', 'uid', 'bahasaindonesia', 'bahasainggris', 'allbahasa'));
+            return view('user.play.easy', compact('kata', 'statistik', 'uid', 'bahasaindonesia', 'bahasainggris', 'allbahasa'));
         }
+        $statistik = Statistik::where(['user_id' => Auth::user()->id, 'kesulitan' => 'mudah'])->max('speed_typing');
         $username = $uid->name;
 
         if($statistik == null | $statistik == 0){
