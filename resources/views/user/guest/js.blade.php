@@ -90,13 +90,18 @@
 
         
             let wpm = Math.round((((charIndex - mistakes) / 5) / (maxTime - timeLeft)) * 60);
-            // let tesss = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
-            let cpmresult = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
-            cpmresult = cpmresult < 0 || cpmresult === Infinity ? 0 : cpmresult;
-            // console.log(cpmresult);
-            mistageTag.innerHTML = mistakes;
-            wpmTag.innerText = cpmresult;
-            cpmTag.innerText = charIndex - mistakes;
+                // let cpmresult = Math.round((((charIndex - mistakes) / characters.length) * 1000) / timeLeft);
+                cpmTag.innerText = charIndex - mistakes;
+                let cpmresult = Math.round(cpmTag.innerText * (60 / timeTag.innerText));
+                cpmresult = cpmresult < 0 || cpmresult === Infinity ? 0 : cpmresult;
+                
+                // akurasiTyping = ((charIndex - mistakes) * 100) / characters.length;
+                // akurasiTyping = akurasiTyping.toFixed(2);
+                // akurasiTag.innerText = akurasiTyping;
+
+                mistageTag.innerHTML = mistakes;
+                wpmTag.innerText = cpmresult;
+                console.log("benar mengetik"+ (charIndex-mistakes));
         } else {
             if(charIndex == characters.length -1){
                 if(characters[charIndex].innerText === typeChar){
