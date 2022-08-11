@@ -19,7 +19,7 @@
                     {{-- <a href="javascript:history.back()" class="text-decoration-none text-dark fw-bold">kembali</a> --}}
                 </div>
                 <div>
-                    #<label for="" id="karakter-id">#</label>
+                    <label for="" id="karakter-id" hidden>#</label>
                     tingkat kesulitan:<label for="" id="karakter-level">pemrograman {{$nama}}</label>
                 </div>
             </div>

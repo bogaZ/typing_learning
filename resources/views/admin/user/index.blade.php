@@ -54,7 +54,7 @@
                 <tr>
                     <td>{{++$i}}.</td>
                     <td>
-                        <a href="{{route('user.show', $data->id)}}" class="text-decoration-none text-primary">
+                        <a class="text-decoration-none text-dark">
                             {{$data->name}}
                         </a>
                     </td>
