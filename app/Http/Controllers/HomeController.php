@@ -49,6 +49,8 @@ class HomeController extends Controller
         $username = $user->name;
         $uid = $user->id;
         $statistik = Statistik::where('user_id', $uid);
+        $mudahstatistik = Statistik::where('user_id', $uid)->where('kesulitan', 'mudah')->max('speed_typing');
+        $normalstatistik = Statistik::where('user_id', $uid)->where('kesulitan', 'normal')->max('speed_typing');
         // return json_encode($statistik);
 
         $jumlahuser = User::all()->count();
@@ -133,6 +135,6 @@ class HomeController extends Controller
         $mudahScore = Statistik::where('kesulitan', 'mudah')->max('speed_typing');
         $normalScore = Statistik::where('kesulitan', 'normal')->max('speed_typing');
         $level3 = Level::where('level', 3)->value('score');
-        return view('home', compact('username', 'mudahScore', 'normalScore', 'level3', 'alllevel', 'datapemrograman', 'jumlahnotif', 'allbahasa', 'user', 'statistik', 'type', 'jumlahuser', 'jumlahmengetik', 'karakter', 'month', 'users', 'userArreasy', 'scoreStats'));
+        return view('home', compact('username', 'mudahstatistik', 'normalstatistik', 'mudahScore', 'normalScore', 'level3', 'alllevel', 'datapemrograman', 'jumlahnotif', 'allbahasa', 'user', 'statistik', 'type', 'jumlahuser', 'jumlahmengetik', 'karakter', 'month', 'users', 'userArreasy', 'scoreStats'));
     }
 }
