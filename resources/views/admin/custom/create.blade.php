@@ -98,8 +98,8 @@
                     <div class="col-md-12 d-grid">
                         <select name="bahasa" id="selectbahasa" class="form-control @error('bahasa') is-invalid @enderror" disabled>
                             {{-- <option value="" id="" hidden selected disabled class="">Pilih Bahasa</option> --}}
-                            @foreach($allbahasa as $bahasa)
-                                <option value="{{$bahasa->id}}" class="pilihbahasa">{{$bahasa->bahasa}}</option>
+                            @foreach($allbahasa as $row => $bahasa)
+                                <option value="{{$bahasa->id}}" id="bahasa{{++$row}}" class="pilihbahasa">{{$bahasa->bahasa}}</option>
                             @endforeach
                         </select>
                         @error('bahasa')
@@ -143,16 +143,27 @@
         var allbahasa = {!! json_encode($allbahasa) !!};
         var allbahasacount = {!! json_encode($allbahasa->count()) !!};
 
+        // console.log(allbahasa.length);
         function chainSelect(current, target, bahasatarget){
             var value1 = $(current).on('change', function(){
                 if($(this).find(':selected').val() != ''){
                     $(bahasatarget).removeAttr('disabled');
                     var value = $(this).find(':selected').text();
+                    // $("#bahasa" + 1 + "").hide();
                     
                     if(value == 'pemrograman'){
                         $(target).removeAttr('disabled');
+                        for (let i = 2; i <= allbahasa.length; i++) {
+                            $("#bahasa" + i + "").hide();
+                        }
+                        // $("#bahasa" + 1 + "").show();
+                        $('#selectbahasa option[value=1]').attr('selected','selected');
                     }else{
                         $(target).attr('disabled', 'disabled');
+                        for (let i = 2; i <= allbahasa.length; i++) {
+                            $("#bahasa" + i + "").show();
+                        }
+                        // $("#bahasa" + 1 + "").hide();
                     }
                 }else{
                     $(target).prop('disabled', 'disabled').val(null);
