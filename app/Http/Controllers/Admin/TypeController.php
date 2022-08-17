@@ -57,7 +57,7 @@ class TypeController extends Controller
         $typecharacter->name = $request->name;
         $typecharacter->save();
 
-        return redirect()->route('character.index')->with('sukses', 'type berhasil dibuat!');
+        return redirect()->route('character.index')->with('sukses', 'tingkat kesulitan berhasil dibuat!');
     }
 
     /**
@@ -102,10 +102,10 @@ class TypeController extends Controller
             abort(404);
         }
         $typecharacter = type::find($id);
-        $typecharacter->name = $request->name;
+        $typecharacter->score = $request->name;
         $typecharacter->save();
 
-        return redirect()->route('character.index')->with('sukses', 'type berhasil diubah!');
+        return redirect()->route('character.index')->with('sukses', 'tingkat kesulitan berhasil diubah!');
     }
 
     /**
@@ -123,6 +123,6 @@ class TypeController extends Controller
         $hapus = type::find($id);
         $hapus->delete();
 
-        return back()->with('sukses', 'Karakter berhasil dihapus');
+        return back()->with('sukses', 'tingkat kesulitan berhasil dihapus');
     }
 }

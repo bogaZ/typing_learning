@@ -7,8 +7,14 @@
             </div>
             <div class="modal-body text-center row">
                 <i class="bi bi-exclamation-circle" style="font-size: 50px"></i>
+                @if($normalstatistik == null)
+                <h6>Skor tertinggi saat ini: 0 Kpm</h6>
+                @else
+                <h6>Skor tertinggi saat ini: {{$normalstatistik}} Kpm</h6>
+                @endif
                 <h4 class="m-0 p-3">
-                    Level kesulitan normal kamu belum mencapai level 3 atau belum mencapai skor {{$level3}} kpm
+                    Skor tertinggi tingkat kesulitan normal kamu kurang dari {{$level3}} kpm
+                    {{-- Tingkat kesulitan normal kamu belum mencapai skor {{$level3}} kpm --}}
                 </h4>
             </div>
             <div class="m-3 d-flex justify-content-center">

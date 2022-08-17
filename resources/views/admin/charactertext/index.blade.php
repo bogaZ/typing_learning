@@ -23,9 +23,9 @@
     <div class="d-flex justify-content-between">
         <div>
             <a href="{{route('custom.index')}}" class="btn btn-primary shadow">Karakter</a>
-            <a href="{{route('level.index')}}" class="btn btn-primary shadow">Level</a>
+            {{-- <a href="{{route('level.index')}}" class="btn btn-primary shadow">Level</a> --}}
         </div>
-        <a href="{{route('character.create')}}" class="btn btn-success shadow">Tambah Tingkat Kesulitan</a>
+        {{-- <a href="{{route('character.create')}}" class="btn btn-success shadow">Tambah Tingkat Kesulitan</a> --}}
         {{-- <div>
             <a href="{{route('custom.create')}}" class="btn btn-success shadow">Tambah Character</a>
         </div> --}}
@@ -45,6 +45,7 @@
                     <th>No</th>
                     {{-- <th>Id</th> --}}
                     <th>Nama</th>
+                    <th>Skor</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -71,17 +72,26 @@
                     </td> --}}
                     {{-- <td>{{$data->id}}</td> --}}
                     <td>{{$data->name}}</td>
+                    <td>{{$data->score}}</td>
                     {{-- <td><button class="btn btn-secondary"><i class="bi bi-pencil-square"></i></button></td> --}}
                     <td>
                         <div class="btn-group">
+                            @if($data->name == 'normal' || $data->name == 'susah')
                             <button type="button" class="btn btn-secondary rounded" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                                 <i class="bi bi-pencil-square text-white"></i>
                             </button>
+                            @else
+                            <button type="button" class="btn btn-secondary rounded" disabled>
+                                <i class="bi bi-pencil-square text-white"></i>
+                            </button>
+                            @endif
                             <ul class="dropdown-menu dropdown-menu-lg-end">
-                                <li><a href="{{route('character.edit', $data->id)}}" class="dropdown-item">Ubah</a></li>
-                                <li>
+                                {{-- @if($data->name == 'normal' || $data->name == 'susah') --}}
+                                <li><a href="{{route('character.edit', $data->id)}}" class="dropdown-item">Ubah Skor</a></li>
+                                {{-- @endif --}}
+                                {{-- <li>
                                     <a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete{{$data->id}}">Hapus</a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
                     </td>
@@ -140,7 +150,7 @@
         })
     });
 </script> --}}
-<script>
-    document.getElementById("user").classList.add("aktif-link");
+<script type="text/JavaScript">
+    document.getElementById("charactertext").classList.add("aktif-link");
 </script>
 @endsection

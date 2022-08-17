@@ -27,8 +27,10 @@
             <form action="{{route('character.update', $data->id)}}" method="post">
                 @csrf
                 @method('PATCH')
-                <label for="characterinput">Nama Tingkat Kesulitan</label>
-                <input type="text" name="name" value="{{$data->name}}" id="characterinput" class="form-control mb-3">
+                {{-- <label for="characterinput">Nama Tingkat Kesulitan</label>
+                <input type="text" name="name" value="{{$data->name}}" id="characterinput" class="form-control mb-3"> --}}
+                <label for="characterinput">Skor Tingkat Kesulitan {{$data->name}}</label>
+                <input type="number" min="0" max="250" name="name" value="{{$data->score}}" id="characterinput" class="form-control mb-3">
                 <button type="submit" class="btn btn-primary col-md-12">Submit</button>
             </form>
         </div>
@@ -36,4 +38,7 @@
 </div>
 <div>
 </div>
+<script type="text/JavaScript">
+    document.getElementById("charactertext").classList.add("aktif-link");
+</script>
 @endsection

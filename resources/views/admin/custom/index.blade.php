@@ -23,8 +23,8 @@
 <div class="m-4">
     <div class="d-flex justify-content-between">
         <div>
-            {{-- <a href="{{route('character.index')}}" class="btn btn-primary shadow">Tingkat Kesulitan Mengetik</a> --}}
-            <a href="{{route('level.index')}}" class="btn btn-primary shadow">Level</a>
+            <a href="{{route('character.index')}}" class="btn btn-primary shadow">Tingkat Kesulitan Mengetik</a>
+            {{-- <a href="{{route('level.index')}}" class="btn btn-primary shadow">Level</a> --}}
         </div>
         <a href="{{route('custom.create')}}" class="btn btn-success shadow">Tambah Karakter</a>
         {{-- <div>
