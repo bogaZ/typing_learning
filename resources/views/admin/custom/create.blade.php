@@ -42,7 +42,9 @@
                         <div class="d-flex justify-content-between">
                             <label for="">Teks</label>
                             <div>
-                                <span name="jmlchars" id="jmlchars"></span> sisa karakter
+                                minimal 400 karakter
+                                <span name="jmlchars" id="jmlchars" hidden></span>
+                                {{-- sisa karakter --}}
                             </div>
                         </div>
                     </div>
@@ -139,6 +141,9 @@
             color:#aaa;
         }
     </style>
+    <script type="text/JavaScript">
+        document.getElementById("charactertext").classList.add("aktif-link");
+    </script>
     <script>
         var allbahasa = {!! json_encode($allbahasa) !!};
         var allbahasacount = {!! json_encode($allbahasa->count()) !!};
