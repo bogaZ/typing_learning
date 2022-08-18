@@ -80,21 +80,25 @@ class CustomController extends Controller
         // nama
         // typecharacter
         // bahasa
-        $this->validate($request, [
-            'karakter'=> 'required',
-            'nama'=> 'required',
-            'typecharacter'=> 'required',
-            'bahasa'=> 'required',
-        ]);
-
-
+        
         $userid = Auth::user()->id;
         $role_id = DB::table('model_has_roles')->where('model_id', $userid)->value('role_id');
+        if($role_id == 1){
+            $this->validate($request, [
+                'karakter'=> 'required',
+                'nama'=> 'required',
+                'typecharacter'=> 'required',
+                'bahasa'=> 'required',
+            ]);
+        }
+
+
         $karakter = new karakter;
         $karakter->user_id = Auth::User()->id;
 
         $karakter->karakter = $request->karakter;
         $karakter->nama = $request->nama;
+        // return json_encode($karakter);
 
         $log = new Activity;
         $log->user_id = $userid;
@@ -143,7 +147,7 @@ class CustomController extends Controller
         $log->activity = "show";
         $log->log = "user bermain karakter custom yang memiliki id ". $kata->id ;
         $log->save();
-        return view('user.custom.show', compact('karakter', 'kata', 'uid', 'statistik'));
+        return view('user.custom.show', compact('karakter', 'kata', 'id', 'uid', 'statistik'));
     }
 
     /**

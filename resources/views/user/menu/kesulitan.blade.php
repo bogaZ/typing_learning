@@ -28,7 +28,7 @@
                 <br>
                 <div class="row">
                     <div class="d-grid mx-auto">
-                        @if($mudahstatistik >= $level3)
+                        @if($mudahstatistik >= $mudahTarget)
                         <a id="normal" href="{{route('playnormal')}}" class="btn btn-primary block fw-bold">Normal</a>
                         @else
                         <a id="" class="btn btn-primary block fw-bold" type="button" data-bs-toggle="modal" data-bs-target="#normalalert"><i class="bi bi-lock-fill"></i> Normal</a>
@@ -38,7 +38,7 @@
                 <br>
                 <div class="row">
                     <div class="d-grid mx-auto">
-                        @if($normalstatistik >= $level3)
+                        @if($normalstatistik >= $normalTarget)
                         <a id="susah" href="{{route('playsusah')}}" class="btn btn-primary block fw-bold">Susah</a>
                         @else
                         {{-- {{$statistik->where('kesulitan', 'normal')->max('speed_typing')}} --}}

@@ -134,7 +134,10 @@ class HomeController extends Controller
         $alllevel = Level::get();
         $mudahScore = Statistik::where('kesulitan', 'mudah')->max('speed_typing');
         $normalScore = Statistik::where('kesulitan', 'normal')->max('speed_typing');
+        $mudahTarget = type::where('name', 'normal')->value('score');
+        $normalTarget = type::where('name', 'susah')->value('score');
+
         $level3 = Level::where('level', 3)->value('score');
-        return view('home', compact('username', 'mudahstatistik', 'normalstatistik', 'mudahScore', 'normalScore', 'level3', 'alllevel', 'datapemrograman', 'jumlahnotif', 'allbahasa', 'user', 'statistik', 'type', 'jumlahuser', 'jumlahmengetik', 'karakter', 'month', 'users', 'userArreasy', 'scoreStats'));
+        return view('home', compact('username', 'mudahTarget', 'normalTarget', 'mudahstatistik', 'normalstatistik', 'mudahScore', 'normalScore', 'level3', 'alllevel', 'datapemrograman', 'jumlahnotif', 'allbahasa', 'user', 'statistik', 'type', 'jumlahuser', 'jumlahmengetik', 'karakter', 'month', 'users', 'userArreasy', 'scoreStats'));
     }
 }

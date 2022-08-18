@@ -17,11 +17,13 @@
                             <div class="my-3 mx-1 d-flex justify-content-between">
                                 <a href="{{route('custom.index')}}" class="text-decoration-none fw-bold">Kembali</a>
                                 <div>
-                                    <span name="jmlchars" id="jmlchars"></span> sisa karakter
+                                    minimal 400 karakter
+                                    <span name="jmlchars" id="jmlchars" hidden></span>
+                                    {{-- sisa karakter --}}
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <textarea class="form-control" required maxlength="1000" id="jmltextarea" name="karakter" placeholder="ketik disini karakter....." style="overflow: hidden; resize: none; height: 150px"></textarea>
+                                <textarea class="form-control" minlength="400" required maxlength="1000" id="jmltextarea" name="karakter" placeholder="ketik disini karakter....." style="overflow: hidden; resize: none; height: 150px"></textarea>
                             </div>
                         </div>
                         <div class="row my-3">

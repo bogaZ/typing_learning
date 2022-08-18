@@ -16,7 +16,7 @@
                 </div>
                 <div>
                     <label for="" id="karakter-id" hidden>#</label>
-                    tingkat kesulitan:<label for="" id="karakter-level">custom</label>
+                    tingkat kesulitan:<label for="" id="karakter-level">custom id {{$id}}</label>
                 </div>
             </div>
             <div class="card shadow border-none">

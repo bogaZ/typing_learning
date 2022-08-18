@@ -20,6 +20,7 @@
             <tr>
                 <th>No</th>
                 <th>Nama</th>
+                <th>id</th>
                 <th>Karakter</th>
                 <th>Waktu Membuat</th>
                 <th>Aksi</th>
@@ -30,6 +31,7 @@
             <tr>
                 <td>{{++$i}}.</td>
                 <td>{{$data->nama}}</td>
+                <td>{{$data->id}}</td>
                 <td class="limittext">{{$data->karakter}}</td>
                 <td>{{$data->updated_at}}</td>
                 <td class="d-flex justify-content-between">
