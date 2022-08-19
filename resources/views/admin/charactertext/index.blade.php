@@ -45,7 +45,7 @@
                     <th>No</th>
                     {{-- <th>Id</th> --}}
                     <th>Nama</th>
-                    <th>Skor</th>
+                    <th>Skor Minimal</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -72,7 +72,7 @@
                     </td> --}}
                     {{-- <td>{{$data->id}}</td> --}}
                     <td>{{$data->name}}</td>
-                    <td>{{$data->score}}</td>
+                    <td>{{$data->score}} Kpm</td>
                     {{-- <td><button class="btn btn-secondary"><i class="bi bi-pencil-square"></i></button></td> --}}
                     <td>
                         <div class="btn-group">
