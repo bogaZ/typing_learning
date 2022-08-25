@@ -35,7 +35,7 @@
                     @role('user')
                     {{-- Level @foreach($alllevel as $level)
                         @endforeach --}}
-                    Level {{$alllevel}}
+                    {{-- Level {{$alllevel}} --}}
                     <label for="" id="karakter-id" hidden>#</label>
                     @endrole
                     @guest
