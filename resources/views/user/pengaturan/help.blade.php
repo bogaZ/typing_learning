@@ -57,11 +57,11 @@
                     <p class="m-0">{{++$i}}. Tombol {{$data->bahasa}} : Kamu akan memainkan bahasa pemrograman {{$data->bahasa}}</p>
                     @endforeach
                 </div>
-                <h5 class="fw-bold text-center">Membuka Fitur Terkunci</h5>
+                {{-- <h5 class="fw-bold text-center">Membuka Fitur Terkunci</h5>
                 <div class="row justify-content-center">
                     <img src="{{asset('help/lock.JPG')}}" style="width: 100%" alt="" class="border">
-                </div>
-                <h6 class="fw-bold">Cara Membuka</h6>
+                </div> --}}
+                {{-- <h6 class="fw-bold">Cara Membuka</h6>
                 <div class="mb-3">
                     @foreach($alllevel as $level)
                     @if($level->level == 3)
@@ -74,8 +74,8 @@
                     @endforeach
                     @endif
                     @endforeach
-                    {{-- <p class="m-0">2. Membuka Tombol Susah : Kamu harus mencapai level 3 atau mendapatkan minimal score 60 kpm dari tingkat kesulitan normal</p> --}}
-                </div>
+                    
+                </div> --}}
                 <h5 class="fw-bold text-center">Mengetik Karakter</h5>
                 <div class="row justify-content-center">
                     <img src="{{asset('help/bermain.JPG')}}" style="width: 100%" alt="" class="border">
@@ -91,13 +91,13 @@
                     <p class="m-0">3. Susah : Huruf yang ditampilkan mencangkup seluruhnya termasuk simbol</p>
                     <p class="m-0">4. Pemrograman : Huruf yang yang ditampilkan memiliki format bahasa pemrograman</p>
                 </div>
-                <h6 class="fw-bold">Level</h6>
+                {{-- <h6 class="fw-bold">Level</h6>
                 <div class="mb-3">
                     <p class="m-0">Level merupakan pencapaian yang kamu lakukan selama mengetik. Pencapaian ini berdasarkan nilai skor karakter per menit (Kpm).</p>
                     @foreach($alllevel as $i => $level)
                     <p class="m-0">{{++$i}}. Level {{$level->level}} : Pencapaian kamu saat ini ketika skor mengetiknya mencapai {{$level->score}} kpm</p>
                     @endforeach
-                </div>
+                </div> --}}
                 <h6 class="fw-bold">Skor mengetik</h6>
                 <div class="mb-3">
                     <p>Skor karakter pe menit (Kpm) diperoleh dari perhitungan seluruh karakter yang benar dengan waktu mengetik yang kamu selesaikan (detik)</p>
