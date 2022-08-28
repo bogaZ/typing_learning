@@ -5,7 +5,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <title>{{ config('app.name', 'Laravel') }}</title>
-
+<link rel="icon" href="{{asset('bagus/img/icontittle.png')}}" type="image/x-icon">
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -29,12 +29,19 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 
 {{-- codemirror --}}
-@role('pengguna')
+@role('user')
+{{-- css --}}
+{{-- <link rel="stylesheet" href="{{asset('bagus/play/style.css')}}"> --}}
+{{-- js --}}
 <link rel="stylesheet" href="{{ asset('codemirror/lib/codemirror.css')}}">
 <link rel="stylesheet" href="{{ asset('codemirror/theme/dracula.css')}}">
 <script src="{{ asset('codemirror/lib/codemirror.js') }}"></script>
 <script src="{{ asset('codemirror/mode/xml/xml.js')}}"></script>
+
+
+
 @endrole
+
 
 {{-- datatable js --}}
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" defer></script>
@@ -43,11 +50,15 @@
     $('#example1').DataTable();
   });
 </script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.js"></script>
 
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+{{-- <style>
+  .canvasjs-chart-credit{
+    display: none !important;
+  }
+</style> --}}
 @role('admin')
     <style>
 
@@ -83,10 +94,15 @@
 
         .aktif-link {
           border-right: solid 4px;
-          border-bottom: solid 1px;
+          /* border-bottom: solid 1px; */
           color: #3490dc;
-          border-color: #3490dc;
+          background-color: rgb(205, 223, 255)
+          /* border-color: #3490dc; */
         }
+        /* .icon-aktif{
+          color: #3490dc;
+        } */
+
         nav div a{
           color: grey;
           border-bottom: transparent 1px solid;
@@ -96,7 +112,6 @@
           height: 100%;
           width: 75px;
           position: fixed;
-          /* z-index: 1; */
           top: 0;
           left: 0;
           overflow-x: hidden;
@@ -107,10 +122,8 @@
         .sidebar a {
           padding: 8px 32px 8px 32px;
           text-decoration: none;
-          /* font-size: 18px; */
           display: block;
           transition: 0.7s;
-          /* color: grey; */
         }
         
         .sidebar a:hover {
@@ -157,9 +170,97 @@
           .sidebar {padding-top: 15px;}
           .sidebar a {font-size: 18px;}
         }
+
+        .limittext{
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 350px;
+          white-space: nowrap;
+        }
+
+        #example1_wrapper{
+          overflow: auto;
+        }
     </style>
-
-    {{-- chart --}}
-
-    
 @endrole
+
+@role('user')
+<style>
+  body{
+    background-image: url('{{asset('bagus/img/bg-image.png')}}');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  #example1_wrapper{
+    overflow: auto;
+  }
+</style>
+<style>
+  .limittext{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 350px;
+    white-space: nowrap;
+  }
+  
+  .gradienbiru2 {
+    font-family: "poppins", sans-serif;
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(230,230,255,1) 0%, rgba(233,237,255,1) 100%);
+  }
+
+  .gradienbiru {
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,108,255,1) 0%, rgba(148,174,255,1) 100%);
+  }
+</style>
+@endrole
+
+
+@auth
+@if(Route::has('playnormal'))
+<style>
+  .bg-play {
+    background: rgb(160 203 255);
+  }
+</style>
+<link rel="stylesheet" href="{{asset('bagus/beta/style.css')}}">
+  
+@endif
+@endauth
+
+@guest
+<style>
+  body{
+    background-image: url('{{asset('bagus/img/bg-image.png')}}');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+</style>
+
+<style>
+  .limittext{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 350px;
+    white-space: nowrap;
+  }
+  
+  .gradienbiru2 {
+    font-family: "poppins", sans-serif;
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(230,230,255,1) 0%, rgba(233,237,255,1) 100%);
+  }
+
+  .gradienbiru {
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,108,255,1) 0%, rgba(148,174,255,1) 100%);
+  }
+</style>
+<style>
+  .bg-play {
+    background: rgb(160 203 255);
+  }
+</style>
+<link rel="stylesheet" href="{{asset('bagus/beta/style.css')}}">
+@endguest

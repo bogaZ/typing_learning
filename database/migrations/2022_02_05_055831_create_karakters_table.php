@@ -16,6 +16,9 @@ class CreateKaraktersTable extends Migration
         Schema::create('karakters', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
+            $table->integer('type_id');
+            $table->integer('bahasa_id');
+            $table->integer('pemrograman_id')->nullable();
             $table->string('nama');
             $table->string('karakter', 1000);
             $table->timestamps();

@@ -24,7 +24,7 @@
 </script>
 
 
-@role('pengguna')
+@role('user')
 {{-- <script>
     var mengetikkata = CodeMirror.fromTextArea(
         document.getElementById('mengetikkata'),{
@@ -80,3 +80,6 @@
 
 <!-- Template Javascript -->
 <script src="{{asset('bagus/js/main.js')}}"></script>
+{{-- <script type="Text/JavaScript">
+    $('.canvasjs-chart-credit').remove();
+</script> --}}

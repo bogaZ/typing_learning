@@ -1,17 +1,18 @@
 @extends('layouts.master')
 
+@role('admin')
 @section('content')
 <div class="m-4">
-    <div class="d-flex">
+    <div class="d-flex align-items-center">
         <div class="col-md-4 p-0">
             <button class="btn openbtn btn-primary open shadow" id="bukanav" type="button">
                 <span id="icbukanav" class="fa fa-bars"></span>
             </button>
         </div>
-        <div class="d-flex align-items-center justify-content-center col-md-4 p-0 m-0">
+        <div class="text-center d-flex align-items-center justify-content-center col-md-4 p-0 m-0">
             <h3 class="m-0">User</h3>
         </div>
-        <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
+        <div class="text-center d-flex align-items-center flex-row-reverse col-md-4 p-0">
             <p class="m-0">
                 <a href="{{route('home')}}" class="text-decoration-none">Dashboard</a>
                 / User
@@ -20,12 +21,17 @@
     </div>
 </div>
 <div class="m-4">
-    <div class="d-flex flex-row-reverse">
+    <div class="d-flex justify-content-between">
+        <a href="{{route('role.index')}}" class="btn btn-primary shadow">Role</a>
         <a href="{{route('user.create')}}" class="btn btn-success shadow">Tambah</a>
     </div>
     @if(session()->get('sukses'))
         <div class="alert alert-success mt-4">
             {{session()->get('sukses')}}
+        </div>
+    @elseif(session()->get('gagal'))
+        <div class="alert alert-danger mt-4">
+            {{session()->get('gagal')}}
         </div>
     @endif
 </div>
@@ -36,11 +42,10 @@
             <thead class="gradienbiru text-white">
                 <tr>
                     <th>No</th>
-                    <th>Name</th>
+                    <th>Nama</th>
                     <th>id</th>
                     <th>Email</th>
                     <th>Role</th>
-                    <th>Aktivitas</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -49,7 +54,7 @@
                 <tr>
                     <td>{{++$i}}.</td>
                     <td>
-                        <a href="{{route('user.show', $data->id)}}" class="text-decoration-none text-primary">
+                        <a class="text-decoration-none text-dark">
                             {{$data->name}}
                         </a>
                     </td>
@@ -59,13 +64,12 @@
                         @if (!empty($data->getRoleNames()))
                             @foreach ($data->getRoleNames() as $role)
                             <div class="d-flex align-items-center">
-                                <label for="" class="m-0 badge badge-success">{{$role}}</label>                                
+                                <label for="" class="m-0 p-1 text-capitalize badge badge-success">{{$role}}</label>                                
                             </div>
                             @endforeach
                             
                         @endif
                     </td>
-                    <td>1 menit lalu</td>
                     {{-- <td><button class="btn btn-secondary"><i class="bi bi-pencil-square"></i></button></td> --}}
                     <td>
                         <div class="btn-group">
@@ -73,10 +77,12 @@
                                 <i class="bi bi-pencil-square text-white"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-lg-end">
-                                <li><a href="{{route('user.edit', $data->id)}}" class="dropdown-item">Ubah</a></li>
+                                <li><a href="{{route('user.edit', $data->id)}}" class="dropdown-item"><i class="bi bi-pencil-fill text-secondary"></i>&nbsp;Ubah</a></li>
+                                @if($data->admin != 'admin' && $data->id != 1)
                                 <li>
-                                    <a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete{{$data->id}}">Hapus</a>
+                                    <a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete{{$data->id}}"><i class="bi bi-x-square-fill text-danger"></i>&nbsp;Hapus</a>
                                 </li>
+                                @endif
                             </ul>
                         </div>
                     </td>
@@ -135,4 +141,8 @@
         })
     });
 </script> --}}
+<script>
+    document.getElementById("user").classList.add("aktif-link");
+</script>
 @endsection
+@endrole

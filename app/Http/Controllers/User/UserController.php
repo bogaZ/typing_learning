@@ -5,6 +5,9 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use App\karakter;
+use App\Activity;
+use App\Statistik;
 use Auth;
 use Spatie\Permission\Models\Role;
 use Hash;
@@ -20,6 +23,9 @@ class UserController extends Controller
     public function index()
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $alldata = User::all();
         $username = Auth::user()->name;
         return view('admin.user.index', compact('alldata', 'username'));
@@ -33,6 +39,9 @@ class UserController extends Controller
     public function create()
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $username = Auth::user()->name;
         $role = Role::all();
         return view('admin.user.create', compact('username', 'role'));
@@ -47,6 +56,9 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $user = new User();
         $user->name = $request->nama;
         $user->email =  $request->email;
@@ -77,6 +89,12 @@ class UserController extends Controller
     public function edit($id)
     {
         //
+        // if(Auth::user()->id != 1){
+
+        // }
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
         $username = Auth::user()->name;
         $user = User::find($id);
         $role = Role::all();
@@ -94,15 +112,32 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request, [
+            'nama'=> 'required',
+            'email'=> 'required|email|unique:users,email',
+            'password'=> 'required|same:passwordkonfirmasi',
+        ]);
+
         DB::table('model_has_roles')->where('model_id', $id)->delete();
         $user = User::find($id);
         $user->name = $request->nama;
         $user->email = $request->email;
-        $user->assignRole($request->role);
+        if(Auth::user()->id != 1){
+            $user->assignRole('User');
+            $user->password = Hash::make($request->password);
+            $user->update();
+    
+            return redirect()->route('home')->with('sukses', 'User '.$user->name.' berhasil diubah!');
+        }
+        if($id != 1){
+            $user->assignRole($request->role);
+        }else{
+            $user->assignRole('admin');
+        }
         $user->password = Hash::make($request->password);
         $user->update();
 
-        return redirect()->route('user.index')->with('sukses', 'User berhasil diubah!');
+        return redirect()->route('user.index')->with('sukses', 'User '.$user->name.' berhasil diubah!');
     }
 
     /**
@@ -114,9 +149,21 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
-        User::find($id)->delete();
-
-        return back()->with('sukses', 'User berhasil dihapus!');
-        // User::find($id)->delete;
+        if(Auth::user()->id != 1){
+            abort(404);
+        }
+        if(Auth::user()->id == 1){
+            if(Auth::user()->id == $id){
+                return back()->with('gagal', 'Anda tidak dapat menghapus admin!');
+            }
+            karakter::where('user_id', $id)->delete();
+            Activity::where('user_id', $id)->delete();
+            Statistik::where('user_id', $id)->delete();
+            return back()->with('sukses', 'User berhasil dihapus!');
+            User::find($id)->delete();
+    
+            // User::find($id)->delete;
+        }
+        return back()->with('gagal', 'Anda tidak mendapat hak akses menghapus user!');
     }
 }

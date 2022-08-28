@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center py-5">
         <div class="col-md-6">
             <div class="card border-dark">
                 <div class="card-body">
@@ -32,6 +32,22 @@
                                 <input id="email" type="email" placeholder="email" class="text-center form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group mx-5 justify-content-center">
+                            <div class="">
+                                <select name="bahasa" id="bahasa" class="text-center form-control">
+                                    <option selected hidden disabled>pilih bahasa mengetik</option>
+                                    <option value="2" class="text-center">Indonesia</option>
+                                    <option value="3" class="text-center">Inggris</option>
+                                </select>
+
+                                @error('bahasa')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

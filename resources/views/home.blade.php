@@ -1,95 +1,51 @@
 @extends('layouts.master')
 
 @section('content')
-@role('pengguna')
+@role('user')
     <div class="container">
         @if (session('sukses'))
             <div class="alert alert-success" role="alert">
                 {{ session('sukses') }}
             </div>
         @endif
-        {{-- user home --}}
-        {{-- <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="shadow p-3 mb-5 rounded border border-dark bg-white">
-                    <div class="card-body">
-                        <div class="my-5 mx-5" id="content">
-                            <h6 class="text-center fw-bold">Pilih Bahasa</h6>
-                            <br>
-                            <div class="row">
-                                <div class="d-grid mx-auto">
-                                    <button id="bahasaindonesia" class="btn btn-primary block fw-bold">bahasa indonesia</button>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="d-grid mx-auto">
-                                    <button id="bahasainggris" class="btn btn-primary block fw-bold">bahasa inggris</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-        {{-- user bahasa --}}
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="shadow p-3 mb-5 rounded border border-dark bg-white">
-                    <div class="card-body">
-                        <div class="my-5 mx-5" id="content">
-                            {{-- <div class="row">
-                                <div class="d-grid mx-auto">
-                                    <button id="kembali" class="btn btn-danger block">Kembali</button>
-                                </div>
-                            </div>
-                            <br> --}}
-                            <div class="" id="content">
-                                <h6 class="text-center fw-bold">Pilih</h6>
-                                <br>
-                                <div class="row">
-                                    <div class="d-grid mx-auto">
-                                        <button id="mulai" class="btn btn-primary block fw-bold">Mulai</button>
-                                    </div>
-                                    {{-- {{$kata}}
-                                    <br>
-                                    jumlah:
-                                    {{$jumlahkata}} --}}
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="d-grid mx-auto">
-                                        <button id="custom" class="btn btn-primary block fw-bold">Buat Karakter</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="d-grid col-md-6 justify-content-md-start">
-                                    <button id="setting" class="btn btn-secondary block"><i class="bi bi-gear-fill"></i></button>
-                                </div>
-                                <div class="d-grid col-md-6 justify-content-md-end">
-                                    <button id="reload" class="btn btn-secondary block"><i class="bi bi-arrow-clockwise"></i></button>
-                                </div>
-                            </div>
-                            <script>
-                                $(document).ready(function(){
-                                    $('#mulai').click(function () {
-                                        $('#content').load('/menuplay')
-                                    })
-                                    $('#custom').click(function () {
-                                        $('#content').load('/menucustom')
-                                    })
-                                })
-                            </script>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="row py-5" id="content">
+            @include('layouts.menu')
+            {{-- @include('user.menu.select') --}}
+            @include('user.menu.kesulitan')
+            @include('user.pemrograman.index')
         </div>
-        
+        <!-- Modal -->
+        @include('user.pengaturan.profil')
+        @include('user.pengaturan.bahasa')
+        @include('user.pengaturan.help')
+        @include('user.pengaturan.alertnormal')
+        @include('user.pengaturan.alertsusah')
     </div>
+    @include('edit')
+    <script type="text/javaScript">
+        $('.menu').removeClass('d-none');
+        
+        $(document).ready(function(){            
+            $('#mulai').click(function () {
+                $('.menu').addClass('d-none');
+                $('.kesulitan').removeClass('d-none');
+            })
+            $('.kembalimulai').click(function () {
+                $('.menu').removeClass('d-none');
+                $('.kesulitan').addClass('d-none');
+            })
+            $('#pemrograman').click(function () {
+                $('.kesulitan').addClass('d-none');
+                $('.pemrograman').removeClass('d-none');
+            })
+            $('#kembalipemrograman').click(function () {
+                $('.pemrograman').addClass('d-none');
+                $('.kesulitan').removeClass('d-none');
+            })
+        })
+    </script>
 @endrole
+
 {{-- end user home --}}
 
 {{-- admin home --}}
@@ -102,7 +58,7 @@
             </button>
         </div>
         <div class="d-flex align-items-center justify-content-center col-md-4 p-0 m-0">
-            <h3 class="m-0 fw-bold">Home</h3>
+            <h3 class="m-0 fw-bold">Dashboard</h3>
         </div>
         <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
             <p class="m-0">
@@ -112,140 +68,109 @@
         </div>
     </div>
 </div>
-<div class="d-flex justify-content-between mx-4">
-    <div class="p-0 shadow col-md-3 gradienbiru">
+<div class="row justify-content-between mx-4">
+    <div class="p-0 shadow col-lg-3 mb-3 gradienbiru">
         <div class="d-flex flex-column">
             <h6 class="text-center text-white fw-bold p-2 border-bottom m-0">User</h6>
             <div class="px-4 py-2 d-flex align-items-center justify-content-between">
                 <i class="bi bi-person text-white" style="font-size: 50px"></i>
-                <div class="d-flex">
+                <div class="d-flex justify-content-evenly">
                     <span class="h4 m-0 text-white">{{$jumlahuser}}</span>
                     <p class="text-white m-0">&nbsp;pendaftar</p>
                 </div>
             </div>
-            {{-- <a href="{{route('user.index')}}" class="btn btn-light mx-5 text-center" style="border-radius: 20px" type="button">View</a> --}}
+            
         </div>
         <a href="{{route('user.index')}}" class="bg-primary d-flex justify-content-center p-2 text-decoration-none text-white">view</a>
     </div>
-    <div class="p-0 shadow col-md-3 gradienbiru">
+    <div class="p-0 shadow col-lg-3 mb-3 gradienbiru">
         <div class="d-flex flex-column">
             <h6 class="text-center text-white fw-bold p-2 border-bottom m-0">Statistik</h6>
             <div class="px-4 py-2 d-flex align-items-center justify-content-between">
                 <i class="bi bi-graph-up text-white" style="font-size: 50px"></i>
                 <div class="d-flex">
-                    <span class="h4 m-0 text-white">{{$jumlahuser}}</span>
-                    <p class="text-white m-0">&nbsp;pengunjung</p>
+                    <span class="h4 m-0 text-white">{{$jumlahmengetik}}</span>
+                    <p class="text-white m-0">&nbsp;mengetik</p>
                 </div>
             </div>
-            {{-- <a href="{{route('user.index')}}" class="btn btn-light mx-5 text-center" style="border-radius: 20px" type="button">View</a> --}}
+            
         </div>
         <a href="{{route('user.index')}}" class="bg-primary d-flex justify-content-center p-2 text-decoration-none text-white">view</a>
     </div>
-    <div class="p-0 shadow col-md-3 gradienbiru">
+    <div class="p-0 shadow col-lg-3 mb-3 gradienbiru">
         <div class="d-flex flex-column">
-            <h6 class="text-center text-white fw-bold p-2 border-bottom m-0">Notification</h6>
+            <h6 class="text-center text-white fw-bold p-2 border-bottom m-0">Notifikasi</h6>
             <div class="px-4 py-2 d-flex align-items-center justify-content-between">
                 <i class="bi bi-bell text-white" style="font-size: 50px"></i>
                 <div class="d-flex">
-                    <span class="h4 m-0 text-white">{{$jumlahuser}}</span>
-                    <p class="text-white m-0">&nbsp;pendaftar</p>
+                    <span class="h4 m-0 text-white">{{$jumlahnotif}}</span>
+                    <p class="text-white m-0">&nbsp;pemberitahuan</p>
                 </div>
             </div>
-            {{-- <a href="{{route('user.index')}}" class="btn btn-light mx-5 text-center" style="border-radius: 20px" type="button">View</a> --}}
         </div>
-        <a href="{{route('user.index')}}" class="bg-primary d-flex justify-content-center p-2 text-decoration-none text-white">view</a>
+        <a href="{{route('notifikasi.index')}}" class="bg-primary d-flex justify-content-center p-2 text-decoration-none text-white">view</a>
     </div>
-    {{-- <div style="border-radius: 10px" class="shadow col-md-3 gradienbiru p-2">
-        <div>
-            <h6 class="text-center text-white fw-bold">Statistik</h6>
+</div>
+<div class="row justify-content-between mx-4">
+    <div class="col-lg-8 p-0 mb-3">
+        {{-- <div class="mb-3 p-0 m-0 col-md-12 border-none d-flex">
+            <select name="" id="" class="form-control col-md-3 me-2 border-none shadow">
+                <option value="">Hari</option>
+                <option value="">Minggu</option>
+                <option value="">Bulan</option>
+            </select>
+            <button type="button" class="col-md-2 btn btn-primary shadow">submit</button>
+        </div> --}}
+        <div class="bg-white p-5 rounded shadow mb-3">
+            <h4 class="fw-bold text-center">Statistik Hari Ini</h4>
+            <table id="" class="my-3 rounded rounded-3" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Tingkat Kesulitan</th>
+                        <th>Skor Tertinggi</th>
+                        <th>Total Dimainkan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($scoreStats as $item)    
+                    <tr>
+                        <td>{{$item['nama']}}</td>
+                        <td>{{$item['high_score']}}</td>
+                        <td>{{$item['jumlah_dimainkan']}}</td>
+                        {{-- <td>{{$item['nama']}}</td>
+                        <td>{{$item['nama']}}</td> --}}
+                        {{-- <td>n</td>
+                        <td>n</td>
+                        <td>n</td> --}}
+                    </tr>
+                    @endforeach
+
+                </tbody>
+            </table>
         </div>
     </div>
-    <div style="border-radius: 10px" class="shadow col-md-3 gradienbiru p-2">
-        <div>
-            <h6 class="text-center text-white fw-bold">Notification</h6>
+    <div class="col-lg-3 p-0 mb-3">
+        <canvas id="pie" style="height: 100%; max-height: 400px" class="p-3 bg-white rounded border-none shadow"></canvas>
+        <div class="bg-white p-3 rounded border-none shadow my-3">
+            <h6 class="text-center fw-bold">persentasi</h6>
+            <p class="m-0">custom: {{round($karakter->where('bahasa_id', 1)->count() * 100 / $karakter->count(),2)}}%</p>
+            <p class="m-0">indonesia: {{round($karakter->where('bahasa_id', 2)->count() * 100 / $karakter->count(),2)}}%</p>
+            <p class="m-0">inggris: {{round($karakter->where('bahasa_id', 3)->count() * 100 / $karakter->count(),2)}}%</p>
         </div>
-    </div> --}}
+        {{-- <p style="height: 100%" class="m-0 bg-light card p-3"></p> --}}
+    </div>
 </div>
-<div class="d-flex justify-content-between m-4">
-    <div class="col-md-8 p-0">p</div>
-    <div class="col-md-3 p-0">p</div>
-</div>
-{{-- script --}}
-{{-- <script>
-    $(document).ready(function () {
-        $('#bukanav').click(function () {
-            if($('#bukanav').hasClass('open')){
-                $('#bukanav').removeClass('open btn-primary');
-                $('#bukanav').addClass('btn-danger');
-                $('#icbukanav').removeClass('fa fa-bars');
-                $('#icbukanav').addClass('fa fa-times');
-                document.getElementById("mySidebar").style.width = "250px";
-                document.getElementById("main").style.marginLeft = "250px";
-            }else{
-                $('#bukanav').removeClass('btn-danger');
-                $('#bukanav').addClass('open btn-primary');
-                $('#icbukanav').removeClass('fa fa-times');
-                $('#icbukanav').addClass('fa fa-bars');
-                document.getElementById("mySidebar").style.width = "75px";
-                document.getElementById("main").style.marginLeft= "75px";
-            }
-        })
-    });
-</script> --}}
-
-{{-- chart --}}
-{{-- <script>
-    window.onload = function () {
-    
-    var dataPoints = [];
-    
-    var options = {
-        theme: "light2",
-        title: {
-            text: "Live Chart from JSON Data"
-        },
-        data: [{
-            type: "spline",
-            dataPoints: dataPoints
-        }]
-    };
-    
-    $("#chartContainer").CanvasJSChart(options);
-    updateData();
-    
-    // Initial Values
-    var xValue = 0;
-    var yValue = 10;
-    var newDataCount = 6;
-    
-    function addData(data) {
-        if (newDataCount != 1) {
-            $.each(data, function (key, value) {
-                dataPoints.push({ x: value[0], y: parseInt(value[1]) });
-                xValue++;
-                yValue = parseInt(value[1]);
-            });
-            newDataCount = 1;
-        } else {
-            //dataPoints.shift();
-            dataPoints.push({ x: data[0][0], y: parseInt(data[0][1]) });
-            xValue++;
-            yValue = parseInt(data[0][1]);
-        }
-        $("#chartContainer").CanvasJSChart().render();
-        setTimeout(updateData, 1500);
-    }
-    
-    function updateData() {
-        $.getJSON("https://canvasjs.com/services/data/datapoints.php?xstart=" + xValue + "&ystart=" + yValue + "&length=" + newDataCount + "type=json", addData);
-    }
-    
-    }
-</script> --}}
-
-<div id="chartContainer" style="height: 300px; width: 100%;"></div>
-<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+{{-- {{$users}} --}}
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.js"></script> --}}
+<script>
+    document.getElementById("dashboard").classList.add("aktif-link");
+</script>
+@include('admin.dashboardstats')
 @endrole
-{{-- end admin home --}}
+
+@guest
+    @include('user.guest.index')
+    {{-- @include('user.guest.js') --}}
+@endguest
+
 @endsection

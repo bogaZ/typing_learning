@@ -2,16 +2,16 @@
 
 @section('content')
 <div class="m-4">
-    <div class="d-flex">
+    <div class="d-flex align-items-center">
         <div class="col-md-4 p-0">
             <button class="btn openbtn btn-primary open shadow" id="bukanav" type="button">
                 <span id="icbukanav" class="fa fa-bars"></span>
             </button>
         </div>
-        <div class="d-flex align-items-center justify-content-center col-md-4 p-0 m-0">
+        <div class="d-flex text-center align-items-center justify-content-center col-md-4 p-0 m-0">
             <h3 class="m-0">Mengubah User</h3>
         </div>
-        <div class="d-flex align-items-center flex-row-reverse col-md-4 p-0">
+        <div class="d-flex text-center align-items-center flex-row-reverse col-md-4 p-0">
             <p class="m-0">
                 <a href="{{route('home')}}" class="text-decoration-none">Dashboard</a>
                 /
@@ -34,6 +34,9 @@
                 <input type="email" name="email" value="{{$user->email}}" class="form-control" placeholder="email" id="email">
                 <label for="role">Role</label>
                 {{-- <input type="role" name="role" id="role"> --}}
+                @if($user->id == 1 && $user->name == 'admin')
+                <span type="text" class="form-control" placeholder="admin" style="background-color: #e9ecef; cursor: default">admin</span>
+                @else
                 <select name="role" id="role" class="form-control">
                     <option value="" disabled selected hidden>pilih role</option>
                     @foreach($role as $roles)
@@ -43,6 +46,7 @@
                             @endif class="">{{$roles->name}}</option>
                     @endforeach
                 </select>
+                @endif
                 <label for="password">Password</label>
                 <input type="password" name="password" class="form-control" placeholder="password" id="password">
                 <label for="konfirmasi-password">Konfirmasi Password</label>
@@ -55,7 +59,7 @@
 <div class="d-flex justify-content-between m-4">
 </div>
 {{-- script --}}
-<script>
+{{-- <script>
     $(document).ready(function () {
         $('#bukanav').click(function () {
             // $('#dashboard').text('/menuplay')
@@ -76,5 +80,8 @@
             }
         })
     });
+</script> --}}
+<script>
+    document.getElementById("user").classList.add("aktif-link");
 </script>
 @endsection

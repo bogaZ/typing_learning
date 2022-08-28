@@ -1,22 +1,26 @@
 /*  */
-/* @import url('https://fonts.googleapis.com/css2?family'); */
+/* @import url('https://fonts.googleapis.com/css2?family');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-}
+} */
 
-body{
+/* .font-nunnis{
+    font-family: 'Nunito', sans-serif;
+} */
+
+/* body{
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
     background: aqua;
-}
+} */
 
 .wrapper{
-    width: 770px;
+    width: 100%;
     padding: 35px;
     background: #fff;
     border-radius: 10px;
@@ -47,6 +51,7 @@ body{
     text-align: justify;
     letter-spacing: 1px;
     word-break: break-all;
+    white-space: break-spaces;
 }
 
 .content-box .content {
@@ -145,7 +150,7 @@ body{
     }
 }
 
-.content button{
+/* .content button{
     border: none;
     outline: none;
     width: 105px;
@@ -160,7 +165,12 @@ body{
 
 .content button:active{
     transform: scale(0.97);
+} */
+
+.border-none{
+    border: none;
 }
+
 
 /* .content-box .content {
     display: flex;
