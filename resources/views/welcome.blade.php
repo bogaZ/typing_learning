@@ -292,7 +292,7 @@
                             <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
                                 <i class="fas fa-signal text-white"></i>
                             </div>
-                            <h4>Terdapat Level</h4>
+                            <h4>Terdapat Tingkat Kesulitan</h4>
                             <p class="mb-0">Level yang digunakan untuk menuju ke tahap tingkat kesulitan berikutnya</p>
                         </div>
                         <div class="col-12 wow zoomIn" data-wow-delay="0.6s">
