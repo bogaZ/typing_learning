@@ -5,7 +5,7 @@
 <div class="pt-3">
     <h3 class="text-center m-5 fw-bold">Menu Custom</h3>
 </div>
-<div class="container p-5 rounded bg-white shadow col-md-10">
+<div class="container p-5 mb-5 rounded bg-white shadow col-md-10">
     @if (session('sukses'))
         <div class="alert alert-success" role="alert">
             {{ session('sukses') }}
